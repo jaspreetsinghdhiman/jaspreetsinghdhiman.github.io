@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WeatherNow — Live Weather Dashboard | Jaspreet Singh</title>
+<meta name="description" content="A live weather dashboard powered by the Open-Meteo API, with city search and geolocation. Live project by Jaspreet Singh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+  :root{--bg:#0b0b12;--surface:#14141f;--surface-2:#1b1b29;--violet:#7c6cf3;--violet-soft:rgba(124,108,243,.15);--amber:#f5b94d;--text:#ededf2;--muted:#8b8a9a;--line:rgba(237,237,242,.1);--display:'Space Grotesk',sans-serif;--body:'Inter',sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--text);font-family:var(--body);min-height:100vh;}
+  a{text-decoration:none;color:inherit;}
+  header{display:flex;align-items:center;justify-content:space-between;padding:22px 5vw;border-bottom:1px solid var(--line);flex-wrap:wrap;gap:14px;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand .mark{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--violet),var(--amber));display:flex;align-items:center;justify-content:center;color:#0b0b12;font-family:var(--display);font-weight:700;}
+  .brand h1{font-family:var(--display);font-size:1.15rem;font-weight:700;}
+  .brand p{font-size:.78rem;color:var(--muted);}
+  .back{font-size:.85rem;color:var(--muted);border:1px solid var(--line);padding:9px 16px;border-radius:100px;transition:.25s;display:inline-flex;align-items:center;gap:8px;}
+  .back:hover{color:var(--text);border-color:var(--violet);background:var(--violet-soft);}
+  main{padding:40px 5vw 60px;max-width:1000px;margin:0 auto;}
+  .search{display:flex;gap:10px;margin-bottom:30px;position:relative;}
+  .search input{flex:1;background:var(--surface);border:1px solid var(--line);color:var(--text);padding:14px 18px;border-radius:12px;font-size:.95rem;}
+  .search input:focus{outline:none;border-color:var(--violet);}
+  .search button{background:var(--text);color:#0b0b12;border:none;padding:14px 22px;border-radius:12px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;}
+  .search .locbtn{background:var(--surface-2);color:var(--text);border:1px solid var(--line);}
+  .suggestions{position:absolute;top:56px;left:0;right:110px;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;z-index:5;display:none;}
+  .suggestions div{padding:12px 16px;cursor:pointer;font-size:.88rem;border-bottom:1px solid var(--line);}
+  .suggestions div:last-child{border-bottom:none;}
+  .suggestions div:hover{background:var(--violet-soft);}
+  .status{color:var(--muted);font-size:.9rem;padding:20px 0;text-align:center;}
+  .status.error{color:#f16565;}
+  .now{background:linear-gradient(135deg, rgba(124,108,243,.12), rgba(245,185,77,.08));border:1px solid var(--line);border-radius:24px;padding:36px;display:none;grid-template-columns:1fr auto;gap:20px;align-items:center;margin-bottom:24px;}
+  .now.show{display:grid;}
+  .now h2{font-family:var(--display);font-size:1.4rem;margin-bottom:6px;}
+  .now .temp{font-family:var(--display);font-size:4rem;font-weight:700;line-height:1;}
+  .now .desc{color:var(--muted);margin-top:8px;font-size:.95rem;}
+  .now .icon{font-size:4.5rem;color:var(--amber);}
+  .meta-row{display:flex;gap:22px;margin-top:18px;flex-wrap:wrap;}
+  .meta-row div{font-size:.82rem;color:var(--muted);}
+  .meta-row b{color:var(--text);display:block;font-size:1rem;font-family:var(--display);}
+  .forecast{display:none;grid-template-columns:repeat(5,1fr);gap:14px;}
+  .forecast.show{display:grid;}
+  .day{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 12px;text-align:center;}
+  .day .d{font-size:.8rem;color:var(--muted);margin-bottom:10px;}
+  .day i{font-size:1.6rem;color:var(--violet);margin-bottom:10px;}
+  .day .t{font-family:var(--display);font-weight:700;font-size:1.1rem;}
+  .day .t small{color:var(--muted);font-weight:400;}
+  footer{text-align:center;color:var(--muted);font-size:.78rem;padding:30px;border-top:1px solid var(--line);margin-top:40px;}
+  @media (max-width:720px){ .forecast{grid-template-columns:repeat(2,1fr);} .now{grid-template-columns:1fr;text-align:center;} }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <div class="mark"><i class="fa-solid fa-cloud-sun"></i></div>
+    <div><h1>WeatherNow</h1><p>Live data from Open-Meteo</p></div>
+  </div>
+  <a href="../index.html" class="back"><i class="fa-solid fa-arrow-left"></i> Back to portfolio</a>
+</header>
+<main>
+  <div class="search">
+    <input type="text" id="cityInput" placeholder="Search a city (e.g. Chandigarh, London, Tokyo)...">
+    <div class="suggestions" id="suggestions"></div>
+    <button class="locbtn" id="locBtn" title="Use my location"><i class="fa-solid fa-location-crosshairs"></i></button>
+    <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+  </div>
+  <div class="status" id="status">Search a city or use your location to see live weather.</div>
+  <div class="now" id="now">
+    <div>
+      <h2 id="placeName">—</h2>
+      <div class="temp"><span id="temp">--</span>°C</div>
+      <div class="desc" id="desc">—</div>
+      <div class="meta-row">
+        <div><b id="feels">--°</b>Feels like</div>
+        <div><b id="wind">-- km/h</b>Wind</div>
+        <div><b id="humidity">--%</b>Humidity</div>
+      </div>
+    </div>
+    <i class="fa-solid fa-cloud-sun icon" id="nowIcon"></i>
+  </div>
+  <div class="forecast" id="forecast"></div>
+</main>
+<footer>Weather data © Open-Meteo.com — no API key required.</footer>
+
+<script>
+const WEATHER_CODES = {
+  0:['Clear sky','fa-sun'],1:['Mainly clear','fa-cloud-sun'],2:['Partly cloudy','fa-cloud-sun'],3:['Overcast','fa-cloud'],
+  45:['Foggy','fa-smog'],48:['Icy fog','fa-smog'],51:['Light drizzle','fa-cloud-rain'],53:['Drizzle','fa-cloud-rain'],55:['Heavy drizzle','fa-cloud-rain'],
+  61:['Light rain','fa-cloud-showers-heavy'],63:['Rain','fa-cloud-showers-heavy'],65:['Heavy rain','fa-cloud-showers-heavy'],
+  71:['Light snow','fa-snowflake'],73:['Snow','fa-snowflake'],75:['Heavy snow','fa-snowflake'],
+  80:['Rain showers','fa-cloud-showers-heavy'],81:['Rain showers','fa-cloud-showers-heavy'],82:['Violent showers','fa-cloud-showers-heavy'],
+  95:['Thunderstorm','fa-bolt'],96:['Thunderstorm + hail','fa-bolt'],99:['Severe thunderstorm','fa-bolt']
+};
+function codeInfo(c){ return WEATHER_CODES[c] || ['Unknown','fa-cloud']; }
+
+const statusEl = document.getElementById('status');
+const nowEl = document.getElementById('now');
+const forecastEl = document.getElementById('forecast');
+const suggestions = document.getElementById('suggestions');
+let debounceT;
+
+document.getElementById('cityInput').addEventListener('input', e=>{
+  clearTimeout(debounceT);
+  const q = e.target.value.trim();
+  if(q.length < 2){ suggestions.style.display='none'; return; }
+  debounceT = setTimeout(()=> geocode(q), 350);
+});
+
+async function geocode(q){
+  try{
+    const res = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(q)}&count=5&language=en&format=json`);
+    const data = await res.json();
+    if(!data.results || !data.results.length){ suggestions.style.display='none'; return; }
+    suggestions.innerHTML = '';
+    data.results.forEach(r=>{
+      const div = document.createElement('div');
+      div.textContent = `${r.name}${r.admin1 ? ', '+r.admin1 : ''}, ${r.country}`;
+      div.addEventListener('click', ()=>{
+        suggestions.style.display='none';
+        document.getElementById('cityInput').value = div.textContent;
+        loadWeather(r.latitude, r.longitude, div.textContent);
+      });
+      suggestions.appendChild(div);
+    });
+    suggestions.style.display = 'block';
+  }catch(err){ console.error(err); }
+}
+
+document.getElementById('searchBtn').addEventListener('click', async ()=>{
+  const q = document.getElementById('cityInput').value.trim();
+  if(!q) return;
+  suggestions.style.display='none';
+  statusEl.textContent = 'Searching...'; statusEl.className='status';
+  try{
+    const res = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(q)}&count=1&language=en&format=json`);
+    const data = await res.json();
+    if(!data.results || !data.results.length){ statusEl.textContent = `No city found for "${q}".`; statusEl.className='status error'; return; }
+    const r = data.results[0];
+    loadWeather(r.latitude, r.longitude, `${r.name}${r.admin1 ? ', '+r.admin1 : ''}, ${r.country}`);
+  }catch(err){ statusEl.textContent = 'Something went wrong. Please try again.'; statusEl.className='status error'; }
+});
+
+document.getElementById('locBtn').addEventListener('click', ()=>{
+  if(!navigator.geolocation){ statusEl.textContent = 'Geolocation not supported by this browser.'; statusEl.className='status error'; return; }
+  statusEl.textContent = 'Getting your location...'; statusEl.className='status';
+  navigator.geolocation.getCurrentPosition(pos=>{
+    loadWeather(pos.coords.latitude, pos.coords.longitude, 'Your location');
+  }, err=>{ statusEl.textContent = 'Could not get your location. Try searching a city instead.'; statusEl.className='status error'; });
+});
+
+async function loadWeather(lat, lon, place){
+  statusEl.textContent = 'Loading weather...'; statusEl.className='status';
+  nowEl.classList.remove('show'); forecastEl.classList.remove('show');
+  try{
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto`;
+    const res = await fetch(url);
+    const data = await res.json();
+    const c = data.current;
+    const [desc, icon] = codeInfo(c.weather_code);
+    document.getElementById('placeName').textContent = place;
+    document.getElementById('temp').textContent = Math.round(c.temperature_2m);
+    document.getElementById('desc').textContent = desc;
+    document.getElementById('feels').textContent = Math.round(c.apparent_temperature) + '°';
+    document.getElementById('wind').textContent = Math.round(c.wind_speed_10m) + ' km/h';
+    document.getElementById('humidity').textContent = c.relative_humidity_2m + '%';
+    document.getElementById('nowIcon').className = 'fa-solid ' + icon + ' icon';
+    nowEl.classList.add('show');
+
+    forecastEl.innerHTML = '';
+    const days = data.daily.time.slice(0,5);
+    days.forEach((d, i)=>{
+      const [dd, ic] = codeInfo(data.daily.weather_code[i]);
+      const dayName = new Date(d).toLocaleDateString('en-US', {weekday:'short'});
+      const el = document.createElement('div');
+      el.className = 'day';
+      el.innerHTML = `<div class="d">${i===0?'Today':dayName}</div><i class="fa-solid ${ic}"></i><div class="t">${Math.round(data.daily.temperature_2m_max[i])}° <small>${Math.round(data.daily.temperature_2m_min[i])}°</small></div>`;
+      forecastEl.appendChild(el);
+    });
+    forecastEl.classList.add('show');
+    statusEl.textContent = '';
+  }catch(err){
+    console.error(err);
+    statusEl.textContent = 'Could not load weather data. Please try again.'; statusEl.className = 'status error';
+  }
+}
+
+// Default: try geolocation silently, fallback to a default city
+loadWeather(30.7333, 76.7794, 'Chandigarh, Punjab, India');
+</script>
+</body>
+</html>

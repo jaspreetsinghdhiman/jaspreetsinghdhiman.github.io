@@ -102,14 +102,23 @@
   header.scrolled{background:rgba(11,11,18,.75); backdrop-filter:blur(14px); padding:14px 6vw; border-bottom:1px solid var(--line);}
   html[data-theme="light"] header.scrolled{background:rgba(247,246,251,.75);}
   html[data-theme="light"] .btn-primary{color:#ffffff;}
-  .logo{display:flex; align-items:center; gap:10px; perspective:600px;}
-  .logo .mark{width:44px;height:44px;border-radius:12px; background:linear-gradient(135deg,var(--violet),var(--amber)); display:flex;align-items:center;justify-content:center; box-shadow:0 0 24px rgba(124,108,243,.45); transition:transform .35s ease; animation:markGlow 3.2s ease-in-out infinite; transform-style:preserve-3d;}
-  .logo .mark svg{width:24px;height:24px;display:block; animation:markSpin 9s linear infinite; transform-style:preserve-3d;}
-  .logo:hover .mark{transform:scale(1.08);}
-  @keyframes markSpin{from{transform:rotateY(0deg);}to{transform:rotateY(360deg);}}
+  .logo{display:flex; align-items:center; gap:14px;}
+  .logo .mark{position:relative; width:42px;height:42px;border-radius:12px; background:linear-gradient(135deg,var(--violet),var(--amber)); display:flex;align-items:center;justify-content:center; box-shadow:0 0 24px rgba(124,108,243,.45); overflow:hidden; transition:transform .35s ease; animation:markGlow 3.2s ease-in-out infinite;}
+  .logo .mark .glyph{position:relative; z-index:2; width:22px; height:22px; display:block;}
+  .logo .mark .glyph path{stroke:#0b0b12; stroke-width:2.8; stroke-linecap:round; stroke-linejoin:round; fill:none;}
+  .logo .mark .glyph circle{fill:#0b0b12; fill-opacity:.85;}
+  .logo .mark::after{content:''; position:absolute; top:0; left:-60%; width:40%; height:100%; background:linear-gradient(115deg, transparent, rgba(255,255,255,.55), transparent); transform:skewX(-20deg); animation:markShine 3.6s ease-in-out infinite;}
+  .logo:hover .mark{transform:scale(1.08) translateY(-1px);}
+  @keyframes markShine{0%{left:-60%;}45%,100%{left:130%;}}
   @keyframes markGlow{0%,100%{box-shadow:0 0 18px rgba(124,108,243,.4);}50%{box-shadow:0 0 30px rgba(245,185,77,.55);}}
-  @media (prefers-reduced-motion: reduce){ .logo .mark, .logo .mark svg{animation:none;} }
-  .logo-text{font-family:var(--display); font-weight:700; font-size:1.25rem; letter-spacing:.3px; color:var(--text);}
+  @media (prefers-reduced-motion: reduce){ .logo .mark{animation:none;} .logo .mark::after{display:none;} }
+  .logo-word{display:flex; align-items:center; gap:12px;}
+  .logo-divider{width:1px; height:26px; background:var(--line);}
+  .logo-text{display:flex; flex-direction:column; line-height:1.05;}
+  .logo-text .first{font-family:var(--display); font-weight:700; font-size:1.02rem; letter-spacing:.4px; color:var(--text); text-transform:uppercase;}
+  .logo-text .last{font-family:var(--display); font-weight:600; font-size:.78rem; letter-spacing:.5px; color:var(--muted); text-transform:uppercase;}
+  .logo-code{font-family:var(--mono); font-size:1rem; font-weight:600; color:var(--amber); letter-spacing:.5px;}
+  @media (max-width:560px){ .logo-divider, .logo-code, .logo-text .last{display:none;} }
   .header-right{display:flex; align-items:center; gap:16px;}
   .theme-toggle{width:42px;height:42px;border-radius:50%;border:1px solid var(--line); background:var(--surface); color:var(--text); display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:.95rem; transition:border-color .3s ease, background .3s ease, transform .3s ease;}
   .theme-toggle:hover{border-color:var(--violet); background:var(--violet-soft); transform:translateY(-2px);}
@@ -158,17 +167,16 @@
   .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--amber);animation:blink 1.6s infinite;}
   @keyframes blink{0%,100%{opacity:1;}50%{opacity:.2;}}
 
-  .hero h1{font-family:var(--display); font-weight:700; font-size:clamp(2.4rem, 5.4vw, 4.4rem); line-height:1.06; letter-spacing:-.02em;}
-  .hero h1 .line{overflow:hidden; display:block;}
-  .hero h1 .line span{display:inline-block; transform:translateY(115%); animation:lineUp .9s cubic-bezier(.2,.8,.2,1) forwards;}
-  .hero h1 .line:nth-child(1) span{animation-delay:.15s;}
-  .hero h1 .line:nth-child(2) span{animation-delay:.3s;}
-  .hero h1 .accent{background:linear-gradient(100deg,var(--violet) 0%,var(--amber) 30%,var(--violet) 60%,var(--amber) 100%); background-size:300% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:shine 5s linear infinite; position:relative;}
+  .hero h1{font-family:var(--display); font-weight:700; font-size:clamp(2.4rem, 5.4vw, 4.4rem); line-height:1.22; letter-spacing:-.02em;}
+  .hero h1 .line{display:block; padding-bottom:.08em;}
+  .hero h1 .word{display:inline-block; opacity:0; filter:blur(10px); transform:translateY(28px); animation:wordIn .7s cubic-bezier(.16,.9,.24,1) forwards; animation-delay:calc(var(--i) * .075s + .1s);}
+  .hero h1 .accent{background:linear-gradient(100deg,var(--violet) 0%,var(--amber) 30%,var(--violet) 60%,var(--amber) 100%); background-size:300% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:wordIn .7s cubic-bezier(.16,.9,.24,1) forwards, shine 5s linear 1.1s infinite; animation-delay:calc(var(--i) * .075s + .1s), 1.1s; position:relative;}
   @keyframes shine{to{background-position:-300% center;}}
-  @keyframes lineUp{to{transform:translateY(0);}}
-  .hero h1 .line:last-child span::after{content:'';display:inline-block; width:3px; height:.85em; margin-left:6px; background:var(--amber); vertical-align:-.1em; opacity:0; animation:caretIn .3s 1.35s ease forwards, caretBlink 1s 1.35s steps(1) infinite;}
+  @keyframes wordIn{to{opacity:1; filter:blur(0); transform:translateY(0);}}
+  .hero h1 .line:last-child .word:last-child::after{content:'';display:inline-block; width:3px; height:.8em; margin-left:6px; background:var(--amber); vertical-align:-.08em; opacity:0; animation:caretIn .3s 1.05s ease forwards, caretBlink 1s 1.05s steps(1) infinite;}
   @keyframes caretIn{to{opacity:1;}}
   @keyframes caretBlink{0%,100%{opacity:1;}50%{opacity:0;}}
+  @media (prefers-reduced-motion: reduce){ .hero h1 .word{animation:none; opacity:1; filter:none; transform:none;} }
 
   .hero p.sub{max-width:520px; margin:26px 0 0; color:var(--muted); font-size:1.06rem; line-height:1.7; opacity:0; animation:fadeUp .8s .55s ease forwards;}
   .hero-actions{display:flex; gap:18px; margin-top:38px; flex-wrap:wrap; opacity:0; animation:fadeUp .8s .7s ease forwards;}
@@ -440,10 +448,15 @@
 <header id="siteHeader">
   <a href="#" class="logo" aria-label="Jaspreet Singh — Home">
     <div class="mark">
-      <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" fill="none">
-        <path d="M27 12v14.5c0 4.2-2.8 6.5-6.5 6.5-3 0-5.4-1.4-6.5-4" stroke="#0b0b12" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="33" cy="12" r="2.7" fill="#0b0b12" fill-opacity="0.85"/>
+      <svg class="glyph" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <path d="M27 12v14.5c0 4.2-2.8 6.5-6.5 6.5-3 0-5.4-1.4-6.5-4" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="33" cy="12" r="2.7"/>
       </svg>
+    </div>
+    <div class="logo-word">
+      <div class="logo-text"><span class="first">Jaspreet</span><span class="last">Singh</span></div>
+      <div class="logo-divider"></div>
+      <div class="logo-code">&lt;/&gt;</div>
     </div>
   </a>
   <nav>
@@ -483,8 +496,8 @@
     <div>
       <div class="eyebrow"><span class="dot"></span> AVAILABLE FOR FREELANCE — 2026</div>
       <h1>
-        <span class="line"><span>Hi, I'm Jaspreet.</span></span>
-        <span class="line"><span>I build <span class="accent">frontends</span> that feel alive.</span></span>
+        <span class="line"><span class="word" style="--i:0">Hi,</span> <span class="word" style="--i:1">I'm</span> <span class="word" style="--i:2">Jaspreet.</span></span>
+        <span class="line"><span class="word" style="--i:3">I</span> <span class="word" style="--i:4">build</span> <span class="word accent" style="--i:5">frontends</span> <span class="word" style="--i:6">that</span> <span class="word" style="--i:7">feel</span> <span class="word" style="--i:8">alive.</span></span>
       </h1>
       <p class="sub">Frontend developer specializing in fast, responsive, and beautifully animated web interfaces — turning designs into products that people actually enjoy using.</p>
       <div class="hero-actions">
@@ -624,26 +637,26 @@
     <p>A few projects that reflect how I think about interfaces and interaction.</p>
   </div>
   <div class="work-grid reveal-stagger">
-    <div class="work-item">
-      <div class="thumb" style="background-image:linear-gradient(rgba(11,11,18,.15), rgba(11,11,18,.5)), url('https://images.pexels.com/photos/5098056/pexels-photo-5098056.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size:cover; background-position:center;"></div>
+    <a class="work-item" href="projects/taskflow.html" target="_blank" rel="noopener">
+      <div class="thumb" style="background-image:linear-gradient(rgba(11,11,18,.15), rgba(11,11,18,.5)), url('https://images.pexels.com/photos/7947541/pexels-photo-7947541.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size:cover; background-position:center;"></div>
       <div class="arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
-      <div class="overlay"><div class="tag">Fintech · Web App</div><h3>Nimbus Pay</h3><p>React + Next.js dashboard with real-time data visualization.</p></div>
-    </div>
-    <div class="work-item">
-      <div class="thumb" style="background-image:linear-gradient(rgba(11,11,18,.15), rgba(11,11,18,.5)), url('https://images.pexels.com/photos/34577/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800'); background-size:cover; background-position:center;"></div>
+      <div class="overlay"><div class="tag">Productivity · Web App</div><h3>TaskFlow</h3><p>Drag-and-drop kanban task manager, built with vanilla JS. Click to try it live.</p></div>
+    </a>
+    <a class="work-item" href="projects/weathernow.html" target="_blank" rel="noopener">
+      <div class="thumb" style="background-image:linear-gradient(rgba(11,11,18,.15), rgba(11,11,18,.5)), url('https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size:cover; background-position:center;"></div>
       <div class="arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
-      <div class="overlay"><div class="tag">E-commerce</div><h3>Loom &amp; Co.</h3><p>Custom storefront with animated product interactions.</p></div>
-    </div>
-    <div class="work-item">
-      <div class="thumb" style="background-image:linear-gradient(rgba(11,11,18,.15), rgba(11,11,18,.5)), url('https://images.pexels.com/photos/1811991/pexels-photo-1811991.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size:cover; background-position:center;"></div>
+      <div class="overlay"><div class="tag">API Integration</div><h3>WeatherNow</h3><p>Live weather dashboard with city search and geolocation. Real data, click to try.</p></div>
+    </a>
+    <a class="work-item" href="projects/pulsetrack.html" target="_blank" rel="noopener">
+      <div class="thumb" style="background-image:linear-gradient(rgba(11,11,18,.15), rgba(11,11,18,.5)), url('https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size:cover; background-position:center;"></div>
       <div class="arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
-      <div class="overlay"><div class="tag">SaaS · Dashboard</div><h3>Orbit Analytics</h3><p>Data-heavy analytics platform built for speed and clarity.</p></div>
-    </div>
-    <div class="work-item">
-      <div class="thumb" style="background-image:linear-gradient(rgba(11,11,18,.15), rgba(11,11,18,.5)), url('https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size:cover; background-position:center;"></div>
+      <div class="overlay"><div class="tag">Finance · Dashboard</div><h3>PulseTrack</h3><p>Expense tracker with a live canvas chart and local persistence.</p></div>
+    </a>
+    <a class="work-item" href="projects/markstudio.html" target="_blank" rel="noopener">
+      <div class="thumb" style="background-image:linear-gradient(rgba(11,11,18,.15), rgba(11,11,18,.5)), url('https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size:cover; background-position:center;"></div>
       <div class="arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
-      <div class="overlay"><div class="tag">Healthcare</div><h3>Pulse Clinic</h3><p>Booking platform with a fully accessible, responsive UI.</p></div>
-    </div>
+      <div class="overlay"><div class="tag">Editor Tool</div><h3>MarkStudio</h3><p>Split-pane live markdown editor with instant preview and export.</p></div>
+    </a>
     <div class="work-item" id="aiCallerCard">
       <div class="thumb" style="background-image:linear-gradient(rgba(11,11,18,.15), rgba(11,11,18,.55)), url('https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size:cover; background-position:center;"></div>
       <div class="arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
@@ -740,12 +753,16 @@
     <div class="footer-brand">
       <div class="logo footer-logo">
         <div class="mark">
-          <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" fill="none">
-            <path d="M27 12v14.5c0 4.2-2.8 6.5-6.5 6.5-3 0-5.4-1.4-6.5-4" stroke="#0b0b12" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="33" cy="12" r="2.7" fill="#0b0b12" fill-opacity="0.85"/>
+          <svg class="glyph" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <path d="M27 12v14.5c0 4.2-2.8 6.5-6.5 6.5-3 0-5.4-1.4-6.5-4" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="33" cy="12" r="2.7"/>
           </svg>
         </div>
-        <span>Jaspreet Singh</span>
+        <div class="logo-word">
+          <div class="logo-text"><span class="first">Jaspreet</span><span class="last">Singh</span></div>
+          <div class="logo-divider"></div>
+          <div class="logo-code">&lt;/&gt;</div>
+        </div>
       </div>
       <p>Frontend developer crafting fast, responsive, and thoughtfully animated web experiences.</p>
     </div>
