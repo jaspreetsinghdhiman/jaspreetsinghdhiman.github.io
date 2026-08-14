@@ -22,7 +22,7 @@
 <meta name="twitter:description" content="Frontend developer crafting fast, responsive, animated web experiences with React, WordPress, PHP and modern UI engineering.">
 <meta name="twitter:image" content="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1200">
 <meta name="theme-color" content="#0b0b12">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Crect width='44' height='44' rx='12' fill='%237c6cf3'/%3E%3Cpath d='M27 12v14.5c0 4.2-2.8 6.5-6.5 6.5-3 0-5.4-1.4-6.5-4' stroke='white' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Ccircle cx='33' cy='12' r='2.7' fill='white' fill-opacity='.85'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='44' y2='44'%3E%3Cstop offset='0%25' stop-color='%237c6cf3'/%3E%3Cstop offset='100%25' stop-color='%23f5b94d'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='44' height='44' rx='12' fill='url(%23g)'/%3E%3Cpath d='M17 13 9 22l8 9' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M27 13l8 9-8 9' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M24.5 10 19.5 34' stroke='white' stroke-width='2.6' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <!-- Fixed FontAwesome CDN with crossorigin and referrerpolicy to ensure icons load -->
@@ -398,6 +398,22 @@
   .ai-caller-body{flex:1; overflow-y:auto; padding:18px; display:flex; flex-direction:column; gap:10px; min-height:260px;}
   .ai-caller-input-row{display:flex; gap:8px; padding:14px; border-top:1px solid var(--line);}
   .ai-caller-input-row input{flex:1; background:var(--surface-2); border:1px solid var(--line); border-radius:100px; padding:11px 16px; color:var(--text); font-family:var(--body); font-size:.9rem;}
+
+  /* Project modal (in-page project demos, no new tab / new page) */
+  .project-modal-backdrop{position:fixed; inset:0; z-index:1200; background:rgba(6,6,10,.65); backdrop-filter:blur(6px); display:flex; align-items:center; justify-content:center; padding:24px; opacity:0; pointer-events:none; transition:opacity .3s ease;}
+  .project-modal-backdrop.open{opacity:1; pointer-events:all;}
+  .project-modal{width:100%; max-width:920px; height:min(720px,86vh); background:var(--surface); border:1px solid var(--line); border-radius:20px; display:flex; flex-direction:column; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,.55); transform:translateY(16px) scale(.98); transition:transform .3s cubic-bezier(.2,.8,.2,1);}
+  .project-modal-backdrop.open .project-modal{transform:translateY(0) scale(1);}
+  .project-modal-head{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:16px 20px; border-bottom:1px solid var(--line);}
+  .project-modal-title{display:flex; flex-direction:column; gap:2px; min-width:0;}
+  .project-modal-title .pm-tag{font-family:var(--mono); font-size:.7rem; color:var(--amber); letter-spacing:.08em; text-transform:uppercase;}
+  .project-modal-title h4{font-family:var(--display); font-size:1.05rem;}
+  .project-modal-title span{font-size:.8rem; color:var(--muted);}
+  .project-modal-close{flex-shrink:0; background:none; border:none; color:var(--muted); cursor:pointer; font-size:1.1rem; padding:8px; border-radius:50%; transition:color .2s, background .2s;}
+  .project-modal-close:hover{color:var(--text); background:var(--surface-2);}
+  .project-modal-body{flex:1; overflow:hidden; background:#0b0b12;}
+  .project-modal-body iframe{width:100%; height:100%; border:0; background:#0b0b12;}
+  @media (max-width:640px){ .project-modal{height:92vh; border-radius:16px;} .project-modal-head{padding:14px 16px;} }
   .ai-caller-input-row input:focus{outline:none; border-color:var(--violet);}
   .ai-caller-input-row input:disabled{opacity:.6;}
   .ai-caller-input-row button{width:42px; height:42px; flex:none; border-radius:50%; border:none; background:var(--violet); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s;}
@@ -449,8 +465,9 @@
   <a href="#" class="logo" aria-label="Jaspreet Singh — Home">
     <div class="mark">
       <svg class="glyph" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" fill="none">
-        <path d="M27 12v14.5c0 4.2-2.8 6.5-6.5 6.5-3 0-5.4-1.4-6.5-4" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="33" cy="12" r="2.7"/>
+        <path d="M17 13 9 22l8 9" stroke="#0b0b12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M27 13l8 9-8 9" stroke="#0b0b12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M24.5 10 19.5 34" stroke="#0b0b12" stroke-width="2.6" stroke-linecap="round"/>
       </svg>
     </div>
     <div class="logo-word">
@@ -637,26 +654,26 @@
     <p>A few projects that reflect how I think about interfaces and interaction.</p>
   </div>
   <div class="work-grid reveal-stagger">
-    <a class="work-item" href="projects/taskflow.html" target="_blank" rel="noopener">
+    <div class="work-item" data-project="taskflow" role="button" tabindex="0">
       <div class="thumb" style="background-image:linear-gradient(rgba(11,11,18,.15), rgba(11,11,18,.5)), url('https://images.pexels.com/photos/7947541/pexels-photo-7947541.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size:cover; background-position:center;"></div>
       <div class="arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
       <div class="overlay"><div class="tag">Productivity · Web App</div><h3>TaskFlow</h3><p>Drag-and-drop kanban task manager, built with vanilla JS. Click to try it live.</p></div>
-    </a>
-    <a class="work-item" href="projects/weathernow.html" target="_blank" rel="noopener">
+    </div>
+    <div class="work-item" data-project="weathernow" role="button" tabindex="0">
       <div class="thumb" style="background-image:linear-gradient(rgba(11,11,18,.15), rgba(11,11,18,.5)), url('https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size:cover; background-position:center;"></div>
       <div class="arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
       <div class="overlay"><div class="tag">API Integration</div><h3>WeatherNow</h3><p>Live weather dashboard with city search and geolocation. Real data, click to try.</p></div>
-    </a>
-    <a class="work-item" href="projects/pulsetrack.html" target="_blank" rel="noopener">
+    </div>
+    <div class="work-item" data-project="pulsetrack" role="button" tabindex="0">
       <div class="thumb" style="background-image:linear-gradient(rgba(11,11,18,.15), rgba(11,11,18,.5)), url('https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size:cover; background-position:center;"></div>
       <div class="arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
       <div class="overlay"><div class="tag">Finance · Dashboard</div><h3>PulseTrack</h3><p>Expense tracker with a live canvas chart and local persistence.</p></div>
-    </a>
-    <a class="work-item" href="projects/markstudio.html" target="_blank" rel="noopener">
+    </div>
+    <div class="work-item" data-project="markstudio" role="button" tabindex="0">
       <div class="thumb" style="background-image:linear-gradient(rgba(11,11,18,.15), rgba(11,11,18,.5)), url('https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size:cover; background-position:center;"></div>
       <div class="arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
       <div class="overlay"><div class="tag">Editor Tool</div><h3>MarkStudio</h3><p>Split-pane live markdown editor with instant preview and export.</p></div>
-    </a>
+    </div>
     <div class="work-item" id="aiCallerCard">
       <div class="thumb" style="background-image:linear-gradient(rgba(11,11,18,.15), rgba(11,11,18,.55)), url('https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size:cover; background-position:center;"></div>
       <div class="arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
@@ -754,8 +771,9 @@
       <div class="logo footer-logo">
         <div class="mark">
           <svg class="glyph" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" fill="none">
-            <path d="M27 12v14.5c0 4.2-2.8 6.5-6.5 6.5-3 0-5.4-1.4-6.5-4" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="33" cy="12" r="2.7"/>
+            <path d="M17 13 9 22l8 9" stroke="#0b0b12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M27 13l8 9-8 9" stroke="#0b0b12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M24.5 10 19.5 34" stroke="#0b0b12" stroke-width="2.6" stroke-linecap="round"/>
           </svg>
         </div>
         <div class="logo-word">
@@ -806,6 +824,23 @@
       <button id="aiCallerSend" aria-label="Send"><i class="fa-solid fa-paper-plane"></i></button>
     </div>
     <div class="ai-caller-note">Runs 100% in your browser (WebGPU) — no login, no redirect, nothing leaves this site. First load downloads the model once (~700MB, then cached). Needs Chrome, Edge, or a recent Safari/Firefox.</div>
+  </div>
+</div>
+
+<!-- PROJECT MODAL: opens live demos on this same page, never a new tab -->
+<div class="project-modal-backdrop" id="projectModalBackdrop">
+  <div class="project-modal" role="dialog" aria-modal="true" aria-label="Project live demo">
+    <div class="project-modal-head">
+      <div class="project-modal-title">
+        <div class="pm-tag" id="projectModalTag">Tag</div>
+        <h4 id="projectModalTitleText">Project</h4>
+        <span id="projectModalDesc">Description</span>
+      </div>
+      <button class="project-modal-close" id="projectModalClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="project-modal-body">
+      <iframe id="projectModalFrame" title="Project live demo" loading="lazy"></iframe>
+    </div>
   </div>
 </div>
 
@@ -1363,5 +1398,348 @@ setTimeout(()=>{ if(!chatWindow.classList.contains('open')) chatPing.style.displ
   input.addEventListener('keypress', e=>{ if(e.key === 'Enter' && input.value.trim()) ask(input.value.trim()); });
 })();
 </script>
+<script>
+/* ============================================================
+   PROJECT DEMOS — each project is a full, working mini-app.
+   Clicking a project card opens it in a modal on this SAME
+   page (via a sandboxed iframe), never a new tab/page.
+   ============================================================ */
+(function(){
+  const commonStyle = `
+    <style>
+      *{box-sizing:border-box;}
+      :root{--bg:#0b0b12;--surface:#14141f;--surface-2:#1b1b29;--violet:#7c6cf3;--amber:#f5b94d;--text:#ededf2;--muted:#8b8a9a;--line:rgba(237,237,242,.12);}
+      html,body{height:100%;}
+      body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',Arial,sans-serif;padding:22px;-webkit-font-smoothing:antialiased;}
+      h1,h2,h3{font-family:'Space Grotesk',sans-serif;margin:0 0 14px;}
+      input,select,textarea,button{font-family:inherit;}
+      button{cursor:pointer;}
+      ::-webkit-scrollbar{width:8px;height:8px;}
+      ::-webkit-scrollbar-thumb{background:var(--surface-2);border-radius:8px;}
+      .pf-btn{background:linear-gradient(135deg,var(--violet),#5a45e0);color:#fff;border:none;border-radius:10px;padding:10px 16px;font-weight:600;font-size:.88rem;}
+      .pf-btn:hover{opacity:.92;}
+      .pf-input{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:var(--text);font-size:.88rem;}
+      .pf-input:focus{outline:1px solid var(--violet);}
+      .pf-muted{color:var(--muted);}
+    </style>
+  `;
+
+  const PROJECTS = {
+
+    /* ---------------- TASKFLOW ---------------- */
+    taskflow: {
+      tag: 'Productivity · Web App',
+      title: 'TaskFlow',
+      desc: 'Drag cards between columns to update status.',
+      html: `<!DOCTYPE html><html><head><meta charset="UTF-8">${commonStyle}<style>
+        .board{display:flex; gap:16px; height:calc(100% - 60px);}
+        .col{flex:1; background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:14px; display:flex; flex-direction:column; min-width:0;}
+        .col h3{font-size:.92rem; display:flex; align-items:center; justify-content:space-between;}
+        .col h3 span{font-size:.72rem; background:var(--surface-2); padding:2px 8px; border-radius:100px; color:var(--muted);}
+        .cards{flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:10px; margin-top:10px; min-height:60px;}
+        .cards.dragover{outline:2px dashed var(--violet); outline-offset:4px; border-radius:10px;}
+        .task{background:var(--surface-2); border:1px solid var(--line); border-radius:10px; padding:10px 12px; font-size:.85rem; cursor:grab; position:relative;}
+        .task .x{position:absolute; top:6px; right:8px; color:var(--muted); font-size:.75rem; cursor:pointer;}
+        .task .x:hover{color:var(--text);}
+        .addrow{display:flex; gap:8px; margin-bottom:14px;}
+        .addrow input{flex:1;}
+      </style></head><body>
+        <h2>TaskFlow</h2>
+        <div class="addrow">
+          <input class="pf-input" id="newTask" placeholder="Add a new task and press Enter…">
+          <button class="pf-btn" id="addBtn">Add</button>
+        </div>
+        <div class="board">
+          <div class="col"><h3>To Do <span id="c0">0</span></h3><div class="cards" id="col-todo" data-col="todo"></div></div>
+          <div class="col"><h3>In Progress <span id="c1">0</span></h3><div class="cards" id="col-doing" data-col="doing"></div></div>
+          <div class="col"><h3>Done <span id="c2">0</span></h3><div class="cards" id="col-done" data-col="done"></div></div>
+        </div>
+        <script>
+          const cols = {todo: document.getElementById('col-todo'), doing: document.getElementById('col-doing'), done: document.getElementById('col-done')};
+          function updateCounts(){
+            document.getElementById('c0').textContent = cols.todo.children.length;
+            document.getElementById('c1').textContent = cols.doing.children.length;
+            document.getElementById('c2').textContent = cols.done.children.length;
+          }
+          function makeTask(text){
+            const t = document.createElement('div');
+            t.className='task'; t.draggable=true; t.textContent=text;
+            const x=document.createElement('span'); x.className='x'; x.textContent='✕';
+            x.onclick=()=>{t.remove(); updateCounts();};
+            t.appendChild(x);
+            t.addEventListener('dragstart', e=>{ e.dataTransfer.setData('text/plain','x'); setTimeout(()=>t.style.opacity='.3',0); });
+            t.addEventListener('dragend', ()=>{ t.style.opacity='1'; updateCounts(); });
+            return t;
+          }
+          Object.values(cols).forEach(col=>{
+            col.addEventListener('dragover', e=>{ e.preventDefault(); col.classList.add('dragover'); });
+            col.addEventListener('dragleave', ()=> col.classList.remove('dragover'));
+            col.addEventListener('drop', e=>{
+              e.preventDefault(); col.classList.remove('dragover');
+              const dragging = document.querySelector('.task[style*="opacity: 0.3"]') || document.querySelector('.task[style*="opacity:.3"]');
+              if(dragging) col.appendChild(dragging);
+              updateCounts();
+            });
+          });
+          function addTask(){
+            const input = document.getElementById('newTask');
+            const val = input.value.trim();
+            if(!val) return;
+            cols.todo.appendChild(makeTask(val));
+            input.value='';
+            updateCounts();
+          }
+          document.getElementById('addBtn').onclick = addTask;
+          document.getElementById('newTask').addEventListener('keypress', e=>{ if(e.key==='Enter') addTask(); });
+          ['Design homepage hero','Fix nav bug on mobile','Write README'].forEach(t=>cols.todo.appendChild(makeTask(t)));
+          cols.doing.appendChild(makeTask('Build contact form'));
+          cols.done.appendChild(makeTask('Set up project repo'));
+          updateCounts();
+        <\/script>
+      </body></html>`
+    },
+
+    /* ---------------- WEATHERNOW ---------------- */
+    weathernow: {
+      tag: 'API Integration',
+      title: 'WeatherNow',
+      desc: 'Live weather via a free public API — try any city.',
+      html: `<!DOCTYPE html><html><head><meta charset="UTF-8">${commonStyle}<style>
+        .searchrow{display:flex; gap:8px; max-width:420px; margin-bottom:22px;}
+        .searchrow input{flex:1;}
+        .weather-card{max-width:420px; background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:26px; text-align:center;}
+        .weather-card .temp{font-size:3rem; font-family:'Space Grotesk',sans-serif; font-weight:700;}
+        .weather-card .icon{font-size:3rem; margin-bottom:6px;}
+        .weather-card .loc{color:var(--muted); font-size:.9rem; margin-bottom:8px;}
+        .weather-card .desc{color:var(--amber); font-weight:600; margin-bottom:14px;}
+        .stats{display:flex; justify-content:center; gap:26px; margin-top:14px; font-size:.82rem; color:var(--muted);}
+        .stats b{color:var(--text); display:block; font-size:1rem;}
+        .status{max-width:420px; color:var(--muted); font-size:.85rem; margin-top:10px;}
+      </style></head><body>
+        <h2>WeatherNow</h2>
+        <div class="searchrow">
+          <input class="pf-input" id="city" placeholder="Enter a city, e.g. Chandigarh" value="Chandigarh">
+          <button class="pf-btn" id="go">Search</button>
+        </div>
+        <div id="result"></div>
+        <div class="status" id="status"></div>
+        <script>
+          const codes = {0:['☀️','Clear sky'],1:['🌤️','Mostly clear'],2:['⛅','Partly cloudy'],3:['☁️','Overcast'],45:['🌫️','Fog'],48:['🌫️','Fog'],51:['🌦️','Light drizzle'],61:['🌧️','Light rain'],63:['🌧️','Rain'],65:['🌧️','Heavy rain'],71:['🌨️','Snow'],80:['🌦️','Rain showers'],95:['⛈️','Thunderstorm']};
+          function desc(code){ return codes[code] || ['🌡️','Weather']; }
+          async function search(){
+            const q = document.getElementById('city').value.trim();
+            const status = document.getElementById('status');
+            const result = document.getElementById('result');
+            if(!q) return;
+            status.textContent = 'Loading…'; result.innerHTML='';
+            try{
+              const geo = await fetch('https://geocoding-api.open-meteo.com/v1/search?count=1&name=' + encodeURIComponent(q)).then(r=>r.json());
+              if(!geo.results || !geo.results.length){ status.textContent='City not found. Try another spelling.'; return; }
+              const place = geo.results[0];
+              const wx = await fetch('https://api.open-meteo.com/v1/forecast?latitude='+place.latitude+'&longitude='+place.longitude+'&current_weather=true').then(r=>r.json());
+              const cw = wx.current_weather;
+              const [icon, label] = desc(cw.weathercode);
+              status.textContent = '';
+              result.innerHTML = '<div class="weather-card">'+
+                '<div class="icon">'+icon+'</div>'+
+                '<div class="temp">'+Math.round(cw.temperature)+'°C</div>'+
+                '<div class="desc">'+label+'</div>'+
+                '<div class="loc">'+place.name+', '+(place.country||'')+'</div>'+
+                '<div class="stats"><div>Wind<b>'+Math.round(cw.windspeed)+' km/h</b></div><div>Updated<b>'+(cw.time||'').slice(11,16)+'</b></div></div>'+
+              '</div>';
+            }catch(err){ status.textContent = 'Could not fetch live weather right now (network blocked in this preview). Try again in the deployed site.'; }
+          }
+          document.getElementById('go').onclick = search;
+          document.getElementById('city').addEventListener('keypress', e=>{ if(e.key==='Enter') search(); });
+          search();
+        <\/script>
+      </body></html>`
+    },
+
+    /* ---------------- PULSETRACK ---------------- */
+    pulsetrack: {
+      tag: 'Finance · Dashboard',
+      title: 'PulseTrack',
+      desc: 'Add expenses and watch the live chart update.',
+      html: `<!DOCTYPE html><html><head><meta charset="UTF-8">${commonStyle}<style>
+        .layout{display:flex; gap:20px; flex-wrap:wrap;}
+        .left{flex:1; min-width:260px;}
+        .right{flex:1; min-width:260px;}
+        .form{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px;}
+        .form input, .form select{flex:1; min-width:110px;}
+        .list{display:flex; flex-direction:column; gap:8px; max-height:280px; overflow-y:auto;}
+        .row{display:flex; justify-content:space-between; align-items:center; background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:10px 12px; font-size:.85rem;}
+        .row .cat{color:var(--muted); font-size:.75rem;}
+        .row .x{color:var(--muted); cursor:pointer;}
+        .row .x:hover{color:var(--text);}
+        .total{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:16px; margin-bottom:16px;}
+        .total b{font-size:1.6rem; font-family:'Space Grotesk',sans-serif;}
+        canvas{width:100%; background:var(--surface); border:1px solid var(--line); border-radius:14px;}
+      </style></head><body>
+        <h2>PulseTrack</h2>
+        <div class="layout">
+          <div class="left">
+            <div class="form">
+              <input class="pf-input" id="name" placeholder="Expense name">
+              <input class="pf-input" id="amount" type="number" placeholder="Amount">
+              <select class="pf-input" id="cat"><option>Food</option><option>Transport</option><option>Bills</option><option>Fun</option><option>Other</option></select>
+              <button class="pf-btn" id="add">Add</button>
+            </div>
+            <div class="list" id="list"></div>
+          </div>
+          <div class="right">
+            <div class="total">Total spent <b id="total">₹0</b></div>
+            <canvas id="chart" width="380" height="240"></canvas>
+          </div>
+        </div>
+        <script>
+          let expenses = [
+            {name:'Groceries', amount:1200, cat:'Food'},
+            {name:'Bus pass', amount:400, cat:'Transport'},
+            {name:'Electricity bill', amount:900, cat:'Bills'}
+          ];
+          const list = document.getElementById('list');
+          const totalEl = document.getElementById('total');
+          const colors = {Food:'#7c6cf3', Transport:'#f5b94d', Bills:'#4dd0e1', Fun:'#ef5da8', Other:'#9aa0ff'};
+          function render(){
+            list.innerHTML='';
+            let total=0;
+            expenses.forEach((e,i)=>{
+              total += e.amount;
+              const row=document.createElement('div'); row.className='row';
+              row.innerHTML = '<div>'+e.name+'<div class="cat">'+e.cat+'</div></div><div style="display:flex;align-items:center;gap:10px;"><b>₹'+e.amount+'</b><span class="x" data-i="'+i+'">✕</span></div>';
+              list.appendChild(row);
+            });
+            totalEl.textContent = '₹'+total;
+            list.querySelectorAll('.x').forEach(x=> x.onclick = ()=>{ expenses.splice(+x.dataset.i,1); render(); });
+            drawChart();
+          }
+          function drawChart(){
+            const c = document.getElementById('chart');
+            const ctx = c.getContext('2d');
+            ctx.clearRect(0,0,c.width,c.height);
+            const totals = {};
+            expenses.forEach(e=> totals[e.cat] = (totals[e.cat]||0) + e.amount );
+            const cats = Object.keys(totals);
+            if(!cats.length) return;
+            const max = Math.max(...cats.map(c=>totals[c]));
+            const barW = (c.width-40) / cats.length;
+            cats.forEach((cat,i)=>{
+              const h = (totals[cat]/max) * (c.height-60);
+              const x = 20 + i*barW;
+              const y = c.height - 40 - h;
+              ctx.fillStyle = colors[cat] || '#7c6cf3';
+              ctx.fillRect(x+8, y, barW-16, h);
+              ctx.fillStyle = '#8b8a9a';
+              ctx.font = '11px Inter, sans-serif';
+              ctx.textAlign='center';
+              ctx.fillText(cat, x + barW/2, c.height-20);
+              ctx.fillStyle = '#ededf2';
+              ctx.fillText('₹'+totals[cat], x + barW/2, y-8);
+            });
+          }
+          document.getElementById('add').onclick = ()=>{
+            const name = document.getElementById('name').value.trim();
+            const amount = parseFloat(document.getElementById('amount').value);
+            const cat = document.getElementById('cat').value;
+            if(!name || !amount) return;
+            expenses.push({name, amount, cat});
+            document.getElementById('name').value=''; document.getElementById('amount').value='';
+            render();
+          };
+          render();
+        <\/script>
+      </body></html>`
+    },
+
+    /* ---------------- MARKSTUDIO ---------------- */
+    markstudio: {
+      tag: 'Editor Tool',
+      title: 'MarkStudio',
+      desc: 'Type Markdown on the left, see it rendered live on the right.',
+      html: `<!DOCTYPE html><html><head><meta charset="UTF-8">${commonStyle}<style>
+        .split{display:flex; gap:16px; height:calc(100% - 46px);}
+        .pane{flex:1; display:flex; flex-direction:column; min-width:0;}
+        .pane h4{font-size:.75rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin-bottom:8px;}
+        textarea{flex:1; resize:none; background:var(--surface); border:1px solid var(--line); border-radius:12px; color:var(--text); padding:14px; font-family:'JetBrains Mono',monospace; font-size:.85rem; line-height:1.6;}
+        .preview{flex:1; overflow-y:auto; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px 20px; font-size:.9rem; line-height:1.7;}
+        .preview h1,.preview h2,.preview h3{margin:.6em 0 .3em;}
+        .preview code{background:var(--surface-2); padding:1px 6px; border-radius:6px; font-family:'JetBrains Mono',monospace; font-size:.85em;}
+        .preview a{color:var(--violet); text-decoration:underline;}
+        .preview ul{padding-left:20px;}
+      </style></head><body>
+        <h2>MarkStudio</h2>
+        <div class="split">
+          <div class="pane"><h4>Markdown</h4><textarea id="src"># Hello 👋
+
+Write **bold**, *italic*, and:
+- lists
+- [links](https://example.com)
+
+\`inline code\` too.</textarea></div>
+          <div class="pane"><h4>Preview</h4><div class="preview" id="out"></div></div>
+        </div>
+        <script>
+          function render(md){
+            let html = md
+              .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+              .replace(/^### (.*)$/gm,'<h3>$1</h3>')
+              .replace(/^## (.*)$/gm,'<h2>$1</h2>')
+              .replace(/^# (.*)$/gm,'<h1>$1</h1>')
+              .replace(/\\*\\*(.*?)\\*\\*/g,'<strong>$1</strong>')
+              .replace(/\\*(.*?)\\*/g,'<em>$1</em>')
+              .replace(/\`(.*?)\`/g,'<code>$1</code>')
+              .replace(/\\[(.*?)\\]\\((.*?)\\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>')
+              .replace(/^- (.*)$/gm,'<li>$1</li>');
+            html = html.replace(/(<li>.*<\\/li>\\n?)+/g, m => '<ul>'+m+'</ul>');
+            html = html.split(/\\n{2,}/).map(block=>{
+              if(/^<h[1-3]>|^<ul>/.test(block.trim())) return block;
+              return block.trim() ? '<p>'+block.replace(/\\n/g,'<br>')+'</p>' : '';
+            }).join('');
+            return html;
+          }
+          const src = document.getElementById('src');
+          const out = document.getElementById('out');
+          function update(){ out.innerHTML = render(src.value); }
+          src.addEventListener('input', update);
+          update();
+        <\/script>
+      </body></html>`
+    }
+  };
+
+  const backdrop = document.getElementById('projectModalBackdrop');
+  const frame = document.getElementById('projectModalFrame');
+  const tagEl = document.getElementById('projectModalTag');
+  const titleEl = document.getElementById('projectModalTitleText');
+  const descEl = document.getElementById('projectModalDesc');
+  const closeBtn = document.getElementById('projectModalClose');
+
+  function openProject(key){
+    const p = PROJECTS[key];
+    if(!p) return;
+    tagEl.textContent = p.tag;
+    titleEl.textContent = p.title;
+    descEl.textContent = p.desc;
+    frame.srcdoc = p.html;
+    backdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeProject(){
+    backdrop.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(()=>{ frame.srcdoc = ''; }, 300);
+  }
+
+  document.querySelectorAll('.work-item[data-project]').forEach(el=>{
+    el.addEventListener('click', ()=> openProject(el.dataset.project));
+    el.addEventListener('keypress', e=>{ if(e.key==='Enter') openProject(el.dataset.project); });
+  });
+  closeBtn.addEventListener('click', closeProject);
+  backdrop.addEventListener('click', e=>{ if(e.target === backdrop) closeProject(); });
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape' && backdrop.classList.contains('open')) closeProject(); });
+})();
+</script>
+
 </body>
 </html>
