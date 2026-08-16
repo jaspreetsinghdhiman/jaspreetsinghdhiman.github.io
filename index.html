@@ -102,10 +102,12 @@
   html[data-theme="light"] header.scrolled{background:rgba(247,246,251,.75);}
   html[data-theme="light"] .btn-primary{color:#ffffff;}
   .logo{display:flex; align-items:center; gap:14px;}
-  .logo-chip{display:flex; align-items:center; padding:6px 10px; border-radius:10px; background:#0b0b12; border:1px solid var(--line); transition:transform .35s ease, box-shadow .35s ease;}
-  .logo:hover .logo-chip{transform:scale(1.03); box-shadow:0 0 20px rgba(124,108,243,.35);}
+  .logo-chip{display:flex; align-items:center; padding:2px; border-radius:10px; background:transparent; transition:transform .35s ease, filter .35s ease;}
+  .logo:hover .logo-chip{transform:scale(1.03); filter:drop-shadow(0 0 14px rgba(124,108,243,.45));}
   .logo-img{height:34px; width:auto; display:block;}
-  @media (max-width:560px){ .logo-img{height:26px;} .logo-chip{padding:4px 8px;} }
+  /* light theme: the logo's white text needs a dark backdrop to stay legible */
+  html[data-theme="light"] .logo-chip{background:#0b0b12; padding:6px 10px;}
+  @media (max-width:560px){ .logo-img{height:26px;} html[data-theme="light"] .logo-chip{padding:4px 8px;} }
   .logo .mark{position:relative; width:42px;height:42px;border-radius:12px; background:linear-gradient(135deg,var(--violet),var(--amber)); display:flex;align-items:center;justify-content:center; box-shadow:0 0 24px rgba(124,108,243,.45); overflow:hidden; transition:transform .35s ease; animation:markGlow 3.2s ease-in-out infinite;}
   .logo .mark .glyph{position:relative; z-index:2; width:22px; height:22px; display:block;}
   .logo .mark .glyph path{stroke:#0b0b12; stroke-width:2.8; stroke-linecap:round; stroke-linejoin:round; fill:none;}
@@ -763,18 +765,7 @@
   <div class="footer-grid">
     <div class="footer-brand">
       <div class="logo footer-logo">
-        <div class="mark">
-          <svg class="glyph" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" fill="none">
-            <path d="M17 13 9 22l8 9" stroke="#0b0b12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M27 13l8 9-8 9" stroke="#0b0b12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M24.5 10 19.5 34" stroke="#0b0b12" stroke-width="2.6" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="logo-word">
-          <div class="logo-text"><span class="first">Jaspreet</span><span class="last">Singh</span></div>
-          <div class="logo-divider"></div>
-          <div class="logo-code">&lt;/&gt;</div>
-        </div>
+        <span class="logo-chip"><img src="logo.png" alt="Jaspreet Singh — Frontend Developer" class="logo-img"></span>
       </div>
       <p>Frontend developer crafting fast, responsive, and thoughtfully animated web experiences.</p>
     </div>
