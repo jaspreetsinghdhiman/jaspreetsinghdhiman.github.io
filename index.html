@@ -94,7 +94,7 @@
   img{max-width:100%;display:block;}
 
   /* custom cursor */
-  .cursor-dot, .cursor-ring{position:fixed; top:0; left:0; pointer-events:none; z-index:9999; border-radius:50%; transform:translate(-50%,-50%);}
+  .cursor-dot, .cursor-ring{position:fixed; top:0; left:0; pointer-events:none; z-index:9999; border-radius:50%; transform:translate3d(-50%,-50%,0);}
   .cursor-dot{width:6px;height:6px;background:var(--violet);}
   .cursor-ring{width:34px;height:34px;border:1px solid rgba(124,108,243,.5);transition:width .2s,height .2s,border-color .2s,background .2s;}
   .cursor-ring.active{width:56px;height:56px;background:var(--violet-soft);border-color:var(--amber);}
@@ -185,30 +185,8 @@
   .slide-card.pos-3{transform:translate3d(30px,54px,0) scale(.8) rotate(-9deg); z-index:1; opacity:0;}
   .hero-photo-wrap:hover .slide-card{transition-duration:.5s;}
   .slider-dots{position:absolute; bottom:-30px; left:50%; transform:translateX(-50%); display:flex; gap:8px; z-index:5;}
-  .slider-dots span{width:7px;height:7px;border-radius:50%; background:var(--line); transition:background .3s ease, transform .3s ease; cursor:pointer;}
-  .slider-dots span.active{background:var(--amber); transform:scale(1.3);}
-
-  /* pop-the-bubbles hero feature */
-  .bubbles-layer{position:absolute; inset:0; z-index:1; overflow:hidden; pointer-events:none;}
-  .bubble{position:absolute; bottom:-80px; border-radius:50%; pointer-events:auto; cursor:none; background:radial-gradient(circle at 32% 28%, rgba(255,255,255,.75), rgba(124,108,243,.32) 42%, rgba(124,108,243,.06) 72%, transparent 78%); border:1px solid rgba(237,237,242,.22); box-shadow:inset 0 0 12px rgba(255,255,255,.18), 0 0 18px rgba(124,108,243,.18); animation:bubbleRise linear forwards; will-change:transform,opacity;}
-  .bubble.amber{background:radial-gradient(circle at 32% 28%, rgba(255,255,255,.75), rgba(245,185,77,.34) 42%, rgba(245,185,77,.06) 72%, transparent 78%); box-shadow:inset 0 0 12px rgba(255,255,255,.18), 0 0 18px rgba(245,185,77,.2);}
-  @keyframes bubbleRise{
-    0%{transform:translate(0,0) scale(1);}
-    50%{transform:translate(var(--drift), -55vh) scale(1);}
-    100%{transform:translate(calc(var(--drift) * 1.6), -115vh) scale(1.05); opacity:.85;}
-  }
-  .bubble.pop{animation:none; pointer-events:none;}
-  .bubble.pop::after{content:''; position:absolute; inset:-6px; border-radius:50%; border:2px solid rgba(255,255,255,.8); animation:bubblePop .45s ease-out forwards;}
-  .bubble.pop{opacity:0; transition:opacity .18s ease-out;}
-  @keyframes bubblePop{from{transform:scale(.4); opacity:1;} to{transform:scale(2.1); opacity:0;}}
-  @media (prefers-reduced-motion: reduce){ .bubbles-layer{display:none;} }
-  @media (hover:none), (pointer:coarse){ .bubble{cursor:pointer;} }
-
-  .bubble-counter{position:absolute; top:150px; right:6vw; z-index:3; display:flex; align-items:center; gap:8px; font-family:var(--mono); font-size:.76rem; letter-spacing:.06em; color:var(--muted); border:1px solid var(--line); padding:8px 16px; border-radius:100px; background:rgba(20,20,31,.35); backdrop-filter:blur(8px); opacity:0; animation:fadeUp .8s 1.1s ease forwards;}
-  html[data-theme="light"] .bubble-counter{background:rgba(255,255,255,.5);}
-  .bubble-counter i{color:var(--amber);}
-  .bubble-counter b{color:var(--text); font-weight:600;}
-  @media (max-width:900px){ .bubble-counter{top:auto; bottom:36px; right:6vw; } }
+  .slider-dots span{width:7px;height:7px;border-radius:50%; background:var(--violet-soft); border:1px solid rgba(124,108,243,.35); transition:background .3s ease, transform .3s ease, border-color .3s ease; cursor:pointer;}
+  .slider-dots span.active{background:var(--amber); border-color:var(--amber); transform:scale(1.3);}
 
   .eyebrow{display:inline-flex; align-items:center; gap:10px; font-family:var(--mono); font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:var(--amber); border:1px solid rgba(245,185,77,.3); padding:8px 18px; border-radius:100px; background:rgba(245,185,77,.06); margin-bottom:30px; opacity:0; animation:fadeUp .8s .1s ease forwards;}
   .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--amber);animation:blink 1.6s infinite;}
@@ -232,6 +210,35 @@
   .hero-actions{display:flex; gap:18px; margin-top:38px; flex-wrap:wrap; opacity:0; animation:fadeUp .8s .7s ease forwards;}
   .hero-tags{display:flex; gap:10px; margin-top:38px; flex-wrap:wrap; opacity:0; animation:fadeUp .8s .85s ease forwards;}
   .hero-tags span{font-family:var(--mono); font-size:.76rem; color:var(--muted); border:1px solid var(--line); padding:7px 14px; border-radius:100px;}
+
+  /* pop-the-bubbles layer — floating, clickable bubbles over the hero */
+  .bubbles-layer{position:absolute; inset:0; z-index:3; overflow:hidden; pointer-events:none;}
+  .bubble{position:absolute; bottom:-80px; border-radius:50%; pointer-events:auto; cursor:pointer;
+    --accent-rgb:124,108,243; /* violet, matches --violet in dark theme */
+    background:radial-gradient(circle at 30% 28%, rgba(var(--accent-rgb),.75), rgba(var(--accent-rgb),.32) 45%, rgba(var(--accent-rgb),.05) 78%);
+    border:1px solid rgba(var(--accent-rgb),.55); box-shadow:inset 0 0 10px rgba(var(--accent-rgb),.35), 0 0 16px rgba(var(--accent-rgb),.4);
+    animation:bubbleRise linear forwards; will-change:transform,opacity;}
+  .bubble.accent-amber{ --accent-rgb:245,185,77; } /* amber, matches --amber in dark theme */
+  html[data-theme="light"] .bubble{ --accent-rgb:90,69,224; } /* light-theme violet */
+  html[data-theme="light"] .bubble.accent-amber{ --accent-rgb:168,98,10; } /* light-theme amber */
+  @keyframes bubbleRise{
+    0%{ transform:translate3d(0,0,0) scale(1); opacity:0; }
+    8%{ opacity:.9; }
+    92%{ opacity:.85; }
+    100%{ transform:translate3d(var(--drift,0px), calc(-1 * (100vh + 160px)), 0) scale(1); opacity:0; }
+  }
+  .bubble.pop{animation:none !important; pointer-events:none;}
+  .bubble.pop::before, .bubble.pop::after{content:''; position:absolute; inset:0; border-radius:50%; border:2px solid rgba(var(--accent-rgb),.9);}
+  .bubble.pop{animation:bubblePop .45s ease-out forwards !important;}
+  @keyframes bubblePop{
+    0%{ transform:scale(1); opacity:.9; filter:blur(0); }
+    60%{ transform:scale(1.6); opacity:.5; filter:blur(.5px); }
+    100%{ transform:scale(2.1); opacity:0; filter:blur(1px); }
+  }
+  .bubble-counter{position:absolute; right:20px; bottom:18px; z-index:4; display:flex; align-items:center; gap:8px; padding:8px 14px; border-radius:100px; background:var(--surface); border:1px solid var(--line); font-family:var(--mono); font-size:.78rem; color:var(--muted); opacity:0; animation:fadeUp .8s 1s ease forwards; pointer-events:none;}
+  .bubble-counter b{color:var(--text); font-weight:600;}
+  @media (max-width:760px){ .bubble-counter{right:14px; bottom:14px; padding:6px 12px; font-size:.7rem;} }
+  @media (prefers-reduced-motion: reduce){ .bubbles-layer{display:none;} }
   @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
 
   .btn{position:relative; overflow:hidden; padding:16px 32px; border-radius:100px; font-weight:600; font-size:.95rem; display:inline-flex; align-items:center; gap:10px; transition:transform .15s ease-out, box-shadow .3s ease;}
@@ -240,7 +247,8 @@
   .btn-ghost{border:1px solid var(--line); color:var(--text);}
   .btn-ghost:hover{border-color:var(--amber); transform:translateY(-3px); background:rgba(245,185,77,.06);}
 
-  .float-card{position:absolute; z-index:6; background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:14px 18px; display:flex; align-items:center; gap:12px; box-shadow:0 20px 50px -18px rgba(0,0,0,.6); animation:floaty 4s ease-in-out infinite;}
+  .hero-photo{ z-index:0; }
+  .float-card{position:absolute; z-index:5; background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:14px 18px; display:flex; align-items:center; gap:12px; box-shadow:0 20px 50px -18px rgba(0,0,0,.6); animation:floaty 4s ease-in-out infinite;}
   .float-card.fc1{top:-24px; left:-30px; animation-delay:0s;}
   .float-card.fc2{bottom:30px; right:-30px; animation-delay:1.2s;}
   .float-card i{color:var(--amber); font-size:1.1rem;}
@@ -597,9 +605,9 @@
   <div class="aurora"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
   <div class="hero-glow"></div>
   <canvas id="particles"></canvas>
-  <div class="bubbles-layer" id="heroBubbles"></div>
-  <div class="bubble-counter" id="bubbleCounter" aria-hidden="true"><i class="fa-solid fa-circle-notch"></i> <b id="bubblePopped">0</b> popped</div>
   <div class="hero-noise"></div>
+  <div class="bubbles-layer" id="bubblesLayer" aria-hidden="true"></div>
+  <div class="bubble-counter"><i class="fa-regular fa-circle" aria-hidden="true"></i> Popped <b id="bubblePopCount">0</b></div>
   <div class="hero-grid">
     <div>
       <div class="eyebrow"><span class="dot"></span> AVAILABLE FOR FREELANCE — 2026</div>
@@ -964,13 +972,25 @@
 </div>
 
 <script>
-/* custom cursor */
+/* custom cursor — GPU-accelerated transforms + frame-rate-independent easing */
 const dot = document.getElementById('cursorDot');
 const ring = document.getElementById('cursorRing');
-let mx=0,my=0,rx=0,ry=0;
-window.addEventListener('mousemove', e=>{ mx=e.clientX; my=e.clientY; dot.style.left=mx+'px'; dot.style.top=my+'px'; });
-function animRing(){ rx += (mx-rx)*0.18; ry += (my-ry)*0.18; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(animRing); }
-animRing();
+let mx=0,my=0,rx=0,ry=0,ringInit=false;
+window.addEventListener('mousemove', e=>{
+  mx=e.clientX; my=e.clientY;
+  if(!ringInit){ rx=mx; ry=my; ringInit=true; } // snap ring to real position on first move, no lag-in from (0,0)
+  dot.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%,-50%)`;
+});
+let lastTs = performance.now();
+function animRing(ts){
+  const dt = Math.min(48, ts - lastTs); // clamp so a stalled/background tab doesn't cause a big jump
+  lastTs = ts;
+  const ease = 1 - Math.pow(1 - 0.22, dt / 16.67); // normalized to ~60fps so speed is consistent at any refresh rate
+  rx += (mx-rx)*ease; ry += (my-ry)*ease;
+  ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%,-50%)`;
+  requestAnimationFrame(animRing);
+}
+requestAnimationFrame(animRing);
 document.querySelectorAll('a, button, .card, .work-item').forEach(el=>{
   el.addEventListener('mouseenter', ()=>ring.classList.add('active'));
   el.addEventListener('mouseleave', ()=>ring.classList.remove('active'));
@@ -1176,12 +1196,11 @@ if(canvas){
   resizeCanvas(); initParticles(); drawParticles();
 }
 
-/* pop-the-bubbles — floating bubbles rise through the hero; click to pop them with a soft sound */
+/* pop-the-bubbles — floating bubbles you can click to pop, with a soft sound */
 (function(){
-  const layer = document.getElementById('heroBubbles');
-  const heroEl = document.querySelector('.hero');
-  const poppedEl = document.getElementById('bubblePopped');
-  if(!layer || !heroEl) return;
+  const layer = document.getElementById('bubblesLayer');
+  if(!layer) return;
+  const counterEl = document.getElementById('bubblePopCount');
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(prefersReduced) return;
 
@@ -1190,62 +1209,57 @@ if(canvas){
   function playPop(){
     try{
       audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
-      const t = audioCtx.currentTime;
+      if(audioCtx.state === 'suspended') audioCtx.resume();
+      const now = audioCtx.currentTime;
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
       osc.type = 'sine';
-      osc.frequency.setValueAtTime(620, t);
-      osc.frequency.exponentialRampToValueAtTime(180, t + 0.11);
-      gain.gain.setValueAtTime(0.0001, t);
-      gain.gain.exponentialRampToValueAtTime(0.16, t + 0.012);
-      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.14);
+      osc.frequency.setValueAtTime(520, now);
+      osc.frequency.exponentialRampToValueAtTime(180, now + 0.12);
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(0.16, now + 0.012);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.16);
       osc.connect(gain).connect(audioCtx.destination);
-      osc.start(t);
-      osc.stop(t + 0.16);
-    }catch(e){ /* audio not available — fail silently */ }
+      osc.start(now);
+      osc.stop(now + 0.17);
+    }catch(e){ /* audio unsupported — fail silently */ }
   }
 
-  function popBubble(bubble){
-    if(bubble.classList.contains('pop')) return;
-    bubble.classList.add('pop');
+  function spawnBubble(){
+    const b = document.createElement('div');
+    b.className = 'bubble' + (Math.random() < 0.5 ? ' accent-amber' : '');
+    const size = 18 + Math.random()*46;
+    const left = Math.random()*100;
+    const duration = 4 + Math.random()*3.5; // faster rise (was 8–15s, now ~4–7.5s)
+    const drift = (Math.random()*120 - 60) + 'px';
+    b.style.width = size + 'px';
+    b.style.height = size + 'px';
+    b.style.left = left + '%';
+    b.style.setProperty('--drift', drift);
+    b.style.animationDuration = duration + 's';
+    b.addEventListener('animationend', () => { if(!b.classList.contains('pop')) b.remove(); });
+    b.addEventListener('click', () => pop(b), { once:true });
+    layer.appendChild(b);
+  }
+
+  function pop(b){
+    const rect = b.getBoundingClientRect();
+    b.classList.add('pop');
     playPop();
     popped++;
-    if(poppedEl) poppedEl.textContent = popped;
-    setTimeout(()=> bubble.remove(), 480);
+    if(counterEl) counterEl.textContent = popped;
+    b.addEventListener('animationend', () => b.remove(), { once:true });
   }
 
-  let activeCount = 0;
-  const MAX_BUBBLES = 10;
-  function spawnBubble(){
-    if(document.hidden) return;
-    if(activeCount >= MAX_BUBBLES){ return; }
-    const size = Math.random() * 34 + 18;
-    const left = Math.random() * 92 + 2;
-    const duration = Math.random() * 5 + 7;
-    const drift = (Math.random() * 90 - 45) + 'px';
-    const bubble = document.createElement('div');
-    bubble.className = 'bubble' + (Math.random() < 0.35 ? ' amber' : '');
-    bubble.style.width = size + 'px';
-    bubble.style.height = size + 'px';
-    bubble.style.left = left + '%';
-    bubble.style.setProperty('--drift', drift);
-    bubble.style.animationDuration = duration + 's';
-    bubble.addEventListener('click', () => popBubble(bubble));
-    bubble.addEventListener('animationend', () => { bubble.remove(); });
-    layer.appendChild(bubble);
-    activeCount++;
-    const obs = new MutationObserver(() => {
-      if(!layer.contains(bubble)){ activeCount--; obs.disconnect(); }
-    });
-    obs.observe(layer, {childList:true});
+  function loop(){
+    if(document.visibilityState === 'visible' && layer.childElementCount < 14){
+      spawnBubble();
+    }
+    setTimeout(loop, 500 + Math.random()*400);
   }
-
-  let spawnTimer = setInterval(spawnBubble, 1100);
-  document.addEventListener('visibilitychange', () => {
-    clearInterval(spawnTimer);
-    if(!document.hidden) spawnTimer = setInterval(spawnBubble, 1100);
-  });
-  spawnBubble();
+  // seed a few bubbles right away so the hero doesn't look empty on load
+  for(let i=0;i<4;i++) setTimeout(spawnBubble, i*300);
+  loop();
 })();
 
 /* hero typed-role animation — cycles through role titles like a terminal typing */
