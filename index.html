@@ -29,13 +29,23 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Jaspreet Singh",
-  "jobTitle": "Frontend Developer",
-  "url": "https://jaspreetsinghdhiman.github.io/",
-  "email": "mailto:jassp708737@gmail.com",
-  "address": {"@type":"PostalAddress","addressRegion":"Punjab","addressCountry":"IN"},
-  "knowsAbout": ["HTML","CSS","JavaScript","React.js","WordPress","PHP","Figma","UI/UX","Third-party API Integration"]
+  "@graph": [
+    {
+      "@type": "Person",
+      "name": "Jaspreet Singh",
+      "jobTitle": "Frontend Developer",
+      "url": "https://jaspreetsinghdhiman.github.io/",
+      "email": "mailto:jassp708737@gmail.com",
+      "address": {"@type":"PostalAddress","addressRegion":"Punjab","addressCountry":"IN"},
+      "knowsAbout": ["HTML","CSS","JavaScript","React.js","WordPress","PHP","Figma","UI/UX","Third-party API Integration"]
+    },
+    {
+      "@type": "WebSite",
+      "name": "Jaspreet Singh Portfolio",
+      "url": "https://jaspreetsinghdhiman.github.io/",
+      "author": {"@type":"Person","name":"Jaspreet Singh"}
+    }
+  ]
 }
 </script>
 <style>
@@ -96,9 +106,16 @@
 
   .progress-bar{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--violet),var(--amber)); z-index:10000; transition:width .1s ease-out;}
 
+  /* focus states — accessibility */
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, .work-item:focus-visible, [tabindex]:focus-visible{
+    outline:2px solid var(--amber); outline-offset:3px; border-radius:6px;
+  }
+  section[id]{scroll-margin-top:100px;}
+
   /* nav */
-  header{position:fixed; top:0; left:0; right:0; z-index:900; display:flex; align-items:center; justify-content:space-between; padding:22px 6vw; transition:background .35s ease, backdrop-filter .35s ease, padding .35s ease, border-color .35s ease; border-bottom:1px solid transparent;}
+  header{position:fixed; top:0; left:0; right:0; z-index:900; display:flex; align-items:center; justify-content:space-between; padding:22px 6vw; transition:background .35s ease, backdrop-filter .35s ease, padding .35s ease, border-color .35s ease, transform .4s cubic-bezier(.2,.8,.2,1); border-bottom:1px solid transparent;}
   header.scrolled{background:rgba(11,11,18,.75); backdrop-filter:blur(14px); padding:14px 6vw; border-bottom:1px solid var(--line);}
+  header.hide{transform:translateY(-110%);}
   html[data-theme="light"] header.scrolled{background:rgba(247,246,251,.75);}
   html[data-theme="light"] .btn-primary{color:#ffffff;}
   .logo{display:flex; align-items:center; gap:14px;}
@@ -128,13 +145,14 @@
   .theme-toggle{width:42px;height:42px;border-radius:50%;border:1px solid var(--line); background:var(--surface); color:var(--text); display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:.95rem; transition:border-color .3s ease, background .3s ease, transform .3s ease;}
   .theme-toggle:hover{border-color:var(--violet); background:var(--violet-soft); transform:translateY(-2px);}
   .theme-toggle i{transition:transform .4s cubic-bezier(.2,.8,.2,1);}
-  nav ul{display:flex;gap:38px;}
-  nav a{font-size:.92rem; font-weight:500; color:var(--muted); position:relative; padding-bottom:4px; transition:color .25s;}
+  nav ul{display:flex;gap:28px;}
+  nav a{font-size:.9rem; font-weight:500; color:var(--muted); position:relative; padding-bottom:4px; transition:color .25s; white-space:nowrap;}
   nav a::after{content:''; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--amber); transition:width .3s ease;}
   nav a:hover{color:var(--text);} nav a:hover::after{width:100%;}
   nav a.active{color:var(--text);} nav a.active::after{width:100%;}
   .mobile-menu a.active{color:var(--amber);}
-  .nav-cta{padding:10px 22px; border:1px solid var(--line); border-radius:100px; font-size:.85rem; font-weight:600; transition:border-color .3s, background .3s;}
+  .nav-cta{padding:10px 22px; border:1px solid var(--line); border-radius:100px; font-size:.85rem; font-weight:600; transition:border-color .3s, background .3s, transform .15s ease-out;}
+  @media (max-width:1180px){ nav ul{gap:18px;} nav a{font-size:.85rem;} }
   .nav-cta:hover{border-color:var(--violet); background:var(--violet-soft);}
   .burger{display:none; font-size:1.4rem; cursor:pointer; z-index:950;}
 
@@ -186,12 +204,15 @@
   @media (prefers-reduced-motion: reduce){ .hero h1 .word{animation:none; opacity:1; filter:none; transform:none;} }
 
   .hero p.sub{max-width:520px; margin:26px 0 0; color:var(--muted); font-size:1.06rem; line-height:1.7; opacity:0; animation:fadeUp .8s .55s ease forwards;}
+  .hero-typed{font-family:var(--mono); font-size:1.02rem; color:var(--text); margin-top:20px; opacity:0; animation:fadeUp .8s .42s ease forwards; display:flex; align-items:center; min-height:1.4em;}
+  .hero-typed .mono-pre{color:var(--amber); margin-right:8px;}
+  .hero-caret{display:inline-block; width:2px; height:1.05em; background:var(--amber); margin-left:2px; animation:caretBlink 1s steps(1) infinite;}
   .hero-actions{display:flex; gap:18px; margin-top:38px; flex-wrap:wrap; opacity:0; animation:fadeUp .8s .7s ease forwards;}
   .hero-tags{display:flex; gap:10px; margin-top:38px; flex-wrap:wrap; opacity:0; animation:fadeUp .8s .85s ease forwards;}
   .hero-tags span{font-family:var(--mono); font-size:.76rem; color:var(--muted); border:1px solid var(--line); padding:7px 14px; border-radius:100px;}
   @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
 
-  .btn{position:relative; overflow:hidden; padding:16px 32px; border-radius:100px; font-weight:600; font-size:.95rem; display:inline-flex; align-items:center; gap:10px; transition:transform .3s ease, box-shadow .3s ease;}
+  .btn{position:relative; overflow:hidden; padding:16px 32px; border-radius:100px; font-weight:600; font-size:.95rem; display:inline-flex; align-items:center; gap:10px; transition:transform .15s ease-out, box-shadow .3s ease;}
   .btn-primary{background:var(--text); color:#0b0b12;}
   .btn-primary:hover{transform:translateY(-3px); box-shadow:0 16px 34px -12px rgba(124,108,243,.55);}
   .btn-ghost{border:1px solid var(--line); color:var(--text);}
@@ -241,14 +262,32 @@
   /* Changed image to highly reliable Pexels link */
   .about-photo img{width:100%;height:100%;object-fit:cover; filter:grayscale(10%);}
   .about-copy p{color:var(--muted); font-size:1.05rem; line-height:1.85; margin-bottom:18px;}
-  .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:18px; overflow:hidden; margin-top:30px;}
-  .stat{background:var(--surface); padding:26px 20px;}
-  .stat .num{font-family:var(--display); font-weight:700; font-size:2.1rem; color:var(--text); display:flex; align-items:baseline; gap:2px;}
-  .stat .num .plus{color:var(--amber); font-size:1.3rem;}
-  .stat .label{color:var(--muted); font-size:.8rem; margin-top:6px;}
+  .stats{display:flex; flex-wrap:wrap; gap:0; margin-top:34px; padding-top:28px; border-top:1px solid var(--line);}
+  .stat{display:flex; flex-direction:column; gap:4px; padding:0 32px 0 0; margin-right:32px; border-right:1px solid var(--line);}
+  .stat:last-child{border-right:none; padding-right:0; margin-right:0;}
+  .stat .num{font-family:var(--display); font-weight:700; font-size:1.9rem; color:var(--text); display:flex; align-items:baseline; gap:2px;}
+  .stat .num .plus{color:var(--amber); font-size:1.2rem;}
+  .stat .label{color:var(--muted); font-size:.78rem; font-family:var(--mono); text-transform:uppercase; letter-spacing:.04em;}
+  .care-list{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px;}
+  .care-list span{display:inline-flex; align-items:center; gap:8px; font-size:.82rem; color:var(--text); border:1px solid var(--line); background:var(--bg); padding:8px 14px; border-radius:100px;}
+  .care-list span i{color:var(--amber); font-size:.72rem;}
+
+  /* experience timeline */
+  .experience{background:var(--bg);}
+  .exp-timeline{position:relative; max-width:900px; margin:0 auto; padding-left:34px;}
+  .exp-timeline::before{content:''; position:absolute; left:6px; top:6px; bottom:6px; width:2px; background:linear-gradient(var(--violet),var(--amber));}
+  .exp-item{position:relative; padding-bottom:48px;}
+  .exp-item:last-child{padding-bottom:0;}
+  .exp-item::before{content:''; position:absolute; left:-34px; top:4px; width:14px; height:14px; border-radius:50%; background:var(--bg); border:2px solid var(--amber); box-shadow:0 0 0 4px var(--violet-soft);}
+  .exp-year{font-family:var(--mono); font-size:.76rem; letter-spacing:.08em; color:var(--amber); text-transform:uppercase; margin-bottom:8px;}
+  .exp-item h3{font-family:var(--display); font-size:1.25rem; font-weight:700;}
+  .exp-item .exp-company{color:var(--muted); font-size:.9rem; margin-top:2px; margin-bottom:12px;}
+  .exp-item p{color:var(--muted); font-size:.94rem; line-height:1.7; max-width:640px;}
+  .exp-tech{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;}
+  .exp-tech span{font-family:var(--mono); font-size:.72rem; color:var(--text); border:1px solid var(--line); padding:5px 12px; border-radius:100px; background:var(--surface);}
 
   /* skills */
-  .skills-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px; max-width:1360px; margin-left:auto; margin-right:auto;}
+  .skills-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; max-width:1360px; margin-left:auto; margin-right:auto;}
   .card{background:var(--surface); border:1px solid var(--line); border-radius:20px; padding:34px 28px; transition:transform .4s cubic-bezier(.2,.8,.2,1), border-color .4s ease; position:relative; overflow:hidden;}
   .card::before{content:''; position:absolute; inset:0; opacity:0; transition:opacity .4s ease; background:radial-gradient(circle at 30% 20%, rgba(124,108,243,.18), transparent 60%);}
   .card:hover{transform:translateY(-8px); border-color:rgba(124,108,243,.4);}
@@ -256,18 +295,28 @@
   .card i.card-icon{font-size:1.4rem; color:var(--amber); width:50px; height:50px; border-radius:13px; background:var(--surface-2); display:flex; align-items:center; justify-content:center; margin-bottom:22px; position:relative; z-index:1;}
   .card h3{font-family:var(--display); font-size:1.18rem; margin-bottom:10px; position:relative; z-index:1;}
   .card p{color:var(--muted); font-size:.92rem; line-height:1.7; position:relative; z-index:1;}
-  .skills-circles{display:grid; grid-template-columns:repeat(4,1fr); gap:22px; max-width:1360px; margin:0 auto;}
-  .circle-item{background:var(--surface); border:1px solid var(--line); border-radius:20px; padding:32px 20px 26px; display:flex; flex-direction:column; align-items:center; gap:16px; text-align:center; transition:transform .4s cubic-bezier(.2,.8,.2,1), border-color .4s ease;}
-  .circle-item:hover{transform:translateY(-8px); border-color:rgba(124,108,243,.4);}
-  .circle-ring{position:relative; width:118px; height:118px;}
-  .circle-ring svg{width:100%; height:100%; transform:rotate(-90deg);}
-  .circle-bg{fill:none; stroke:var(--surface-2); stroke-width:9;}
-  .circle-progress{fill:none; stroke:url(#circleGrad); stroke-width:9; stroke-linecap:round; stroke-dasharray:326.7; stroke-dashoffset:326.7; transition:stroke-dashoffset 1.6s cubic-bezier(.2,.8,.2,1);}
-  .circle-percent{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:var(--display); font-weight:700; font-size:1.35rem; color:var(--text);}
-  .circle-label{font-size:.9rem; color:var(--muted); max-width:150px; line-height:1.4;}
+  .stack-groups{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:1000px; margin:0 auto;}
+  .stack-group{background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:22px 20px;}
+  .stack-group-label{font-family:var(--mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--violet); margin-bottom:16px;}
+  .stack-tags{display:flex; flex-direction:column; gap:10px;}
+  .stack-tag{display:flex; align-items:center; justify-content:space-between; gap:8px; font-size:.85rem; color:var(--text); border:1px solid var(--line); background:var(--bg); padding:9px 12px; border-radius:10px; transition:border-color .25s ease, transform .25s ease;}
+  .stack-tag:hover{border-color:var(--amber); transform:translateX(3px);}
+  .stack-tag .stack-name{display:flex; align-items:center; gap:8px;}
+  .stack-tag i{color:var(--amber); font-size:.85rem; width:16px; text-align:center;}
+  .proficiency{font-family:var(--mono); font-size:.62rem; letter-spacing:.05em; text-transform:uppercase; padding:3px 9px; border-radius:100px; flex-shrink:0;}
+  .proficiency.core{color:var(--amber); background:rgba(245,185,77,.12); border:1px solid rgba(245,185,77,.3);}
+  .proficiency.strong{color:var(--violet); background:var(--violet-soft); border:1px solid rgba(124,108,243,.3);}
+  .proficiency.working{color:var(--muted); background:var(--surface-2); border:1px solid var(--line);}
+  @media (max-width:980px){ .stack-groups{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .stack-groups{grid-template-columns:1fr;} }
 
   /* work */
   .work{background:var(--surface);}
+  .work-filters{display:flex; flex-wrap:wrap; gap:10px; max-width:1360px; margin:0 auto 34px;}
+  .work-filter{font-family:var(--mono); font-size:.78rem; letter-spacing:.04em; color:var(--muted); background:var(--bg); border:1px solid var(--line); padding:9px 18px; border-radius:100px; cursor:pointer; transition:all .25s ease;}
+  .work-filter:hover{color:var(--text); border-color:var(--amber);}
+  .work-filter.active{color:#0b0b12; background:linear-gradient(100deg,var(--violet),var(--amber)); border-color:transparent; font-weight:600;}
+  .work-item.hidden{display:none;}
   .work-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:24px; max-width:1360px; margin-left:auto; margin-right:auto;}
   .work-item{position:relative; border-radius:20px; overflow:hidden; aspect-ratio:16/11; cursor:pointer; border:1px solid var(--line);}
   .work-item .thumb{position:absolute; inset:0; background-size:cover; background-position:center; transition:transform .6s cubic-bezier(.2,.8,.2,1);}
@@ -281,14 +330,16 @@
 
   /* process */
   .process-list{border-top:1px solid var(--line); max-width:1360px; margin-left:auto; margin-right:auto;}
-  .process-item{display:grid; grid-template-columns:66px 1fr 180px; gap:30px; align-items:center; padding:34px 0; border-bottom:1px solid var(--line); transition:padding-left .4s ease, background .4s ease;}
-  .process-item > div:nth-child(2){max-width:640px;}
+  .process-item{display:grid; grid-template-columns:44px 66px 1fr 180px; gap:30px; align-items:center; padding:34px 0; border-bottom:1px solid var(--line); transition:padding-left .4s ease, background .4s ease;}
+  .process-item > div:nth-child(3){max-width:640px;}
   .process-item:hover{padding-left:14px; background:var(--bg);}
+  .process-num{font-family:var(--mono); font-size:.85rem; color:var(--line); font-weight:600;}
   .process-icon{width:58px; height:58px; border-radius:16px; background:var(--surface-2); display:flex; align-items:center; justify-content:center; color:var(--amber); font-size:1.3rem; transition:transform .4s cubic-bezier(.2,.8,.2,1), background .4s ease, color .4s ease;}
   .process-item:hover .process-icon{transform:scale(1.08) rotate(-4deg); background:var(--violet-soft); color:var(--violet);}
   .process-item h3{font-family:var(--display); font-size:1.3rem; font-weight:600;}
   .process-item p{color:var(--muted); font-size:.9rem; margin-top:6px;}
   .process-item .phase{color:var(--muted); font-family:var(--mono); font-size:.76rem; text-align:right; text-transform:uppercase; letter-spacing:.08em;}
+  @media (max-width:720px){ .process-item{grid-template-columns:32px 48px 1fr;} .process-item .phase{display:none;} }
 
   /* testimonials */
   .testi-wrap{background:var(--surface); border-radius:24px; border:1px solid var(--line); padding:60px; position:relative; overflow:hidden; max-width:900px; margin-left:auto; margin-right:auto;}
@@ -315,6 +366,9 @@
   .contact-grid{display:grid; grid-template-columns:.9fr 1.1fr; gap:70px; max-width:1360px; margin-left:auto; margin-right:auto;}
   .contact-info .info-row{display:flex; align-items:center; gap:16px; margin-bottom:22px; color:var(--muted);}
   .contact-info .info-row i{width:42px;height:42px;border-radius:11px; background:var(--surface-2); display:flex; align-items:center; justify-content:center; color:var(--amber);}
+  .copy-email-btn{margin-left:6px; background:none; border:1px solid var(--line); color:var(--muted); width:30px; height:30px; border-radius:8px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; font-size:.72rem; transition:all .25s ease;}
+  .copy-email-btn:hover{border-color:var(--amber); color:var(--amber);}
+  .copy-email-btn.copied{color:#7ee787; border-color:#7ee787;}
   .socials{display:flex; gap:12px; margin-top:34px;}
   .socials a{width:42px;height:42px;border-radius:50%;border:1px solid var(--line); display:flex;align-items:center;justify-content:center; transition:all .3s ease;}
   .socials a:hover{border-color:var(--violet); background:var(--violet-soft); transform:translateY(-4px);}
@@ -327,7 +381,17 @@
   .field input:focus, .field textarea:focus{outline:none; border-color:var(--violet); box-shadow:0 0 0 4px var(--violet-soft);}
   .field label{position:absolute; left:18px; top:16px; color:var(--muted); font-size:.95rem; pointer-events:none; transition:all .2s ease; background:var(--bg); padding:0 4px;}
   .field input:focus + label, .field input:not(:placeholder-shown) + label, .field textarea:focus + label, .field textarea:not(:placeholder-shown) + label{top:-9px; font-size:.72rem; color:var(--violet);}
-  .form-msg{font-size:.85rem; color:var(--amber); min-height:20px;}
+  .field.field-error input, .field.field-error textarea{border-color:#ff5470;}
+  .field-error-msg{font-size:.76rem; color:#ff5470; margin-top:6px; display:none;}
+  .field.field-error .field-error-msg{display:block;}
+  .form-msg{font-size:.85rem; color:var(--amber); min-height:20px; display:flex; align-items:center; gap:8px;}
+  .form-msg.success{color:#7ee787;}
+  .form-msg.error{color:#ff5470;}
+  button[type="submit"]:disabled{opacity:.65; cursor:not-allowed;}
+  .btn .spinner{width:15px; height:15px; border-radius:50%; border:2px solid rgba(11,11,18,.3); border-top-color:#0b0b12; animation:spin .7s linear infinite; display:none;}
+  button[type="submit"].loading .spinner{display:inline-block;}
+  button[type="submit"].loading .btn-label{opacity:.7;}
+  @keyframes spin{to{transform:rotate(360deg);}}
 
   footer{padding:70px 6vw 34px; border-top:1px solid var(--line);}
   .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:50px; margin-bottom:60px; max-width:1360px; margin-left:auto; margin-right:auto;}
@@ -433,22 +497,23 @@
     .hero-photo-wrap{max-width:340px;}
     .about-grid{grid-template-columns:1fr;}
     .skills-grid{grid-template-columns:repeat(2,1fr);}
-    .skills-circles{grid-template-columns:repeat(2,1fr);}
+    .stack-groups{grid-template-columns:repeat(2,1fr);}
     .work-grid{grid-template-columns:1fr;}
     .contact-grid{grid-template-columns:1fr;}
     .footer-grid{grid-template-columns:1fr 1fr;}
-    .process-item{grid-template-columns:48px 1fr;}
+    .process-item{grid-template-columns:32px 48px 1fr;}
     .process-icon{width:44px;height:44px;font-size:1.05rem;border-radius:12px;}
     .process-item .phase{display:none;}
+    .exp-timeline{padding-left:26px;}
   }
   @media (max-width:720px){
     nav, .nav-cta{display:none;}
     .burger{display:block;}
-    .mobile-menu{position:fixed; inset:0; background:var(--bg); z-index:890; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:34px; transform:translateY(-100%); transition:transform .4s ease;}
+    .mobile-menu{position:fixed; inset:0; background:var(--bg); z-index:890; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:22px; transform:translateY(-100%); transition:transform .4s ease; overflow-y:auto; padding:80px 24px 40px;}
     .mobile-menu.open{transform:translateY(0);}
-    .mobile-menu a{font-family:var(--display); font-size:1.7rem;}
+    .mobile-menu a{font-family:var(--display); font-size:1.5rem;}
     .skills-grid{grid-template-columns:1fr;}
-    .skills-circles{grid-template-columns:repeat(2,1fr); gap:16px;}
+    .stack-groups{grid-template-columns:1fr;}
     .form-row{grid-template-columns:1fr;}
     section{padding:90px 6vw;}
     .testi-wrap{padding:34px 22px;}
@@ -458,7 +523,8 @@
     .chat-window{right:14px; bottom:96px; width:calc(100vw - 28px);}
     .chat-toggle{right:16px; bottom:16px;}
     .to-top{left:16px; bottom:16px;}
-    .stats{grid-template-columns:1fr 1fr;}
+    .stats{gap:20px 0;}
+    .stat{flex:1 1 40%; padding-right:16px; margin-right:16px;}
   }
 </style>
 </head>
@@ -468,38 +534,42 @@
 <div class="progress-bar" id="progressBar"></div>
 
 <header id="siteHeader">
-  <a href="index.html" class="logo" aria-label="Jaspreet Singh — Home">
+  <a href="#top" class="logo" aria-label="Jaspreet Singh — Home">
     <span class="logo-chip"><img src="logo.png" alt="Jaspreet Singh — Frontend Developer" class="logo-img"></span>
   </a>
   <nav>
-    <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="skills.html">Skills</a></li>
-      <li><a href="work.html">Work</a></li>
-      <li><a href="process.html">Process</a></li>
-      <li><a href="contact.html">Contact</a></li>
+    <ul id="navLinks">
+      <li><a href="#top" class="active" data-nav="top">Home</a></li>
+      <li><a href="#about" data-nav="about">About</a></li>
+      <li><a href="#experience" data-nav="experience">Experience</a></li>
+      <li><a href="#skills" data-nav="skills">Skills</a></li>
+      <li><a href="#work" data-nav="work">Work</a></li>
+      <li><a href="#process" data-nav="process">Process</a></li>
+      <li><a href="#testimonials" data-nav="testimonials">Testimonials</a></li>
+      <li><a href="#contact" data-nav="contact">Contact</a></li>
     </ul>
   </nav>
   <div class="header-right">
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme">
       <i class="fa-solid fa-moon" id="themeIcon"></i>
     </button>
-    <a href="contact.html" class="nav-cta">Let's Talk</a>
-    <div class="burger" id="burger"><i class="fa-solid fa-bars"></i></div>
+    <a href="#contact" class="nav-cta" id="navCta">Let's Talk</a>
+    <div class="burger" id="burger" role="button" tabindex="0" aria-label="Open menu"><i class="fa-solid fa-bars"></i></div>
   </div>
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html" class="active">Home</a>
-  <a href="about.html">About</a>
-  <a href="skills.html">Skills</a>
-  <a href="work.html">Work</a>
-  <a href="process.html">Process</a>
-  <a href="contact.html">Contact</a>
+  <a href="#top" class="active" data-nav="top">Home</a>
+  <a href="#about" data-nav="about">About</a>
+  <a href="#experience" data-nav="experience">Experience</a>
+  <a href="#skills" data-nav="skills">Skills</a>
+  <a href="#work" data-nav="work">Work</a>
+  <a href="#process" data-nav="process">Process</a>
+  <a href="#testimonials" data-nav="testimonials">Testimonials</a>
+  <a href="#contact" data-nav="contact">Contact</a>
 </div>
 
-<main>
+<main id="top">
 <!-- HERO -->
 <section class="hero">
   <div class="aurora"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
@@ -513,10 +583,12 @@
         <span class="line"><span class="word" style="--i:0">Hi,</span> <span class="word" style="--i:1">I'm</span> <span class="word" style="--i:2">Jaspreet.</span></span>
         <span class="line"><span class="word" style="--i:3">I</span> <span class="word" style="--i:4">build</span> <span class="word accent" style="--i:5">frontends</span> <span class="word" style="--i:6">that</span> <span class="word" style="--i:7">feel</span> <span class="word" style="--i:8">alive.</span></span>
       </h1>
+      <div class="hero-typed" aria-hidden="true"><span class="mono-pre">&gt;</span> <span id="heroTyped"></span><span class="hero-caret"></span></div>
       <p class="sub">Frontend developer specializing in fast, responsive, and beautifully animated web interfaces — turning designs into products that people actually enjoy using.</p>
       <div class="hero-actions">
-        <a href="work.html" class="btn btn-primary"><i class="fa-solid fa-code"></i> View My Work</a>
-        <a href="contact.html" class="btn btn-ghost"><i class="fa-solid fa-paper-plane"></i> Get In Touch</a>
+        <a href="#work" class="btn btn-primary magnetic"><i class="fa-solid fa-code"></i> View My Work</a>
+        <a href="#contact" class="btn btn-ghost magnetic"><i class="fa-solid fa-paper-plane"></i> Get In Touch</a>
+        <a href="resume.pdf" class="btn btn-ghost magnetic" download><i class="fa-solid fa-arrow-down-to-line"></i> Download Resume</a>
       </div>
       <div class="hero-tags">
         <span>HTML/CSS</span><span>JavaScript</span><span>React.js</span><span>WordPress</span><span>PHP</span><span>Figma</span>
@@ -566,10 +638,42 @@
       <p>I'm Jaspreet Singh, a frontend developer based in Punjab, India, with 1.5+ years of hands-on experience building modern, responsive web interfaces. I work across HTML, CSS, JavaScript and React, along with WordPress and PHP for CMS-driven and dynamic sites.</p>
       <p>I care about the details — the way a button responds to a click, how a page loads, how smooth a scroll feels. From Figma handoff to third-party API integrations, every project gets the same level of attention, from the first line of code to final deployment.</p>
       <div class="stats">
-        <div class="stat"><div class="num">20<span class="plus">+</span></div><div class="label">Projects Completed</div></div>
-        <div class="stat"><div class="num">1.5<span class="plus">+</span></div><div class="label">Years Experience</div></div>
-        <div class="stat"><div class="num">10<span class="plus">+</span></div><div class="label">Happy Clients</div></div>
+        <div class="stat"><div class="num" data-count-to="20"><span class="count">0</span><span class="plus">+</span></div><div class="label">Projects Completed</div></div>
+        <div class="stat"><div class="num" data-count-to="1.5" data-decimal="1"><span class="count">0</span><span class="plus">+</span></div><div class="label">Years Experience</div></div>
+        <div class="stat"><div class="num" data-count-to="10"><span class="count">0</span><span class="plus">+</span></div><div class="label">Happy Clients</div></div>
       </div>
+      <div class="care-list">
+        <span><i class="fa-solid fa-bolt"></i> Performance</span>
+        <span><i class="fa-solid fa-universal-access"></i> Accessibility</span>
+        <span><i class="fa-solid fa-mobile-screen"></i> Responsive Design</span>
+        <span><i class="fa-solid fa-code"></i> Clean Code</span>
+        <span><i class="fa-solid fa-face-smile"></i> User Experience</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="section-head reveal">
+    <div class="kicker">Career So Far</div>
+    <h2>Experience Timeline</h2>
+    <p>A short, honest timeline — updated as it grows.</p>
+  </div>
+  <div class="exp-timeline reveal-stagger">
+    <div class="exp-item">
+      <div class="exp-year">2024 — Present</div>
+      <h3>Freelance Frontend Developer</h3>
+      <div class="exp-company">Self-employed · Remote, Punjab, India</div>
+      <p>Designing and building responsive websites, landing pages and small web apps for independent clients — covering everything from Figma handoff to deployment, API integration, and post-launch support.</p>
+      <div class="exp-tech"><span>HTML/CSS</span><span>JavaScript</span><span>React.js</span><span>WordPress</span><span>PHP</span></div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-year">2023 — 2024</div>
+      <h3>Frontend Development — Self-Directed Learning &amp; Projects</h3>
+      <div class="exp-company">Independent study &amp; practice projects</div>
+      <p>Built a portfolio of practice projects (task managers, dashboards, editor tools) to move from fundamentals into component-driven, interactive frontend development and real API integrations.</p>
+      <div class="exp-tech"><span>HTML/CSS</span><span>JavaScript</span><span>Figma</span><span>Git</span></div>
     </div>
   </div>
 </section>
@@ -584,61 +688,35 @@
   <div class="skills-grid reveal-stagger" style="margin-bottom:60px;">
     <div class="card"><i class="fa-brands fa-html5 card-icon"></i><h3>HTML, CSS &amp; JS</h3><p>Semantic, accessible markup and modern CSS/JS fundamentals behind every build.</p></div>
     <div class="card"><i class="fa-brands fa-react card-icon"></i><h3>React.js</h3><p>Building component-driven, interactive web apps with clean, reusable architecture.</p></div>
-    <div class="card"><i class="fa-brands fa-wordpress card-icon"></i><h3>WordPress Development</h3><p>Custom themes, page builders, and CMS-driven sites clients can manage themselves.</p></div>
-    <div class="card"><i class="fa-brands fa-php card-icon"></i><h3>PHP</h3><p>Server-side logic, form handling, and dynamic functionality for WordPress and custom sites.</p></div>
     <div class="card"><i class="fa-brands fa-figma card-icon"></i><h3>Figma to Code</h3><p>Turning Figma designs into pixel-perfect, responsive interfaces that match intent exactly.</p></div>
     <div class="card"><i class="fa-solid fa-plug card-icon"></i><h3>Third-Party Integrations</h3><p>Connecting sites to APIs, payment gateways, CRMs, and other external services.</p></div>
     <div class="card"><i class="fa-solid fa-mobile-screen card-icon"></i><h3>Responsive Development</h3><p>Interfaces that work flawlessly across mobile, tablet and desktop — no exceptions.</p></div>
     <div class="card"><i class="fa-solid fa-gauge-high card-icon"></i><h3>Performance &amp; SEO</h3><p>Fast load times, optimized assets, and clean code built for strong search visibility.</p></div>
   </div>
-  <svg width="0" height="0" style="position:absolute;">
-    <defs>
-      <linearGradient id="circleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="var(--violet)"></stop>
-        <stop offset="100%" stop-color="var(--amber)"></stop>
-      </linearGradient>
-    </defs>
-  </svg>
-  <div class="skills-circles reveal-stagger">
-    <div class="circle-item">
-      <div class="circle-ring">
-        <svg viewBox="0 0 118 118">
-          <circle class="circle-bg" cx="59" cy="59" r="52"></circle>
-          <circle class="circle-progress" cx="59" cy="59" r="52" data-p="92"></circle>
-        </svg>
-        <div class="circle-percent" data-count="0">0%</div>
+  <div class="stack-groups reveal-stagger">
+    <div class="stack-group">
+      <div class="stack-group-label">Frontend</div>
+      <div class="stack-tags">
+        <div class="stack-tag"><span class="stack-name"><i class="fa-brands fa-html5"></i>HTML5</span><span class="proficiency core">Core</span></div>
+        <div class="stack-tag"><span class="stack-name"><i class="fa-brands fa-css3-alt"></i>CSS3</span><span class="proficiency core">Core</span></div>
+        <div class="stack-tag"><span class="stack-name"><i class="fa-brands fa-js"></i>JavaScript</span><span class="proficiency core">Core</span></div>
+        <div class="stack-tag"><span class="stack-name"><i class="fa-brands fa-react"></i>React.js</span><span class="proficiency strong">Strong</span></div>
       </div>
-      <div class="circle-label">HTML5 / CSS3</div>
     </div>
-    <div class="circle-item">
-      <div class="circle-ring">
-        <svg viewBox="0 0 118 118">
-          <circle class="circle-bg" cx="59" cy="59" r="52"></circle>
-          <circle class="circle-progress" cx="59" cy="59" r="52" data-p="85"></circle>
-        </svg>
-        <div class="circle-percent" data-count="0">0%</div>
+    <div class="stack-group">
+      <div class="stack-group-label">Design</div>
+      <div class="stack-tags">
+        <div class="stack-tag"><span class="stack-name"><i class="fa-brands fa-figma"></i>Figma</span><span class="proficiency strong">Strong</span></div>
+        <div class="stack-tag"><span class="stack-name"><i class="fa-solid fa-pen-ruler"></i>UI/UX</span><span class="proficiency strong">Strong</span></div>
       </div>
-      <div class="circle-label">JavaScript / React.js</div>
     </div>
-    <div class="circle-item">
-      <div class="circle-ring">
-        <svg viewBox="0 0 118 118">
-          <circle class="circle-bg" cx="59" cy="59" r="52"></circle>
-          <circle class="circle-progress" cx="59" cy="59" r="52" data-p="80"></circle>
-        </svg>
-        <div class="circle-percent" data-count="0">0%</div>
+    <div class="stack-group">
+      <div class="stack-group-label">Tools</div>
+      <div class="stack-tags">
+        <div class="stack-tag"><span class="stack-name"><i class="fa-brands fa-git-alt"></i>Git &amp; GitHub</span><span class="proficiency strong">Strong</span></div>
+        <div class="stack-tag"><span class="stack-name"><i class="fa-solid fa-plug"></i>REST APIs</span><span class="proficiency strong">Strong</span></div>
+        <div class="stack-tag"><span class="stack-name"><i class="fa-solid fa-mobile-screen"></i>Responsive Design</span><span class="proficiency core">Core</span></div>
       </div>
-      <div class="circle-label">WordPress / PHP</div>
-    </div>
-    <div class="circle-item">
-      <div class="circle-ring">
-        <svg viewBox="0 0 118 118">
-          <circle class="circle-bg" cx="59" cy="59" r="52"></circle>
-          <circle class="circle-progress" cx="59" cy="59" r="52" data-p="88"></circle>
-        </svg>
-        <div class="circle-percent" data-count="0">0%</div>
-      </div>
-      <div class="circle-label">Figma / UI Implementation</div>
     </div>
   </div>
 </section>
@@ -650,28 +728,35 @@
     <h2>Recent Projects</h2>
     <p>A few projects that reflect how I think about interfaces and interaction.</p>
   </div>
-  <div class="work-grid reveal-stagger">
-    <div class="work-item" data-project="taskflow" role="button" tabindex="0">
+  <div class="work-filters reveal" id="workFilters">
+    <button class="work-filter active" data-filter="all">All</button>
+    <button class="work-filter" data-filter="frontend">Frontend</button>
+    <button class="work-filter" data-filter="api">API</button>
+    <button class="work-filter" data-filter="uiux">UI/UX</button>
+    <button class="work-filter" data-filter="ai">AI</button>
+  </div>
+  <div class="work-grid reveal-stagger" id="workGrid">
+    <div class="work-item" data-project="taskflow" data-category="frontend uiux" role="button" tabindex="0">
       <div class="thumb" style="background-image:linear-gradient(rgba(11,11,18,.15), rgba(11,11,18,.5)), url('https://images.pexels.com/photos/7947541/pexels-photo-7947541.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size:cover; background-position:center;"></div>
       <div class="arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
       <div class="overlay"><div class="tag">Productivity · Web App</div><h3>TaskFlow</h3><p>Drag-and-drop kanban task manager, built with vanilla JS. Click to try it live.</p></div>
     </div>
-    <div class="work-item" data-project="weathernow" role="button" tabindex="0">
+    <div class="work-item" data-project="weathernow" data-category="frontend api" role="button" tabindex="0">
       <div class="thumb" style="background-image:linear-gradient(rgba(11,11,18,.15), rgba(11,11,18,.5)), url('https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size:cover; background-position:center;"></div>
       <div class="arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
       <div class="overlay"><div class="tag">API Integration</div><h3>WeatherNow</h3><p>Live weather dashboard with city search and geolocation. Real data, click to try.</p></div>
     </div>
-    <div class="work-item" data-project="pulsetrack" role="button" tabindex="0">
+    <div class="work-item" data-project="pulsetrack" data-category="frontend" role="button" tabindex="0">
       <div class="thumb" style="background-image:linear-gradient(rgba(11,11,18,.15), rgba(11,11,18,.5)), url('https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size:cover; background-position:center;"></div>
       <div class="arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
       <div class="overlay"><div class="tag">Finance · Dashboard</div><h3>PulseTrack</h3><p>Expense tracker with a live canvas chart and local persistence.</p></div>
     </div>
-    <div class="work-item" data-project="markstudio" role="button" tabindex="0">
+    <div class="work-item" data-project="markstudio" data-category="frontend uiux" role="button" tabindex="0">
       <div class="thumb" style="background-image:linear-gradient(rgba(11,11,18,.15), rgba(11,11,18,.5)), url('https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size:cover; background-position:center;"></div>
       <div class="arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
       <div class="overlay"><div class="tag">Editor Tool</div><h3>MarkStudio</h3><p>Split-pane live markdown editor with instant preview and export.</p></div>
     </div>
-    <div class="work-item" id="aiCallerCard">
+    <div class="work-item" id="aiCallerCard" data-category="ai" role="button" tabindex="0">
       <div class="thumb" style="background-image:linear-gradient(rgba(11,11,18,.15), rgba(11,11,18,.55)), url('https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size:cover; background-position:center;"></div>
       <div class="arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
       <div class="overlay"><div class="tag">AI · Live Demo</div><h3>AI Caller</h3><p>Talk to an AI on any topic — replies in Punjabi or English. Click to try it live.</p></div>
@@ -684,13 +769,15 @@
   <div class="section-head reveal">
     <div class="kicker">How I Work</div>
     <h2>My Process</h2>
-    <p>Four clear phases, kept the same for every project so nothing gets lost.</p>
+    <p>Six clear phases, kept the same for every project so nothing gets lost.</p>
   </div>
   <div class="process-list reveal">
-    <div class="process-item"><div class="process-icon"><i class="fa-solid fa-magnifying-glass"></i></div><div><h3>Discover</h3><p>Understanding the goal, the users, and what "done well" looks like.</p></div><div class="phase">Day 1-2</div></div>
-    <div class="process-item"><div class="process-icon"><i class="fa-solid fa-code"></i></div><div><h3>Build</h3><p>Component-driven development with regular checkpoints and previews.</p></div><div class="phase">Week 1-2</div></div>
-    <div class="process-item"><div class="process-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div><div><h3>Refine</h3><p>Polishing animation, responsiveness, performance and edge cases.</p></div><div class="phase">Week 3</div></div>
-    <div class="process-item"><div class="process-icon"><i class="fa-solid fa-rocket"></i></div><div><h3>Ship</h3><p>Deployment, testing, and a short handover so you're never stuck.</p></div><div class="phase">Week 4</div></div>
+    <div class="process-item"><div class="process-num">01</div><div class="process-icon"><i class="fa-solid fa-magnifying-glass"></i></div><div><h3>Discover</h3><p>Understanding the goal, the users, and what "done well" looks like.</p></div><div class="phase">Day 1-2</div></div>
+    <div class="process-item"><div class="process-num">02</div><div class="process-icon"><i class="fa-solid fa-list-check"></i></div><div><h3>Plan</h3><p>Mapping structure, content and scope before any pixel is placed.</p></div><div class="phase">Day 2-3</div></div>
+    <div class="process-item"><div class="process-num">03</div><div class="process-icon"><i class="fa-solid fa-pen-ruler"></i></div><div><h3>Design</h3><p>Wireframes and visual direction, refined against real content.</p></div><div class="phase">Week 1</div></div>
+    <div class="process-item"><div class="process-num">04</div><div class="process-icon"><i class="fa-solid fa-code"></i></div><div><h3>Develop</h3><p>Component-driven development with regular checkpoints and previews.</p></div><div class="phase">Week 1-2</div></div>
+    <div class="process-item"><div class="process-num">05</div><div class="process-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div><div><h3>Test</h3><p>Checking responsiveness, performance, accessibility and edge cases.</p></div><div class="phase">Week 3</div></div>
+    <div class="process-item"><div class="process-num">06</div><div class="process-icon"><i class="fa-solid fa-rocket"></i></div><div><h3>Launch</h3><p>Deployment and a short handover so you're never stuck afterward.</p></div><div class="phase">Week 4</div></div>
   </div>
 </section>
 
@@ -735,7 +822,7 @@
     <div class="contact-info reveal">
       <div class="kicker">Get In Touch</div>
       <h2 style="font-family:var(--display); font-weight:700; font-size:clamp(1.8rem,3.4vw,2.5rem); margin-bottom:26px;">Let's build something great together.</h2>
-      <div class="info-row"><i class="fa-solid fa-envelope"></i> jassp708737@gmail.com</div>
+      <div class="info-row"><i class="fa-solid fa-envelope"></i> jassp708737@gmail.com <button type="button" class="copy-email-btn" id="copyEmailBtn" aria-label="Copy email address"><i class="fa-regular fa-copy"></i></button></div>
       <div class="info-row"><i class="fa-solid fa-phone"></i> +91 81960 02784</div>
       <div class="info-row"><i class="fa-solid fa-location-dot"></i> Punjab, India</div>
       <div class="socials">
@@ -747,15 +834,15 @@
       </div>
     </div>
     <div class="reveal">
-      <form class="contact-form" id="contactForm">
+      <form class="contact-form" id="contactForm" novalidate>
         <div class="form-row">
-          <div class="field"><input type="text" id="cName" placeholder=" " required><label>Your Name</label></div>
-          <div class="field"><input type="email" id="cEmail" placeholder=" " required><label>Email Address</label></div>
+          <div class="field" id="fieldName"><input type="text" id="cName" placeholder=" " required><label>Your Name</label><div class="field-error-msg">Please enter your name.</div></div>
+          <div class="field" id="fieldEmail"><input type="email" id="cEmail" placeholder=" " required><label>Email Address</label><div class="field-error-msg">Please enter a valid email address.</div></div>
         </div>
         <div class="field"><input type="text" id="cSubject" placeholder=" "><label>Subject</label></div>
-        <div class="field"><textarea id="cMessage" placeholder=" " required></textarea><label>Message</label></div>
-        <button type="submit" class="btn btn-primary" style="justify-content:center;"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
-        <div class="form-msg" id="formMsg"></div>
+        <div class="field" id="fieldMessage"><textarea id="cMessage" placeholder=" " required minlength="10"></textarea><label>Message</label><div class="field-error-msg">Message should be at least 10 characters.</div></div>
+        <button type="submit" class="btn btn-primary" style="justify-content:center;" id="submitBtn"><span class="spinner"></span><i class="fa-solid fa-paper-plane"></i> <span class="btn-label">Send Message</span></button>
+        <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
       </form>
     </div>
   </div>
@@ -769,13 +856,13 @@
       </div>
       <p>Frontend developer crafting fast, responsive, and thoughtfully animated web experiences.</p>
     </div>
-    <div class="footer-col"><h4>Navigate</h4><a href="about.html">About</a><a href="work.html">Work</a><a href="process.html">Process</a><a href="contact.html">Contact</a></div>
-    <div class="footer-col"><h4>Connect</h4><a href="#">GitHub</a><a href="https://www.linkedin.com/in/jaspreet-singh-49abb8314" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/jaspreet.dhiman__" target="_blank" rel="noopener">Instagram</a><a href="#">Twitter</a></div>
+    <div class="footer-col"><h4>Navigate</h4><a href="#about">About</a><a href="#skills">Skills</a><a href="#work">Work</a><a href="#process">Process</a><a href="#contact">Contact</a></div>
+    <div class="footer-col"><h4>Connect</h4><a href="#" onclick="return false;">GitHub</a><a href="https://www.linkedin.com/in/jaspreet-singh-49abb8314" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/jaspreet.dhiman__" target="_blank" rel="noopener">Instagram</a><a href="#" onclick="return false;">Twitter</a></div>
   </div>
   <div class="footer-privacy">This site logs basic visit analytics (approximate location from IP, referrer, device/browser) to notify the site owner of new visitors. No cookies, no ads, no third-party sharing.</div>
   <div class="footer-bottom">
-    <span>© 2026 JASPREET SINGH. ALL RIGHTS RESERVED.</span>
-    <span>BUILT WITH <i class="fa-solid fa-heart" style="color:var(--amber);"></i> AND CODE</span>
+    <span>© <span id="footerYear">2026</span> JASPREET SINGH. ALL RIGHTS RESERVED.</span>
+    <span>DESIGNED &amp; BUILT BY JASPREET SINGH</span>
   </div>
 </footer>
 
@@ -865,17 +952,28 @@ document.querySelectorAll('a, button, .card, .work-item').forEach(el=>{
   el.addEventListener('mouseleave', ()=>ring.classList.remove('active'));
 });
 
-/* progress + header */
+/* progress + header (with subtle hide-on-scroll-down / show-on-scroll-up) */
 const progressBar = document.getElementById('progressBar');
 const header = document.getElementById('siteHeader');
 const toTop = document.getElementById('toTop');
+let lastScrollY = window.scrollY;
 window.addEventListener('scroll', ()=>{
   const h = document.documentElement;
   const scrolled = (h.scrollTop)/(h.scrollHeight-h.clientHeight)*100;
   progressBar.style.width = scrolled+'%';
   header.classList.toggle('scrolled', h.scrollTop>40);
   toTop.classList.toggle('show', h.scrollTop>600);
-});
+  const y = window.scrollY;
+  if(!mobileMenuIsOpen()){
+    if(y > lastScrollY && y > 160){ header.classList.add('hide'); }
+    else { header.classList.remove('hide'); }
+  }
+  lastScrollY = y;
+}, { passive:true });
+function mobileMenuIsOpen(){
+  const mm = document.getElementById('mobileMenu');
+  return mm && mm.classList.contains('open');
+}
 toTop.addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
 
 /* welcome toast — greets first-time visitors on load */
@@ -904,27 +1002,29 @@ mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
   burger.innerHTML='<i class="fa-solid fa-bars"></i>';
 }));
 
-/* scroll reveal + skill bars */
+/* scroll reveal + animated stat counters */
 const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
 const io = new IntersectionObserver((entries)=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){
       entry.target.classList.add('in');
-      if(entry.target.querySelector('.circle-progress')){
-        entry.target.querySelectorAll('.circle-item').forEach(item=>{
-          const ring = item.querySelector('.circle-progress');
-          const label = item.querySelector('.circle-percent');
-          const pct = parseInt(ring.dataset.p, 10);
-          const circumference = 326.7;
-          ring.style.strokeDashoffset = circumference - (pct/100)*circumference;
-          let cur = 0;
-          const step = Math.max(1, Math.round(pct/40));
-          const stepMs = 1500 / (pct/step);
-          const tick = setInterval(()=>{
-            cur += step;
-            if(cur >= pct){ cur = pct; clearInterval(tick); }
-            label.textContent = cur+'%';
-          }, stepMs);
+      if(entry.target.querySelector('[data-count-to]')){
+        entry.target.querySelectorAll('[data-count-to]').forEach(numEl=>{
+          const target = parseFloat(numEl.dataset.countTo);
+          const decimals = parseInt(numEl.dataset.decimal || '0', 10);
+          const countSpan = numEl.querySelector('.count');
+          if(!countSpan) return;
+          const duration = 1400;
+          const startTime = performance.now();
+          function tick(now){
+            const progress = Math.min(1, (now - startTime) / duration);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const val = target * eased;
+            countSpan.textContent = decimals ? val.toFixed(decimals) : Math.round(val);
+            if(progress < 1) requestAnimationFrame(tick);
+            else countSpan.textContent = decimals ? target.toFixed(decimals) : target;
+          }
+          requestAnimationFrame(tick);
         });
       }
       io.unobserve(entry.target);
@@ -932,6 +1032,90 @@ const io = new IntersectionObserver((entries)=>{
   });
 },{threshold:0.15});
 revealEls.forEach(el=>io.observe(el));
+
+/* active nav-link highlighting based on scroll position */
+(function(){
+  const navLinks = document.querySelectorAll('#navLinks a, .mobile-menu a');
+  const sections = ['about','experience','skills','work','process','testimonials','contact']
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+  if(!sections.length) return;
+  function setActive(name){
+    navLinks.forEach(a => a.classList.toggle('active', a.dataset.nav === name));
+  }
+  const navObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+  sections.forEach(sec => navObserver.observe(sec));
+  window.addEventListener('scroll', ()=>{
+    if(document.documentElement.scrollTop < 200) setActive('top');
+  }, { passive:true });
+})();
+
+/* magnetic buttons — subtle pull toward cursor, disabled on touch/reduced-motion */
+(function(){
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isTouch = window.matchMedia('(hover:none), (pointer:coarse)').matches;
+  if(prefersReduced || isTouch) return;
+  document.querySelectorAll('.magnetic, .nav-cta').forEach(btn=>{
+    btn.addEventListener('mousemove', e=>{
+      const r = btn.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width/2;
+      const y = e.clientY - r.top - r.height/2;
+      btn.style.transform = `translate(${x*0.18}px, ${y*0.3}px)`;
+    });
+    btn.addEventListener('mouseleave', ()=>{ btn.style.transform = ''; });
+  });
+})();
+
+/* work project filters */
+(function(){
+  const filterWrap = document.getElementById('workFilters');
+  const grid = document.getElementById('workGrid');
+  if(!filterWrap || !grid) return;
+  const items = grid.querySelectorAll('.work-item');
+  filterWrap.addEventListener('click', e=>{
+    const btn = e.target.closest('.work-filter');
+    if(!btn) return;
+    filterWrap.querySelectorAll('.work-filter').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    items.forEach(item=>{
+      const cats = (item.dataset.category || '').split(' ');
+      const show = filter === 'all' || cats.includes(filter);
+      item.classList.toggle('hidden', !show);
+    });
+  });
+})();
+
+/* copy email button */
+(function(){
+  const btn = document.getElementById('copyEmailBtn');
+  if(!btn) return;
+  btn.addEventListener('click', async ()=>{
+    try{
+      await navigator.clipboard.writeText('jassp708737@gmail.com');
+      btn.classList.add('copied');
+      btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+      setTimeout(()=>{ btn.classList.remove('copied'); btn.innerHTML = '<i class="fa-regular fa-copy"></i>'; }, 1800);
+    }catch(err){ /* clipboard unavailable — silently ignore */ }
+  });
+})();
+
+/* footer year */
+(function(){
+  const y = document.getElementById('footerYear');
+  if(y) y.textContent = new Date().getFullYear();
+})();
+
+/* AI Caller card — keyboard accessibility (Enter opens it, matching the project-modal cards) */
+(function(){
+  const aiCard = document.getElementById('aiCallerCard');
+  if(!aiCard) return;
+  aiCard.addEventListener('keypress', e=>{ if(e.key === 'Enter') aiCard.click(); });
+})();
 
 /* particle background — only present on the Home page hero */
 const canvas = document.getElementById('particles');
@@ -967,6 +1151,37 @@ if(canvas){
   window.addEventListener('resize', ()=>{resizeCanvas(); initParticles();});
   resizeCanvas(); initParticles(); drawParticles();
 }
+
+/* hero typed-role animation — cycles through role titles like a terminal typing */
+(function(){
+  const el = document.getElementById('heroTyped');
+  if(!el) return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const roles = ['Frontend Developer', 'React Developer', 'WordPress Developer', 'UI/UX Focused Engineer'];
+  if(prefersReduced){ el.textContent = roles[0]; return; }
+  let roleIndex = 0, charIndex = 0, deleting = false;
+  function tick(){
+    const current = roles[roleIndex];
+    if(!deleting){
+      charIndex++;
+      el.textContent = current.slice(0, charIndex);
+      if(charIndex === current.length){
+        deleting = true;
+        setTimeout(tick, 1600);
+        return;
+      }
+    } else {
+      charIndex--;
+      el.textContent = current.slice(0, charIndex);
+      if(charIndex === 0){
+        deleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+      }
+    }
+    setTimeout(tick, deleting ? 35 : 65);
+  }
+  tick();
+})();
 
 /* hero card-stack slider — only present on the Home page hero */
 (function(){
@@ -1075,20 +1290,46 @@ const NOTIFY_EMAIL = "jassp708737@gmail.com";
    ============================================================ */
 const NTFY_TOPIC = "jaspreet-portfolio-hits-93kd2";
 
-/* contact form — only present on the Contact page */
+/* contact form — validation + loading/success/error states */
 const contactForm = document.getElementById('contactForm');
 if(contactForm){
   const formMsg = document.getElementById('formMsg');
+  const submitBtn = document.getElementById('submitBtn');
+  const btnLabel = submitBtn.querySelector('.btn-label');
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function setFieldError(fieldId, hasError){
+    const field = document.getElementById(fieldId);
+    if(field) field.classList.toggle('field-error', hasError);
+  }
+  function validateForm(name, email, message){
+    let valid = true;
+    if(!name){ setFieldError('fieldName', true); valid = false; } else setFieldError('fieldName', false);
+    if(!email || !emailRe.test(email)){ setFieldError('fieldEmail', true); valid = false; } else setFieldError('fieldEmail', false);
+    if(!message || message.length < 10){ setFieldError('fieldMessage', true); valid = false; } else setFieldError('fieldMessage', false);
+    return valid;
+  }
+
   contactForm.addEventListener('submit', async function(e){
     e.preventDefault();
     const name = document.getElementById('cName').value.trim();
     const email = document.getElementById('cEmail').value.trim();
     const subject = document.getElementById('cSubject').value.trim() || 'New message from portfolio site';
     const message = document.getElementById('cMessage').value.trim();
-    if(!name || !email || !message){ formMsg.textContent = 'Please fill in all required fields.'; return; }
+
+    formMsg.className = 'form-msg';
+    if(!validateForm(name, email, message)){
+      formMsg.classList.add('error');
+      formMsg.textContent = 'Please fix the highlighted fields above.';
+      return;
+    }
+
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+    if(btnLabel) btnLabel.textContent = 'Sending...';
+    formMsg.textContent = '';
 
     if(WEB3FORMS_ACCESS_KEY && WEB3FORMS_ACCESS_KEY !== "YOUR_WEB3FORMS_ACCESS_KEY"){
-      formMsg.textContent = 'Sending...';
       try{
         const res = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
@@ -1101,20 +1342,28 @@ if(contactForm){
         });
         const data = await res.json();
         if(data.success){
-          formMsg.textContent = 'Thanks — your message has been sent. I\'ll reply within 24 hours!';
+          formMsg.classList.add('success');
+          formMsg.innerHTML = '<i class="fa-solid fa-circle-check"></i> Thanks — your message has been sent. I\'ll reply within 24 hours!';
           contactForm.reset();
         } else {
-          formMsg.textContent = 'Something went wrong. Please try again or email directly.';
+          formMsg.classList.add('error');
+          formMsg.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Something went wrong. Please try again or email directly.';
         }
       } catch(err){
-        formMsg.textContent = 'Network error — please try again or email directly.';
+        formMsg.classList.add('error');
+        formMsg.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Network error — please try again or email directly.';
       }
     } else {
       const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
       window.location.href = `mailto:${NOTIFY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${body}`;
-      formMsg.textContent = 'Your email app is opening — just hit send. Thanks for reaching out!';
+      formMsg.classList.add('success');
+      formMsg.innerHTML = '<i class="fa-solid fa-circle-check"></i> Your email app is opening — just hit send. Thanks for reaching out!';
       contactForm.reset();
     }
+
+    submitBtn.classList.remove('loading');
+    submitBtn.disabled = false;
+    if(btnLabel) btnLabel.textContent = 'Send Message';
   });
 }
 
