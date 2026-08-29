@@ -6,8 +6,8 @@
 <title>Jaspreet Singh — Frontend Developer</title>
 <meta name="description" content="Portfolio of Jaspreet Singh, a frontend developer crafting clean, fast, and delightful web experiences with HTML, CSS, JavaScript, React, Figma & WordPress.">
 
-<!-- IMPORTANT: replace https://your-domain-here.com/ below with your real deployed URL once you know it (see chat for details) -->
-<link rel="canonical" href="https://your-domain-here.com/">
+<!-- IMPORTANT: replace https://jaspreetsinghdhiman.github.io/ below with your real deployed URL once you know it (see chat for details) -->
+<link rel="canonical" href="https://jaspreetsinghdhiman.github.io/">
 
 <link rel="icon" type="image/png" href="./favicon.png">
 <link rel="apple-touch-icon" href="./favicon.png">
@@ -18,15 +18,15 @@
 <meta property="og:site_name" content="Jaspreet Singh — Portfolio">
 <meta property="og:title" content="Jaspreet Singh — Frontend Developer">
 <meta property="og:description" content="Portfolio of Jaspreet Singh, a frontend developer crafting clean, fast, and delightful web experiences with HTML, CSS, JavaScript, React, Figma & WordPress.">
-<meta property="og:url" content="https://your-domain-here.com/">
-<meta property="og:image" content="https://your-domain-here.com/og-image.png">
+<meta property="og:url" content="https://jaspreetsinghdhiman.github.io/">
+<meta property="og:image" content="https://jaspreetsinghdhiman.github.io/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Jaspreet Singh — Frontend Developer">
 <meta name="twitter:description" content="Portfolio of Jaspreet Singh, a frontend developer crafting clean, fast, and delightful web experiences.">
-<meta name="twitter:image" content="https://your-domain-here.com/og-image.png">
+<meta name="twitter:image" content="https://jaspreetsinghdhiman.github.io/og-image.png">
 
 <script type="application/ld+json">
 {
@@ -34,7 +34,7 @@
   "@type": "Person",
   "name": "Jaspreet Singh",
   "jobTitle": "Frontend Developer",
-  "url": "https://your-domain-here.com/",
+  "url": "https://jaspreetsinghdhiman.github.io/",
   "email": "mailto:jassp708737@gmail.com",
   "knowsAbout": ["HTML", "CSS", "JavaScript", "React", "Figma", "WordPress"]
 }
@@ -171,6 +171,16 @@
   .logo{
     display:flex;align-items:center;flex-shrink:0;
   }
+  .logo img{
+    display:block;
+    width:150px;
+    height:auto;
+    max-height:48px;
+    object-fit:contain;
+  }
+  .logo-dark{display:none!important;}
+  [data-theme="dark"] .logo-light{display:none!important;}
+  [data-theme="dark"] .logo-dark{display:block!important;}
   nav.links{display:flex;align-items:center;gap:4px;}
   nav.links a{
     position:relative;margin:9px 16px;font-size:.94rem;font-weight:500;color:var(--ink-soft);border-radius:999px;transition:color .25s ease, background .25s ease;
@@ -795,7 +805,10 @@
 <body>
   <header class="nav">
     <div class="nav-inner">
-      <a href="#home" class="logo" data-nav="home" style="text-decoration:none;font-family:var(--font-display);font-size:1.05rem;font-weight:700;letter-spacing:-.02em;white-space:nowrap;flex-shrink:0;"><span style="background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;">Jaspreet</span><span style="color:var(--ink-soft);font-weight:400;"> Singh</span></a>
+      <a href="#home" class="logo" data-nav="home" aria-label="Jaspreet Singh — Frontend Developer">
+        <img class="logo-light" src="./logo.png" alt="Jaspreet Singh — Frontend Developer">
+        <img class="logo-dark" src="./logo-dark.png" alt="Jaspreet Singh — Frontend Developer">
+      </a>
       <nav class="links" id="navLinks">
         <a href="#home" data-nav="home">Home</a>
         <a href="#about" data-nav="about">About</a>
