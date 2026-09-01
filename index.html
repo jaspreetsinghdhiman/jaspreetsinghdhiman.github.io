@@ -116,7 +116,7 @@
     --radius-sm:10px;
     --radius-md:16px;
     --radius-lg:26px;
-    --maxw:1180px;
+    --maxw:1400px;
     --nav-h:76px;
   }
 
@@ -1112,42 +1112,101 @@ footer{padding-top:68px;}
 
       <div class="wrap section" style="padding-top:0;" id="testimonialsSection">
         <div class="section-head reveal">
-          <div class="eyebrow">client words</div>
-          <h2>What people say</h2>
-          <p>A few notes from people I've worked with — the kind of feedback that keeps me building this way.</p>
+          <div class="eyebrow">my approach</div>
+          <h2>How I think about building</h2>
+          <p>Good code is just the baseline. Here's what I actually care about when I sit down to build something.</p>
         </div>
-        <div class="testimonial-slider">
-          <div class="testimonial-track" id="testimonialTrack">
-            <div class="testimonial-card reveal">
-              <div class="stars">★★★★★</div>
-              <p class="testimonial-quote">Turned our outdated site into something that actually feels premium. The animations are smooth and never in the way.</p>
-              <div class="testimonial-person">
-                <div class="testimonial-avatar" style="background:linear-gradient(135deg,#2563EB,#38BDF8);">RS</div>
-                <div><h4>Ritika Sharma</h4><span>Founder, Loom & Co.</span></div>
-              </div>
+
+        <style>
+          .philosophy-grid{
+            display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+          }
+          .phil-card{
+            background:var(--surface);border:1px solid var(--border);
+            border-radius:var(--radius-md);padding:28px 24px;
+            position:relative;overflow:hidden;
+            transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+          }
+          .phil-card::before{
+            content:"";position:absolute;inset:0;
+            background:linear-gradient(135deg,var(--accent-soft),transparent 60%);
+            opacity:0;transition:opacity .3s ease;
+          }
+          .phil-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--accent);}
+          .phil-card:hover::before{opacity:1;}
+          .phil-icon{
+            width:48px;height:48px;border-radius:14px;margin-bottom:18px;
+            background:linear-gradient(135deg,var(--accent),var(--accent-2));
+            display:flex;align-items:center;justify-content:center;
+            font-size:1.4rem;flex:none;
+          }
+          .phil-card h4{font-size:1.05rem;margin-bottom:10px;color:var(--ink);}
+          .phil-card p{font-size:.88rem;line-height:1.65;margin:0;color:var(--ink-soft);}
+          .phil-quote{
+            margin-top:14px;padding-top:14px;border-top:1px solid var(--border);
+            font-family:var(--font-mono);font-size:.74rem;color:var(--accent);
+            font-style:italic;
+          }
+          @media(max-width:980px){.philosophy-grid{grid-template-columns:repeat(2,1fr);}}
+          @media(max-width:600px){.philosophy-grid{grid-template-columns:1fr;}}
+        </style>
+
+        <div class="philosophy-grid">
+
+          <div class="phil-card reveal">
+            <div class="phil-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
             </div>
-            <div class="testimonial-card reveal">
-              <div class="stars">★★★★★</div>
-              <p class="testimonial-quote">Extremely reliable and detail-oriented. Every component was pixel-perfect and the site performs beautifully on mobile.</p>
-              <div class="testimonial-person">
-                <div class="testimonial-avatar" style="background:linear-gradient(135deg,#0EA972,#38BDF8);">KM</div>
-                <div><h4>Karan Mehta</h4><span>CEO, Pulse Clinic</span></div>
-              </div>
-            </div>
-            <div class="testimonial-card reveal">
-              <div class="stars">★★★★★</div>
-              <p class="testimonial-quote">Great communication throughout and delivered exactly on schedule. Would work together again without hesitation.</p>
-              <div class="testimonial-person">
-                <div class="testimonial-avatar" style="background:linear-gradient(135deg,#F59E0B,#EF4444);">AV</div>
-                <div><h4>Anjali Verma</h4><span>Product Lead, Orbit Analytics</span></div>
-              </div>
-            </div>
+            <h4>Design is not decoration</h4>
+            <p>Every spacing decision, color choice, and animation has a reason. I don't add things because they look cool — I add them because they make the experience clearer or more enjoyable.</p>
+            <div class="phil-quote">"If in doubt, cut it out."</div>
           </div>
-          <div class="slider-controls">
-            <button class="slider-arrow" id="testimonialPrev" aria-label="Previous testimonial">‹</button>
-            <div class="slider-dots" id="testimonialDots"></div>
-            <button class="slider-arrow" id="testimonialNext" aria-label="Next testimonial">›</button>
+
+          <div class="phil-card reveal">
+            <div class="phil-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h4>Speed is a feature</h4>
+            <p>A beautiful site that loads in 5 seconds is a bad site. Performance isn't an afterthought — it's baked into how I write CSS, optimize images, and structure components from day one.</p>
+            <div class="phil-quote">"Fast by default, not by accident."</div>
           </div>
+
+          <div class="phil-card reveal">
+            <div class="phil-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h4>Built for everyone</h4>
+            <p>Accessibility isn't a checkbox. Keyboard navigation, proper contrast, and semantic HTML make sites better for everyone — not just users with disabilities. I write it this way from the start.</p>
+            <div class="phil-quote">"If it only works for some, it doesn't work."</div>
+          </div>
+
+          <div class="phil-card reveal">
+            <div class="phil-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h4>Code I'm not ashamed of</h4>
+            <p>I write code as if the next developer is a senior engineer who will judge every decision — because they might be. Clean, readable, and commented where it matters.</p>
+            <div class="phil-quote">"Clever code is the enemy of maintainable code."</div>
+          </div>
+
+          <div class="phil-card reveal">
+            <div class="phil-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            </div>
+            <h4>Mobile isn't an afterthought</h4>
+            <p>Over half of web traffic is mobile. I design and test on small screens first — not last. Responsive isn't a mode, it's the default.</p>
+            <div class="phil-quote">"Desktop is the enhancement, not the baseline."</div>
+          </div>
+
+          <div class="phil-card reveal">
+            <div class="phil-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h4>Communication over code</h4>
+            <p>The best technical work means nothing if the client doesn't understand what's happening. I give regular updates, ask early when something is unclear, and never go quiet.</p>
+            <div class="phil-quote">"Surprises are for birthdays, not projects."</div>
+          </div>
+
         </div>
       </div>
 
