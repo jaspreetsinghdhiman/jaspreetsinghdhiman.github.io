@@ -461,13 +461,16 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
    </div>
    <div class="fd"><label for="t">Project type</label><select id="t" name="type"><option>Website / Portfolio</option><option>Web App</option><option>Animation / GSAP</option><option>UI / Frontend Development</option><option>Something else</option></select></div>
    <div class="fd"><label for="m">Message</label><textarea id="m" name="msg" required></textarea><div class="er">Please write a message.</div></div>
-   <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
    <button class="mag" type="submit" data-cur="Send">Send message <span>↗</span></button>
    <div id="st2" role="status" aria-live="polite"></div>
   </form>
  <div class="sent-panel" id="sentPanel" role="status" aria-live="polite">
   <svg class="sent-check" viewBox="0 0 52 52" aria-hidden="true"><circle class="sc-circle" cx="26" cy="26" r="24"/><path class="sc-tick" d="M15 27l7 7 15-16"/></svg>
-  <div class="lbl" style="margin-top:28px">Message sent</div>
+  <div class="lbl" style="margin-top:28px">Message ready</div>
+  <h3 class="d sent-title">Thank you, <span class="s" id="sentName"></span></h3>
+  <p class="sent-text">Your email app has opened with your message filled in. Press send there and I'll get back to you within 24 hours.</p>
+  <button class="case-action alt" id="sentAgain" type="button">Send another message</button>
+ </div>
   <h3 class="d sent-title">Thank you, <span class="s" id="sentName"></span></h3>
   <p class="sent-text">Your message is in. I usually reply within 24 hours. <span id="sentMailNote"></span></p>
   <button class="case-action alt" id="sentAgain" type="button">Send another message</button>
@@ -486,29 +489,13 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
 const EMAIL="jassp708737@gmail.com";
 const f=document.getElementById("fm");
 (function(){
- /* Emails are delivered by FormSubmit (free, no account or API key needed).
-    The first submission sends a one-time activation link to OWNER_EMAIL; click it once. */
  const OWNER_EMAIL="jassp708737@gmail.com";
- const ENDPOINT="https://formsubmit.co/ajax/"+OWNER_EMAIL;
-
  const form=document.getElementById("fm");
  const statusEl=document.getElementById("st2");
  const panel=document.getElementById("sentPanel");
- const submitBtn=form.querySelector('button[type="submit"]');
 
- function validate(){
-  let ok=true;
-  form.querySelectorAll("[required]").forEach(i=>{
-   const v=i.value.trim();
-   const bad=!v||(i.type==="email"&&!/^\S+@\S+\.\S+$/.test(v));
-   i.closest(".fd").classList.toggle("bad",bad);
-   if(bad) ok=false;
-  });
-  return ok;
- }
- function showSuccess(name,note){
+ function showSuccess(name){
   document.getElementById("sentName").textContent=(name.split(" ")[0]||"")+".";
-  document.getElementById("sentMailNote").textContent=note;
   form.style.display="none";
   panel.classList.add("show");
   panel.scrollIntoView({behavior:"smooth",block:"center"});
@@ -520,37 +507,20 @@ const f=document.getElementById("fm");
   statusEl.textContent="";
  });
 
- form.addEventListener("submit",async e=>{
+ form.addEventListener("submit",e=>{
   e.preventDefault();
-  statusEl.textContent="";
-  if(!validate()){statusEl.textContent="Please fix the highlighted fields.";return;}
-
-  const fd=new FormData(form);
-  const name=fd.get("name").trim();
-  const email=fd.get("email").trim();
-  if(fd.get("website")){showSuccess(name,"");return;} /* honeypot: silently accept bots */
-
-  fd.append("_subject","Portfolio enquiry: "+fd.get("type"));
-  fd.append("_template","table");
-  fd.append("_captcha","false");
-  fd.append("_replyto",email);
-  fd.append("_autoresponse","Thanks for reaching out, "+name+"! I have received your message and will reply within 24 hours.");
-
-  const original=submitBtn.innerHTML;
-  submitBtn.disabled=true;
-  submitBtn.textContent="Sending…";
-  try{
-   const res=await fetch(ENDPOINT,{method:"POST",headers:{Accept:"application/json"},body:fd});
-   const json=await res.json().catch(()=>({}));
-   if(!res.ok || String(json.success)!=="true") throw new Error("send-failed");
-   showSuccess(name,"A confirmation has been sent to "+email+".");
-  }catch(err){
-   console.error(err);
-   statusEl.textContent="Something went wrong and the message was not sent. Please try again, or email "+OWNER_EMAIL+" directly.";
-  }finally{
-   submitBtn.disabled=false;
-   submitBtn.innerHTML=original;
-  }
+  let ok=true;
+  form.querySelectorAll("[required]").forEach(i=>{
+   const v=i.value.trim(),bad=!v||(i.type==="email"&&!/^\S+@\S+\.\S+$/.test(v));
+   i.closest(".fd").classList.toggle("bad",bad);
+   if(bad) ok=false;
+  });
+  if(!ok){statusEl.textContent="Please fix the highlighted fields.";return;}
+  const d=new FormData(form);
+  const name=d.get("name").trim();
+  const body="Name: "+name+"\nEmail: "+d.get("email")+"\nProject: "+d.get("type")+"\n\n"+d.get("msg");
+  location.href="mailto:"+OWNER_EMAIL+"?subject="+encodeURIComponent("Portfolio enquiry: "+d.get("type"))+"&body="+encodeURIComponent(body);
+  showSuccess(name);
  });
 })();
 document.getElementById("copyMail").addEventListener("click",async()=>{
