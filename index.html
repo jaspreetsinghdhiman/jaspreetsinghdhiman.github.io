@@ -372,16 +372,45 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
 #sentAgain{cursor:pointer}
 .mag:disabled{opacity:.6;cursor:wait}
 @media(prefers-reduced-motion:reduce){.sc-circle,.sc-tick{animation:none;stroke-dashoffset:0}.sent-panel.show{animation:none}}
+#cnt{position:relative;right:auto;bottom:auto;font-size:clamp(90px,20vw,280px);font-variant-numeric:tabular-nums}
 </style>
 <!-- Deployment security headers are configured separately in vercel.json. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jaspreet Singh",
+  "givenName": "Jaspreet",
+  "familyName": "Singh",
+  "jobTitle": "Frontend Developer",
+  "description": "Frontend developer crafting fast, animated digital experiences with React, GSAP and performance-first design.",
+  "url": "https://jaspreetsinghdhiman.github.io/",
+  "image": "https://jaspreetsinghdhiman.github.io/jaspreet.jpg",
+  "email": "mailto:jassp708737@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Punjab",
+    "addressCountry": "IN"
+  },
+  "knowsAbout": [
+    "Frontend development",
+    "React",
+    "GSAP",
+    "Motion design",
+    "Web performance",
+    "UI design"
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/in/jaspreet-singh-49abb8314"
+  ]
+}
+</script>
 </head>
 <body>
 <div id="bar"></div><div id="cur"></div>
 
 <div id="pre" aria-hidden="true">
  <div class="pre-inner">
-  <small>JASPREET SINGH — FRONTEND DEVELOPER</small>
-  <div id="gr" class="d">WELCOME</div>
   <div id="cnt" class="d">0</div>
  </div>
 </div>
@@ -645,13 +674,10 @@ function startHero(){
  $(".stk").forEach((s,i)=>gsap.to(s,{y:i%2?16:-16,duration:2.6+i*.25,repeat:-1,yoyo:true,ease:"sine.inOut"}));
 }
 
-const greetings=["WELCOME","HELLO","CREATIVE","DEVELOPER","JASPREET"];
-let gi=0;
 if(!reduce){
  const obj={v:0};
- const gt=setInterval(()=>{$1("#gr").textContent=greetings[gi=(gi+1)%greetings.length]},450);
- gsap.timeline().to(obj,{v:100,duration:1.8,ease:"power2.inOut",onUpdate:()=>$1("#cnt").textContent=Math.round(obj.v)})
- .call(()=>clearInterval(gt)).call(startHero);
+  gsap.timeline().to(obj,{v:100,duration:1.8,ease:"power2.inOut",onUpdate:()=>$1("#cnt").textContent=Math.round(obj.v)})
+ .call(startHero);
 }else startHero();
 
 const cur=$1("#cur");
