@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b0d08">
-<meta name="description" content="About Jaspreet Singh: frontend developer building fast, animated and polished interfaces.">
+<meta name="description" content="Blog by Jaspreet Singh: notes on frontend craft, motion and performance.">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
-<title>About — Jaspreet Singh</title>
+<title>Blog — Jaspreet Singh</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
@@ -393,7 +393,7 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
 <nav aria-label="Primary navigation">
  <a href="index.html" class="d nav-logo">JS.</a>
  <div class="nav-links">
-  <a href="work.html" class="none">Work</a><a href="about.html" class="active">About</a><a href="experience.html" class="none">Experience</a><a href="blog.html" class="none">Blog</a><a href="contact.html" class="none">Contact</a>
+  <a href="work.html" class="none">Work</a><a href="about.html" class="none">About</a><a href="experience.html" class="none">Experience</a><a href="blog.html" class="active">Blog</a><a href="contact.html" class="none">Contact</a>
   <button class="menu-toggle" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button><button id="th" aria-label="Toggle theme">◐</button>
  </div>
 </nav>
@@ -422,75 +422,114 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
  </button>
 </div>
 <section class="page-hero" id="top">
- <div class="lbl rv">01 — About</div>
- <h1 class="d rv">About <span class="s">me</span></h1>
- <p class="intro-big rv">I'm Jaspreet Singh, a frontend developer focused on turning strong visual ideas into fast, polished and memorable interfaces.</p>
- <div class="stats rv" style="margin-top:8vh">
-  <div><b class="d" data-n="3">0</b><span>Years of experience</span></div>
-  <div><b class="d" data-n="40">0</b><span>Projects delivered</span></div>
-  <div><b class="d" data-n="100">0</b><span>Lighthouse target</span></div>
- </div>
+ <div class="lbl">08 — Blog</div>
+ <h1 class="d">Notes <span class="s">&amp; writing</span></h1>
+ <p class="ct-copy">Short notes on frontend craft, motion and performance. Click any entry to read it.</p>
 </section>
 
 <section class="sub-section">
- <div class="section-head rv">
-  <div class="lbl" style="margin-bottom:0">02 — Capabilities</div>
-  <div class="side-note">Design, engineering and motion combined into one focused frontend workflow.</div>
+ <div class="work-tools">
+  <div class="small-note">Filter by topic</div>
+  <div class="filters" role="group" aria-label="Post filters">
+   <button class="filter-btn active" data-filter="all">All</button>
+   <button class="filter-btn" data-filter="frontend">Frontend</button>
+   <button class="filter-btn" data-filter="motion">Motion</button>
+   <button class="filter-btn" data-filter="performance">Performance</button>
+  </div>
  </div>
  <div class="sv">
-  <a href="contact.html" data-cur="Let's talk"><em>01</em><div class="service-meta"><div class="service-icon"></div><h3 class="d">Web <span class="s">Development</span></h3></div><span>↗</span></a>
-  <a href="contact.html" data-cur="Let's talk"><em>02</em><div class="service-meta"><div class="service-icon"></div><h3 class="d">Motion <span class="s">&amp; GSAP</span></h3></div><span>↗</span></a>
-  <a href="contact.html" data-cur="Let's talk"><em>03</em><div class="service-meta"><div class="service-icon"></div><h3 class="d">Interface <span class="s">Design</span></h3></div><span>↗</span></a>
-  <a href="contact.html" data-cur="Let's talk"><em>04</em><div class="service-meta"><div class="service-icon"></div><h3 class="d">Performance <span class="s">&amp; SEO</span></h3></div><span>↗</span></a>
+  <div id="postList" class="post-list"></div>
+  <p class="post-empty" id="postEmpty">Is topic te koi post nahi hai abhi.</p>
  </div>
 </section>
 
-<section class="sub-section">
- <div class="lbl">03 — Toolkit</div>
- <div class="sk">
-  <span>HTML5</span><span>CSS3 / Sass</span><span>JavaScript</span><span>TypeScript</span><span>React</span><span>Next.js</span>
-  <span>GSAP</span><span>Framer Motion</span><span>Three.js</span><span>Tailwind</span><span>Figma</span><span>Git</span>
+<div class="case-modal" id="readerModal" aria-hidden="true">
+ <div class="case-panel" role="dialog" aria-modal="true" aria-labelledby="readerTitle">
+  <button class="case-close" id="readerClose" type="button" aria-label="Close post">×</button>
+  <div class="case-kicker" id="readerKicker"></div>
+  <h2 class="case-title" id="readerTitle"></h2>
+  <p class="case-desc" id="readerExcerpt"></p>
+  <div class="post-body" id="readerBody"></div>
+  <div class="case-actions" style="margin-top:32px"><button class="case-action alt" id="readerClose2" type="button">Close</button><a class="case-action" href="contact.html">Discuss this ↗</a></div>
  </div>
-</section>
+</div>
 
-<section class="sub-section">
- <div class="lbl">04 — Why work with me</div>
- <h2 class="d rv" style="font-size:clamp(44px,8vw,120px)">Built for <span class="s">impact.</span></h2>
- <div class="why-grid">
-  <article class="why-card"><h3>Performance first</h3><p>Fast interfaces, sensible assets and clean front-end decisions without sacrificing visual quality.</p></article>
-  <article class="why-card"><h3>Motion with purpose</h3><p>GSAP, scroll effects and micro-interactions guide attention without creating noise.</p></article>
-  <article class="why-card"><h3>Responsive by design</h3><p>Desktop and mobile are treated as real experiences with touch-safe interactions.</p></article>
-  <article class="why-card"><h3>Clean engineering</h3><p>Reusable components, semantic structure and maintainable front-end code behind the visuals.</p></article>
+<footer class="sub-foot">
+ <div class="ft">
+  <span>© 2026 Jaspreet Singh · <span id="clk"></span> IST</span>
+  <div><a href="https://www.linkedin.com/in/jaspreet-singh-49abb8314" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="index.html">Home</a><a href="#top">Top ↑</a></div>
  </div>
-</section>
-
-<section class="sub-section">
- <div class="lbl">05 — Kind words</div>
- <div class="tm">
-  <div><div class="testimonial-mark">“</div><q>Jaspreet brought the design to life with a level of detail that made the final experience feel complete.</q><span>— Client feedback</span></div>
-  <div><div class="testimonial-mark">“</div><q>Clean implementation, thoughtful motion and a smooth process from first concept to launch.</q><span>— Project feedback</span></div>
-  <div><div class="testimonial-mark">“</div><q>The interface feels polished without sacrificing speed or usability. Exactly the balance we wanted.</q><span>— Project feedback</span></div>
- </div>
-</section>
-
-<section class="ct-cta">
- <div class="band-row">
-  <h2 class="d">Let's build <span class="s">something.</span></h2>
-  <a class="mag" href="contact.html" style="align-self:auto">Get in touch <span>↗</span></a>
- </div>
-</section>
-
-<footer class="foot-wrap">
- <div class="ft"><span>© 2026 Jaspreet Singh · <span id="clk"></span> IST</span><div><a href="https://www.linkedin.com/in/jaspreet-singh-49abb8314" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="index.html">Home</a><a href="#top">Top ↑</a></div></div>
 </footer>
 
 <script>
-document.querySelectorAll("[data-n]").forEach(el=>{
- const end=+el.dataset.n,t0=performance.now(),dur=1600;
- const step=t=>{const p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);el.textContent=Math.round(end*e);if(p<1)requestAnimationFrame(step);};
- const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){requestAnimationFrame(step);io.disconnect();}});
- io.observe(el);
+const POSTS=[
+ {id:"1",cat:"frontend",date:"Oct 2026",read:"4 min",title:"Build the layout before the animation",
+  excerpt:"Motion should follow structure. If the layout is weak, animation only hides the problem.",
+  body:["Animation gets the attention first, so it is tempting to start there. I have found that a page reads better when the grid, spacing and hierarchy are settled before any movement is added.",
+        "Once the structure works on a phone and a desktop, small transitions can add rhythm without fighting the content. A reveal on scroll or a hover lift should support the reading order, not replace it.",
+        "My rule now: if the page still makes sense with all animation switched off, the animation is doing its job."]},
+ {id:"2",cat:"motion",date:"Sep 2026",read:"5 min",title:"Motion that respects reduced-motion settings",
+  excerpt:"Some people feel dizzy from movement. A few lines of CSS make your site kinder to them.",
+  body:["Some visitors turn on the reduced-motion setting in their operating system. If the site ignores it, large sweeping animations can make reading uncomfortable.",
+        "The fix is a media query that shortens or removes movement, while keeping the content visible. Elements should still appear, just without the travel.",
+        "It costs very little to add and it makes the experience better for everyone."]},
+ {id:"3",cat:"performance",date:"Aug 2026",read:"6 min",title:"Where my page load time actually goes",
+  excerpt:"Fonts, scripts and images were the real culprits. Here is how I measured and trimmed them.",
+  body:["I started with a performance trace and the results were not what I expected. The largest delay came from loading too many font weights and a script that was not needed on every page.",
+        "Trimming font weights, loading scripts only where they are used and sizing images properly made the biggest difference.",
+        "Measure first, then change one thing at a time so you know what actually helped."]}
+];
+
+const list=document.getElementById("postList");
+const empty=document.getElementById("postEmpty");
+const CAT_LABEL={frontend:"Frontend",motion:"Motion",performance:"Performance"};
+
+POSTS.forEach((p,i)=>{
+ const a=document.createElement("a");
+ a.href="#post-"+p.id;
+ a.dataset.cat=p.cat;
+ a.dataset.id=p.id;
+ a.innerHTML='<em>'+String(i+1).padStart(2,"0")+'</em><div class="service-meta"><div class="post-meta">'+CAT_LABEL[p.cat]+' · '+p.date+' · '+p.read+'</div><h3 class="d" style="font-size:clamp(24px,3.8vw,56px)">'+p.title+'</h3></div><span>↗</span>';
+ list.appendChild(a);
 });
+
+const filterBtns=document.querySelectorAll(".filter-btn");
+filterBtns.forEach(btn=>btn.addEventListener("click",()=>{
+ filterBtns.forEach(b=>b.classList.toggle("active",b===btn));
+ const f=btn.dataset.filter;
+ let shown=0;
+ list.querySelectorAll("a").forEach(a=>{
+  const show=f==="all"||a.dataset.cat===f;
+  a.classList.toggle("is-hidden",!show);
+  if(show) shown++;
+ });
+ empty.classList.toggle("show",shown===0);
+}));
+
+const modal=document.getElementById("readerModal");
+function openPost(id){
+ const p=POSTS.find(x=>x.id===id); if(!p) return;
+ document.getElementById("readerKicker").textContent=CAT_LABEL[p.cat]+" · "+p.date+" · "+p.read;
+ document.getElementById("readerTitle").textContent=p.title;
+ document.getElementById("readerExcerpt").textContent=p.excerpt;
+ const body=document.getElementById("readerBody");
+ body.innerHTML="";
+ p.body.forEach(t=>{const el=document.createElement("p");el.textContent=t;body.appendChild(el);});
+ modal.classList.add("open");modal.setAttribute("aria-hidden","false");
+ document.body.style.overflow="hidden";
+}
+function closePost(){
+ modal.classList.remove("open");modal.setAttribute("aria-hidden","true");
+ document.body.style.overflow="";
+}
+list.addEventListener("click",e=>{
+ const a=e.target.closest("a"); if(!a) return;
+ e.preventDefault(); openPost(a.dataset.id);
+});
+document.getElementById("readerClose").onclick=closePost;
+document.getElementById("readerClose2").onclick=closePost;
+modal.addEventListener("click",e=>{if(e.target===modal)closePost();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){closePost();setFab(false);mClose();}});
 </script>
 <script>
 /* Theme toggle */
