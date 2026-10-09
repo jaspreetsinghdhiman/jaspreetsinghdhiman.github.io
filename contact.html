@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b0d08">
 <meta name="description" content="Contact Jaspreet Singh for frontend development, motion and web projects.">
@@ -385,6 +391,20 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
 .ct-cta .band-row{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:40px}
 .ct-cta h2{font-size:clamp(40px,7vw,120px)}
 @media(max-width:900px){.pj-grid{grid-template-columns:1fr}.pj-grid .pj{min-height:420px}}
+
+/* ===== FORM SUCCESS / SENDING STATES ===== */
+.sent-panel{display:none;padding:10px 0 10px;max-width:560px}
+.sent-panel.show{display:block;animation:sentIn .8s var(--ease) both}
+@keyframes sentIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.sent-check{width:84px;height:84px;color:var(--acc);display:block}
+.sc-circle{fill:none;stroke:currentColor;stroke-width:2;stroke-dasharray:152;stroke-dashoffset:152;animation:scDraw .8s .1s var(--ease) forwards}
+.sc-tick{fill:none;stroke:currentColor;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:40;stroke-dashoffset:40;animation:scDraw .5s .75s var(--ease) forwards}
+@keyframes scDraw{to{stroke-dashoffset:0}}
+.sent-title{font-size:clamp(40px,6vw,84px);margin:14px 0 18px}
+.sent-text{color:var(--mute);line-height:1.6;max-width:460px;margin-bottom:28px}
+#sentAgain{cursor:pointer}
+.mag:disabled{opacity:.6;cursor:wait}
+@media(prefers-reduced-motion:reduce){.sc-circle,.sc-tick{animation:none;stroke-dashoffset:0}.sent-panel.show{animation:none}}
 </style>
 </head>
 <body>
@@ -441,9 +461,17 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
    </div>
    <div class="fd"><label for="t">Project type</label><select id="t" name="type"><option>Website / Portfolio</option><option>Web App</option><option>Animation / GSAP</option><option>UI / Frontend Development</option><option>Something else</option></select></div>
    <div class="fd"><label for="m">Message</label><textarea id="m" name="msg" required></textarea><div class="er">Please write a message.</div></div>
+   <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
    <button class="mag" type="submit" data-cur="Send">Send message <span>↗</span></button>
    <div id="st2" role="status" aria-live="polite"></div>
   </form>
+ <div class="sent-panel" id="sentPanel" role="status" aria-live="polite">
+  <svg class="sent-check" viewBox="0 0 52 52" aria-hidden="true"><circle class="sc-circle" cx="26" cy="26" r="24"/><path class="sc-tick" d="M15 27l7 7 15-16"/></svg>
+  <div class="lbl" style="margin-top:28px">Message sent</div>
+  <h3 class="d sent-title">Thank you, <span class="s" id="sentName"></span></h3>
+  <p class="sent-text">Your message is in. I usually reply within 24 hours. <span id="sentMailNote"></span></p>
+  <button class="case-action alt" id="sentAgain" type="button">Send another message</button>
+ </div>
  </div>
 </section>
 
@@ -457,20 +485,74 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
 <script>
 const EMAIL="jassp708737@gmail.com";
 const f=document.getElementById("fm");
-f.addEventListener("submit",e=>{
- e.preventDefault();let ok=true;
- f.querySelectorAll("[required]").forEach(i=>{
-  const v=i.value.trim(),bad=!v||(i.type==="email"&&!/^\S+@\S+\.\S+$/.test(v));
-  i.closest(".fd").classList.toggle("bad",bad);if(bad)ok=false;
+(function(){
+ /* Emails are delivered by FormSubmit (free, no account or API key needed).
+    The first submission sends a one-time activation link to OWNER_EMAIL; click it once. */
+ const OWNER_EMAIL="jassp708737@gmail.com";
+ const ENDPOINT="https://formsubmit.co/ajax/"+OWNER_EMAIL;
+
+ const form=document.getElementById("fm");
+ const statusEl=document.getElementById("st2");
+ const panel=document.getElementById("sentPanel");
+ const submitBtn=form.querySelector('button[type="submit"]');
+
+ function validate(){
+  let ok=true;
+  form.querySelectorAll("[required]").forEach(i=>{
+   const v=i.value.trim();
+   const bad=!v||(i.type==="email"&&!/^\S+@\S+\.\S+$/.test(v));
+   i.closest(".fd").classList.toggle("bad",bad);
+   if(bad) ok=false;
+  });
+  return ok;
+ }
+ function showSuccess(name,note){
+  document.getElementById("sentName").textContent=(name.split(" ")[0]||"")+".";
+  document.getElementById("sentMailNote").textContent=note;
+  form.style.display="none";
+  panel.classList.add("show");
+  panel.scrollIntoView({behavior:"smooth",block:"center"});
+ }
+ document.getElementById("sentAgain").addEventListener("click",()=>{
+  panel.classList.remove("show");
+  form.style.display="";
+  form.reset();
+  statusEl.textContent="";
  });
- const st=document.getElementById("st2");
- if(!ok){st.textContent="Please fix the highlighted fields.";return;}
- const d=new FormData(f);
- const body="Name: "+d.get("name")+"\n"+"Email: "+d.get("email")+"\nProject: "+d.get("type")+"\n\n"+d.get("msg");
- st.textContent="Opening your email app…";
- location.href="mailto:"+EMAIL+"?subject="+encodeURIComponent("Portfolio enquiry: "+d.get("type"))+"&body="+encodeURIComponent(body);
- f.reset();
-});
+
+ form.addEventListener("submit",async e=>{
+  e.preventDefault();
+  statusEl.textContent="";
+  if(!validate()){statusEl.textContent="Please fix the highlighted fields.";return;}
+
+  const fd=new FormData(form);
+  const name=fd.get("name").trim();
+  const email=fd.get("email").trim();
+  if(fd.get("website")){showSuccess(name,"");return;} /* honeypot: silently accept bots */
+
+  fd.append("_subject","Portfolio enquiry: "+fd.get("type"));
+  fd.append("_template","table");
+  fd.append("_captcha","false");
+  fd.append("_replyto",email);
+  fd.append("_autoresponse","Thanks for reaching out, "+name+"! I have received your message and will reply within 24 hours.");
+
+  const original=submitBtn.innerHTML;
+  submitBtn.disabled=true;
+  submitBtn.textContent="Sending…";
+  try{
+   const res=await fetch(ENDPOINT,{method:"POST",headers:{Accept:"application/json"},body:fd});
+   const json=await res.json().catch(()=>({}));
+   if(!res.ok || String(json.success)!=="true") throw new Error("send-failed");
+   showSuccess(name,"A confirmation has been sent to "+email+".");
+  }catch(err){
+   console.error(err);
+   statusEl.textContent="Something went wrong and the message was not sent. Please try again, or email "+OWNER_EMAIL+" directly.";
+  }finally{
+   submitBtn.disabled=false;
+   submitBtn.innerHTML=original;
+  }
+ });
+})();
 document.getElementById("copyMail").addEventListener("click",async()=>{
  try{await navigator.clipboard.writeText(EMAIL);
   const n=document.getElementById("copyNote");n.classList.add("show");setTimeout(()=>n.classList.remove("show"),1500);
