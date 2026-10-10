@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Habit Grid — Demo project · Jaspreet Singh</title>
+<meta name="description" content="Habit Grid: a 12-week habit tracker demo built with plain HTML, CSS and JavaScript.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+:root{--bg:#0e1210;--panel:#151b17;--line:#26302a;--fg:#e9efe6;--mute:#7b8a7e;--acc:#b5c95b;--off:#1d2520}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font:15px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+.wrap{max-width:1040px;margin:0 auto;padding:36px 22px 80px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.back{color:var(--mute);text-decoration:none;font-size:13px;letter-spacing:.04em}
+.back:hover{color:var(--acc)}
+.tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);padding:5px 10px;border-radius:999px}
+h1{font-size:clamp(40px,7vw,72px);font-weight:700;letter-spacing:-.04em;line-height:1;margin:26px 0 8px}
+h1 span{color:var(--acc)}
+.sub{color:var(--mute);margin-bottom:28px;max-width:560px}
+.add{display:flex;gap:10px;margin-bottom:26px;flex-wrap:wrap}
+.add input{flex:1;min-width:200px;background:var(--panel);border:1px solid var(--line);color:var(--fg);padding:13px 16px;border-radius:12px;font:inherit;outline:none}
+.add input:focus{border-color:var(--acc)}
+.add button{background:var(--acc);color:#11150f;border:0;padding:0 22px;border-radius:12px;font-weight:700;cursor:pointer}
+.habit{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px 22px;margin-bottom:14px}
+.hhead{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:14px;flex-wrap:wrap}
+.hname{font-size:18px;font-weight:600}
+.stats{display:flex;gap:16px;font-size:13px;color:var(--mute);align-items:center}
+.stats b{color:var(--acc);font-weight:700;font-size:15px}
+.del{background:none;border:0;color:var(--mute);cursor:pointer;font-size:12px;padding:4px}
+.del:hover{color:#e07a5f}
+.grid{display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,1fr);gap:4px;overflow-x:auto;padding-bottom:4px}
+.cell{width:16px;height:16px;border-radius:4px;background:var(--off);border:0;cursor:pointer;padding:0;transition:transform .15s,background .2s}
+.cell:hover{transform:scale(1.25)}
+.cell.on{background:var(--acc)}
+.cell.today{outline:1px solid var(--fg);outline-offset:1px}
+.legend{font-size:12px;color:var(--mute);margin-top:10px}
+.empty{color:var(--mute);padding:30px 0;text-align:center;border:1px dashed var(--line);border-radius:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="back" href="work.html">← Back to work</a>
+    <span class="tag">Demo project · Vanilla JS</span>
+  </div>
+  <h1>Habit <span>Grid</span></h1>
+  <p class="sub">Track small daily habits over 12 weeks. Tap a square to mark that day done. Streaks and 4-week completion update instantly. Saved in this browser only.</p>
+
+  <form class="add" id="addForm" autocomplete="off">
+    <input id="name" maxlength="40" placeholder="New habit, e.g. read 10 pages" required>
+    <button type="submit">Add habit</button>
+  </form>
+
+  <div id="habits"></div>
+  <div class="empty" id="empty" hidden>No habits yet. Add one above to start the grid.</div>
+</div>
+
+<script>
+(function(){
+  const KEY="habit-grid.v1";
+  const WEEKS=12, DAYS=WEEKS*7;
+  let habits=[];
+  try{habits=JSON.parse(localStorage.getItem(KEY)||"[]");}catch(e){habits=[];}
+  const save=()=>localStorage.setItem(KEY,JSON.stringify(habits));
+  const ymd=d=>{const z=new Date(d.getTime()-d.getTimezoneOffset()*60000);return z.toISOString().slice(0,10);};
+  const addDays=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x;};
+  const today=new Date(); today.setHours(0,0,0,0);
+  const todayKey=ymd(today);
+
+  // Build the list of days shown: oldest first, ending today, aligned to columns of 7 (weeks)
+  const start=addDays(today,-(DAYS-1));
+  const days=[...Array(DAYS)].map((_,i)=>ymd(addDays(start,i)));
+
+  function streak(h){
+    let s=0, d=new Date(today);
+    if(!h.done[todayKey]) d=addDays(d,-1); // today not yet done doesn't break a streak
+    while(h.done[ymd(d)]){s++; d=addDays(d,-1);}
+    return s;
+  }
+  function rate(h){
+    const last28=days.slice(-28);
+    return Math.round(last28.filter(k=>h.done[k]).length/28*100);
+  }
+
+  function render(){
+    const wrap=document.getElementById("habits");
+    wrap.innerHTML="";
+    document.getElementById("empty").hidden=habits.length>0;
+    habits.forEach(h=>{
+      const card=document.createElement("section");card.className="habit";
+      const head=document.createElement("div");head.className="hhead";
+      const name=document.createElement("div");name.className="hname";name.textContent=h.name;
+      const stats=document.createElement("div");stats.className="stats";
+      stats.innerHTML='<span>Streak <b></b></span><span>28-day <b></b></span>';
+      stats.children[0].querySelector("b").textContent=streak(h)+"d";
+      stats.children[1].querySelector("b").textContent=rate(h)+"%";
+      const del=document.createElement("button");del.className="del";del.type="button";del.textContent="Delete";
+      del.onclick=()=>{habits=habits.filter(x=>x.id!==h.id);save();render();};
+      stats.appendChild(del);
+      head.append(name,stats);
+
+      const grid=document.createElement("div");grid.className="grid";
+      days.forEach(k=>{
+        const c=document.createElement("button");c.type="button";c.className="cell";
+        if(h.done[k]) c.classList.add("on");
+        if(k===todayKey) c.classList.add("today");
+        c.title=k+(h.done[k]?" — done":"");
+        c.setAttribute("aria-label",(h.done[k]?"Done ":"Not done ")+k);
+        c.onclick=()=>{ if(h.done[k]) delete h.done[k]; else h.done[k]=true; save(); render(); };
+        grid.appendChild(c);
+      });
+      card.append(head,grid);
+      const legend=document.createElement("div");legend.className="legend";
+      legend.textContent="Each square is one day. Oldest on the left, today outlined.";
+      card.appendChild(legend);
+      wrap.appendChild(card);
+    });
+  }
+
+  document.getElementById("addForm").addEventListener("submit",e=>{
+    e.preventDefault();
+    const name=document.getElementById("name").value.trim();
+    if(!name) return;
+    habits.push({id:Date.now(),name,done:{}});
+    save();render();
+    document.getElementById("name").value="";
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

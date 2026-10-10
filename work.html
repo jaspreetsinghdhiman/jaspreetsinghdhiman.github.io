@@ -444,46 +444,23 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
 <section class="page-hero" id="top">
  <div class="lbl rv">01 — Work</div>
  <h1 class="d rv">Selected <span class="s">work</span></h1>
- <p class="intro-big rv" style="font-size:clamp(18px,1.6vw,24px);color:var(--mute);margin-top:0">Explore the work by category or open a card for a closer look.</p>
+ <p class="intro-big rv" style="font-size:clamp(18px,1.6vw,24px);color:var(--mute);margin-top:0">Two demo projects built with plain HTML, CSS and JavaScript. Open one to try it.</p>
 </section>
 
-<div class="work-tools" style="margin-top:6vh">
- <div class="filters" role="group" aria-label="Project filters">
-  <button class="filter-btn active" data-filter="all">All</button>
-  <button class="filter-btn" data-filter="web">Web</button>
-  <button class="filter-btn" data-filter="app">Web Apps</button>
-  <button class="filter-btn" data-filter="motion">Motion / 3D</button>
- </div>
-</div>
-
 <div class="pj-grid" id="projGrid">
- <a class="pj project-card" href="#" data-category="web" style="--c1:#b5c95b;--c2:#dbe6a2" data-project="Nova Store" data-type="E-commerce" data-stack="Next.js · GSAP · UI" data-focus="Editorial-inspired commerce experience with fluid navigation, product storytelling and polished transitions.">
+ <a class="pj project-card" href="budget-ledger.html" data-category="app" style="--c1:#c2410c;--c2:#f4efe6">
   <div class="project-glow"></div><div class="project-orb"></div><b class="n d">01</b>
-  <div class="project-top"><div class="go">01 / E-commerce</div><span class="project-type">Selected work</span></div>
-  <div><h3 class="d">Nova Store</h3><p>Editorial-inspired commerce experience with fluid navigation, product storytelling and polished transitions.</p><div class="t"><i>Next.js</i><i>GSAP</i><i>UI</i></div></div>
+  <div class="project-top"><div class="go">01 / Web app</div><span class="project-type">Demo project</span></div>
+  <div><h3 class="d">Budget Ledger</h3><p>An expense tracker with monthly totals, category bars, and CSV export. Built with plain HTML, CSS and JavaScript, saved in the browser.</p><div class="t"><i>HTML</i><i>CSS</i><i>JavaScript</i><i>localStorage</i></div></div>
   <span class="arrow">↗</span>
-  <button class="case-btn" type="button">View case study ↗</button>
+  <span class="case-btn">Open demo ↗</span>
  </a>
- <a class="pj project-card" href="#" data-category="app" style="--c1:#7e9032;--c2:#bdca69" data-project="Pulse Dash" data-type="SaaS" data-stack="React · D3 · TypeScript" data-focus="Focused analytics interface designed around hierarchy, live data and quick decision-making.">
+ <a class="pj project-card" href="habit-grid.html" data-category="app" style="--c1:#b5c95b;--c2:#26302a">
   <div class="project-glow"></div><div class="project-orb"></div><b class="n d">02</b>
-  <div class="project-top"><div class="go">02 / SaaS</div><span class="project-type">Selected work</span></div>
-  <div><h3 class="d">Pulse Dash</h3><p>Focused analytics interface designed around hierarchy, live data and quick decision-making.</p><div class="t"><i>React</i><i>D3</i><i>TypeScript</i></div></div>
+  <div class="project-top"><div class="go">02 / Web app</div><span class="project-type">Demo project</span></div>
+  <div><h3 class="d">Habit Grid</h3><p>A 12-week habit tracker. Tap a day to mark it done, with streaks and a 28-day completion rate, all updating live.</p><div class="t"><i>HTML</i><i>CSS</i><i>JavaScript</i><i>localStorage</i></div></div>
   <span class="arrow">↗</span>
-  <button class="case-btn" type="button">View case study ↗</button>
- </a>
- <a class="pj project-card" href="#" data-category="motion" style="--c1:#d0d991;--c2:#8c9d3b" data-project="Studio 3D" data-type="Creative / 3D" data-stack="Three.js · WebGL · GSAP" data-focus="Immersive creative landing page combining WebGL atmosphere, responsive typography and scroll-driven motion.">
-  <div class="project-glow"></div><div class="project-orb"></div><b class="n d">03</b>
-  <div class="project-top"><div class="go">03 / Creative</div><span class="project-type">Selected work</span></div>
-  <div><h3 class="d">Studio 3D</h3><p>Immersive creative landing page combining WebGL atmosphere, responsive typography and scroll-driven motion.</p><div class="t"><i>Three.js</i><i>WebGL</i><i>GSAP</i></div></div>
-  <span class="arrow">↗</span>
-  <button class="case-btn" type="button">View case study ↗</button>
- </a>
- <a class="pj project-card" href="#" data-category="app" style="--c1:#9dac4d;--c2:#d6df9a" data-project="Kisaan App" data-type="PWA" data-stack="PWA · React · Tailwind" data-focus="Mobile-first product experience built for speed, clarity and reliable use across smaller screens.">
-  <div class="project-glow"></div><div class="project-orb"></div><b class="n d">04</b>
-  <div class="project-top"><div class="go">04 / PWA</div><span class="project-type">Selected work</span></div>
-  <div><h3 class="d">Kisaan App</h3><p>Mobile-first product experience built for speed, clarity and reliable use across smaller screens.</p><div class="t"><i>PWA</i><i>React</i><i>Tailwind</i></div></div>
-  <span class="arrow">↗</span>
-  <button class="case-btn" type="button">View case study ↗</button>
+  <span class="case-btn">Open demo ↗</span>
  </a>
 </div>
 
@@ -508,13 +485,6 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
 </footer>
 
 <script>
-const cards=document.querySelectorAll(".project-card");
-const fBtns=document.querySelectorAll(".filter-btn");
-fBtns.forEach(btn=>btn.addEventListener("click",()=>{
- fBtns.forEach(b=>b.classList.toggle("active",b===btn));
- const f=btn.dataset.filter;
- cards.forEach(c=>c.classList.toggle("is-hidden",!(f==="all"||c.dataset.category===f)));
-}));
 
 const modal=document.getElementById("caseModal");
 const tags=document.getElementById("caseTags");
@@ -531,10 +501,6 @@ function openCase(c){
  modal.classList.add("open");modal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";
 }
 function closeCase(){modal.classList.remove("open");modal.setAttribute("aria-hidden","true");document.body.style.overflow="";}
-cards.forEach(c=>{
- c.addEventListener("click",e=>{e.preventDefault();openCase(c);});
- c.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openCase(c);}});
-});
 document.getElementById("caseClose").onclick=closeCase;
 document.getElementById("caseClose2").onclick=closeCase;
 modal.addEventListener("click",e=>{if(e.target===modal)closeCase();});
