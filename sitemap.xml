@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://jaspreetsinghdhiman.github.io/</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/about.html</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/work.html</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/experience.html</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/blog.html</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/contact.html</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://jaspreetsinghdhiman.github.io/</loc><lastmod>2026-11-02</lastmod></url>
+  <url><loc>https://jaspreetsinghdhiman.github.io/about.html</loc><lastmod>2026-11-02</lastmod></url>
+  <url><loc>https://jaspreetsinghdhiman.github.io/work.html</loc><lastmod>2026-11-02</lastmod></url>
+  <url><loc>https://jaspreetsinghdhiman.github.io/skills.html</loc><lastmod>2026-11-02</lastmod></url>
+  <url><loc>https://jaspreetsinghdhiman.github.io/experience.html</loc><lastmod>2026-11-02</lastmod></url>
+  <url><loc>https://jaspreetsinghdhiman.github.io/process.html</loc><lastmod>2026-11-02</lastmod></url>
+  <url><loc>https://jaspreetsinghdhiman.github.io/blog.html</loc><lastmod>2026-11-02</lastmod></url>
+  <url><loc>https://jaspreetsinghdhiman.github.io/contact.html</loc><lastmod>2026-11-02</lastmod></url>
+  <url><loc>https://jaspreetsinghdhiman.github.io/budget-ledger.html</loc><lastmod>2026-11-02</lastmod></url>
+  <url><loc>https://jaspreetsinghdhiman.github.io/habit-grid.html</loc><lastmod>2026-11-02</lastmod></url>
+  <url><loc>https://jaspreetsinghdhiman.github.io/pulsetrack.html</loc><lastmod>2026-11-02</lastmod></url>
+  <url><loc>https://jaspreetsinghdhiman.github.io/taskflow.html</loc><lastmod>2026-11-02</lastmod></url>
+  <url><loc>https://jaspreetsinghdhiman.github.io/weathernow.html</loc><lastmod>2026-11-02</lastmod></url>
+  <url><loc>https://jaspreetsinghdhiman.github.io/markstudio.html</loc><lastmod>2026-11-02</lastmod></url>
 </urlset>
