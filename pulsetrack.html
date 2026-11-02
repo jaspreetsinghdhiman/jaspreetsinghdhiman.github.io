@@ -1,13 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PulseTrack — Expense Tracker | Jaspreet Singh</title>
-<meta name="description" content="A category-based expense tracker with a live canvas chart and local persistence. Live project by Jaspreet Singh.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PulseTrack | JavaScript Demo by Jaspreet Singh</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" referrerpolicy="no-referrer" rel="stylesheet"/>
 <style>
   :root{--bg:#0b0b12;--surface:#14141f;--surface-2:#1b1b29;--violet:#7c6cf3;--violet-soft:rgba(124,108,243,.15);--amber:#f5b94d;--text:#ededf2;--muted:#8b8a9a;--line:rgba(237,237,242,.1);--display:'Space Grotesk',sans-serif;--body:'Inter',sans-serif;--green:#5fd08a;--red:#f16565;}
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -49,62 +49,56 @@
   footer{text-align:center;color:var(--muted);font-size:.78rem;padding:30px;border-top:1px solid var(--line);margin-top:40px;}
   @media (max-width:820px){ .grid, .summary{grid-template-columns:1fr;} }
 </style>
-<link rel="manifest" href="site.webmanifest"><meta property="og:title" content="pulsetrack"><meta property="og:url" content="https://jaspreetsinghdhiman.github.io/pulsetrack.html"></head>
-<body>
+<meta content="Track income and expenses with category summaries and a canvas chart. Starts with an empty ledger." name="description"/><meta content="Jaspreet Singh" name="author"/><meta content="index,follow" name="robots"/><link href="https://jaspreetsinghdhiman.github.io/pulsetrack.html" rel="canonical"/><meta content="website" property="og:type"/><meta content="Jaspreet Singh" property="og:site_name"/><meta content="PulseTrack | JavaScript Demo by Jaspreet Singh" property="og:title"/><meta content="Track income and expenses with category summaries and a canvas chart. Starts with an empty ledger." property="og:description"/><meta content="https://jaspreetsinghdhiman.github.io/pulsetrack.html" property="og:url"/><meta content="https://jaspreetsinghdhiman.github.io/og-image.jpg" property="og:image"/><meta content="Jaspreet Singh — Frontend Developer" property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="PulseTrack | JavaScript Demo by Jaspreet Singh" name="twitter:title"/><meta content="Track income and expenses with category summaries and a canvas chart. Starts with an empty ledger." name="twitter:description"/><meta content="https://jaspreetsinghdhiman.github.io/og-image.jpg" name="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://jaspreetsinghdhiman.github.io/#person", "name": "Jaspreet Singh", "jobTitle": "Frontend Developer", "url": "https://jaspreetsinghdhiman.github.io/", "email": "mailto:jassp708737@gmail.com", "image": "https://jaspreetsinghdhiman.github.io/jaspreet.webp", "knowsAbout": ["HTML5", "CSS3", "JavaScript", "React", "WordPress", "Figma", "Adobe Photoshop", "Responsive Web Design", "Frontend Development"]}, {"@type": "WebSite", "@id": "https://jaspreetsinghdhiman.github.io/#website", "url": "https://jaspreetsinghdhiman.github.io/", "name": "Jaspreet Singh | Frontend Developer", "publisher": {"@id": "https://jaspreetsinghdhiman.github.io/#person"}}, {"@type": "WebPage", "url": "https://jaspreetsinghdhiman.github.io/pulsetrack.html", "name": "PulseTrack | JavaScript Demo by Jaspreet Singh", "description": "Track income and expenses with category summaries and a canvas chart. Starts with an empty ledger.", "isPartOf": {"@id": "https://jaspreetsinghdhiman.github.io/#website"}, "about": {"@id": "https://jaspreetsinghdhiman.github.io/#person"}}]}</script><link href="quality-fixes.css" rel="stylesheet"/><link href="site.webmanifest" rel="manifest"/></head>
+<body><a class="fix-skip" href="#main-content">Skip to content</a>
 <header>
-  <div class="brand">
-    <div class="mark"><i class="fa-solid fa-coins"></i></div>
-    <div><h1>PulseTrack</h1><p>Expense &amp; income tracker</p></div>
-  </div>
-  <a href="work.html" class="back"><i class="fa-solid fa-arrow-left"></i> Back to portfolio</a>
+<div class="brand">
+<div class="mark"><i class="fa-solid fa-coins"></i></div>
+<div><h1>PulseTrack</h1><p>Expense &amp; income tracker</p></div>
+</div>
+<a class="back" href="index.html"><i class="fa-solid fa-arrow-left"></i> Back to portfolio</a>
 </header>
-<main>
-  <div class="summary">
-    <div class="sum-card income"><span>Total Income</span><b id="totalIncome">₹0</b></div>
-    <div class="sum-card expense"><span>Total Expense</span><b id="totalExpense">₹0</b></div>
-    <div class="sum-card"><span>Balance</span><b id="balance">₹0</b></div>
-  </div>
-  <div class="grid">
-    <div class="panel">
-      <h3>Add Transaction</h3>
-      <form id="txnForm">
-        <div class="type-toggle">
-          <button type="button" class="active expense" data-type="expense" id="expBtn"><i class="fa-solid fa-arrow-down"></i> Expense</button>
-          <button type="button" class="income" data-type="income" id="incBtn"><i class="fa-solid fa-arrow-up"></i> Income</button>
-        </div>
-        <input type="text" id="txnTitle" placeholder="What was it for?" required>
-        <div class="row2">
-          <input type="number" id="txnAmount" placeholder="Amount (₹)" min="0" step="0.01" required>
-          <select id="txnCategory">
-            <option>Food</option><option>Transport</option><option>Shopping</option>
-            <option>Bills</option><option>Health</option><option>Salary</option><option>Other</option>
-          </select>
-        </div>
-        <button type="submit">Add Transaction</button>
-      </form>
-      <div class="list" id="txnList"></div>
-    </div>
-    <div class="panel">
-      <h3>Spending by Category</h3>
-      <canvas id="chart" width="420" height="420"></canvas>
-      <div id="legend" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;"></div>
-    </div>
-  </div>
+<main id="main-content">
+<div class="summary">
+<div class="sum-card income"><span>Total Income</span><b id="totalIncome">₹0</b></div>
+<div class="sum-card expense"><span>Total Expense</span><b id="totalExpense">₹0</b></div>
+<div class="sum-card"><span>Balance</span><b id="balance">₹0</b></div>
+</div>
+<div class="grid">
+<div class="panel">
+<h3>Add Transaction</h3>
+<form id="txnForm">
+<div class="type-toggle">
+<button class="active expense" data-type="expense" id="expBtn" type="button"><i class="fa-solid fa-arrow-down"></i> Expense</button>
+<button class="income" data-type="income" id="incBtn" type="button"><i class="fa-solid fa-arrow-up"></i> Income</button>
+</div>
+<input aria-label="What was it for?" id="txnTitle" placeholder="What was it for?" required="" type="text"/>
+<div class="row2">
+<input aria-label="Amount (₹)" id="txnAmount" min="0" placeholder="Amount (₹)" required="" step="0.01" type="number"/>
+<select aria-label="Input" id="txnCategory">
+<option>Food</option><option>Transport</option><option>Shopping</option>
+<option>Bills</option><option>Health</option><option>Salary</option><option>Other</option>
+</select>
+</div>
+<button type="submit">Add Transaction</button>
+</form>
+<div class="list" id="txnList"></div>
+</div>
+<div class="panel">
+<h3>Spending by Category</h3>
+<canvas height="420" id="chart" width="420"></canvas>
+<div id="legend" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;"></div>
+</div>
+</div>
 </main>
 <footer>Data is stored locally in your browser — nothing leaves your device.</footer>
-
 <script>
 const KEY = 'pulsetrack-txns-v1';
-let txns = JSON.parse(localStorage.getItem(KEY) || 'null') || [
-  {id:1, title:'Freelance payment', type:'income', amount:25000, category:'Salary'},
-  {id:2, title:'Groceries', type:'expense', amount:1800, category:'Food'},
-  {id:3, title:'Bus pass', type:'expense', amount:600, category:'Transport'},
-  {id:4, title:'Electricity bill', type:'expense', amount:1200, category:'Bills'},
-];
+let txns=[];try{const raw=JSON.parse(localStorage.getItem(KEY)||'[]');if(Array.isArray(raw))txns=raw;}catch(e){}
 let currentType = 'expense';
 const COLORS = ['#7c6cf3','#f5b94d','#5fd08a','#f16565','#5cc4e8','#e07be0','#c9c94d'];
 
-function save(){ localStorage.setItem(KEY, JSON.stringify(txns)); }
+function save(){ try{localStorage.setItem(KEY, JSON.stringify(txns));}catch(e){} }
 function fmt(n){ return '₹' + n.toLocaleString('en-IN', {maximumFractionDigits:0}); }
 
 document.getElementById('expBtn').addEventListener('click', ()=>setType('expense'));
@@ -120,7 +114,7 @@ document.getElementById('txnForm').addEventListener('submit', e=>{
   const title = document.getElementById('txnTitle').value.trim();
   const amount = parseFloat(document.getElementById('txnAmount').value);
   const category = document.getElementById('txnCategory').value;
-  if(!title || !amount) return;
+  if(!title || !Number.isFinite(amount) || amount<=0) return;
   txns.unshift({id: Date.now(), title, type: currentType, amount, category});
   document.getElementById('txnTitle').value = '';
   document.getElementById('txnAmount').value = '';
@@ -192,5 +186,5 @@ function drawChart(){
 
 render();
 </script>
-</body>
+<script defer="True" src="quality-fixes.js"></script></body>
 </html>

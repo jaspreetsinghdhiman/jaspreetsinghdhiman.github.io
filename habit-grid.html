@@ -1,11 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Habit Grid — Demo project · Jaspreet Singh</title>
-<meta name="description" content="Habit Grid: a 12-week habit tracker demo built with plain HTML, CSS and JavaScript.">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Habit Grid | JavaScript Demo by Jaspreet Singh</title>
+<link href="favicon.svg" rel="icon" type="image/svg+xml"/>
 <style>
 :root{--bg:#0e1210;--panel:#151b17;--line:#26302a;--fg:#e9efe6;--mute:#7b8a7e;--acc:#b5c95b;--off:#1d2520}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -37,25 +37,22 @@ h1 span{color:var(--acc)}
 .legend{font-size:12px;color:var(--mute);margin-top:10px}
 .empty{color:var(--mute);padding:30px 0;text-align:center;border:1px dashed var(--line);border-radius:18px}
 </style>
-<link rel="manifest" href="site.webmanifest"><meta property="og:title" content="habit-grid"><meta property="og:url" content="https://jaspreetsinghdhiman.github.io/habit-grid.html"></head>
+<meta content="Track daily habits across 12 weeks with completion history and streak calculations saved in this browser." name="description"/><meta content="Jaspreet Singh" name="author"/><meta content="index,follow" name="robots"/><link href="https://jaspreetsinghdhiman.github.io/habit-grid.html" rel="canonical"/><meta content="website" property="og:type"/><meta content="Jaspreet Singh" property="og:site_name"/><meta content="Habit Grid | JavaScript Demo by Jaspreet Singh" property="og:title"/><meta content="Track daily habits across 12 weeks with completion history and streak calculations saved in this browser." property="og:description"/><meta content="https://jaspreetsinghdhiman.github.io/habit-grid.html" property="og:url"/><meta content="https://jaspreetsinghdhiman.github.io/og-image.jpg" property="og:image"/><meta content="Jaspreet Singh — Frontend Developer" property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="Habit Grid | JavaScript Demo by Jaspreet Singh" name="twitter:title"/><meta content="Track daily habits across 12 weeks with completion history and streak calculations saved in this browser." name="twitter:description"/><meta content="https://jaspreetsinghdhiman.github.io/og-image.jpg" name="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://jaspreetsinghdhiman.github.io/#person", "name": "Jaspreet Singh", "jobTitle": "Frontend Developer", "url": "https://jaspreetsinghdhiman.github.io/", "email": "mailto:jassp708737@gmail.com", "image": "https://jaspreetsinghdhiman.github.io/jaspreet.webp", "knowsAbout": ["HTML5", "CSS3", "JavaScript", "React", "WordPress", "Figma", "Adobe Photoshop", "Responsive Web Design", "Frontend Development"]}, {"@type": "WebSite", "@id": "https://jaspreetsinghdhiman.github.io/#website", "url": "https://jaspreetsinghdhiman.github.io/", "name": "Jaspreet Singh | Frontend Developer", "publisher": {"@id": "https://jaspreetsinghdhiman.github.io/#person"}}, {"@type": "WebPage", "url": "https://jaspreetsinghdhiman.github.io/habit-grid.html", "name": "Habit Grid | JavaScript Demo by Jaspreet Singh", "description": "Track daily habits across 12 weeks with completion history and streak calculations saved in this browser.", "isPartOf": {"@id": "https://jaspreetsinghdhiman.github.io/#website"}, "about": {"@id": "https://jaspreetsinghdhiman.github.io/#person"}}]}</script><link href="quality-fixes.css" rel="stylesheet"/><link href="site.webmanifest" rel="manifest"/></head>
 <body>
 <div class="wrap">
-  <div class="top">
-    <a class="back" href="work.html">← Back to work</a>
-    <span class="tag">Demo project · Vanilla JS</span>
-  </div>
-  <h1>Habit <span>Grid</span></h1>
-  <p class="sub">Track small daily habits over 12 weeks. Tap a square to mark that day done. Streaks and 4-week completion update instantly. Saved in this browser only.</p>
-
-  <form class="add" id="addForm" autocomplete="off">
-    <input id="name" maxlength="40" placeholder="New habit, e.g. read 10 pages" required>
-    <button type="submit">Add habit</button>
-  </form>
-
-  <div id="habits"></div>
-  <div class="empty" id="empty" hidden>No habits yet. Add one above to start the grid.</div>
+<div class="top">
+<a class="back" href="work.html">← Back to work</a>
+<span class="tag">Demo project · Vanilla JS</span>
 </div>
-
+<h1>Habit <span>Grid</span></h1>
+<p class="sub">Track small daily habits over 12 weeks. Tap a square to mark that day done. Streaks and 4-week completion update instantly. Saved in this browser only.</p>
+<form autocomplete="off" class="add" id="addForm">
+<input aria-label="New habit, e.g. read 10 pages" id="name" maxlength="40" placeholder="New habit, e.g. read 10 pages" required=""/>
+<button type="submit">Add habit</button>
+</form>
+<div id="habits"></div>
+<div class="empty" hidden="" id="empty">No habits yet. Add one above to start the grid.</div>
+</div>
 <script>
 (function(){
   const KEY="habit-grid.v1";
@@ -130,5 +127,5 @@ h1 span{color:var(--acc)}
   render();
 })();
 </script>
-</body>
+<script defer="True" src="quality-fixes.js"></script></body>
 </html>

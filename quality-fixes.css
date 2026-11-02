@@ -1,0 +1,7 @@
+/* Functional fixes; original visual design is retained. */
+:focus-visible{outline:2px solid var(--acc,#b5c95b);outline-offset:4px}
+.fix-skip{position:absolute;left:-10000px;top:10px;z-index:9999;padding:10px;background:var(--bg,#0b0d08);color:var(--fg,#f1f3df)}.fix-skip:focus{left:10px}
+.fix-article{max-width:780px;margin:0 auto;padding:48px 22px;line-height:1.8}.fix-article h2{margin:30px 0 14px}.fix-article p{margin:16px 0}.fix-article a{text-decoration:underline}.fix-experience{font:inherit!important}
+.project-preview{width:100%;height:auto;border:1px solid var(--line,#292e20);border-radius:12px;margin:14px 0}.fix-demo-link{display:inline-block;padding:10px 0;text-decoration:underline}
+@media(max-width:480px){input,select,textarea{max-width:100%;min-width:0}.row,.row2{flex-wrap:wrap}.row>*{min-width:0}.search{flex-wrap:wrap}.search input{min-width:0;width:100%}.bar{grid-template-columns:70px minmax(0,1fr) 70px}.wrap{max-width:100%}.actions{flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}

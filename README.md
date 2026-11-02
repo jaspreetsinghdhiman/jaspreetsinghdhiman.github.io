@@ -1,13 +1,7 @@
-# Jaspreet Singh — Portfolio
+# Jaspreet Singh — original-design fixes
 
-All website files are kept in the repository root. `style.css` and `main.js` are also in the root.
+Upload every file in this ZIP directly into the repository root. No assets folder or enclosing ZIP folder is used. Original inline styles are retained; quality-fixes.css and quality-fixes.js must also remain in the root.
 
-## GitHub Pages deployment
-1. Upload the contents of this ZIP to the root of the `jaspreetsinghdhiman.github.io` repository.
-2. Go to Settings → Pages.
-3. Choose “Deploy from a branch”, branch `main`, folder `/ (root)`.
-4. Save and wait for deployment.
+GitHub: Settings → Pages → Deploy from a branch → main → / (root). Preview locally with `python3 -m http.server 8000`.
 
-## Notes
-- Experience is calculated dynamically from August 2025.
-- The contact form uses an encoded `mailto:` link; visitors must press Send in their email application.
+Read TESTING-REPORT.md for actual test limits and SEARCH-CONSOLE-SETUP.md for Google verification steps. Search rankings are not guaranteed. Keep the original uploaded ZIP as a backup.

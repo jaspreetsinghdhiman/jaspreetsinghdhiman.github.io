@@ -1,11 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Budget Ledger — Demo project · Jaspreet Singh</title>
-<meta name="description" content="Budget Ledger: a small expense tracker demo built with plain HTML, CSS and JavaScript.">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Budget Ledger | JavaScript Demo by Jaspreet Singh</title>
+<link href="favicon.svg" rel="icon" type="image/svg+xml"/>
 <style>
 :root{--paper:#f4efe6;--ink:#1b1a17;--mute:#6f6a5e;--line:#d8d0bf;--acc:#c2410c;--card:#fbf8f2}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -47,48 +47,44 @@ button:hover{background:var(--acc)}
 .tools{display:flex;gap:10px;margin-top:16px}
 .tools button{flex:1}
 </style>
-<link rel="manifest" href="site.webmanifest"><meta property="og:title" content="budget-ledger"><meta property="og:url" content="https://jaspreetsinghdhiman.github.io/budget-ledger.html"></head>
-<body>
+<meta content="Record expenses, view monthly category totals and export entries as CSV. Data stays in this browser." name="description"/><meta content="Jaspreet Singh" name="author"/><meta content="index,follow" name="robots"/><link href="https://jaspreetsinghdhiman.github.io/budget-ledger.html" rel="canonical"/><meta content="website" property="og:type"/><meta content="Jaspreet Singh" property="og:site_name"/><meta content="Budget Ledger | JavaScript Demo by Jaspreet Singh" property="og:title"/><meta content="Record expenses, view monthly category totals and export entries as CSV. Data stays in this browser." property="og:description"/><meta content="https://jaspreetsinghdhiman.github.io/budget-ledger.html" property="og:url"/><meta content="https://jaspreetsinghdhiman.github.io/og-image.jpg" property="og:image"/><meta content="Jaspreet Singh — Frontend Developer" property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="Budget Ledger | JavaScript Demo by Jaspreet Singh" name="twitter:title"/><meta content="Record expenses, view monthly category totals and export entries as CSV. Data stays in this browser." name="twitter:description"/><meta content="https://jaspreetsinghdhiman.github.io/og-image.jpg" name="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://jaspreetsinghdhiman.github.io/#person", "name": "Jaspreet Singh", "jobTitle": "Frontend Developer", "url": "https://jaspreetsinghdhiman.github.io/", "email": "mailto:jassp708737@gmail.com", "image": "https://jaspreetsinghdhiman.github.io/jaspreet.webp", "knowsAbout": ["HTML5", "CSS3", "JavaScript", "React", "WordPress", "Figma", "Adobe Photoshop", "Responsive Web Design", "Frontend Development"]}, {"@type": "WebSite", "@id": "https://jaspreetsinghdhiman.github.io/#website", "url": "https://jaspreetsinghdhiman.github.io/", "name": "Jaspreet Singh | Frontend Developer", "publisher": {"@id": "https://jaspreetsinghdhiman.github.io/#person"}}, {"@type": "WebPage", "url": "https://jaspreetsinghdhiman.github.io/budget-ledger.html", "name": "Budget Ledger | JavaScript Demo by Jaspreet Singh", "description": "Record expenses, view monthly category totals and export entries as CSV. Data stays in this browser.", "isPartOf": {"@id": "https://jaspreetsinghdhiman.github.io/#website"}, "about": {"@id": "https://jaspreetsinghdhiman.github.io/#person"}}]}</script><link href="quality-fixes.css" rel="stylesheet"/><link href="site.webmanifest" rel="manifest"/></head>
+<body><a class="fix-skip" href="#main-content">Skip to content</a>
 <div class="wrap">
-  <a class="back" href="work.html">← Back to work</a><br>
-  <span class="demo">Demo project · Plain HTML, CSS &amp; JavaScript</span>
-  <h1>Budget <em>Ledger</em></h1>
-  <p class="lede">A small expense tracker. Log what you spend, see where it goes this month, and export it. Your data stays in this browser only.</p>
-
-  <div class="total"><span class="n" id="total">₹0</span><small id="monthLabel">This month</small></div>
-
-  <div class="grid">
-    <section>
-      <h2>Add an expense</h2>
-      <form id="addForm" autocomplete="off">
-        <div class="row">
-          <label>Amount (₹)<input id="amount" type="number" min="1" step="1" required></label>
-          <label>Date<input id="date" type="date" required></label>
-        </div>
-        <label>Category
-          <select id="category">
-            <option>Food</option><option>Transport</option><option>Bills</option><option>Fun</option><option>Other</option>
-          </select>
-        </label>
-        <label>Note<input id="note" maxlength="60" placeholder="e.g. groceries"></label>
-        <button type="submit">Add entry</button>
-      </form>
-      <div class="tools">
-        <button class="ghost" id="exportBtn" type="button">Export CSV</button>
-        <button class="ghost" id="clearBtn" type="button">Clear all</button>
-      </div>
-    </section>
-
-    <section>
-      <h2>Where it goes</h2>
-      <div class="bars" id="bars"></div>
-      <h2>Recent</h2>
-      <ul class="list" id="list"></ul>
-      <p class="empty" id="empty" hidden>No entries yet. Add your first one.</p>
-    </section>
-  </div>
+<a class="back" href="work.html">← Back to work</a><br/>
+<span class="demo">Demo project · Plain HTML, CSS &amp; JavaScript</span>
+<h1>Budget <em>Ledger</em></h1>
+<p class="lede">A small expense tracker. Log what you spend, see where it goes this month, and export it. Your data stays in this browser only.</p>
+<div class="total"><span class="n" id="total">₹0</span><small id="monthLabel">This month</small></div>
+<div class="grid">
+<section id="main-content" role="main">
+<h2>Add an expense</h2>
+<form autocomplete="off" id="addForm">
+<div class="row">
+<label>Amount (₹)<input id="amount" min="1" required="" step="1" type="number"/></label>
+<label>Date<input id="date" required="" type="date"/></label>
 </div>
-
+<label>Category
+          <select id="category">
+<option>Food</option><option>Transport</option><option>Bills</option><option>Fun</option><option>Other</option>
+</select>
+</label>
+<label>Note<input id="note" maxlength="60" placeholder="e.g. groceries"/></label>
+<button type="submit">Add entry</button>
+</form>
+<div class="tools">
+<button class="ghost" id="exportBtn" type="button">Export CSV</button>
+<button class="ghost" id="clearBtn" type="button">Clear all</button>
+</div>
+</section>
+<section>
+<h2>Where it goes</h2>
+<div class="bars" id="bars"></div>
+<h2>Recent</h2>
+<ul class="list" id="list"></ul>
+<p class="empty" hidden="" id="empty">No entries yet. Add your first one.</p>
+</section>
+</div>
+</div>
 <script>
 (function(){
   const KEY="budget-ledger.v1";
@@ -160,5 +156,5 @@ button:hover{background:var(--acc)}
   render();
 })();
 </script>
-</body>
+<script defer="True" src="quality-fixes.js"></script></body>
 </html>
