@@ -5,3 +5,55 @@
 .project-preview{width:100%;height:auto;border:1px solid var(--line,#292e20);border-radius:12px;margin:14px 0}.fix-demo-link{display:inline-block;padding:10px 0;text-decoration:underline}
 @media(max-width:480px){input,select,textarea{max-width:100%;min-width:0}.row,.row2{flex-wrap:wrap}.row>*{min-width:0}.search{flex-wrap:wrap}.search input{min-width:0;width:100%}.bar{grid-template-columns:70px minmax(0,1fr) 70px}.wrap{max-width:100%}.actions{flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+
+/* ===== FRONTEND CRAFT INFORMATION PANEL ===== */
+.craft-section{padding:clamp(76px,10vw,150px) var(--pad);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.craft-heading{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(230px,.65fr);gap:clamp(24px,5vw,76px);align-items:end;margin:0 0 clamp(28px,5vw,58px)}
+.craft-heading h2{font-size:clamp(42px,7vw,100px);line-height:.98;max-width:850px;margin:0;letter-spacing:-.055em}
+.craft-heading>p{color:var(--mute);font-size:clamp(14px,1.3vw,18px);line-height:1.75;max-width:390px;margin:0 0 5px}
+.craft-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.craft-card{min-width:0;min-height:310px;padding:clamp(18px,2.2vw,28px);border:1px solid var(--line);border-radius:18px;background:linear-gradient(155deg,var(--card),rgba(21,25,16,.45));display:flex;flex-direction:column;position:relative;overflow:hidden;transition:transform .35s,border-color .35s,background .35s}
+.craft-card:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--acc) 55%,var(--line));background:var(--card)}
+.craft-number{font:700 9px "Unbounded",sans-serif;letter-spacing:.12em;color:var(--mute)}
+.craft-symbol{width:44px;height:44px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:var(--acc);margin:28px 0 22px}
+.craft-symbol svg{width:20px;height:20px}
+.craft-card h3{font-size:clamp(17px,1.7vw,23px);line-height:1.15;margin:0 0 10px}
+.craft-card p{color:var(--mute);font-size:12px;line-height:1.75;margin:0;max-width:34ch}
+.craft-visual{display:flex;align-items:center;gap:7px;margin-top:auto;padding-top:25px;min-height:55px;color:var(--acc)}
+.structure-visual{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}.structure-visual span{font-size:8px;text-align:center;padding:9px 2px;border:1px solid var(--line);border-radius:5px;background:rgba(181,201,91,.06)}
+.interaction-visual span{font-size:9px;border:1px solid var(--line);border-radius:99px;padding:8px 11px}.interaction-visual b{font-size:18px}
+.device{display:block;border:1px solid var(--acc);border-radius:5px;height:30px;opacity:.85}.device-phone{width:17px;height:29px}.device-tablet{width:34px;height:27px}.device-desktop{width:49px;height:29px;position:relative}.device-desktop:after{content:"";position:absolute;width:15px;height:2px;background:var(--acc);left:16px;bottom:-5px}
+.quality-visual span{width:31px;height:31px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-size:12px}
+.craft-footnote{margin:28px 0 0;color:var(--mute);font-size:12px;line-height:1.7}.craft-footnote a{color:var(--acc);text-decoration:none}.craft-footnote a:hover{text-decoration:underline}
+
+/* ===== MOBILE TYPOGRAPHY, SPACING AND OVERFLOW CORRECTIONS ===== */
+@media(max-width:700px){
+  .page-hero{padding-top:clamp(74px,15vw,104px);padding-bottom:0;min-width:0}
+  .page-hero h1{font-size:clamp(43px,12.2vw,76px)!important;line-height:.98;letter-spacing:-.055em;max-width:100%;overflow-wrap:anywhere;margin:24px 0 28px}
+  .ab p{font-size:clamp(22px,6.3vw,32px)!important;line-height:1.3;text-align:left;word-spacing:normal;letter-spacing:-.025em;max-width:100%;overflow-wrap:break-word}
+  .intro-big{font-size:clamp(22px,6.3vw,32px)!important;line-height:1.3;letter-spacing:-.025em;max-width:100%;overflow-wrap:break-word;margin-top:26px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px;margin-top:44px!important;padding-top:22px}
+  .stats>div{min-width:0}.stats b{font-size:clamp(26px,8vw,40px);line-height:1.05;overflow-wrap:anywhere}.stats span{font-size:9px;line-height:1.5;letter-spacing:.06em}
+  .sub-section{padding-top:58px;padding-bottom:68px}
+  .sv a{grid-template-columns:34px minmax(0,1fr) auto;gap:12px;padding:23px 0;min-width:0}
+  .sv a .service-meta{min-width:0;gap:12px}.sv a h3{font-size:clamp(19px,5.5vw,28px);line-height:1.12}
+  .why-grid{grid-template-columns:1fr;gap:1px;margin-top:24px}.why-card{min-height:0;padding:22px}.why-icon{margin-bottom:16px}
+  .pj-grid{grid-template-columns:minmax(0,1fr);gap:18px;padding-left:var(--pad);padding-right:var(--pad)}
+  .pj-grid .pj{min-height:0;height:auto;padding:22px;gap:30px;border-radius:22px;overflow:hidden}
+  .pj-grid .pj h3{font-size:clamp(32px,9vw,48px);line-height:.98;overflow-wrap:anywhere}
+  .pj-grid .pj p{font-size:15px;line-height:1.65;max-width:100%;overflow-wrap:break-word}
+  .pj-grid .project-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;position:relative;z-index:2}
+  .pj-grid .project-links a{min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:10px 14px}
+  .post-list a{grid-template-columns:34px minmax(0,1fr) 18px;gap:10px;padding:24px 0;min-width:0}
+  .post-list a .service-meta{min-width:0;gap:9px}.post-list a h3{font-size:clamp(22px,6.4vw,32px)!important;line-height:1.08;overflow-wrap:anywhere;letter-spacing:-.035em}
+  .post-list a>span{align-self:start}.post-meta{font-size:9px;letter-spacing:.1em}
+  .craft-section{padding:68px var(--pad)}.craft-heading{grid-template-columns:1fr;gap:15px;margin-bottom:25px}.craft-heading h2{font-size:clamp(38px,10vw,60px)}.craft-heading>p{font-size:14px;max-width:100%}
+  .craft-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.craft-card{min-height:285px;padding:16px;border-radius:14px}.craft-symbol{margin:22px 0 18px}.craft-card h3{font-size:17px}.craft-card p{font-size:11px;line-height:1.65}
+}
+@media(max-width:390px){
+  .craft-grid{grid-template-columns:1fr}.craft-card{min-height:235px}.craft-card p{max-width:42ch}
+  .page-hero h1{font-size:clamp(40px,11.5vw,52px)!important}
+  .pj-grid .pj{padding:19px}.pj-grid .project-links a{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){.craft-card{transition:none}}

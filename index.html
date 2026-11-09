@@ -216,7 +216,7 @@ section{padding:var(--sec) var(--pad);position:relative}
 .sk span:hover .tool-icon{opacity:1;transform:rotate(8deg) scale(1.12)}
 .skill-cloud{position:relative}
 .skill-cloud::before{content:"TECH";position:absolute;right:0;top:-65px;font:900 clamp(45px,8vw,110px) "Unbounded";letter-spacing:-.08em;color:var(--line);opacity:.45;pointer-events:none}
-.testimonial-mark{font:900 65px "Instrument Serif";line-height:.6;color:var(--acc);opacity:.6}
+
 .tm div{position:relative;overflow:hidden}
 .tm div::after{content:"";position:absolute;right:-25px;bottom:-35px;width:120px;height:120px;border:1px solid var(--line);border-radius:50%;transition:transform .7s var(--ease)}
 .tm div:hover::after{transform:scale(1.5)}
@@ -503,12 +503,16 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
 <article class="why-card"><div class="why-icon"><i data-lucide="code-2"></i></div><h3>Clean engineering</h3><p>Reusable components, semantic structure and maintainable front-end code behind the visuals.</p></article>
 </div>
 </section>
-<section id="exp">
-<div class="lbl">05 — Experience</div>
-<div class="xp"><div class="ln" id="ln"></div>
-<div class="r"><small>AUG 2025 — PRESENT</small><h3 class="d">Frontend Developer</h3><p>Frontend Developer working on responsive interfaces and frontend implementation.</p></div>
-
+<section class="craft-section" id="frontend-craft" aria-labelledby="craft-title">
+<div class="lbl">05 — Frontend craft</div>
+<div class="craft-heading"><h2 class="d" id="craft-title">Good interfaces are <span class="s">built in layers.</span></h2><p>Visual design is only the beginning. A useful frontend experience brings structure, interaction, accessibility and responsive behaviour together.</p></div>
+<div class="craft-grid">
+<article class="craft-card craft-card-feature"><span class="craft-number">01 / STRUCTURE</span><div class="craft-symbol"><i data-lucide="blocks"></i></div><h3 class="d">Clear structure</h3><p>Semantic HTML and considered content hierarchy help people understand a page and navigate it with confidence.</p><div class="craft-visual structure-visual"><span>header</span><span>main</span><span>section</span><span>footer</span></div></article>
+<article class="craft-card"><span class="craft-number">02 / INTERACTION</span><div class="craft-symbol"><i data-lucide="mouse-pointer-2"></i></div><h3 class="d">Useful interaction</h3><p>Buttons, forms, menus and feedback should communicate what happened and what a visitor can do next.</p><div class="craft-visual interaction-visual"><span>Click</span><b>→</b><span>Feedback</span></div></article>
+<article class="craft-card"><span class="craft-number">03 / RESPONSIVE</span><div class="craft-symbol"><i data-lucide="smartphone"></i></div><h3 class="d">Responsive behaviour</h3><p>Layouts should adapt to available space, with readable type, comfortable touch targets and no accidental horizontal scrolling.</p><div class="craft-visual device-visual"><span class="device device-phone"></span><span class="device device-tablet"></span><span class="device device-desktop"></span></div></article>
+<article class="craft-card"><span class="craft-number">04 / QUALITY</span><div class="craft-symbol"><i data-lucide="accessibility"></i></div><h3 class="d">Accessible quality</h3><p>Keyboard access, visible focus, colour contrast and reduced-motion support make interfaces more inclusive.</p><div class="craft-visual quality-visual"><span>⌨</span><span>◉</span><span>Aa</span><span>↗</span></div></article>
 </div>
+<p class="craft-footnote">A practical checklist for every interface: <a href="performance-accessibility.html">performance &amp; accessibility</a> · <a href="responsive-websites.html">responsive design</a> · <a href="semantic-html-accessibility.html">semantic HTML</a></p>
 </section>
 
 <section class="ct" id="contact">
