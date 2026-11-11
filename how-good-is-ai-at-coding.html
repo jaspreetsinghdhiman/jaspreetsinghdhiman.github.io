@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How Good Is AI at Coding? Measuring Real-World Code Quality | Jaspreet Singh</title><meta name="description" content="Learn how to evaluate AI-generated code for correctness, performance, accessibility, security and maintainability.">
+<meta name="keywords" content="AI code quality, AI coding accuracy, AI vs human developers, testing AI code">
+<link rel="canonical" href="https://jaspreetsinghdhiman.github.io/how-good-is-ai-at-coding.html">
+<meta property="og:type" content="article"><meta property="og:title" content="How Good Is AI at Coding? Measuring Real-World Code Quality">
+<meta property="og:description" content="Learn how to evaluate AI-generated code for correctness, performance, accessibility, security and maintainability."><meta property="og:image" content="https://jaspreetsinghdhiman.github.io/images/ai-code-quality.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>
+:root{--bg:#0b0d08;--fg:#f1f3df;--muted:#a1a78c;--line:#303625;--acc:#c5dc5b;--card:#151a10}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.75 'DM Sans',Arial,sans-serif}
+a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+header{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 max(22px,calc((100% - 1120px)/2));}
+.brand{font-weight:800;color:var(--fg);letter-spacing:-.04em}nav{display:flex;gap:22px;font-size:14px}nav a{color:var(--fg)}
+main{max-width:850px;margin:0 auto;padding:64px 22px 100px}
+.kicker{color:var(--acc);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+h1{font-size:clamp(38px,7vw,66px);line-height:1.05;letter-spacing:-.055em;margin:18px 0}
+.dek{font-size:21px;line-height:1.5;color:#c5cbb2;max-width:760px}
+.meta{color:var(--muted);font-size:13px;margin:22px 0 30px}
+.hero{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:18px;border:1px solid var(--line);margin:12px 0 35px}
+article h2{font-size:29px;line-height:1.2;letter-spacing:-.035em;margin:48px 0 14px}
+article h3{font-size:21px;margin:28px 0 8px}
+article p,article li{color:#d7dbc9}
+article ul,article ol{padding-left:24px}
+.callout{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--acc);padding:18px 22px;border-radius:12px;margin:26px 0}
+table{width:100%;border-collapse:collapse;margin:22px 0;font-size:14px;display:block;overflow-x:auto}
+th,td{text-align:left;padding:13px;border:1px solid var(--line);min-width:130px;vertical-align:top}
+th{color:var(--acc);background:var(--card)}
+small{color:var(--muted)}.sources{border-top:1px solid var(--line);margin-top:50px;padding-top:20px;font-size:14px}
+.back{display:inline-block;margin:25px 0 0;color:var(--acc)}
+footer{border-top:1px solid var(--line);padding:28px 22px;text-align:center;color:var(--muted);font-size:13px}
+@media(max-width:600px){header{padding:0 18px}nav{gap:12px;font-size:12px}main{padding-top:42px}article h2{font-size:25px}}
+</style></head>
+<body><header><a class="brand" href="index.html">JS. Jaspreet Singh</a><nav><a href="index.html">Home</a><a href="work.html">Work</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></nav></header>
+<main><div class="kicker">CODE QUALITY</div><h1>How Good Is AI at Coding? Measuring Real-World Code Quality</h1><p class="dek">Learn how to evaluate AI-generated code for correctness, performance, accessibility, security and maintainability.</p><div class="meta">By Jaspreet Singh · Frontend Developer · 8–10 min read · Updated November 11, 2026</div>
+<img class="hero" src="images/ai-code-quality.png" alt="How Good Is AI at Coding? Measuring Real-World Code Quality — editorial illustration about AI and software development">
+<article>
+<p>AI can produce code that looks polished in a quick demo. The harder question is whether that code works correctly, handles edge cases, performs well and remains maintainable after the first release.</p>
+<p>There is no honest single percentage that describes the quality of all AI-generated code. Results vary with the model, prompt, repository context, task difficulty, tests and the developer reviewing the output. The best way to judge quality is to test the result against clear criteria.</p>
+<h2>Where AI can perform well</h2><ul><li>Generating familiar UI patterns and repetitive code.</li><li>Explaining errors and suggesting likely fixes.</li><li>Drafting unit tests, documentation and data transformations.</li><li>Creating a first implementation from clear, bounded requirements.</li></ul>
+<h2>Where quality can fall short</h2><ul><li><strong>Missing context:</strong> the tool may not know hidden product rules or existing conventions.</li><li><strong>Confident mistakes:</strong> generated code can use incorrect APIs or assumptions.</li><li><strong>Edge cases:</strong> loading, empty, error, offline and unusual input states may be missed.</li><li><strong>Accessibility:</strong> visual output does not guarantee semantic markup or keyboard support.</li><li><strong>Maintainability:</strong> duplicated logic or unnecessary abstractions can make future changes harder.</li></ul>
+<h2>How to measure AI code quality</h2>
+<table><thead><tr><th>Area</th><th>What to check</th><th>How to verify</th></tr></thead><tbody>
+<tr><td>Correctness</td><td>Does it meet every requirement?</td><td>Acceptance tests and manual scenarios</td></tr>
+<tr><td>Code quality</td><td>Is it readable and consistent?</td><td>Review naming, structure and duplication</td></tr>
+<tr><td>Performance</td><td>Does it load and respond efficiently?</td><td>Browser profiling and Lighthouse</td></tr>
+<tr><td>Accessibility</td><td>Can people use it with keyboard and assistive tech?</td><td>Keyboard checks and accessibility audits</td></tr>
+<tr><td>Security</td><td>Are inputs, secrets and permissions handled safely?</td><td>Dependency checks and security review</td></tr>
+<tr><td>Maintainability</td><td>Can another developer extend it?</td><td>Read the diff and make a follow-up change</td></tr>
+</tbody></table>
+<h2>AI versus a human developer</h2><p>AI is often fast at producing a first draft and exploring common patterns. A skilled developer is responsible for interpreting ambiguous requirements, choosing trade-offs, understanding the wider system and deciding whether the result is safe to ship. In practice, the strongest workflow combines both: AI accelerates exploration while human judgement controls quality.</p>
+<h2>A practical frontend quality test</h2><ol><li>Ask AI to build a responsive contact form with validation.</li><li>Check desktop, tablet and mobile layouts.</li><li>Try empty fields, invalid email, long text and repeated submissions.</li><li>Navigate with a keyboard and check labels and error messages.</li><li>Inspect network requests, console errors and the final code diff.</li><li>Ask another developer to review whether the implementation is easy to maintain.</li></ol>
+<div class="callout"><strong>Important:</strong> Passing a demo is not the same as passing production review. Treat AI output as a contribution that must earn approval through tests and inspection.</div>
+<h2>What research tells us</h2><p>A 2026 study analysing 7,156 AI-generated pull requests found that acceptance differed by task type and tool; documentation tasks were accepted more often than new features, and no single agent led every category. This is a useful reminder that task difficulty matters and broad “AI accuracy” percentages can be misleading.</p>
+<h2>Final thought</h2><p>AI code quality can be very good on well-scoped tasks, but it is not automatically dependable. Define requirements, provide context, run tests, inspect the diff and measure the result. The developer’s most valuable skill is increasingly the ability to verify what the AI has produced.</p>
+</article><a class="back" href="blog.html">← Back to all articles</a></main>
+<footer>© 2026 Jaspreet Singh · Frontend Developer</footer></body></html>
