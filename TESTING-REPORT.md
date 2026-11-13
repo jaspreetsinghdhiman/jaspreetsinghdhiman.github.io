@@ -1,34 +1,28 @@
 # Portfolio Testing Report
 
-Tested locally against the supplied ZIP after edits.
+Verification performed against the GitHub feature branch `portfolio-audit-fixes-nov-2026`.
+
+## Static repository checks
 
 | Check | Result | Evidence / scope |
 |---|---|---|
-| ZIP extraction and root structure | PASS | Existing root-level GitHub Pages layout retained |
-| HTML parsing | PASS | 26 HTML files parsed with Python's HTML parser |
-| H1 count | PASS | One H1 on each of the 25 user-facing HTML pages; Google verification file is exempt |
-| Title uniqueness | PASS | No duplicate titles among pages with titles |
-| Meta description uniqueness | PASS | No duplicate descriptions among pages with descriptions |
-| Canonical uniqueness | PASS | No duplicate canonical URLs detected |
-| Open Graph / Twitter metadata | PASS | Present on all 25 user-facing pages |
-| JSON-LD syntax | PASS | All extracted `application/ld+json` blocks parsed with Python JSON |
-| Sitemap XML | PASS | Parsed successfully; 24 URLs, all map to files in project |
-| Local HTML links and fragments | PASS | No missing local href/src references or unresolved in-page fragments detected by static scan |
-| Local stylesheet links | PASS | No missing local stylesheet references detected |
-| Image alt attributes | PASS | All 4 HTML `<img>` elements have alt attributes |
-| Duplicate HTML IDs | PASS | No duplicate IDs detected by static scan |
-| JavaScript syntax | PASS | All inline JavaScript blocks and local `.js` files passed `node --check` |
-| New profile image formats | PASS | JPG and WebP decoded and written as their actual formats |
-| Portrait fallback | PASS | Homepage picture uses WebP source and JPG fallback |
-| Removed asset references | PASS | Deleted candidates had no references in project text/source; favicon PNG was byte-identical to retained icon-512 PNG |
+| Root-level GitHub Pages structure | PASS | Pages and shared assets remain at repository root |
+| Sitemap-to-file mapping | PASS | All 26 URLs listed in `sitemap.xml` match tracked repository files |
+| SEO page metadata | PASS | All 26 sitemap pages have a title, meta description, canonical URL, Open Graph title/description, and Twitter card |
+| H1 count | PASS | Exactly one H1 found on each of the 26 sitemap pages |
+| Twitter article metadata | PASS | Added missing Twitter title and description to the three latest article pages |
+| Local file references | PASS | Local href/src/poster references across all 26 sitemap pages and `404.html` resolve to tracked files |
+| Retired-page references | PASS | No `skills.html` or `process.html` references remain in the checked site pages |
+| Required assets | PASS | Favicon variants, web manifest, CV, profile image, Open Graph image, shared CSS/JS and current article WebP images are present |
+| Asset cleanup | PASS | Eight unused files removed after checking references across site source files |
 
 ## Not measured / not tested
 
 - Lighthouse Performance, Accessibility, Best Practices, or SEO scores.
-- Real browser rendering at desktop/tablet/mobile widths.
-- Keyboard interaction and screen-reader behavior.
-- Actual mobile menu, form submission, external APIs, or interactive project behavior in a browser.
-- Deployed GitHub Pages behavior after upload.
+- Real browser rendering at desktop, tablet, or mobile widths.
+- Keyboard interaction, screen-reader behavior, or real form submission.
+- Actual mobile menu and interactive demo behavior in a browser.
+- Deployed GitHub Pages behavior after merging/publishing.
 - Live Google Search Console indexing, sitemap fetch, search queries, or ranking.
 - Live Core Web Vitals / field data.
 
