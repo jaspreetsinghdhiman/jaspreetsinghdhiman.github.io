@@ -3,12 +3,13 @@
 Front-End Developer focused on building responsive websites, interactive user interfaces and practical web experiences using HTML, CSS, JavaScript, React and WordPress.
 
 **Portfolio:** https://jaspreetsinghdhiman.github.io/  
+**GitHub profile:** https://github.com/jaspreetsinghdhiman  
 **LinkedIn:** https://www.linkedin.com/in/jaspreet-singh-49abb8314/  
 **Email:** jassp708737@gmail.com
 
-## Featured projects
+## Featured portfolio projects
 
-These are personal portfolio demos, not client projects.
+These are personal portfolio demos and case studies, not client projects.
 
 | Project | Overview | Case study |
 |---|---|---|
@@ -16,6 +17,11 @@ These are personal portfolio demos, not client projects.
 | Habit Grid | Habit tracker with daily check-ins, streaks and completion summaries | [View case study](habit-grid-case-study.html) |
 | PulseTrack | Income and expense tracker with category summaries, charts and browser-local persistence | [View case study](pulsetrack-case-study.html) |
 | TaskFlow | JavaScript Kanban board for organising tasks across workflow stages | [View case study](taskflow-case-study.html) |
+
+## Other GitHub projects
+
+- [Ring AI](https://github.com/jaspreetsinghdhiman/ring-ai) — Browser-based multilingual voice assistant experiment using a local WebGPU model.
+- [STACK TOWER](https://github.com/jaspreetsinghdhiman/stack) — Responsive browser arcade stacking game built with Canvas and vanilla JavaScript.
 
 ## Skills
 
