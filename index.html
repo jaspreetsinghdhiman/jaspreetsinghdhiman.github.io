@@ -740,7 +740,7 @@ if(!reduce){
 
 
 /* Premium 3D card tilt + icon hydration */
-if(window.lucide){ lucide.createIcons(); }
+const hydrateIcons=()=>{if(window.lucide){lucide.createIcons();}}; if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",hydrateIcons,{once:true});}else{hydrateIcons();}
 
 if(!reduce && matchMedia("(hover:hover)").matches){
  document.querySelectorAll(".pj").forEach(card=>{
