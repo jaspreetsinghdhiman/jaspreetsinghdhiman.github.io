@@ -10,17 +10,17 @@ Prepared from the supplied ZIP and portrait image.
 - Exported real optimized `jaspreet.jpg` and `jaspreet.webp` files (the WebP is an actual WebP encode, not a renamed JPG).
 - Updated the homepage portrait to use a WebP `<picture>` source with a JPG fallback, descriptive alt text, intrinsic dimensions, and lazy loading. The image is in the About section below the hero, so lazy loading is retained.
 - Updated Person structured-data image URLs across the HTML pages to the new `jaspreet.jpg`.
-- Removed verified unreferenced assets: `main.js`, `og-image.png`, `favicon.png`, `logo-dark.png`, and `logo.png`. The two logo files had no project references; the PNG OG image had no references; `favicon.png` was byte-identical to the still-retained `icon-512.png`; `main.js` was not referenced by any page.
+- Removed verified unreferenced files: `main.js`, `style.css`, `favicon.png`, `logo-dark.png`, `logo.png`, `ai-code-quality.png`, `ai-coding-tools-2026.png`, and `ai-developer-collaboration.png`. These had no active page, stylesheet, script, or manifest references. The retained WebP article images and `icon-512.png` cover the active uses.
 - Preserved `og-image.jpg`, all working project/demo pages, case studies, articles, favicon variants used by pages, CV PDF, GitHub verification file, `robots.txt`, `sitemap.xml`, manifest, and root-level GitHub Pages structure.
 - Preserved existing design/CSS/animations rather than doing a broad redesign.
 
 ## Existing SEO reviewed
 
-- All 25 user-facing HTML pages have a unique title and meta description; the Google verification HTML is intentionally not a content page.
+- All 26 user-facing HTML pages have a unique title and meta description; the Google verification HTML is intentionally not a content page.
 - All 25 user-facing HTML pages have canonical, Open Graph, and Twitter metadata.
 - Each user-facing page has one H1.
 - JSON-LD script blocks parsed as valid JSON.
-- Sitemap XML parsed successfully and its 24 listed URLs all resolve to files in the supplied project.
+- Sitemap XML parsed successfully and its 26 listed URLs all resolve to files in the supplied project.
 - Canonical URLs were unique in the inspected HTML pages.
 - `robots.txt` references the correct HTTPS sitemap URL.
 
@@ -57,10 +57,15 @@ Modified:
 
 Deleted:
 - `main.js`
-- `og-image.png`
+- `style.css`
 - `favicon.png`
 - `logo-dark.png`
 - `logo.png`
+- `ai-code-quality.png`
+- `ai-coding-tools-2026.png`
+- `ai-developer-collaboration.png`
+
+(`og-image.png` was already absent from this branch; `og-image.jpg` remains in use.)
 
 Added:
 - `OPTIMIZATION-REPORT.md`
@@ -69,3 +74,8 @@ Added:
 ## Limitations
 
 No real browser session, Lighthouse runner, Google Search Console account, or deployed-site access was used in this offline ZIP pass. Lighthouse scores, live Core Web Vitals, deployed link behavior, mobile interaction behavior, and actual Google indexing/sitemap fetch status have therefore **not** been measured or claimed. See `TESTING-REPORT.md`.
+
+
+## GitHub branch follow-up
+
+The follow-up source audit also replaced remaining retired-page links in the four project case studies, completed Twitter title/description tags on the three newest articles, and deferred the non-critical Lucide script on the 404 page. See `TESTING-REPORT.md` for the current branch verification scope.
