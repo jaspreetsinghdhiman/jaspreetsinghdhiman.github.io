@@ -1,81 +1,29 @@
 # Portfolio Optimization & Cleanup Report
 
 Website: https://jaspreetsinghdhiman.github.io/
-Repository layout: GitHub Pages root-level project
-Prepared from the supplied ZIP and portrait image.
+Repository: `jaspreetsinghdhiman/jaspreetsinghdhiman.github.io`
+Branch: `portfolio-audit-fixes-nov-2026`
 
-## Work completed
+## Completed
 
-- Replaced the old homepage portrait with the supplied first portrait image.
-- Exported real optimized `jaspreet.jpg` and `jaspreet.webp` files (the WebP is an actual WebP encode, not a renamed JPG).
-- Updated the homepage portrait to use a WebP `<picture>` source with a JPG fallback, descriptive alt text, intrinsic dimensions, and lazy loading. The image is in the About section below the hero, so lazy loading is retained.
-- Updated Person structured-data image URLs across the HTML pages to the new `jaspreet.jpg`.
-- Removed verified unreferenced files: `main.js`, `style.css`, `favicon.png`, `logo-dark.png`, `logo.png`, `ai-code-quality.png`, `ai-coding-tools-2026.png`, and `ai-developer-collaboration.png`. These had no active page, stylesheet, script, or manifest references. The retained WebP article images and `icon-512.png` cover the active uses.
-- Preserved `og-image.jpg`, all working project/demo pages, case studies, articles, favicon variants used by pages, CV PDF, GitHub verification file, `robots.txt`, `sitemap.xml`, manifest, and root-level GitHub Pages structure.
-- Preserved existing design/CSS/animations rather than doing a broad redesign.
+- Retired `skills.html` and `process.html`; removed both URLs from the sitemap and replaced remaining navigation links with valid destinations.
+- Removed the public employer organization name from the profile page and its Person structured data.
+- Kept the current profile portrait in the About section with a WebP source, JPG fallback, descriptive alt text, intrinsic dimensions, and lazy loading. The image is below the homepage hero, so it is not forced to load eagerly.
+- Deferred the non-critical Lucide icon library on the homepage, primary content pages, and 404 page.
+- Completed Twitter title and description metadata on the three newest article pages.
+- Preserved the existing visual system, page layout, animations, working demos, case studies, CV, current article WebP images, favicon variants, web manifest, and Open Graph JPG.
+- Removed eight verified unused files: `main.js`, `style.css`, `favicon.png`, `logo-dark.png`, `logo.png`, `ai-code-quality.png`, `ai-coding-tools-2026.png`, and `ai-developer-collaboration.png`. Their references were checked across site pages and supporting source files before deletion.
 
-## Existing SEO reviewed
+## SEO and source audit
 
-- All 26 user-facing HTML pages have a unique title and meta description; the Google verification HTML is intentionally not a content page.
-- All 25 user-facing HTML pages have canonical, Open Graph, and Twitter metadata.
-- Each user-facing page has one H1.
-- JSON-LD script blocks parsed as valid JSON.
-- Sitemap XML parsed successfully and its 26 listed URLs all resolve to files in the supplied project.
-- Canonical URLs were unique in the inspected HTML pages.
-- `robots.txt` references the correct HTTPS sitemap URL.
+- The sitemap contains 26 URLs, and every URL maps to a tracked repository file.
+- All 26 sitemap pages have a page title, meta description, canonical URL, Open Graph title/description, Twitter card metadata, and exactly one H1.
+- Local href/src/poster references across all 26 sitemap pages and `404.html` resolve to tracked files.
+- No references to the retired `skills.html` or `process.html` pages remain in the checked site pages.
+- `robots.txt` points to the HTTPS sitemap URL.
 
-## Exact file changes
+## Scope and limitations
 
-Modified:
-- `index.html`
-- `about.html`
-- `blog.html`
-- `budget-ledger-case-study.html`
-- `budget-ledger.html`
-- `contact.html`
-- `experience.html`
-- `habit-grid-case-study.html`
-- `habit-grid.html`
-- `markstudio.html`
-- `modern-frontend.html`
-- `performance-accessibility.html`
-- `process.html`
-- `pulsetrack-case-study.html`
-- `pulsetrack.html`
-- `react-component-architecture.html`
-- `responsive-websites.html`
-- `semantic-html-accessibility.html`
-- `skills.html`
-- `taskflow-case-study.html`
-- `taskflow.html`
-- `weathernow.html`
-- `work.html`
-- `wordpress-elementor-performance.html`
-- `404.html`
-- `jaspreet.jpg`
-- `jaspreet.webp`
+This work was performed directly on a GitHub feature branch and is held in draft PR #9. The changes have not been merged or published.
 
-Deleted:
-- `main.js`
-- `style.css`
-- `favicon.png`
-- `logo-dark.png`
-- `logo.png`
-- `ai-code-quality.png`
-- `ai-coding-tools-2026.png`
-- `ai-developer-collaboration.png`
-
-(`og-image.png` was already absent from this branch; `og-image.jpg` remains in use.)
-
-Added:
-- `OPTIMIZATION-REPORT.md`
-- `TESTING-REPORT.md`
-
-## Limitations
-
-No real browser session, Lighthouse runner, Google Search Console account, or deployed-site access was used in this offline ZIP pass. Lighthouse scores, live Core Web Vitals, deployed link behavior, mobile interaction behavior, and actual Google indexing/sitemap fetch status have therefore **not** been measured or claimed. See `TESTING-REPORT.md`.
-
-
-## GitHub branch follow-up
-
-The follow-up source audit also replaced remaining retired-page links in the four project case studies, completed Twitter title/description tags on the three newest articles, and deferred the non-critical Lucide script on the 404 page. See `TESTING-REPORT.md` for the current branch verification scope.
+No browser session, Lighthouse runner, or Search Console account was used. Lighthouse scores, real device rendering, deployed Core Web Vitals, actual Google indexing, and ranking improvements have not been measured or guaranteed. See `TESTING-REPORT.md` for the verification scope.
