@@ -215,3 +215,187 @@
 @media (min-width: 701px) {
   /* Desktop and tablet layouts remain governed by the existing design rules. */
 }
+
+
+/* ===== MOBILE WORK SECTION REBUILD — 2026-11-15 ===== */
+@media (max-width: 900px) {
+  /* The horizontal pinned desktop gallery becomes a natural vertical flow. */
+  #work.hz {
+    display: block;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    padding: clamp(58px, 12vw, 82px) 0 72px;
+    scroll-margin-top: 78px;
+  }
+
+  #work .work-tools {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+    width: auto;
+    max-width: none;
+    margin: 0 var(--pad) 34px;
+    padding: 0;
+  }
+
+  /* Put category choices first and align them with the cards. */
+  #work .work-tools .filters {
+    order: -1;
+    align-self: flex-start;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0 0 8px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  #work .filter-btn {
+    flex: 0 0 auto;
+    min-height: 42px;
+    padding: 11px 16px;
+    font-size: 10px;
+  }
+  #work .small-note {
+    max-width: 34ch;
+    margin: 0;
+    font-size: clamp(15px, 4.2vw, 18px);
+    line-height: 1.5;
+  }
+
+  #work #tr {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    width: 100%;
+    padding: 0 var(--pad);
+    margin: 0;
+    transform: none !important;
+    will-change: auto;
+  }
+  #work #tr > h2 {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0 0 8px;
+    font-size: clamp(43px, 11.5vw, 64px);
+    line-height: .98;
+    letter-spacing: -.06em;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+  #work #tr > .pj {
+    flex: none;
+    display: flex;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    height: auto;
+    min-height: 390px;
+    padding: 22px;
+    border-radius: 22px;
+    gap: 24px;
+    justify-content: space-between;
+    transform: none;
+    overflow: hidden;
+  }
+  #work #tr > .pj h3 {
+    max-width: 100%;
+    font-size: clamp(32px, 8.8vw, 44px);
+    line-height: .98;
+    letter-spacing: -.055em;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+  #work #tr > .pj p {
+    max-width: 38ch;
+    font-size: 15px;
+    line-height: 1.58;
+  }
+  #work #tr > .pj .t {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding-right: 0;
+  }
+  #work #tr > .pj .case-btn {
+    display: none !important;
+  }
+  #work #tr > .pj .arrow {
+    width: 42px;
+    height: 42px;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  /* No floating quick-menu button over the mobile project cards. */
+  body:has(#work) #fabWrap,
+  body:has(#projGrid) #fabWrap {
+    display: none !important;
+  }
+
+  /* Three metrics use the same type scale and a clean row layout. */
+  .stats {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    margin-top: 34px !important;
+    padding-top: 12px;
+  }
+  .stats > div {
+    display: grid;
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+    align-items: baseline;
+    gap: 12px;
+    min-width: 0;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .stats b {
+    display: block;
+    min-width: 0;
+    font-size: clamp(23px, 6.4vw, 29px);
+    line-height: 1.08;
+    letter-spacing: -.055em;
+    white-space: nowrap;
+    overflow-wrap: normal;
+  }
+  .stats span {
+    display: block;
+    max-width: none;
+    margin: 0;
+    font-size: 9px;
+    line-height: 1.5;
+    letter-spacing: .065em;
+  }
+}
+
+@media (max-width: 390px) {
+  #work.hz { padding-top: 54px; }
+  #work .work-tools { margin-bottom: 28px; }
+  #work #tr { gap: 20px; }
+  #work #tr > .pj { min-height: 360px; padding: 19px; }
+  #work #tr > .pj h3 { font-size: clamp(30px, 8.5vw, 36px); }
+  .stats > div { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 9px; }
+  .stats b { font-size: clamp(22px, 6vw, 26px); }
+}
+
+/* Keep the dedicated Work page hero clear of the fixed navigation. */
+@media (max-width: 700px) {
+  .page-hero { padding-top: 128px; }
+  .page-hero h1 {
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+}
