@@ -437,3 +437,64 @@
     font-size: 52px;
   }
 }
+
+/* Final mobile stats + contact submit alignment — 2026-11-15 */
+@media (max-width: 700px) {
+  .stats {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 0 !important;
+  }
+  .stats > div {
+    display: grid !important;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr) !important;
+    align-items: center !important;
+    column-gap: 10px !important;
+    min-width: 0 !important;
+  }
+  .stats > div > b,
+  .stats > div > b.fix-experience {
+    display: block !important;
+    width: auto !important;
+    max-width: 100% !important;
+    font-size: 24px !important;
+    line-height: 1.05 !important;
+    font-weight: 900 !important;
+    letter-spacing: -.045em !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+  }
+  .stats > div > span {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    font-size: 9px !important;
+    line-height: 1.45 !important;
+    overflow-wrap: break-word !important;
+  }
+  #fm {
+    align-items: flex-start !important;
+  }
+  #fm > button[type="submit"] {
+    display: inline-flex !important;
+    align-self: flex-start !important;
+    justify-self: start !important;
+    width: auto !important;
+    min-width: 190px !important;
+    min-height: 58px !important;
+    margin: 0 !important;
+    padding: 20px 30px !important;
+    font-size: 16px !important;
+    text-align: left !important;
+  }
+}
+@media (max-width: 390px) {
+  .stats > div {
+    grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr) !important;
+    column-gap: 8px !important;
+  }
+  .stats > div > b,
+  .stats > div > b.fix-experience {
+    font-size: 22px !important;
+  }
+}
