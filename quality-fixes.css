@@ -57,3 +57,161 @@
   .pj-grid .pj{padding:19px}.pj-grid .project-links a{font-size:10px}
 }
 @media(prefers-reduced-motion:reduce){.craft-card{transition:none}}
+
+
+/* ===== MOBILE SECTION RHYTHM + TYPE REFINEMENT (2026-11) ===== */
+@media (max-width: 700px) {
+  :root {
+    --pad: clamp(20px, 5.5vw, 26px);
+    --sec: clamp(68px, 17vw, 88px);
+  }
+
+  /* Prevent display headings and stat labels from breaking mid-word. */
+  .page-hero h1,
+  .stats b,
+  .craft-heading h2,
+  .sv h3 {
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+
+  .page-hero {
+    padding: 108px var(--pad) 0;
+  }
+
+  .page-hero h1 {
+    max-width: 100%;
+    font-size: clamp(42px, 11.4vw, 64px) !important;
+    line-height: .98;
+    letter-spacing: -.06em;
+    margin: 22px 0 24px;
+  }
+
+  .page-hero .intro-big {
+    max-width: 34ch;
+    margin-top: 0;
+    font-size: clamp(17px, 4.7vw, 20px) !important;
+    line-height: 1.55;
+    letter-spacing: -.018em;
+  }
+
+  /* Keep work filters on one usable row; allow deliberate horizontal scrolling. */
+  .work-tools {
+    margin: 0 var(--pad) 30px;
+    max-width: calc(100% - (2 * var(--pad)));
+  }
+  .work-tools .filters {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    padding: 2px 1px 10px;
+    scrollbar-width: none;
+  }
+  .work-tools .filters::-webkit-scrollbar { display: none; }
+  .work-tools .filters > * { flex: 0 0 auto; }
+
+  .pj-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding: 0 var(--pad) 72px;
+  }
+  .pj-grid .pj {
+    width: 100%;
+    min-width: 0;
+    min-height: 390px;
+    height: auto;
+    padding: clamp(20px, 5.5vw, 24px);
+    gap: 26px;
+    border-radius: 20px;
+  }
+  .pj-grid .pj h3 {
+    max-width: 100%;
+    font-size: clamp(32px, 8.8vw, 44px);
+    line-height: .98;
+    letter-spacing: -.06em;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+  .pj-grid .pj p {
+    max-width: 38ch;
+    font-size: clamp(14px, 3.9vw, 16px);
+    line-height: 1.58;
+    overflow-wrap: break-word;
+  }
+  .pj-grid .pj .t {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+  .pj-grid .project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 4px;
+  }
+  .pj-grid .project-links a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 13px;
+  }
+
+  /* Home-page metrics: preserve the two-column composition without splitting words. */
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 16px;
+    margin-top: 48px;
+    padding-top: 22px;
+  }
+  .stats > div { min-width: 0; }
+  .stats b {
+    font-size: clamp(22px, 7vw, 34px);
+    line-height: 1.08;
+    letter-spacing: -.065em;
+    white-space: normal;
+  }
+  .stats span {
+    max-width: 22ch;
+    font-size: 9px;
+    line-height: 1.5;
+    letter-spacing: .07em;
+  }
+
+  /* Consistent rhythm and readable service headings on the home page. */
+  .ab { gap: 34px; }
+  .ab p {
+    max-width: 100%;
+    font-size: clamp(22px, 6vw, 29px);
+    line-height: 1.35;
+    letter-spacing: -.025em;
+  }
+  .sv a {
+    grid-template-columns: 30px minmax(0, 1fr) auto;
+    gap: 12px;
+    padding: 24px 0;
+  }
+  .sv h3 {
+    font-size: clamp(19px, 5.3vw, 25px);
+    line-height: 1.12;
+    letter-spacing: -.045em;
+  }
+  .sv a > span { font-size: 22px; }
+}
+
+@media (max-width: 390px) {
+  .page-hero { padding-top: 100px; }
+  .page-hero h1 { font-size: clamp(39px, 10.8vw, 46px) !important; }
+  .pj-grid .pj { min-height: 370px; }
+  .pj-grid .pj h3 { font-size: clamp(30px, 8.5vw, 36px); }
+  .stats { column-gap: 12px; }
+  .stats b { font-size: clamp(21px, 6.8vw, 27px); }
+}
+
+@media (min-width: 701px) {
+  /* Desktop and tablet layouts remain governed by the existing design rules. */
+}
