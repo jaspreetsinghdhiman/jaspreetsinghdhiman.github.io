@@ -399,3 +399,21 @@
     hyphens: none;
   }
 }
+
+
+/* Make the experience figure a clear lead metric on mobile. */
+@media (max-width: 700px) {
+  .stats > div:first-child b.fix-experience {
+    display: block;
+    font-size: clamp(40px, 10.5vw, 48px) !important;
+    line-height: .98;
+    font-weight: 700;
+    letter-spacing: -.065em;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 390px) {
+  .stats > div:first-child b.fix-experience {
+    font-size: clamp(38px, 10vw, 44px) !important;
+  }
+}
