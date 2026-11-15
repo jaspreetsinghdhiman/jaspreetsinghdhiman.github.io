@@ -437,6 +437,22 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
   }
 }
 
+
+/* Visible home hero contact CTA */
+.hero-contact-btn{
+  display:inline-flex;align-items:center;justify-content:space-between;gap:34px;
+  width:max-content;max-width:100%;margin-top:26px;padding:15px 20px;
+  border:1px solid var(--acc);border-radius:999px;color:var(--fg);
+  font:700 11px "DM Sans",sans-serif;letter-spacing:.12em;text-transform:uppercase;
+  position:relative;z-index:4;transition:background .3s,color .3s,transform .3s;
+}
+.hero-contact-btn span{font-size:18px;color:var(--acc);transition:transform .3s}
+.hero-contact-btn:hover{background:var(--acc);color:var(--on);transform:translateY(-2px)}
+.hero-contact-btn:hover span{color:var(--on);transform:translate(3px,-3px)}
+@media(max-width:700px){
+ .hero-contact-btn{margin-top:22px;padding:14px 18px;font-size:10px}
+}
+
 </style>
 <!-- Deployment security headers are configured separately in vercel.json. -->
 <meta content="Jaspreet Singh Dhiman" name="author"/><meta content="index,follow" name="robots"/><meta content="website" property="og:type"/><meta content="Jaspreet Singh Dhiman" property="og:site_name"/><meta content="Jaspreet Singh | Frontend Developer, JavaScript & React" property="og:title"/><meta content="https://jaspreetsinghdhiman.github.io/og-image.jpg" property="og:image"/><meta content="Jaspreet Singh Dhiman — Frontend Developer" property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="Jaspreet Singh | Frontend Developer, JavaScript &amp; React" name="twitter:title"/><meta content="Jaspreet Singh is a frontend developer in India focused on responsive websites and interactive interfaces using JavaScript, React, HTML, CSS and WordPress. Explore projects and experience." name="twitter:description"/><meta content="https://jaspreetsinghdhiman.github.io/og-image.jpg" name="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://jaspreetsinghdhiman.github.io/#person", "name": "Jaspreet Singh Dhiman", "alternateName": "Jaspreet Singh", "jobTitle": "Frontend Developer", "address": {"@type": "PostalAddress", "addressRegion": "Punjab", "addressCountry": "IN"}, "sameAs": ["https://github.com/jaspreetsinghdhiman", "https://www.linkedin.com/in/jaspreet-singh-49abb8314/", "https://www.instagram.com/jaspreet.dhiman__"], "url": "https://jaspreetsinghdhiman.github.io/", "email": "mailto:jassp708737@gmail.com", "image": "https://jaspreetsinghdhiman.github.io/jaspreet.jpg", "knowsAbout": ["HTML5", "CSS3", "JavaScript", "React", "WordPress", "Figma", "Adobe Photoshop", "Responsive Web Design", "Frontend Development"]}, {"@type": "WebSite", "@id": "https://jaspreetsinghdhiman.github.io/#website", "url": "https://jaspreetsinghdhiman.github.io/", "name": "Jaspreet Singh Dhiman | Frontend Developer", "publisher": {"@id": "https://jaspreetsinghdhiman.github.io/#person"}}, {"@type": "WebPage", "url": "https://jaspreetsinghdhiman.github.io/", "name": "Jaspreet Singh | Frontend Developer, JavaScript & React", "description": "Jaspreet Singh is a frontend developer in India focused on responsive websites and interactive interfaces using JavaScript, React, HTML, CSS and WordPress. Explore projects and experience.", "isPartOf": {"@id": "https://jaspreetsinghdhiman.github.io/#website"}, "about": {"@id": "https://jaspreetsinghdhiman.github.io/#person"}}]}</script><!-- Google Search Console: paste your verification tag here, e.g. <meta name="google-site-verification" content="YOUR_CODE"/> -->
@@ -479,6 +495,7 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
 <p class="fade">I build fast, expressive digital experiences where thoughtful design, clean engineering and meaningful motion work together.</p>
 <div class="hero-meta fade"><span class="pulse"></span> Open to selected projects</div>
 </div>
+<a class="hero-contact-btn" href="#contact" data-cur="Let’s talk">Let’s work together <span aria-hidden="true">↗</span></a>
 <div class="scroll-note"><span></span> Scroll to explore</div>
 </section>
 <div class="mq"><div class="t d" id="m1">
