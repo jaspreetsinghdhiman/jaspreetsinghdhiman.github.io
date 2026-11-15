@@ -498,3 +498,52 @@
     font-size: 22px !important;
   }
 }
+
+/* Mobile stats labels below values; preserve full-width contact form. */
+@media (max-width: 700px) {
+  .stats > div {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    align-items: start !important;
+    justify-items: start !important;
+    row-gap: 5px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  .stats > div > b,
+  .stats > div > b.fix-experience {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+  .stats > div > span {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  #fm {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    justify-self: stretch !important;
+    align-self: stretch !important;
+    box-sizing: border-box !important;
+  }
+  #fm > button[type="submit"] {
+    display: inline-flex !important;
+    width: auto !important;
+    min-width: 190px !important;
+    min-height: 58px !important;
+    margin: 18px 0 0 !important;
+    padding: 18px 30px !important;
+    text-align: left !important;
+  }
+}
