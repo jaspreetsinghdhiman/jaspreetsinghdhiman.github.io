@@ -361,6 +361,44 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
 .mag:disabled{opacity:.6;cursor:wait}
 @media(prefers-reduced-motion:reduce){.sc-circle,.sc-tick{animation:none;stroke-dashoffset:0}.sent-panel.show{animation:none}}
 #cnt{position:relative;right:auto;bottom:auto;font-size:clamp(90px,20vw,280px);font-variant-numeric:tabular-nums}
+
+/* Mobile stats: equal headline scale and a protected description column */
+@media (max-width:700px){
+  .stats{
+    grid-template-columns:1fr;
+    gap:0;
+    margin-top:7vh;
+    padding-top:0;
+    border-top:0;
+  }
+  .stats>div{
+    display:grid;
+    grid-template-columns:minmax(0, .95fr) minmax(0, 1.05fr);
+    align-items:center;
+    column-gap:clamp(14px,4vw,22px);
+    min-width:0;
+    padding:20px 0;
+    border-top:1px solid var(--line);
+  }
+  .stats b{
+    min-width:0;
+    font-size:clamp(28px,7.5vw,38px);
+    font-weight:900;
+    line-height:1.04;
+    letter-spacing:-.055em;
+    overflow-wrap:normal;
+    word-break:normal;
+  }
+  .stats span{
+    min-width:0;
+    margin-top:0;
+    font-size:clamp(9px,2.6vw,11px);
+    line-height:1.45;
+    letter-spacing:.07em;
+    overflow-wrap:anywhere;
+  }
+}
+
 </style>
 <!-- Deployment security headers are configured separately in vercel.json. -->
 <meta content="Jaspreet Singh Dhiman" name="author"/><meta content="index,follow" name="robots"/><meta content="website" property="og:type"/><meta content="Jaspreet Singh Dhiman" property="og:site_name"/><meta content="Jaspreet Singh | Frontend Developer, JavaScript & React" property="og:title"/><meta content="https://jaspreetsinghdhiman.github.io/og-image.jpg" property="og:image"/><meta content="Jaspreet Singh Dhiman — Frontend Developer" property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="Jaspreet Singh | Frontend Developer, JavaScript &amp; React" name="twitter:title"/><meta content="Jaspreet Singh is a frontend developer in India focused on responsive websites and interactive interfaces using JavaScript, React, HTML, CSS and WordPress. Explore projects and experience." name="twitter:description"/><meta content="https://jaspreetsinghdhiman.github.io/og-image.jpg" name="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://jaspreetsinghdhiman.github.io/#person", "name": "Jaspreet Singh Dhiman", "alternateName": "Jaspreet Singh", "jobTitle": "Frontend Developer", "address": {"@type": "PostalAddress", "addressRegion": "Punjab", "addressCountry": "IN"}, "sameAs": ["https://github.com/jaspreetsinghdhiman", "https://www.linkedin.com/in/jaspreet-singh-49abb8314/", "https://www.instagram.com/jaspreet.dhiman__"], "url": "https://jaspreetsinghdhiman.github.io/", "email": "mailto:jassp708737@gmail.com", "image": "https://jaspreetsinghdhiman.github.io/jaspreet.jpg", "knowsAbout": ["HTML5", "CSS3", "JavaScript", "React", "WordPress", "Figma", "Adobe Photoshop", "Responsive Web Design", "Frontend Development"]}, {"@type": "WebSite", "@id": "https://jaspreetsinghdhiman.github.io/#website", "url": "https://jaspreetsinghdhiman.github.io/", "name": "Jaspreet Singh Dhiman | Frontend Developer", "publisher": {"@id": "https://jaspreetsinghdhiman.github.io/#person"}}, {"@type": "WebPage", "url": "https://jaspreetsinghdhiman.github.io/", "name": "Jaspreet Singh | Frontend Developer, JavaScript & React", "description": "Jaspreet Singh is a frontend developer in India focused on responsive websites and interactive interfaces using JavaScript, React, HTML, CSS and WordPress. Explore projects and experience.", "isPartOf": {"@id": "https://jaspreetsinghdhiman.github.io/#website"}, "about": {"@id": "https://jaspreetsinghdhiman.github.io/#person"}}]}</script><!-- Google Search Console: paste your verification tag here, e.g. <meta name="google-site-verification" content="YOUR_CODE"/> -->
