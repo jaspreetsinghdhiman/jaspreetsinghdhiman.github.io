@@ -567,6 +567,12 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
   #contact .fm>button[type="submit"]{display:flex;width:100%;max-width:100%;box-sizing:border-box;align-self:stretch;justify-self:stretch;min-width:0;min-height:66px;margin:10px 0 0;padding:20px 30px;text-align:left;justify-content:flex-start}
 }
 
+
+/* Project thumbnails: shared homepage visual cards */
+.project-preview{position:relative;z-index:2;height:clamp(145px,22vw,230px);display:flex;align-items:center;justify-content:center;margin:8px 0 14px;overflow:hidden;border-radius:18px;background:rgba(255,255,255,.22)}
+.project-preview img{display:block;width:88%;height:92%;object-fit:contain;filter:drop-shadow(0 18px 16px rgba(0,0,0,.2));transition:transform .55s cubic-bezier(.22,1,.36,1)}
+.pj:hover .project-preview img{transform:scale(1.07) rotate(-2deg)}
+@media(max-width:700px){.project-preview{height:180px}}
 </style>
 <!-- Deployment security headers are configured separately in vercel.json. -->
 <meta content="Jaspreet Singh Dhiman" name="author"/><meta content="index,follow,max-image-preview:large" name="robots"/><meta content="website" property="og:type"/><meta content="Jaspreet Singh Dhiman" property="og:site_name"/><meta content="Jaspreet Singh | Frontend Developer, JavaScript & React" property="og:title"/><meta content="https://jaspreetsinghdhiman.github.io/jaspreet.webp" property="og:image"/><meta content="Portrait of Jaspreet Singh Dhiman, Frontend Developer" property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="Jaspreet Singh | Frontend Developer, JavaScript &amp; React" name="twitter:title"/><meta content="Jaspreet Singh is a frontend developer in India focused on responsive websites and interactive interfaces using JavaScript, React, HTML, CSS and WordPress. Explore projects and experience." name="twitter:description"/><meta content="https://jaspreetsinghdhiman.github.io/jaspreet.webp" name="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://jaspreetsinghdhiman.github.io/#person", "name": "Jaspreet Singh Dhiman", "alternateName": "Jaspreet Singh", "jobTitle": "Frontend Developer", "address": {"@type": "PostalAddress", "addressRegion": "Punjab", "addressCountry": "IN"}, "sameAs": ["https://github.com/jaspreetsinghdhiman", "https://www.linkedin.com/in/jaspreet-singh-49abb8314/", "https://www.instagram.com/jaspreet.dhiman__"], "url": "https://jaspreetsinghdhiman.github.io/", "email": "mailto:jassp708737@gmail.com", "image": "https://jaspreetsinghdhiman.github.io/jaspreet.jpg", "knowsAbout": ["HTML5", "CSS3", "JavaScript", "React", "WordPress", "Figma", "Adobe Photoshop", "Responsive Web Design", "Frontend Development"]}, {"@type": "WebSite", "@id": "https://jaspreetsinghdhiman.github.io/#website", "url": "https://jaspreetsinghdhiman.github.io/", "name": "Jaspreet Singh Dhiman | Frontend Developer", "publisher": {"@id": "https://jaspreetsinghdhiman.github.io/#person"}}, {"@type": "WebPage", "url": "https://jaspreetsinghdhiman.github.io/", "name": "Jaspreet Singh | Frontend Developer, JavaScript & React", "description": "Jaspreet Singh is a frontend developer in India focused on responsive websites and interactive interfaces using JavaScript, React, HTML, CSS and WordPress. Explore projects and experience.", "isPartOf": {"@id": "https://jaspreetsinghdhiman.github.io/#website"}, "about": {"@id": "https://jaspreetsinghdhiman.github.io/#person"}}]}</script><!-- Google Search Console: paste your verification tag here, e.g. <meta name="google-site-verification" content="YOUR_CODE"/> -->
@@ -666,40 +672,21 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
 </div>
 <div class="tr" id="tr">
 <h2 class="d">Selected<br/><span class="s">work</span> →</h2>
-<a class="pj" data-category="webapps" data-cur="View" data-demo-url="budget-ledger.html" data-focus="Record expenses, view monthly category totals and export entries as CSV. Data stays in this browser." data-project="Budget Ledger" data-stack="HTML5 · CSS3 · JavaScript" data-type="Frontend demo" href="budget-ledger.html" id="project-nova-store" role="button" style="--c1:#b5c95b;--c2:#dbe6a2" tabindex="0">
-<div class="project-glow"></div><div class="project-orb"></div><b class="n d">01</b><div class="project-top"><div class="go">01 / Finance tool</div><span class="project-type">Selected work</span></div>
-<div><h3 class="d">Budget Ledger</h3><p>Record expenses, view monthly category totals and export entries as CSV. Data stays in this browser.</p><div class="t"><i>HTML5</i><i>CSS3</i><i>JavaScript</i></div></div>
-<span class="arrow">↗</span>
-<button class="case-btn" data-case-study="" type="button">Open demo ↗</button>
+<a class="pj" data-category="ecommerce" data-cur="View" data-demo-url="eco-shoes.html" data-focus="A responsive footwear storefront with shoe collections, product details, size selection and an interactive shopping cart." data-project="ECO Shoes" data-stack="HTML5 · CSS3 · JavaScript" data-type="E-commerce storefront" href="eco-shoes.html" id="project-eco-shoes" role="button" style="--c1:#dce8ff;--c2:#7e9fd5" tabindex="0">
+<div class="project-glow"></div><div class="project-orb"></div><b class="n d">01</b>
+<div class="project-top"><div class="go">01 / E-commerce</div><span class="project-type">Footwear store</span></div>
+<div class="project-preview"><img src="eco-shoes-thumb.svg" alt="ECO Shoes sneaker product thumbnail" loading="lazy"/></div>
+<div><h3 class="d">ECO Shoes</h3><p>A clean footwear storefront with shoe collections, product details, size selection and an interactive cart.</p><div class="t"><i>HTML5</i><i>CSS3</i><i>JavaScript</i><i>Responsive UI</i></div></div>
+<span class="arrow">↗</span><button class="case-btn" data-case-study="" type="button">Open demo ↗</button>
 </a>
-<a class="pj" data-category="webapps" data-cur="View" data-demo-url="habit-grid.html" data-focus="Track daily habits across 12 weeks with completion history and streak calculations saved in this browser." data-project="Habit Grid" data-stack="HTML5 · CSS3 · JavaScript" data-type="Frontend demo" href="habit-grid.html" id="project-pulse-dash" role="button" style="--c1:#7e9032;--c2:#bdca69" tabindex="0">
-<div class="project-glow"></div><div class="project-orb"></div><b class="n d">02</b><div class="project-top"><div class="go">02 / Productivity</div><span class="project-type">Selected work</span></div>
-<div><h3 class="d">Habit Grid</h3><p>Track daily habits across 12 weeks with completion history and streak calculations saved in this browser.</p><div class="t"><i>HTML5</i><i>CSS3</i><i>JavaScript</i></div></div>
-<span class="arrow">↗</span>
-<button class="case-btn" data-case-study="" type="button">Open demo ↗</button>
+<a class="pj" data-category="ecommerce" data-cur="View" data-demo-url="nova-tech.html" data-focus="A separate electronics storefront for smart wearables and wireless audio, with product detail pages and an interactive shopping bag." data-project="NOVA Tech" data-stack="HTML5 · CSS3 · JavaScript" data-type="E-commerce storefront" href="nova-tech.html" id="project-nova-tech" role="button" style="--c1:#6ee7f9;--c2:#183c50" tabindex="0">
+<div class="project-glow"></div><div class="project-orb"></div><b class="n d">02</b>
+<div class="project-top"><div class="go">02 / E-commerce</div><span class="project-type">Electronics store</span></div>
+<div class="project-preview"><img src="nova-tech-thumb.svg" alt="NOVA Tech smartwatch and earbuds thumbnail" loading="lazy"/></div>
+<div><h3 class="d">NOVA Tech</h3><p>A separate electronics storefront for wireless audio and smart wearables, with its own visual identity and shopping bag.</p><div class="t"><i>HTML5</i><i>CSS3</i><i>JavaScript</i><i>Responsive UI</i></div></div>
+<span class="arrow">↗</span><button class="case-btn" data-case-study="" type="button">Open demo ↗</button>
 </a>
-<a class="pj" data-category="webapps" data-cur="View" data-demo-url="pulsetrack.html" data-focus="Track income and expenses with category summaries and a canvas chart. Starts with an empty ledger." data-project="PulseTrack" data-stack="HTML5 · CSS3 · JavaScript" data-type="Frontend demo" href="pulsetrack.html" id="project-studio-3d" role="button" style="--c1:#d0d991;--c2:#8c9d3b" tabindex="0">
-<div class="project-glow"></div><div class="project-orb"></div><b class="n d">03</b><div class="project-top"><div class="go">03 / Finance tool</div><span class="project-type">Selected work</span></div>
-<div><h3 class="d">PulseTrack</h3><p>Track income and expenses with category summaries and a canvas chart. Starts with an empty ledger.</p><div class="t"><i>HTML5</i><i>CSS3</i><i>JavaScript</i></div></div>
-<span class="arrow">↗</span>
-<button class="case-btn" data-case-study="" type="button">Open demo ↗</button>
-</a>
-<a class="pj" data-category="webapps" data-cur="View" data-demo-url="taskflow.html" data-focus="Organise tasks by priority across To Do, In Progress and Done, with drag-and-drop and keyboard-friendly status controls." data-project="TaskFlow" data-stack="HTML5 · CSS3 · JavaScript" data-type="Frontend demo" href="taskflow.html" id="project-kisaan-app" role="button" style="--c1:#9dac4d;--c2:#d6df9a" tabindex="0">
-<div class="project-glow"></div><div class="project-orb"></div><b class="n d">04</b><div class="project-top"><div class="go">04 / Productivity</div><span class="project-type">Selected work</span></div>
-<div><h3 class="d">TaskFlow</h3><p>Organise tasks by priority across To Do, In Progress and Done, with drag-and-drop and keyboard-friendly status controls.</p><div class="t"><i>HTML5</i><i>CSS3</i><i>JavaScript</i></div></div>
-<span class="arrow">↗</span>
-<button class="case-btn" data-case-study="" type="button">Open demo ↗</button>
-</a>
-<a class="pj" data-category="webapps" data-cur="View" data-demo-url="markstudio.html" data-focus="A browser-based Markdown editor with a live preview, sanitised rendered output, local draft saving and Markdown file download." data-project="MarkStudio" data-stack="HTML5 · CSS3 · JavaScript · marked.js · DOMPurify" data-type="Frontend demo" href="markstudio.html" id="project-markstudio" role="button" style="--c1:#b9c8e8;--c2:#536b98" tabindex="0">
-<div class="project-glow"></div><div class="project-orb"></div><b class="n d">05</b><div class="project-top"><div class="go">05 / Writing tool</div><span class="project-type">Selected work</span></div>
-<div><h3 class="d">MarkStudio</h3><p>Write Markdown with a live preview, sanitised rendering, browser-saved drafts and one-click .md export.</p><div class="t"><i>HTML5</i><i>CSS3</i><i>JavaScript</i><i>Markdown</i></div></div>
-<span class="arrow">↗</span><button class="case-btn" data-case-study="" type="button">Open demo ↗</button></a>
-<a class="pj" data-category="webapps" data-cur="View" data-demo-url="weathernow.html" data-focus="A weather dashboard using Open-Meteo geocoding and forecast endpoints, with city search, current conditions, daily forecast and optional device location." data-project="WeatherNow" data-stack="HTML5 · CSS3 · JavaScript · Open-Meteo API · Geolocation" data-type="Frontend demo" href="weathernow.html" id="project-weathernow" role="button" style="--c1:#b8dce4;--c2:#477f91" tabindex="0">
-<div class="project-glow"></div><div class="project-orb"></div><b class="n d">06</b><div class="project-top"><div class="go">06 / Weather dashboard</div><span class="project-type">Selected work</span></div>
-<div><h3 class="d">WeatherNow</h3><p>Search a city or use device location to view current weather conditions and a five-day forecast powered by Open-Meteo.</p><div class="t"><i>HTML5</i><i>CSS3</i><i>JavaScript</i><i>Open-Meteo</i></div></div>
-<span class="arrow">↗</span><button class="case-btn" data-case-study="" type="button">Open demo ↗</button></a>
 </div>
-</section>
 <section class="stack" id="process">
 <div class="lbl">03 — Process</div>
 <div class="st" style="--i:0;--c:#b5c95b"><div class="process-index">01 / Strategy</div><b class="d">01</b><div><h3 class="d">Discover</h3><p>Understand the goal, audience, content and references before writing the first line of code.</p><div class="mini-icon"><i class="icon" data-lucide="search"></i></div></div></div>
