@@ -408,6 +408,12 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
   #projGrid.pj-grid{padding-top:clamp(26px,7vw,38px);}
 }
 
+
+/* Project thumbnails: shared homepage visual cards */
+.project-preview{position:relative;z-index:2;height:clamp(145px,22vw,230px);display:flex;align-items:center;justify-content:center;margin:8px 0 14px;overflow:hidden;border-radius:18px;background:rgba(255,255,255,.22)}
+.project-preview img{display:block;width:88%;height:92%;object-fit:contain;filter:drop-shadow(0 18px 16px rgba(0,0,0,.2));transition:transform .55s cubic-bezier(.22,1,.36,1)}
+.pj:hover .project-preview img{transform:scale(1.07) rotate(-2deg)}
+@media(max-width:700px){.project-preview{height:180px}}
 </style>
 <meta content="Jaspreet Singh" name="author"/><meta content="index,follow" name="robots"/><meta content="website" property="og:type"/><meta content="Jaspreet Singh" property="og:site_name"/><meta content="Frontend Projects | Jaspreet Singh" property="og:title"/><meta content="https://jaspreetsinghdhiman.github.io/og-image.jpg" property="og:image"/><meta content="Jaspreet Singh — Frontend Developer" property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="Frontend Projects | Jaspreet Singh" name="twitter:title"/><meta content="Explore Jaspreet Singh’s interactive frontend demos: expense tracking, habit tracking, task management, weather search and Markdown editing." name="twitter:description"/><meta content="https://jaspreetsinghdhiman.github.io/og-image.jpg" name="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://jaspreetsinghdhiman.github.io/#person", "name": "Jaspreet Singh Dhiman", "jobTitle": "Frontend Developer", "url": "https://jaspreetsinghdhiman.github.io/", "email": "mailto:jassp708737@gmail.com", "image": "https://jaspreetsinghdhiman.github.io/jaspreet.jpg", "knowsAbout": ["HTML5", "CSS3", "JavaScript", "React", "WordPress", "Figma", "Adobe Photoshop", "Responsive Web Design", "Frontend Development"], "alternateName": "Jaspreet Singh", "address": {"@type": "PostalAddress", "addressRegion": "Punjab", "addressCountry": "IN"}, "sameAs": ["https://github.com/jaspreetsinghdhiman", "https://www.instagram.com/jaspreet.dhiman__"]}, {"@type": "WebSite", "@id": "https://jaspreetsinghdhiman.github.io/#website", "url": "https://jaspreetsinghdhiman.github.io/", "name": "Jaspreet Singh | Frontend Developer", "publisher": {"@id": "https://jaspreetsinghdhiman.github.io/#person"}}, {"@type": "WebPage", "url": "https://jaspreetsinghdhiman.github.io/work.html", "name": "Frontend Projects | Jaspreet Singh", "description": "Explore Jaspreet Singh’s interactive frontend demos: expense tracking, habit tracking, task management, weather search and Markdown editing.", "isPartOf": {"@id": "https://jaspreetsinghdhiman.github.io/#website"}, "about": {"@id": "https://jaspreetsinghdhiman.github.io/#person"}}]}</script><link href="quality-fixes.css" rel="stylesheet"/></head>
 <body><a class="fix-skip" href="#top">Skip to content</a>
@@ -448,13 +454,15 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
 <div class="pj-grid" id="projGrid">
 <article class="pj project-card" data-category="ecommerce" style="--c1:#dce8ff;--c2:#7e9fd5;color:#101114">
 <div class="project-glow"></div><div class="project-orb"></div><b class="n d">01</b>
-<div class="project-top"><div class="go">01 / E-commerce</div><span class="project-type">Independent storefront</span></div>
-<div><h3 class="d">ECO Shoes</h3><p>A clean, responsive footwear storefront with curated shoe categories, product filtering, pricing, ratings and an interactive shopping cart.</p><div class="t"><i>HTML5</i><i>CSS3</i><i>JavaScript</i><i>Responsive UI</i><i>Cart interactions</i></div></div>
+<div class="project-top"><div class="go">01 / E-commerce</div><span class="project-type">Footwear store</span></div>
+<div class="project-preview"><img src="eco-shoes-thumb.svg" alt="ECO Shoes sneaker product thumbnail" loading="lazy"/></div>
+<div><h3 class="d">ECO Shoes</h3><p>A clean, responsive footwear storefront with shoe collections, product details, size selection and an interactive shopping cart.</p><div class="t"><i>HTML5</i><i>CSS3</i><i>JavaScript</i><i>Responsive UI</i></div></div>
 <div class="project-links"><a href="eco-shoes.html">Open live demo ↗</a></div></article>
 <article class="pj project-card" data-category="ecommerce" style="--c1:#6ee7f9;--c2:#183c50;color:#07121b">
 <div class="project-glow"></div><div class="project-orb"></div><b class="n d">02</b>
-<div class="project-top"><div class="go">02 / E-commerce</div><span class="project-type">Independent storefront</span></div>
-<div><h3 class="d">NOVA Tech</h3><p>A separate electronics storefront for wireless audio and smart wearables, with its own dark visual identity, product cards and interactive shopping bag.</p><div class="t"><i>HTML5</i><i>CSS3</i><i>JavaScript</i><i>Responsive UI</i><i>Cart interactions</i></div></div>
+<div class="project-top"><div class="go">02 / E-commerce</div><span class="project-type">Electronics store</span></div>
+<div class="project-preview"><img src="nova-tech-thumb.svg" alt="NOVA Tech smartwatch and earbuds thumbnail" loading="lazy"/></div>
+<div><h3 class="d">NOVA Tech</h3><p>A separate electronics storefront for wireless audio and smart wearables, with its own visual identity and interactive shopping bag.</p><div class="t"><i>HTML5</i><i>CSS3</i><i>JavaScript</i><i>Responsive UI</i></div></div>
 <div class="project-links"><a href="nova-tech.html">Open live demo ↗</a></div></article>
 </div><div aria-hidden="true" class="case-modal" id="caseModal">
 <div aria-labelledby="caseTitle" aria-modal="true" class="case-panel" role="dialog">
