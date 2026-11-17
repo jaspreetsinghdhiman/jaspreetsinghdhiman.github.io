@@ -50,3 +50,20 @@ Punjab Heritage — Preserving Our Roots. Celebrating Our Heritage.
 
 - Added two more Punjab-specific gallery photographs: a bullock cart in Patiala (Satdeep Gill, CC BY-SA 4.0) and a Punjabi woman cooking (Sanyam Bahga, CC BY-SA 3.0), each with nearby attribution and license links.
 - FormSubmit's current documentation states a 10 MB combined attachment limit and 30-day retention for text submissions; uploaded files are not retained in its submissions archive. The form now explains the attachment limit and retention caveat.
+
+
+## 2026-11-17 — Original editorial content phase
+- Added a long-form bilingual (English and Gurmukhi) feature on the Museum of Rural Life of Punjab at PAU, Ludhiana: `stories/museum-of-rural-life-punjab.html`.
+- Linked the feature from the Stories page and added it to the XML sitemap.
+- Added responsive long-form article typography.
+- Added an internal research register at `data/editorial-research-register.md` to separate verified institutional facts from claims still requiring object-level confirmation.
+- Added `assets/images/IMAGE-STANDARD.md` defining the local-only image rule, exact subject matching, rights checks, asset metadata and pre-release remote-image scan.
+- Important: the image migration is not complete yet. Existing pages still contain remote image URLs and visible photo credits. The image folder currently has only the brand mark. This work must not be described as fully self-hosted until every published image has been replaced with a verified local asset and the site has passed an external-request scan.
+
+## 2026-11-17 — Local image migration progress
+- Added original, locally stored SVG illustrations for ploughed fields, chulha/kitchen, phulkari, chakki, pottery, dhol, mud houses, wedding traditions, bullock carts, kabaddi and Lahore mosque architecture.
+- Replaced remote Wikimedia image URLs in the main page, explore, gallery, stories, objects, regional pages and collection pages with local assets.
+- Removed visible image-credit/source labels and remote social preview image tags from the pages migrated in this phase.
+- Scanned the migrated HTML/CSS/JSON files for Wikimedia/Unsplash/Pexels image URLs; no matching external image URLs were found in the scanned files.
+- These are original illustrative SVG artworks, not documentary photographs of specific historic objects or sites. For named locations, people and historically specific objects, replace them later only with verified project-owned photographs or rights-cleared images whose subject has been confirmed.
+- Remaining review: verify every local relative path in browser, inspect mobile layouts, scan JS/manifest and all remaining file types, and review the article's local image choices. External Google Fonts remain a non-image network dependency and should be self-hosted if the project goal is fully independent hosting.
