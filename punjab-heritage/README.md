@@ -44,3 +44,6 @@ Punjab Heritage — Preserving Our Roots. Celebrating Our Heritage.
 - Added Objects to the primary navigation across main and collection pages.
 - Expanded the persistent Punjabi language switch dictionary. This is partial translation coverage, not a complete translation of every page or every paragraph.
 - Added lazy loading and async decoding to below-the-fold content images on homepage, gallery and stories.
+
+- Added canonical URLs to primary and collection pages, WebSite structured data to the homepage, Article structured data to the Phulkari story, and dynamic object-specific canonical/meta/Thing data for object detail URLs.
+- Added individual object detail URLs to the sitemap. Dynamic pages and structured data should still be checked in Google Search Console after deployment.
