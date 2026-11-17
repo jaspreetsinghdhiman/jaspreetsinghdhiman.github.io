@@ -321,3 +321,19 @@ h1[lang="pa"],h2[lang="pa"],h3[lang="pa"],.punjabi-heading{font-family:var(--pun
   .archive-card h2{font-size:20px}
   .archive-card h2 span{font-size:16px}
 }
+
+
+/* Whole-Punjab regional introduction */
+.region-intro{margin:0 0 44px;padding:clamp(24px,4vw,48px);background:#f1eee5;border:1px solid rgba(48,57,42,.12)}
+.region-intro>.eyebrow{margin:0 0 10px}
+.region-intro h2{font-family:var(--serif,Georgia,serif);font-size:clamp(32px,4vw,48px);line-height:1.08;margin:0 0 12px;color:#283126}
+.region-intro h2 em{font-weight:400;color:#8c7044}
+.region-lead{max-width:760px;color:#596052;line-height:1.75;margin:0 0 25px}
+.region-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.region-card{padding:23px 22px 20px;background:#fbfaf6;border:1px solid rgba(48,57,42,.13);min-height:210px;display:flex;flex-direction:column}
+.region-kicker{font-size:9px;letter-spacing:.13em;color:#8a7049;font-weight:700}
+.region-card h3{font-family:var(--serif,Georgia,serif);font-size:27px;margin:17px 0 8px;color:#283126}
+.region-card p{font-size:13px;line-height:1.7;color:#62675c;margin:0 0 16px}
+.region-place{font-size:11px;color:#7b6747;margin-top:auto}
+.region-editorial-note{font-size:12px;line-height:1.7;color:#65695e;margin:18px 0 0}
+@media(max-width:760px){.region-grid{grid-template-columns:1fr;gap:10px}.region-card{min-height:0;padding:19px}.region-card h3{margin:10px 0 6px}.region-intro{padding:22px 17px;margin-bottom:30px}}
