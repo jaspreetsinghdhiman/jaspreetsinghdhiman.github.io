@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
   applyLanguage(savedLanguage);
   document.querySelectorAll('.language-toggle').forEach(button => button.addEventListener('click', () => applyLanguage(currentLanguage === 'pa' ? 'en' : 'pa')));
   window.PH_SET_LANGUAGE = applyLanguage;
-  const reveal = document.querySelectorAll('.collection-card, .explore-card, .object-card, .gallery-item, .values-grid article'); if ('IntersectionObserver' in window) { const io = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); } }), {threshold: .12}); reveal.forEach(el => { el.classList.add('reveal'); io.observe(el); }); }
+  const reveal = document.querySelectorAll('.collection-card, .explore-card, .object-card, .archive-card, .gallery-item, .values-grid article, .page-hero .container, .intro-grid, .section-heading, .detail-intro, .object-list article, .story-feature, .manifesto-content, .lehnda-feature, .lehnda-intro, .contact-card, .contribute-form'); if ('IntersectionObserver' in window) { const io = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); } }), {threshold: .12}); reveal.forEach(el => { el.classList.add('reveal'); io.observe(el); }); }
 
   const objectSearch = document.getElementById('object-search');
   const objectCards = [...document.querySelectorAll('.archive-card')];
