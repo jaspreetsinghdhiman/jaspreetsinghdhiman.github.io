@@ -35,3 +35,12 @@ Open `index.html` in a browser, or run a local static server from this folder.
 
 ## Brand
 Punjab Heritage — Preserving Our Roots. Celebrating Our Heritage.
+
+
+## Recent content updates
+- Added a bilingual Phulkari feature at `stories/phulkari.html`, with links to MFAH, Punjabi University and NCERT references.
+- Added the Phulkari feature to the story collection and sitemap.
+- Added a museum-catalogued 19th-century Phulkari textile to the gallery with attribution and MFAH use-term link. MFAH identifies the item image as Public Domain but limits use to non-commercial educational/personal contexts; verify current terms before any commercial use.
+- Added Objects to the primary navigation across main and collection pages.
+- Expanded the persistent Punjabi language switch dictionary. This is partial translation coverage, not a complete translation of every page or every paragraph.
+- Added lazy loading and async decoding to below-the-fold content images on homepage, gallery and stories.
