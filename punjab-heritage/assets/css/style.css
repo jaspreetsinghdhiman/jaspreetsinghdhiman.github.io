@@ -216,3 +216,6 @@ h1[lang="pa"],h2[lang="pa"],h3[lang="pa"],.punjabi-heading{font-family:var(--pun
  .object-card>div,.explore-card>div{padding:14px 12px}
  .object-card h3,.explore-card h2{font-size:19px}
 }
+
+.brand-mark{font-size:0;color:transparent;border:0;border-radius:0;box-shadow:none;background:url('../images/punjab-heritage-mark.svg') center/contain no-repeat}
+.brand-mark:before,.brand-mark:after{content:none}
