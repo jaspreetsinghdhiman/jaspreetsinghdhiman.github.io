@@ -55,7 +55,28 @@ document.addEventListener('DOMContentLoaded', () => {
     'Traditional games, community play and rural sports.':'ਰਵਾਇਤੀ ਖੇਡਾਂ, ਸਾਂਝੀਆਂ ਮਨੋਰੰਜਕ ਖੇਡਾਂ ਅਤੇ ਪੇਂਡੂ ਖੇਡ ਮੁਕਾਬਲੇ।',
     'How people and goods travelled across villages and towns.':'ਲੋਕ ਅਤੇ ਸਾਮਾਨ ਪਿੰਡਾਂ ਤੇ ਸ਼ਹਿਰਾਂ ਵਿਚਕਾਰ ਕਿਵੇਂ ਸਫ਼ਰ ਕਰਦੇ ਸਨ।',
     'These are introductory collection records. Verify regional names, descriptions, dates, sources and image rights before presenting any entry as an authenticated historical record.':'ਇਹ ਮੁੱਢਲੇ ਜਾਣਕਾਰੀ ਰਿਕਾਰਡ ਹਨ। ਕਿਸੇ ਵੀ ਦਰਜ ਨੂੰ ਪ੍ਰਮਾਣਿਤ ਇਤਿਹਾਸਕ ਰਿਕਾਰਡ ਕਹਿਣ ਤੋਂ ਪਹਿਲਾਂ ਇਲਾਕਾਈ ਨਾਂ, ਵੇਰਵੇ, ਮਿਤੀਆਂ, ਸਰੋਤ ਅਤੇ ਤਸਵੀਰਾਂ ਦੇ ਹੱਕਾਂ ਦੀ ਜਾਂਚ ਕਰੋ।',
-    'These are introductory records, not a complete catalogue. Names, uses and regional variants will be reviewed and sourced before being marked as verified.':'ਇਹ ਮੁੱਢਲੇ ਰਿਕਾਰਡ ਹਨ, ਪੂਰੀ ਸੂਚੀ ਨਹੀਂ। ਪ੍ਰਮਾਣਿਤ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਨਾਂ, ਵਰਤੋਂ ਅਤੇ ਇਲਾਕਾਈ ਰੂਪਾਂ ਦੀ ਜਾਂਚ ਅਤੇ ਸਰੋਤ ਦਰਜ ਕੀਤੇ ਜਾਣਗੇ।'
+    'These are introductory records, not a complete catalogue. Names, uses and regional variants will be reviewed and sourced before being marked as verified.':'ਇਹ ਮੁੱਢਲੇ ਰਿਕਾਰਡ ਹਨ, ਪੂਰੀ ਸੂਚੀ ਨਹੀਂ। ਪ੍ਰਮਾਣਿਤ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਨਾਂ, ਵਰਤੋਂ ਅਤੇ ਇਲਾਕਾਈ ਰੂਪਾਂ ਦੀ ਜਾਂਚ ਅਤੇ ਸਰੋਤ ਦਰਜ ਕੀਤੇ ਜਾਣਗੇ।',
+    'Every object':'ਹਰ ਵਸਤ','holds a':'ਵਿੱਚ ਵੱਸਦੀ ਹੈ','memory.':'ਇੱਕ ਯਾਦ।',
+    'Walk through the Punjab we inherited — its fields, homes, craftsmanship, everyday objects and the stories that keep them alive.':'ਆਓ ਉਸ ਪੰਜਾਬ ਨੂੰ ਜਾਣੀਏ ਜੋ ਸਾਨੂੰ ਵਿਰਸੇ ਵਿੱਚ ਮਿਲਿਆ — ਇਸ ਦੇ ਖੇਤ, ਘਰ, ਕਾਰੀਗਰੀ, ਰੋਜ਼ਾਨਾ ਦੀਆਂ ਵਸਤਾਂ ਅਤੇ ਉਨ੍ਹਾਂ ਨੂੰ ਜਿਉਂਦਾ ਰੱਖਣ ਵਾਲੀਆਂ ਕਹਾਣੀਆਂ।',
+    'MORE THAN THE PAST':'ਸਿਰਫ਼ ਬੀਤਿਆ ਕੱਲ੍ਹ ਨਹੀਂ','Our heritage is not':'ਸਾਡੀ ਵਿਰਾਸਤ','behind us. It is':'ਸਾਡੇ ਪਿੱਛੇ ਨਹੀਂ। ਇਹ','within us.':'ਸਾਡੇ ਅੰਦਰ ਹੈ।',
+    'EXPLORE THE COLLECTIONS':'ਸੰਗ੍ਰਹਿ ਵੇਖੋ','A world of':'ਇੱਕ ਦੁਨੀਆ','living traditions.':'ਜੀਵੰਤ ਰਵਾਇਤਾਂ ਦੀ।','View all collections':'ਸਾਰੇ ਸੰਗ੍ਰਹਿ ਵੇਖੋ',
+    'FIELDS & FARMING':'ਖੇਤ ਅਤੇ ਖੇਤੀਬਾੜੀ','HOME & EVERYDAY LIFE':'ਘਰ ਅਤੇ ਰੋਜ਼ਾਨਾ ਜੀਵਨ','PEOPLE & PLACES':'ਲੋਕ ਅਤੇ ਥਾਵਾਂ','MADE BY HAND':'ਹੱਥੀਂ ਬਣੀ ਕਲਾ','SOUND & CELEBRATION':'ਸੁਰ ਅਤੇ ਜਸ਼ਨ','RITUALS & FESTIVALS':'ਰਸਮਾਂ ਅਤੇ ਤਿਉਹਾਰ',
+    'Explore collection ↗':'ਸੰਗ੍ਰਹਿ ਵੇਖੋ ↗','THE DETAILS THAT DEFINE US':'ਸਾਡੀ ਪਛਾਣ ਬਣਾਉਣ ਵਾਲੇ ਵੇਰਵੇ',
+    'Every tool, recipe, craft and custom deserves to be remembered — not as a relic, but as a living part of who we are.':'ਹਰ ਔਜ਼ਾਰ, ਵਿਅੰਜਨ, ਕਲਾ ਅਤੇ ਰਸਮ ਯਾਦ ਰੱਖਣ ਦੇ ਯੋਗ ਹੈ — ਕਿਸੇ ਪੁਰਾਣੀ ਨਿਸ਼ਾਨੀ ਵਾਂਗ ਨਹੀਂ, ਸਗੋਂ ਸਾਡੀ ਪਛਾਣ ਦੇ ਜੀਵੰਤ ਹਿੱਸੇ ਵਜੋਂ।',
+    'Read heritage stories':'ਵਿਰਾਸਤ ਦੀਆਂ ਕਹਾਣੀਆਂ ਪੜ੍ਹੋ','OBJECTS WITH STORIES':'ਕਹਾਣੀਆਂ ਵਾਲੀਆਂ ਵਸਤਾਂ','Look closer.':'ਧਿਆਨ ਨਾਲ ਵੇਖੋ।','Remember more.':'ਹੋਰ ਯਾਦ ਕਰੋ।',
+    'HELP KEEP THE STORIES ALIVE':'ਕਹਾਣੀਆਂ ਨੂੰ ਜਿਉਂਦਾ ਰੱਖਣ ਵਿੱਚ ਮਦਦ ਕਰੋ','Share an old photograph, an object, or a memory from your family or village.':'ਆਪਣੇ ਪਰਿਵਾਰ ਜਾਂ ਪਿੰਡ ਦੀ ਪੁਰਾਣੀ ਤਸਵੀਰ, ਕੋਈ ਵਸਤ ਜਾਂ ਯਾਦ ਸਾਂਝੀ ਕਰੋ।',
+    'Contribute to the archive':'ਪੁਰਾਲੇਖ ਵਿੱਚ ਯੋਗਦਾਨ ਪਾਓ','Search English or Punjabi names…':'ਅੰਗਰੇਜ਼ੀ ਜਾਂ ਪੰਜਾਬੀ ਨਾਂ ਖੋਜੋ…',
+    'A traditional plough used to open and turn soil.':'ਜ਼ਮੀਨ ਨੂੰ ਚੀਰਨ ਅਤੇ ਪਲਟਣ ਲਈ ਵਰਤਿਆ ਜਾਣ ਵਾਲਾ ਰਵਾਇਤੀ ਹਲ।',
+    'A yoke associated with harnessing draught animals.':'ਖੇਤੀ ਦੇ ਪਸ਼ੂਆਂ ਨੂੰ ਜੋੜਨ ਲਈ ਵਰਤੀ ਜਾਣ ਵਾਲੀ ਪੰਜਾਲੀ।',
+    'A hand tool used for cutting crops or grass, with shape and name variations across communities.':'ਫ਼ਸਲ ਜਾਂ ਘਾਹ ਕੱਟਣ ਲਈ ਵਰਤਿਆ ਜਾਣ ਵਾਲਾ ਹੱਥੀਂ ਸੰਦ; ਇਸ ਦੀ ਬਣਤਰ ਅਤੇ ਨਾਂ ਇਲਾਕੇ ਅਨੁਸਾਰ ਬਦਲ ਸਕਦੇ ਹਨ।',
+    'A hand-operated mill traditionally used to grind grain.':'ਅਨਾਜ ਪੀਸਣ ਲਈ ਵਰਤੀ ਜਾਣ ਵਾਲੀ ਰਵਾਇਤੀ ਹੱਥੀਂ ਚੱਲਣ ਵਾਲੀ ਚੱਕੀ।',
+    'A traditional vessel for carrying or storing water.':'ਪਾਣੀ ਭਰਨ, ਲਿਜਾਣ ਜਾਂ ਸੰਭਾਲਣ ਲਈ ਵਰਤਿਆ ਜਾਣ ਵਾਲਾ ਰਵਾਇਤੀ ਭਾਂਡਾ।',
+    'An animal-powered water-lifting arrangement for irrigation.':'ਸਿੰਚਾਈ ਲਈ ਪਸ਼ੂਆਂ ਦੀ ਮਦਦ ਨਾਲ ਪਾਣੀ ਕੱਢਣ ਦੀ ਰਵਾਇਤੀ ਪ੍ਰਣਾਲੀ।',
+    'THE STORY & ITS USE':'ਇਸ ਦੀ ਕਹਾਣੀ ਅਤੇ ਵਰਤੋਂ','TRADITIONAL MATERIALS · ਸਮੱਗਰੀ':'ਰਵਾਇਤੀ ਸਮੱਗਰੀ','EVERYDAY USE · ਵਰਤੋਂ':'ਰੋਜ਼ਾਨਾ ਵਰਤੋਂ',
+    'Research status:':'ਖੋਜ ਦੀ ਸਥਿਤੀ:','Reference:':'ਹਵਾਲਾ:','Share a correction or memory ↗':'ਸੁਧਾਰ ਜਾਂ ਯਾਦ ਸਾਂਝੀ ਕਰੋ ↗','← All objects':'← ਸਾਰੀਆਂ ਵਸਤਾਂ',
+    'A traditional cooking hearth, often built from earth or masonry and adapted to local fuel and household needs.':'ਰਵਾਇਤੀ ਚੁੱਲ੍ਹਾ, ਜੋ ਅਕਸਰ ਮਿੱਟੀ ਜਾਂ ਇੱਟਾਂ ਨਾਲ ਬਣਾਇਆ ਜਾਂਦਾ ਸੀ ਅਤੇ ਸਥਾਨਕ ਬਾਲਣ ਤੇ ਘਰੇਲੂ ਲੋੜਾਂ ਅਨੁਸਾਰ ਹੁੰਦਾ ਸੀ।',
+    'A hand-operated churning tool used in preparing butter from curd.':'ਦਹੀਂ ਰਿੜਕ ਕੇ ਮੱਖਣ ਤਿਆਰ ਕਰਨ ਲਈ ਵਰਤਿਆ ਜਾਣ ਵਾਲਾ ਹੱਥੀਂ ਚਲਾਇਆ ਜਾਣ ਵਾਲਾ ਸੰਦ।',
+    'A woven cot used for sitting and sleeping, commonly associated with courtyards and open-air domestic life.':'ਬੁਣਿਆ ਹੋਇਆ ਮੰਜਾ, ਜਿਸ ਉੱਤੇ ਬੈਠਿਆ ਅਤੇ ਸੁੱਤਾ ਜਾਂਦਾ ਸੀ; ਇਹ ਵਿਹੜੇ ਅਤੇ ਖੁੱਲ੍ਹੇ ਘਰੇਲੂ ਜੀਵਨ ਨਾਲ ਜੁੜਿਆ ਹੈ।'
   };
   let currentLanguage = 'en';
   function applyLanguage(language) {
