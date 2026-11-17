@@ -11,3 +11,5 @@
 .form-honeypot{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 
 .record-source{font-size:12px;color:var(--muted);margin:16px 0}.record-source a{color:#8d6b3e;text-decoration:underline;text-underline-offset:3px}
+
+html[lang="en"] .punjabi-copy{display:none}html[lang="pa"] .english-copy{display:none}.editorial-story{max-width:820px}.editorial-story h2{margin:42px 0 16px}.editorial-story p{line-height:1.85;margin:16px 0}.editorial-story .punjabi-copy{font-size:1.04rem;line-height:2.05;color:var(--muted)}.story-references{padding-left:22px;line-height:1.8}.story-references li{margin:12px 0}.story-references a{color:#8d6b3e;text-decoration:underline;text-underline-offset:3px}
