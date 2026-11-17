@@ -28,7 +28,7 @@ https://jaspreetsinghdhiman.github.io/punjab-heritage/
 3. The object archive includes Punjabi names, summaries and bilingual detail fields. The language switch now persists the selected language and translates shared navigation/common UI labels; full page-by-page Punjabi translation is still outstanding.
 4. Most photography remains illustrative stock imagery. The gallery now includes a Punjab-specific Phulkari photograph from Wikimedia Commons with creator and CC BY-SA 4.0 attribution. Continue replacing generic imagery with documented, licensed regional photographs and maintain credits.
 5. Object descriptions are introductory and require regional review, references and attribution before being marked as verified.
-6. Add the remaining collection pages using the established template and update the sitemap when they are published.
+6. Four additional collections (Forts, Food, Folk Dance and Festivals) have been prepared on the collection-expansion branch. They are not considered fully released until photo binaries are stored locally, image/source matches are checked, and the sitemap is published.
 
 ## Local preview
 Open `index.html` in a browser, or run a local static server from this folder.
