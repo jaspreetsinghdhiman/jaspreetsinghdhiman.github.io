@@ -4,8 +4,28 @@ document.addEventListener('DOMContentLoaded', () => {
   if (toggle && nav) { toggle.addEventListener('click', () => { const open = nav.classList.toggle('is-open'); toggle.setAttribute('aria-expanded', String(open)); toggle.textContent = open ? '×' : '☰'; }); nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { nav.classList.remove('is-open'); toggle.setAttribute('aria-expanded','false'); toggle.textContent='☰'; })); }
   const search = document.getElementById('collection-search'); const cards = [...document.querySelectorAll('.explore-card')]; const count = document.getElementById('result-count'); const empty = document.getElementById('empty-state');
   if (search) search.addEventListener('input', () => { const q = search.value.trim().toLowerCase(); let visible = 0; cards.forEach(card => { const match = (card.dataset.search + ' ' + card.textContent).toLowerCase().includes(q); card.hidden = !match; if (match) visible++; }); if (count) count.textContent = visible + (visible === 1 ? ' collection' : ' collections'); if (empty) empty.hidden = visible !== 0; });
-  const form = document.getElementById('contribution-form'); if (form) form.addEventListener('submit', e => { e.preventDefault(); const feedback = document.getElementById('form-feedback'); if (feedback) feedback.textContent = 'Thank you. This preview form is not connected to a submission service yet. Please contact the site owner to send your contribution.'; form.reset(); });
-  const lang = document.querySelector('.language-toggle'); if (lang) lang.addEventListener('click', () => { alert('Punjabi content is planned for the next content phase. The current release is in English.'); });
+  const lang = document.querySelector('.language-toggle');
+  const translations = {
+    nav: {'Home':'ਮੁੱਖ ਪੰਨਾ','Explore':'ਖੋਜੋ','Objects':'ਵਸਤਾਂ','Stories':'ਕਹਾਣੀਆਂ','Gallery':'ਤਸਵੀਰਾਂ','Our mission':'ਸਾਡਾ ਮਕਸਦ','Contribute ↗':'ਯੋਗਦਾਨ ਪਾਓ ↗'},
+    common: {'A living archive of Punjab — its objects, people and traditions.':'ਪੰਜਾਬ ਦੀਆਂ ਵਸਤਾਂ, ਲੋਕਾਂ ਅਤੇ ਰਵਾਇਤਾਂ ਦਾ ਜੀਵੰਤ ਪੁਰਾਲੇਖ।','Preserving our roots. Celebrating our heritage.':'ਆਪਣੀਆਂ ਜੜ੍ਹਾਂ ਸੰਭਾਲੀਏ। ਆਪਣੀ ਵਿਰਾਸਤ ਮਨਾਈਏ।','Home ↑':'ਮੁੱਖ ਪੰਨਾ ↑','Search English or Punjabi names…':'ਅੰਗਰੇਜ਼ੀ ਜਾਂ ਪੰਜਾਬੀ ਨਾਂ ਖੋਜੋ…','No objects found. Try another search.':'ਕੋਈ ਵਸਤ ਨਹੀਂ ਮਿਲੀ। ਹੋਰ ਸ਼ਬਦ ਨਾਲ ਖੋਜੋ।','No collections found. Try another search.':'ਕੋਈ ਸੰਗ੍ਰਹਿ ਨਹੀਂ ਮਿਲਿਆ। ਹੋਰ ਸ਼ਬਦ ਨਾਲ ਖੋਜੋ।'}
+  };
+  function setLanguage(language) {
+    document.documentElement.lang = language === 'pa' ? 'pa' : 'en';
+    document.querySelectorAll('.main-nav a').forEach(a => { const label = a.textContent.trim(); const english = Object.keys(translations.nav).find(k => translations.nav[k] === label) || label; if (translations.nav[english]) a.textContent = language === 'pa' ? translations.nav[english] : english; });
+    document.querySelectorAll('.announcement, .footer-bottom span:last-of-type, .footer-bottom a, #object-search, #empty-state, #object-empty').forEach(el => {
+      if (el.tagName === 'INPUT') { if (!el.dataset.en) el.dataset.en = el.placeholder; el.placeholder = language === 'pa' ? (translations.common[el.dataset.en] || el.dataset.en) : el.dataset.en; }
+      else { if (!el.dataset.en) el.dataset.en = el.textContent.trim(); el.textContent = language === 'pa' ? (translations.common[el.dataset.en] || el.dataset.en) : el.dataset.en; }
+    });
+    document.querySelectorAll('[data-en][data-pa]').forEach(el => { el.textContent = language === 'pa' ? el.dataset.pa : el.dataset.en; });
+    if (lang) { lang.textContent = language === 'pa' ? 'English' : 'ਪੰਜਾਬੀ'; lang.setAttribute('aria-label', language === 'pa' ? 'Switch to English' : 'ਪੰਜਾਬੀ ਵਿੱਚ ਵੇਖੋ'); }
+    try { localStorage.setItem('ph-language', language); } catch (_) {}
+  }
+  if (lang) {
+    let current = 'en';
+    try { current = localStorage.getItem('ph-language') || 'en'; } catch (_) {}
+    setLanguage(current);
+    lang.addEventListener('click', () => setLanguage(document.documentElement.lang === 'pa' ? 'en' : 'pa'));
+  }
   const reveal = document.querySelectorAll('.collection-card, .explore-card, .object-card, .gallery-item, .values-grid article'); if ('IntersectionObserver' in window) { const io = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); } }), {threshold: .12}); reveal.forEach(el => { el.classList.add('reveal'); io.observe(el); }); }
 
   const objectSearch = document.getElementById('object-search');
