@@ -9,6 +9,8 @@ https://jaspreetsinghdhiman.github.io/punjab-heritage/
 ## Structure
 - `index.html` — homepage
 - `explore.html` — searchable collection directory
+- `objects.html` — searchable Punjabi object archive
+- `object.html?id=hal` — data-driven bilingual object record template
 - `stories.html` — community stories
 - `gallery.html` — visual gallery
 - `about.html` — mission and principles
@@ -17,12 +19,12 @@ https://jaspreetsinghdhiman.github.io/punjab-heritage/
 - `collections/` — collection detail pages
 - `assets/css/style.css` — responsive design system
 - `assets/js/app.js` — navigation, filtering and form-preview interactions
-- `data/objects.json` — starter object records
+- `data/objects.json` — six introductory object records with English and Gurmukhi descriptions
 
 ## Important launch notes
 1. This release is static HTML/CSS/JS and works on GitHub Pages. PHP and MySQL are not available on GitHub Pages.
 2. The contribution form is a front-end preview only. Connect a secure form endpoint or backend before accepting real submissions.
-3. Punjabi translation is planned; the current copy is English. The language switch currently displays a notice rather than changing page content.
+3. The object archive includes Punjabi names, summaries and bilingual detail fields. The rest of the site is still primarily English; the global language switch is not yet a complete sitewide translation.
 4. Some photography is illustrative stock imagery, not authenticated historical Punjab documentation. Replace with owned, licensed or permission-cleared images and add credits.
 5. Object descriptions are introductory and require regional review, references and attribution before being marked as verified.
 6. Add the remaining collection pages using the established template and update the sitemap when they are published.
