@@ -92,3 +92,9 @@ html[lang="en"] .punjabi-copy{display:none}html[lang="pa"] .english-copy{display
 .archive-image-credits a,.image-attribution-note a{color:#8d6b3e;text-decoration:underline;text-underline-offset:3px}
 .archive-image-credits{padding:14px 16px;background:#eae4d8}
 @media(max-width:700px){.archive-image-credits,.image-attribution-note{font-size:9px}}
+
+.contact-note{padding:22px}
+.contact-note>img{width:100%;height:170px;object-fit:cover}
+.contact-note .contact-image-credit{display:block;width:100%;font-size:8px;line-height:1.5;margin:0 0 14px;color:#e2d9c8}
+.contact-image-credit a{color:#e6c99a;text-decoration:underline;text-underline-offset:2px}
+@media(max-width:700px){.contact-note{padding:18px}.contact-note>img{height:150px}}
