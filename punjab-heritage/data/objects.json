@@ -1,0 +1,8 @@
+[
+  {"id":"hal","name_en":"Hal","name_pa":"ਹਲ","category":"Agriculture","use":"Traditional plough used to open and turn soil.","status":"introductory","verification":"Needs regional source review"},
+  {"id":"panjali","name_en":"Panjali","name_pa":"ਪੰਜਾਲੀ","category":"Agriculture","use":"Traditional yoke associated with harnessing draught animals.","status":"introductory","verification":"Needs regional source review"},
+  {"id":"daati","name_en":"Daati","name_pa":"ਦਾਤੀ","category":"Agriculture","use":"Hand tool used for cutting crops or grass.","status":"introductory","verification":"Needs regional source review"},
+  {"id":"chulha","name_en":"Chulha","name_pa":"ਚੁੱਲ੍ਹਾ","category":"Ghar & Rasoi","use":"Traditional household cooking hearth.","status":"introductory","verification":"Needs regional source review"},
+  {"id":"madhaani","name_en":"Madhaani","name_pa":"ਮਧਾਣੀ","category":"Ghar & Rasoi","use":"Hand-operated churning tool used to prepare butter from curd.","status":"introductory","verification":"Needs regional source review"},
+  {"id":"manja","name_en":"Manja","name_pa":"ਮੰਜਾ","category":"Pind di Zindagi","use":"Woven cot used for sitting and sleeping.","status":"introductory","verification":"Needs regional source review"}
+]
