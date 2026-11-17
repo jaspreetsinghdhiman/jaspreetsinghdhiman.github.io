@@ -66,8 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
     while (walker.nextNode()) nodes.push(walker.currentNode);
     nodes.forEach(node => {
       if (!node.parentElement || /^(SCRIPT|STYLE|NOSCRIPT)$/.test(node.parentElement.tagName)) return;
-      if (!node.dataset.phEnglish) node.dataset.phEnglish = node.nodeValue;
-      const original = node.dataset.phEnglish;
+      if (!node.__phEnglish) node.__phEnglish = node.nodeValue;
+      const original = node.__phEnglish;
       const key = original.trim();
       if (!key) return;
       const leading = original.match(/^\s*/)[0], trailing = original.match(/\s*$/)[0];
@@ -106,7 +106,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if(!item)throw new Error('Record not found');
       document.title=item.name_en+' ('+item.name_pa+') | Punjab Heritage';
       detailRoot.innerHTML = '<section class="page-hero"><div class="container"><p class="eyebrow">OBJECT RECORD · '+item.category_en.toUpperCase()+' · '+item.category_pa+'</p><h1>'+item.name_en+' <em>— '+item.name_pa+'</em></h1><p>'+item.summary_en+'</p><p class="punjabi-copy" lang="pa">'+item.summary_pa+'</p><div class="breadcrumb"><a href="index.html">Home</a> / <a href="objects.html">Objects</a> / '+item.name_en+'</div></div></section><section class="section-pad"><div class="container object-record"><div class="record-art" aria-label="Punjabi name of the object">'+item.name_pa+'</div><div class="record-copy"><p class="eyebrow">THE STORY & ITS USE</p><h2>'+item.name_en+'<span>'+item.name_pa+'</span></h2><p>'+item.description_en+'</p><p class="punjabi-copy" lang="pa">'+item.description_pa+'</p><div class="record-facts"><div><small>TRADITIONAL MATERIALS · ਸਮੱਗਰੀ</small><b>'+item.materials_en+'</b><span class="punjabi-copy" lang="pa">'+item.materials_pa+'</span></div><div><small>EVERYDAY USE · ਵਰਤੋਂ</small><b>'+item.use_en+'</b><span class="punjabi-copy" lang="pa">'+item.use_pa+'</span></div></div><div class="record-verification"><strong>Research status:</strong> '+item.verification+' Please share local variations or source material through the contribution page.</div>'+(item.source_url?'<p class="record-source"><strong>Reference:</strong> <a href="'+item.source_url+'" target="_blank" rel="noopener">'+item.source_label+' ↗</a></p>':'')+'<div class="record-nav"><a href="objects.html">← All objects</a><a href="contribute.html">Share a correction or memory ↗</a></div></div></div></section>';
-      if (window.PH_SET_LANGUAGE) window.PH_SET_LANGUAGE(currentLanguage);\n    }).catch(()=>{detailRoot.innerHTML='<section class="section-pad"><div class="container"><h2>Record not found</h2><p>This object record may have moved. <a class="text-link" href="objects.html">Return to the objects archive →</a></p></div></section>';});
+      if (window.PH_SET_LANGUAGE) window.PH_SET_LANGUAGE(currentLanguage);
+    }).catch(()=>{detailRoot.innerHTML='<section class="section-pad"><div class="container"><h2>Record not found</h2><p>This object record may have moved. <a class="text-link" href="objects.html">Return to the objects archive →</a></p></div></section>';});
   }
 
 });
