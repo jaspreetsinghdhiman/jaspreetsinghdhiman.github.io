@@ -20,7 +20,7 @@ https://jaspreetsinghdhiman.github.io/punjab-heritage/
 - `collections/` — collection detail pages
 - `assets/css/style.css` — responsive design system
 - `assets/js/app.js` — navigation, filtering and form-preview interactions
-- `data/objects.json` — six introductory object records with English and Gurmukhi descriptions
+- `data/objects.json` — nine introductory object records with English and Gurmukhi descriptions
 
 ## Important launch notes
 1. This release is static HTML/CSS/JS and works on GitHub Pages. PHP and MySQL are not available on GitHub Pages.
