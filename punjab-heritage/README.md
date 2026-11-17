@@ -14,7 +14,8 @@ https://jaspreetsinghdhiman.github.io/punjab-heritage/
 - `stories.html` — community stories
 - `gallery.html` — visual gallery
 - `about.html` — mission and principles
-- `contribute.html` — contribution form preview
+- `contribute.html` — email-connected contribution form (FormSubmit; recipient verification required on first use)
+- `thank-you.html` — contribution confirmation page
 - `contact.html` — contact page
 - `collections/` — collection detail pages
 - `assets/css/style.css` — responsive design system
@@ -23,9 +24,9 @@ https://jaspreetsinghdhiman.github.io/punjab-heritage/
 
 ## Important launch notes
 1. This release is static HTML/CSS/JS and works on GitHub Pages. PHP and MySQL are not available on GitHub Pages.
-2. The contribution form is a front-end preview only. Connect a secure form endpoint or backend before accepting real submissions.
-3. The object archive includes Punjabi names, summaries and bilingual detail fields. The rest of the site is still primarily English; the global language switch is not yet a complete sitewide translation.
-4. Some photography is illustrative stock imagery, not authenticated historical Punjab documentation. Replace with owned, licensed or permission-cleared images and add credits.
+2. The contribution form posts to FormSubmit at jassp708737@gmail.com. The recipient must complete FormSubmit's first-use email verification before messages can be delivered. Do not collect sensitive personal information.
+3. The object archive includes Punjabi names, summaries and bilingual detail fields. The language switch now persists the selected language and translates shared navigation/common UI labels; full page-by-page Punjabi translation is still outstanding.
+4. Most photography remains illustrative stock imagery. The gallery now includes a Punjab-specific Phulkari photograph from Wikimedia Commons with creator and CC BY-SA 4.0 attribution. Continue replacing generic imagery with documented, licensed regional photographs and maintain credits.
 5. Object descriptions are introductory and require regional review, references and attribution before being marked as verified.
 6. Add the remaining collection pages using the established template and update the sitemap when they are published.
 
