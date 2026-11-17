@@ -54,3 +54,26 @@ html[lang="en"] .punjabi-copy{display:none}html[lang="pa"] .english-copy{display
  .object-list article{padding:20px 0}
  .photo-credit{font-size:8px;max-width:70%}
 }
+
+/* Archive card photography */
+.archive-symbol{position:relative;isolation:isolate;overflow:hidden;padding:0;background:#263326}
+.archive-symbol:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,25,18,.08),rgba(16,25,18,.78));z-index:0}
+.archive-symbol img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1}
+.archive-glyph{position:absolute;left:12px;top:10px;z-index:1;color:#f4ead7;font:500 29px var(--serif);text-shadow:0 2px 12px #172117}
+.archive-photo-credit{position:absolute;left:8px;right:8px;bottom:8px;z-index:1;color:#f5efe3;font:500 7px/1.35 var(--sans);text-align:left}
+.archive-note{font-size:12px;color:#77766d;margin:0 0 22px;max-width:850px}
+.about-archive-photo,.contribution-photo{margin:38px 0 0}
+.about-archive-photo img,.contribution-photo img{width:100%;height:350px;object-fit:cover}
+.about-archive-photo figcaption,.contribution-photo figcaption{font-size:11px;line-height:1.65;color:#77766d;padding-top:9px}
+.about-archive-photo a,.contribution-photo a{color:#8d6b3e;text-decoration:underline;text-underline-offset:3px}
+.record-visual{position:relative;margin:0;min-height:390px;background:#263326;overflow:hidden}
+.record-visual img{width:100%;height:390px;object-fit:cover}
+.record-visual figcaption{padding:10px 12px;background:#eae4d8;color:#696a60;font-size:10px;line-height:1.5}
+@media(max-width:700px){
+ .archive-symbol{min-height:160px}
+ .archive-glyph{font-size:24px;left:8px;top:8px}
+ .archive-photo-credit{font-size:6.5px;left:6px;right:6px;bottom:6px}
+ .about-archive-photo img,.contribution-photo img{height:auto;aspect-ratio:16/10}
+ .record-visual,.record-visual img{min-height:0;height:auto}
+ .record-visual img{aspect-ratio:4/3}
+}
