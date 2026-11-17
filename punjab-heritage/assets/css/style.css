@@ -7,3 +7,4 @@
 @media(max-width:700px){.archive-grid{grid-template-columns:1fr}.archive-card{grid-template-columns:82px 1fr;min-height:160px}.archive-card>div:last-child{padding:16px}.archive-card h2{font-size:22px}.archive-card h2 span{font-size:17px}.object-record{grid-template-columns:1fr;gap:28px}.record-art{min-height:250px}.record-facts{gap:12px}.record-copy h2{font-size:38px}}
 
 .punjabi-copy{display:block;margin-top:9px;color:#697064;font-family:var(--sans);font-size:13px;line-height:1.8}.record-facts .punjabi-copy{font-size:12px}
+\n.form-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}\n
