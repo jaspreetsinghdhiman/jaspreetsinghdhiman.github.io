@@ -1,8 +1,56 @@
 [
-  {"id":"hal","name_en":"Hal","name_pa":"ਹਲ","category":"Agriculture","use":"Traditional plough used to open and turn soil.","status":"introductory","verification":"Needs regional source review"},
-  {"id":"panjali","name_en":"Panjali","name_pa":"ਪੰਜਾਲੀ","category":"Agriculture","use":"Traditional yoke associated with harnessing draught animals.","status":"introductory","verification":"Needs regional source review"},
-  {"id":"daati","name_en":"Daati","name_pa":"ਦਾਤੀ","category":"Agriculture","use":"Hand tool used for cutting crops or grass.","status":"introductory","verification":"Needs regional source review"},
-  {"id":"chulha","name_en":"Chulha","name_pa":"ਚੁੱਲ੍ਹਾ","category":"Ghar & Rasoi","use":"Traditional household cooking hearth.","status":"introductory","verification":"Needs regional source review"},
-  {"id":"madhaani","name_en":"Madhaani","name_pa":"ਮਧਾਣੀ","category":"Ghar & Rasoi","use":"Hand-operated churning tool used to prepare butter from curd.","status":"introductory","verification":"Needs regional source review"},
-  {"id":"manja","name_en":"Manja","name_pa":"ਮੰਜਾ","category":"Pind di Zindagi","use":"Woven cot used for sitting and sleeping.","status":"introductory","verification":"Needs regional source review"}
+  {
+    "id":"hal","name_en":"Hal","name_pa":"ਹਲ","category_en":"Agriculture","category_pa":"ਖੇਤੀਬਾੜੀ",
+    "summary_en":"A traditional plough used to open and turn soil before sowing.","summary_pa":"ਬਿਜਾਈ ਤੋਂ ਪਹਿਲਾਂ ਮਿੱਟੀ ਨੂੰ ਚੀਰਨ ਅਤੇ ਪਲਟਣ ਲਈ ਵਰਤਿਆ ਜਾਣ ਵਾਲਾ ਰਵਾਇਤੀ ਹਲ।",
+    "description_en":"The hal is closely associated with the agrarian life of Punjab. Its form, materials and method of use varied by region, soil and period. Oral accounts from farming families can help document local names and changes in design.",
+    "description_pa":"ਹਲ ਪੰਜਾਬ ਦੇ ਖੇਤੀਬਾੜੀ ਜੀਵਨ ਨਾਲ ਡੂੰਘਾ ਜੁੜਿਆ ਹੋਇਆ ਹੈ। ਇਸ ਦੀ ਬਣਾਵਟ, ਸਮੱਗਰੀ ਅਤੇ ਵਰਤੋਂ ਇਲਾਕੇ, ਮਿੱਟੀ ਅਤੇ ਸਮੇਂ ਅਨੁਸਾਰ ਬਦਲਦੀ ਰਹੀ ਹੈ। ਕਿਸਾਨ ਪਰਿਵਾਰਾਂ ਦੀਆਂ ਮੌਖਿਕ ਯਾਦਾਂ ਰਾਹੀਂ ਇਸ ਦੇ ਸਥਾਨਕ ਨਾਂ ਅਤੇ ਬਣਤਰ ਦੇ ਬਦਲਾਅ ਦਰਜ ਕੀਤੇ ਜਾ ਸਕਦੇ ਹਨ।",
+    "materials_en":"Wood; locally varying metal fittings","materials_pa":"ਲੱਕੜ; ਇਲਾਕੇ ਅਨੁਸਾਰ ਲੋਹੇ ਦੇ ਹਿੱਸੇ",
+    "use_en":"Opening and turning soil for cultivation.","use_pa":"ਖੇਤੀ ਲਈ ਮਿੱਟੀ ਨੂੰ ਚੀਰਨਾ ਅਤੇ ਪਲਟਣਾ।",
+    "verification":"Introductory record — regional source and image still required."
+  },
+  {
+    "id":"panjali","name_en":"Panjali","name_pa":"ਪੰਜਾਲੀ","category_en":"Agriculture","category_pa":"ਖੇਤੀਬਾੜੀ",
+    "summary_en":"A yoke associated with harnessing draught animals for farm work.","summary_pa":"ਖੇਤੀ ਦੇ ਕੰਮ ਲਈ ਬਲਦਾਂ ਜਾਂ ਹੋਰ ਪਸ਼ੂਆਂ ਨੂੰ ਜੋੜਨ ਨਾਲ ਸੰਬੰਧਿਤ ਜੂਲਾ।",
+    "description_en":"The panjali is recorded here as a traditional animal-harnessing implement. Terminology and construction can differ between districts and communities, so local testimony is important before assigning a single definition.",
+    "description_pa":"ਪੰਜਾਲੀ ਨੂੰ ਇੱਥੇ ਪਸ਼ੂਆਂ ਨੂੰ ਖੇਤੀ ਦੇ ਕੰਮ ਨਾਲ ਜੋੜਨ ਵਾਲੇ ਰਵਾਇਤੀ ਸੰਦ ਵਜੋਂ ਦਰਜ ਕੀਤਾ ਗਿਆ ਹੈ। ਇਸ ਦਾ ਨਾਂ ਅਤੇ ਬਣਤਰ ਵੱਖ-ਵੱਖ ਜ਼ਿਲ੍ਹਿਆਂ ਅਤੇ ਭਾਈਚਾਰਿਆਂ ਵਿੱਚ ਬਦਲ ਸਕਦੇ ਹਨ, ਇਸ ਲਈ ਸਥਾਨਕ ਜਾਣਕਾਰੀ ਦੀ ਪੁਸ਼ਟੀ ਜ਼ਰੂਰੀ ਹੈ।",
+    "materials_en":"Wood and locally used fastening materials","materials_pa":"ਲੱਕੜ ਅਤੇ ਸਥਾਨਕ ਬੰਨ੍ਹਣ ਵਾਲੀ ਸਮੱਗਰੀ",
+    "use_en":"Connecting and harnessing draught animals to agricultural equipment.","use_pa":"ਖੇਤੀਬਾੜੀ ਦੇ ਸੰਦਾਂ ਨਾਲ ਪਸ਼ੂਆਂ ਨੂੰ ਜੋੜਨਾ।",
+    "verification":"Introductory record — regional source and image still required."
+  },
+  {
+    "id":"daati","name_en":"Daati","name_pa":"ਦਾਤੀ","category_en":"Agriculture","category_pa":"ਖੇਤੀਬਾੜੀ",
+    "summary_en":"A hand tool used for cutting crops, grass and other plant material.","summary_pa":"ਫਸਲਾਂ, ਘਾਹ ਅਤੇ ਹੋਰ ਬਨਸਪਤੀ ਕੱਟਣ ਲਈ ਵਰਤਿਆ ਜਾਣ ਵਾਲਾ ਹੱਥ ਸੰਦ।",
+    "description_en":"The daati is a familiar hand tool in rural work. Blade shape, handle material and the exact local name may vary. A good archive record should include a photograph of the actual tool and the village or district where it was used.",
+    "description_pa":"ਦਾਤੀ ਪੇਂਡੂ ਕੰਮਕਾਜ ਵਿੱਚ ਵਰਤਿਆ ਜਾਣ ਵਾਲਾ ਜਾਣਿਆ-ਪਛਾਣਿਆ ਹੱਥ ਸੰਦ ਹੈ। ਇਸ ਦੀ ਧਾਰ, ਦਸਤੇ ਦੀ ਸਮੱਗਰੀ ਅਤੇ ਸਥਾਨਕ ਨਾਂ ਵੱਖ ਹੋ ਸਕਦੇ ਹਨ। ਵਧੀਆ ਰਿਕਾਰਡ ਵਿੱਚ ਅਸਲ ਸੰਦ ਦੀ ਤਸਵੀਰ ਅਤੇ ਉਸ ਪਿੰਡ ਜਾਂ ਜ਼ਿਲ੍ਹੇ ਦਾ ਜ਼ਿਕਰ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ ਜਿੱਥੇ ਇਹ ਵਰਤਿਆ ਜਾਂਦਾ ਸੀ।",
+    "materials_en":"Metal blade and a wood or other local handle","materials_pa":"ਧਾਤ ਦੀ ਧਾਰ ਅਤੇ ਲੱਕੜ ਜਾਂ ਹੋਰ ਸਥਾਨਕ ਦਸਤਾ",
+    "use_en":"Cutting crops, fodder or grass by hand.","use_pa":"ਹੱਥ ਨਾਲ ਫਸਲ, ਚਾਰਾ ਜਾਂ ਘਾਹ ਕੱਟਣਾ।",
+    "verification":"Introductory record — regional source and image still required."
+  },
+  {
+    "id":"chulha","name_en":"Chulha","name_pa":"ਚੁੱਲ੍ਹਾ","category_en":"Ghar & Rasoi","category_pa":"ਘਰ ਅਤੇ ਰਸੋਈ",
+    "summary_en":"A traditional household hearth used for cooking with solid fuel.","summary_pa":"ਠੋਸ ਬਾਲਣ ਨਾਲ ਖਾਣਾ ਪਕਾਉਣ ਲਈ ਵਰਤਿਆ ਜਾਣ ਵਾਲਾ ਰਵਾਇਤੀ ਘਰੇਲੂ ਚੁੱਲ੍ਹਾ।",
+    "description_en":"The chulha was central to many Punjabi kitchens and domestic routines. Its construction differed by household, region and available materials. Memories of cooking, fuel, utensils and shared meals are part of its cultural story.",
+    "description_pa":"ਚੁੱਲ੍ਹਾ ਪੰਜਾਬ ਦੇ ਕਈ ਘਰਾਂ ਦੀ ਰਸੋਈ ਅਤੇ ਰੋਜ਼ਾਨਾ ਜੀਵਨ ਦਾ ਕੇਂਦਰ ਰਿਹਾ ਹੈ। ਇਸ ਦੀ ਬਣਤਰ ਘਰ, ਇਲਾਕੇ ਅਤੇ ਉਪਲਬਧ ਸਮੱਗਰੀ ਅਨੁਸਾਰ ਵੱਖਰੀ ਹੁੰਦੀ ਸੀ। ਖਾਣਾ ਪਕਾਉਣ, ਬਾਲਣ, ਭਾਂਡਿਆਂ ਅਤੇ ਇਕੱਠੇ ਬੈਠ ਕੇ ਖਾਣ ਦੀਆਂ ਯਾਦਾਂ ਇਸ ਦੀ ਵਿਰਾਸਤ ਦਾ ਹਿੱਸਾ ਹਨ।",
+    "materials_en":"Often clay, brick or other locally available materials","materials_pa":"ਅਕਸਰ ਮਿੱਟੀ, ਇੱਟ ਜਾਂ ਸਥਾਨਕ ਤੌਰ 'ਤੇ ਮਿਲਣ ਵਾਲੀ ਸਮੱਗਰੀ",
+    "use_en":"Cooking food and heating water in the household.","use_pa":"ਘਰ ਵਿੱਚ ਖਾਣਾ ਪਕਾਉਣਾ ਅਤੇ ਪਾਣੀ ਗਰਮ ਕਰਨਾ।",
+    "verification":"Introductory record — regional source and image still required."
+  },
+  {
+    "id":"madhaani","name_en":"Madhaani","name_pa":"ਮਧਾਣੀ","category_en":"Ghar & Rasoi","category_pa":"ਘਰ ਅਤੇ ਰਸੋਈ",
+    "summary_en":"A hand-operated churn used in preparing butter from curd.","summary_pa":"ਦਹੀਂ ਰਿੜਕ ਕੇ ਮੱਖਣ ਕੱਢਣ ਲਈ ਵਰਤੀ ਜਾਣ ਵਾਲੀ ਹੱਥ ਨਾਲ ਚਲਾਈ ਮਧਾਣੀ।",
+    "description_en":"The madhaani is connected with household dairy practices. The tool and churning method may vary, and the work was often part of a wider rhythm of daily food preparation. Family accounts can preserve details that photographs alone cannot show.",
+    "description_pa":"ਮਧਾਣੀ ਘਰੇਲੂ ਦੁੱਧ ਅਤੇ ਦਹੀਂ ਨਾਲ ਜੁੜੀਆਂ ਰਵਾਇਤਾਂ ਦਾ ਹਿੱਸਾ ਹੈ। ਸੰਦ ਅਤੇ ਰਿੜਕਣ ਦਾ ਢੰਗ ਵੱਖ ਹੋ ਸਕਦਾ ਹੈ। ਪਰਿਵਾਰਕ ਯਾਦਾਂ ਉਹ ਵੇਰਵੇ ਸੰਭਾਲ ਸਕਦੀਆਂ ਹਨ ਜੋ ਸਿਰਫ਼ ਤਸਵੀਰਾਂ ਰਾਹੀਂ ਨਹੀਂ ਮਿਲਦੇ।",
+    "materials_en":"Wooden handle and locally varying churn components","materials_pa":"ਲੱਕੜ ਦਾ ਦਸਤਾ ਅਤੇ ਇਲਾਕੇ ਅਨੁਸਾਰ ਹੋਰ ਹਿੱਸੇ",
+    "use_en":"Churning curd to separate butter.","use_pa":"ਦਹੀਂ ਰਿੜਕ ਕੇ ਮੱਖਣ ਵੱਖ ਕਰਨਾ।",
+    "verification":"Introductory record — regional source and image still required."
+  },
+  {
+    "id":"manja","name_en":"Manja","name_pa":"ਮੰਜਾ","category_en":"Pind di Zindagi","category_pa":"ਪਿੰਡ ਦੀ ਜ਼ਿੰਦਗੀ",
+    "summary_en":"A woven cot used for sitting, resting and sleeping.","summary_pa":"ਬੈਠਣ, ਆਰਾਮ ਕਰਨ ਅਤੇ ਸੌਣ ਲਈ ਵਰਤਿਆ ਜਾਣ ਵਾਲਾ ਬੁਣਿਆ ਹੋਇਆ ਮੰਜਾ।",
+    "description_en":"The manja has been part of domestic and social life in many Punjabi homes and courtyards. Rope patterns, frames and local names can vary. It often served as a shared place for conversation, rest and everyday community life.",
+    "description_pa":"ਮੰਜਾ ਪੰਜਾਬ ਦੇ ਕਈ ਘਰਾਂ ਅਤੇ ਵਿਹੜਿਆਂ ਦੇ ਘਰੇਲੂ ਤੇ ਸਮਾਜਿਕ ਜੀਵਨ ਦਾ ਹਿੱਸਾ ਰਿਹਾ ਹੈ। ਇਸ ਦੀ ਬੁਣਾਈ, ਢਾਂਚਾ ਅਤੇ ਸਥਾਨਕ ਨਾਂ ਵੱਖ ਹੋ ਸਕਦੇ ਹਨ। ਇਹ ਗੱਲਬਾਤ, ਆਰਾਮ ਅਤੇ ਰੋਜ਼ਾਨਾ ਮਿਲਣ-ਜੁਲਣ ਦੀ ਸਾਂਝੀ ਥਾਂ ਵੀ ਹੁੰਦਾ ਸੀ।",
+    "materials_en":"Wooden frame and woven rope or cord","materials_pa":"ਲੱਕੜ ਦਾ ਢਾਂਚਾ ਅਤੇ ਬੁਣੀ ਹੋਈ ਰੱਸੀ ਜਾਂ ਸੂਤ",
+    "use_en":"Seating, resting and sleeping.","use_pa":"ਬੈਠਣਾ, ਆਰਾਮ ਕਰਨਾ ਅਤੇ ਸੌਣਾ।",
+    "verification":"Introductory record — regional source and image still required."
+  }
 ]
