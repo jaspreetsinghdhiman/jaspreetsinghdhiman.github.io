@@ -77,3 +77,9 @@ html[lang="en"] .punjabi-copy{display:none}html[lang="pa"] .english-copy{display
  .record-visual,.record-visual img{min-height:0;height:auto}
  .record-visual img{aspect-ratio:4/3}
 }
+
+.collection-card,.explore-card,.object-card{position:relative}
+.archive-photo-credit a,.image-credit a{color:#ead6ad;text-decoration:underline;text-underline-offset:2px}
+.record-visual figcaption a{color:#8d6b3e;text-decoration:underline;text-underline-offset:2px}
+.object-card .photo-credit{top:10px;right:10px}
+.explore-card .photo-credit{top:10px;right:10px}
