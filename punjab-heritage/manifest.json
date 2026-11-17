@@ -1,0 +1,10 @@
+{
+  "name": "Punjab Heritage",
+  "short_name": "Punjab Heritage",
+  "description": "The Living Legacy of Punjab",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f0e7",
+  "theme_color": "#263326",
+  "lang": "en"
+}
