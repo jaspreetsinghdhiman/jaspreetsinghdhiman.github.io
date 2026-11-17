@@ -9,3 +9,5 @@
 .punjabi-copy{display:block;margin-top:9px;color:#697064;font-family:var(--sans);font-size:13px;line-height:1.8}.record-facts .punjabi-copy{font-size:12px}
 \n
 .form-honeypot{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+.record-source{font-size:12px;color:var(--muted);margin:16px 0}.record-source a{color:#8d6b3e;text-decoration:underline;text-underline-offset:3px}
