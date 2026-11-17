@@ -87,3 +87,8 @@ html[lang="en"] .punjabi-copy{display:none}html[lang="pa"] .english-copy{display
 .manifesto-credit{display:block;margin-top:18px;color:#d9d2c4;font-size:9px;line-height:1.5}
 .manifesto-credit a{color:#e4c99b;text-decoration:underline;text-underline-offset:2px}
 @media(max-width:700px){.manifesto-credit{max-width:320px;font-size:8px}}
+
+.archive-image-credits,.image-attribution-note{font-size:10px;line-height:1.7;color:#77766d;margin:22px 0 0}
+.archive-image-credits a,.image-attribution-note a{color:#8d6b3e;text-decoration:underline;text-underline-offset:3px}
+.archive-image-credits{padding:14px 16px;background:#eae4d8}
+@media(max-width:700px){.archive-image-credits,.image-attribution-note{font-size:9px}}
