@@ -50,3 +50,12 @@ Punjab Heritage — Preserving Our Roots. Celebrating Our Heritage.
 
 - Added two more Punjab-specific gallery photographs: a bullock cart in Patiala (Satdeep Gill, CC BY-SA 4.0) and a Punjabi woman cooking (Sanyam Bahga, CC BY-SA 3.0), each with nearby attribution and license links.
 - FormSubmit's current documentation states a 10 MB combined attachment limit and 30-day retention for text submissions; uploaded files are not retained in its submissions archive. The form now explains the attachment limit and retention caveat.
+
+
+## 2026-11-17 — Original editorial content phase
+- Added a long-form bilingual (English and Gurmukhi) feature on the Museum of Rural Life of Punjab at PAU, Ludhiana: `stories/museum-of-rural-life-punjab.html`.
+- Linked the feature from the Stories page and added it to the XML sitemap.
+- Added responsive long-form article typography.
+- Added an internal research register at `data/editorial-research-register.md` to separate verified institutional facts from claims still requiring object-level confirmation.
+- Added `assets/images/IMAGE-STANDARD.md` defining the local-only image rule, exact subject matching, rights checks, asset metadata and pre-release remote-image scan.
+- Important: the image migration is not complete yet. Existing pages still contain remote image URLs and visible photo credits. The image folder currently has only the brand mark. This work must not be described as fully self-hosted until every published image has been replaced with a verified local asset and the site has passed an external-request scan.
