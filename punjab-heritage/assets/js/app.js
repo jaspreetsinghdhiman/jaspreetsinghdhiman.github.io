@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const metaDescription=document.querySelector('meta[name="description"]');
       if(metaDescription) metaDescription.content=item.summary_en;
       const canonical=document.querySelector('link[rel="canonical"]')||document.head.appendChild(Object.assign(document.createElement('link'),{rel:'canonical'}));
-      canonical.href=window.location.origin+window.location.pathname+'?id='+encodeURIComponent(id);
+      canonical.href=window.location.origin+window.location.pathname+'?id='+encodeURIComponent(id); const ogUrl=document.querySelector('meta[property="og:url"]')||document.head.appendChild(Object.assign(document.createElement('meta'),{property:'og:url'})); ogUrl.content=canonical.href;
       const ogTitle=document.querySelector('meta[property="og:title"]');
       if(ogTitle) ogTitle.content=document.title;
       const ogDescription=document.querySelector('meta[property="og:description"]');
