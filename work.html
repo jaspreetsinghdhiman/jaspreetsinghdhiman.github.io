@@ -414,6 +414,7 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
 .project-preview img{display:block;width:88%;height:92%;object-fit:contain;filter:drop-shadow(0 18px 16px rgba(0,0,0,.2));transition:transform .55s cubic-bezier(.22,1,.36,1)}
 .pj:hover .project-preview img{transform:scale(1.07) rotate(-2deg)}
 @media(max-width:700px){.project-preview{height:180px}}
+.project-preview .preview-word{font:900 clamp(28px,5vw,64px) "Unbounded",sans-serif;letter-spacing:-.08em;opacity:.82}
 </style>
 <meta content="Jaspreet Singh" name="author"/><meta content="index,follow" name="robots"/><meta content="website" property="og:type"/><meta content="Jaspreet Singh" property="og:site_name"/><meta content="Frontend Projects | Jaspreet Singh" property="og:title"/><meta content="https://jaspreetsinghdhiman.github.io/og-image.jpg" property="og:image"/><meta content="Jaspreet Singh — Frontend Developer" property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="Frontend Projects | Jaspreet Singh" name="twitter:title"/><meta content="Explore Jaspreet Singh’s interactive frontend demos: expense tracking, habit tracking, task management, weather search and Markdown editing." name="twitter:description"/><meta content="https://jaspreetsinghdhiman.github.io/og-image.jpg" name="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://jaspreetsinghdhiman.github.io/#person", "name": "Jaspreet Singh Dhiman", "jobTitle": "Frontend Developer", "url": "https://jaspreetsinghdhiman.github.io/", "email": "mailto:jassp708737@gmail.com", "image": "https://jaspreetsinghdhiman.github.io/jaspreet.jpg", "knowsAbout": ["HTML5", "CSS3", "JavaScript", "React", "WordPress", "Figma", "Adobe Photoshop", "Responsive Web Design", "Frontend Development"], "alternateName": "Jaspreet Singh", "address": {"@type": "PostalAddress", "addressRegion": "Punjab", "addressCountry": "IN"}, "sameAs": ["https://github.com/jaspreetsinghdhiman", "https://www.instagram.com/jaspreet.dhiman__"]}, {"@type": "WebSite", "@id": "https://jaspreetsinghdhiman.github.io/#website", "url": "https://jaspreetsinghdhiman.github.io/", "name": "Jaspreet Singh | Frontend Developer", "publisher": {"@id": "https://jaspreetsinghdhiman.github.io/#person"}}, {"@type": "WebPage", "url": "https://jaspreetsinghdhiman.github.io/work.html", "name": "Frontend Projects | Jaspreet Singh", "description": "Explore Jaspreet Singh’s interactive frontend demos: expense tracking, habit tracking, task management, weather search and Markdown editing.", "isPartOf": {"@id": "https://jaspreetsinghdhiman.github.io/#website"}, "about": {"@id": "https://jaspreetsinghdhiman.github.io/#person"}}]}</script><link href="quality-fixes.css" rel="stylesheet"/></head>
 <body><a class="fix-skip" href="#top">Skip to content</a>
@@ -449,21 +450,60 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
 <section class="page-hero" id="top" role="main">
 <div class="lbl rv">01 — Work</div>
 <h1 class="d rv">Selected <span class="s">work</span></h1>
-<p class="intro-big rv" style="font-size:clamp(18px,1.6vw,24px);color:var(--mute);margin-top:0">Two independent e-commerce storefront concepts, each with its own visual identity, responsive layout and interactive shopping cart. Explore the live demos.</p>
+<p class="intro-big rv" style="font-size:clamp(18px,1.6vw,24px);color:var(--mute);margin-top:0">Six frontend projects covering personal finance, productivity, writing and weather tools. Open each working demo, review the technologies and explore detailed case studies for selected builds.</p>
 </section>
+<div class="work-tools">
+<div class="small-note">Explore the projects by category. Every card links to a working local demo; selected projects include a detailed case study.</div>
+<div aria-label="Project filters" class="filters" role="group">
+<button class="filter-btn active" data-filter="all" type="button">All projects</button>
+<button class="filter-btn" data-filter="finance" type="button">Finance</button>
+<button class="filter-btn" data-filter="productivity" type="button">Productivity</button>
+<button class="filter-btn" data-filter="tools" type="button">Tools</button>
+</div>
+</div>
 <div class="pj-grid" id="projGrid">
-<article class="pj project-card" data-category="ecommerce" style="--c1:#dce8ff;--c2:#7e9fd5;color:#101114">
+<article class="pj project-card" data-category="finance" style="--c1:#dce8ff;--c2:#7e9fd5;color:#101114">
 <div class="project-glow"></div><div class="project-orb"></div><b class="n d">01</b>
-<div class="project-top"><div class="go">01 / E-commerce</div><span class="project-type">Footwear store</span></div>
-<div class="project-preview"><img src="https://temposport.com/cdn/shop/files/Final-W-Inner-Side_7c37dfca-83ff-4097-b47e-a597a81752a9.jpg?crop=center&height=2048&v=1779303831&width=2048" alt="Real studio product photograph of a white running sneaker" loading="lazy"/></div>
-<div><h3 class="d">ECO Shoes</h3><p>A clean, responsive footwear storefront with shoe collections, product details, size selection and an interactive shopping cart.</p><div class="t"><i>HTML5</i><i>CSS3</i><i>JavaScript</i><i>Responsive UI</i></div></div>
-<div class="project-links"><a href="eco-shoes.html">Open live demo ↗</a></div></article>
-<article class="pj project-card" data-category="ecommerce" style="--c1:#6ee7f9;--c2:#183c50;color:#07121b">
+<div class="project-top"><div class="go">01 / Finance</div><span class="project-type">Expense tracker</span></div>
+<div class="project-preview" aria-hidden="true"><span class="preview-word">BUDGET</span></div>
+<div><h2 class="d">Budget Ledger</h2><p>Record expenses, review monthly category totals and export entries as CSV. Data stays in this browser.</p><div class="t"><i>HTML5</i><i>CSS3</i><i>JavaScript</i><i>localStorage</i></div></div>
+<div class="project-links"><a href="budget-ledger.html">Open live demo ↗</a><a href="budget-ledger-case-study.html">Read case study ↗</a></div>
+</article>
+<article class="pj project-card" data-category="productivity" style="--c1:#d9efb2;--c2:#7eaa65;color:#14200f">
 <div class="project-glow"></div><div class="project-orb"></div><b class="n d">02</b>
-<div class="project-top"><div class="go">02 / E-commerce</div><span class="project-type">Electronics store</span></div>
-<div class="project-preview"><img src="https://brother-mart.com/cdn/shop/files/Ultima-Watch-Circle-and-Boom141.jpg?v=1718012410" alt="Real product photograph of a smartwatch and wireless earbuds" loading="lazy"/></div>
-<div><h3 class="d">NOVA Tech</h3><p>A separate electronics storefront for wireless audio and smart wearables, with its own visual identity and interactive shopping bag.</p><div class="t"><i>HTML5</i><i>CSS3</i><i>JavaScript</i><i>Responsive UI</i></div></div>
-<div class="project-links"><a href="nova-tech.html">Open live demo ↗</a></div></article>
+<div class="project-top"><div class="go">02 / Productivity</div><span class="project-type">Habit tracker</span></div>
+<div class="project-preview" aria-hidden="true"><span class="preview-word">HABIT</span></div>
+<div><h2 class="d">Habit Grid</h2><p>Track daily habits across 12 weeks with completion history, streak calculations and visual progress.</p><div class="t"><i>HTML5</i><i>CSS3</i><i>JavaScript</i><i>localStorage</i></div></div>
+<div class="project-links"><a href="habit-grid.html">Open live demo ↗</a><a href="habit-grid-case-study.html">Read case study ↗</a></div>
+</article>
+<article class="pj project-card" data-category="finance" style="--c1:#e5d9ff;--c2:#9274c9;color:#1b1230">
+<div class="project-glow"></div><div class="project-orb"></div><b class="n d">03</b>
+<div class="project-top"><div class="go">03 / Finance</div><span class="project-type">Personal finance dashboard</span></div>
+<div class="project-preview" aria-hidden="true"><span class="preview-word">PULSE</span></div>
+<div><h2 class="d">PulseTrack</h2><p>Track income and expenses with category summaries and a canvas-based spending chart.</p><div class="t"><i>HTML5</i><i>CSS3</i><i>JavaScript</i><i>Canvas</i></div></div>
+<div class="project-links"><a href="pulsetrack.html">Open live demo ↗</a><a href="pulsetrack-case-study.html">Read case study ↗</a></div>
+</article>
+<article class="pj project-card" data-category="productivity" style="--c1:#ffe1bd;--c2:#d88a55;color:#2b170d">
+<div class="project-glow"></div><div class="project-orb"></div><b class="n d">04</b>
+<div class="project-top"><div class="go">04 / Productivity</div><span class="project-type">Kanban task board</span></div>
+<div class="project-preview" aria-hidden="true"><span class="preview-word">TASK</span></div>
+<div><h2 class="d">TaskFlow</h2><p>Organise tasks by priority across To Do, In Progress and Done, with drag-and-drop and keyboard-friendly status controls.</p><div class="t"><i>HTML5</i><i>CSS3</i><i>JavaScript</i><i>localStorage</i></div></div>
+<div class="project-links"><a href="taskflow.html">Open live demo ↗</a><a href="taskflow-case-study.html">Read case study ↗</a></div>
+</article>
+<article class="pj project-card" data-category="tools" style="--c1:#c5edf0;--c2:#5a9fa5;color:#0d2528">
+<div class="project-glow"></div><div class="project-orb"></div><b class="n d">05</b>
+<div class="project-top"><div class="go">05 / Writing tool</div><span class="project-type">Markdown editor</span></div>
+<div class="project-preview" aria-hidden="true"><span class="preview-word">MARK</span></div>
+<div><h2 class="d">MarkStudio</h2><p>Write Markdown with a live preview, sanitised HTML rendering, browser-saved drafts and downloadable files.</p><div class="t"><i>HTML5</i><i>CSS3</i><i>JavaScript</i><i>Markdown</i></div></div>
+<div class="project-links"><a href="markstudio.html">Open live demo ↗</a></div>
+</article>
+<article class="pj project-card" data-category="tools" style="--c1:#d5e9ff;--c2:#6c9fc9;color:#10243a">
+<div class="project-glow"></div><div class="project-orb"></div><b class="n d">06</b>
+<div class="project-top"><div class="go">06 / Utility</div><span class="project-type">Weather dashboard</span></div>
+<div class="project-preview" aria-hidden="true"><span class="preview-word">WEATHER</span></div>
+<div><h2 class="d">WeatherNow</h2><p>Search cities, check current conditions and view a five-day forecast using Open-Meteo data.</p><div class="t"><i>HTML5</i><i>CSS3</i><i>JavaScript</i><i>Open-Meteo</i></div></div>
+<div class="project-links"><a href="weathernow.html">Open live demo ↗</a></div>
+</article>
 </div><div aria-hidden="true" class="case-modal" id="caseModal">
 <div aria-labelledby="caseTitle" aria-modal="true" class="case-panel" role="dialog">
 <button aria-label="Close case study" class="case-close" id="caseClose" type="button">×</button>
@@ -545,5 +585,15 @@ document.querySelectorAll(".sv a,.page-hero h1,.ct-page h2,.contact-info div,.rv
  io.observe(el);
 });
 </script>
-<script defer="True" src="quality-fixes.js"></script></body>
+<script defer="True" src="quality-fixes.js"></script><script>
+document.querySelectorAll('.work-tools .filter-btn').forEach(btn=>btn.addEventListener('click',()=>{
+ const filter=btn.dataset.filter;
+ document.querySelectorAll('.work-tools .filter-btn').forEach(item=>item.classList.toggle('active',item===btn));
+ document.querySelectorAll('#projGrid .project-card').forEach(card=>{
+  const visible=filter==='all'||card.dataset.category===filter;
+  card.classList.toggle('is-hidden',!visible);
+  card.setAttribute('aria-hidden',String(!visible));
+ });
+}));
+</script></body>
 </html>
