@@ -267,3 +267,58 @@ document.addEventListener('DOMContentLoaded', () => {
     stop?.addEventListener('click',()=>{if('speechSynthesis' in window)window.speechSynthesis.cancel();status.textContent='Playback stopped.';});
   }).catch(error => {root.innerHTML='<p class="content-note">The heritage index is temporarily unavailable. Please refresh the page.</p>';console.error(error);});
 });
+
+
+/* Progressive enhancement: keyboard navigation, scroll reveals and mobile menu */
+document.addEventListener('DOMContentLoaded', () => {
+  const menuButton = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.main-nav');
+  if (menuButton && menu) {
+    menuButton.setAttribute('aria-controls', 'primary-navigation');
+    menu.id = menu.id || 'primary-navigation';
+    const setMenu = (open) => {
+      menu.classList.toggle('is-open', open);
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      menuButton.textContent = open ? '×' : '☰';
+    };
+    menuButton.addEventListener('click', () => setMenu(!menu.classList.contains('is-open')));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menu.classList.contains('is-open')) {
+        setMenu(false);
+        menuButton.focus();
+      }
+    });
+    document.addEventListener('click', (event) => {
+      if (menu.classList.contains('is-open') && !menu.contains(event.target) && !menuButton.contains(event.target)) setMenu(false);
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 700 && menu.classList.contains('is-open')) setMenu(false);
+    }, {passive:true});
+  }
+
+  const revealItems = document.querySelectorAll('.section-pad, .collection-card, .explore-card, .object-card, .story-feature, .gallery-item, .values-grid article');
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          currentObserver.unobserve(entry.target);
+        }
+      });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    revealItems.forEach(item => {
+      item.classList.add('reveal');
+      observer.observe(item);
+    });
+  } else {
+    revealItems.forEach(item => item.classList.add('is-visible'));
+  }
+
+  document.querySelectorAll('a[target="_blank"]').forEach(link => {
+    const rel = new Set((link.getAttribute('rel') || '').split(/\s+/).filter(Boolean));
+    rel.add('noopener');
+    rel.add('noreferrer');
+    link.setAttribute('rel', [...rel].join(' '));
+  });
+});
