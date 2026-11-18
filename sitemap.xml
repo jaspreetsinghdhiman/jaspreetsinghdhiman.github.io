@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url><loc>https://jaspreetsinghdhiman.github.io/about.html</loc></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/blog.html</loc></url>
+  <url><loc>https://jaspreetsinghdhiman.github.io/blog.html</loc><lastmod>2026-11-18</lastmod></url>
   <url><loc>https://jaspreetsinghdhiman.github.io/budget-ledger-case-study.html</loc></url>
   <url><loc>https://jaspreetsinghdhiman.github.io/budget-ledger.html</loc></url>
   <url><loc>https://jaspreetsinghdhiman.github.io/contact.html</loc></url>
@@ -25,7 +25,7 @@
   <url><loc>https://jaspreetsinghdhiman.github.io/taskflow.html</loc></url>
   <url><loc>https://jaspreetsinghdhiman.github.io/weathernow.html</loc></url>
   <url><loc>https://jaspreetsinghdhiman.github.io/wordpress-elementor-performance.html</loc></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/work.html</loc></url>
+  <url><loc>https://jaspreetsinghdhiman.github.io/work.html</loc><lastmod>2026-11-18</lastmod></url>
   <url>
     <loc>https://jaspreetsinghdhiman.github.io/will-ai-replace-frontend-developers.html</loc>
     <lastmod>2026-11-11</lastmod>
@@ -57,11 +57,4 @@
     </image:image>
   </url>
   <url><loc>https://jaspreetsinghdhiman.github.io/microsoft-outlook-global-outage-november-2026.html</loc><lastmod>2026-11-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/everyday-runner.html</loc></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/velocity-run.html</loc></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/street-classic.html</loc></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/mono-flex.html</loc></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/airbeat-pro.html</loc></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/pulse-smartwatch.html</loc></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/studio-wireless.html</loc></url>
-</urlset>
+  </urlset>

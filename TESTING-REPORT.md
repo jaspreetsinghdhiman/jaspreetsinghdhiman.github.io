@@ -1,29 +1,49 @@
 # Portfolio Testing Report
 
-Verification performed against the GitHub feature branch `portfolio-audit-fixes-nov-2026`.
+Repository: `jaspreetsinghdhiman/jaspreetsinghdhiman.github.io`
+Branch: `seo-portfolio-content-fix-nov-2026`
+Date: 18 November 2026
 
-## Static repository checks
+## Static checks on the feature branch
 
 | Check | Result | Evidence / scope |
 |---|---|---|
-| Root-level GitHub Pages structure | PASS | Pages and shared assets remain at repository root |
-| Sitemap-to-file mapping | PASS | All 26 URLs listed in `sitemap.xml` match tracked repository files |
-| SEO page metadata | PASS | All 26 sitemap pages have a title, meta description, canonical URL, Open Graph title/description, and Twitter card |
-| H1 count | PASS | Exactly one H1 found on each of the 26 sitemap pages |
-| Twitter article metadata | PASS | Added missing Twitter title and description to the three latest article pages |
-| Local file references | PASS | Local href/src/poster references across all 26 sitemap pages and `404.html` resolve to tracked files |
-| Retired-page references | PASS | No `skills.html` or `process.html` references remain in the checked site pages |
-| Required assets | PASS | Favicon variants, web manifest, CV, profile image, Open Graph image, shared CSS/JS and current article WebP images are present |
-| Asset cleanup | PASS | Eight unused files removed after checking references across site source files |
+| Homepage title, description and canonical | PASS | Present on `index.html` |
+| Work page SEO metadata | PASS | Unique title, description, canonical, Open Graph and Twitter metadata |
+| Blog page SEO metadata | PASS | Unique title, description, canonical, Open Graph and Twitter metadata |
+| H1 count | PASS | Exactly one H1 on each of the three modified HTML pages |
+| Work project cards | PASS | Six cards: Budget Ledger, Habit Grid, PulseTrack, TaskFlow, MarkStudio and WeatherNow |
+| Work category filters | PASS | Finance, Productivity and Tools controls match card category values |
+| Homepage project cards | PASS | Same six projects and matching category values |
+| Blog article links | PASS | Ten static links to existing individual article pages |
+| Blog category filters | PASS | Frontend, Performance and AI categories match article data attributes |
+| Structured data | PASS | CollectionPage / ItemList JSON-LD added to Work and Blog pages |
+| Sitemap | PASS | 34 URLs; all 34 map to tracked root-level files |
+| Local references | PASS | Relative href/src references on the three modified pages resolve to tracked files |
+| Sitemap freshness | PASS | Work and Blog entries updated with 2026-11-18 lastmod |
 
 ## Not measured / not tested
 
-- Lighthouse Performance, Accessibility, Best Practices, or SEO scores.
-- Real browser rendering at desktop, tablet, or mobile widths.
-- Keyboard interaction, screen-reader behavior, or real form submission.
-- Actual mobile menu and interactive demo behavior in a browser.
-- Deployed GitHub Pages behavior after merging/publishing.
-- Live Google Search Console indexing, sitemap fetch, search queries, or ranking.
-- Live Core Web Vitals / field data.
+- Lighthouse Performance, Accessibility, Best Practices or SEO scores.
+- Browser rendering at desktop, tablet and mobile sizes.
+- Keyboard and screen-reader interaction testing.
+- Form delivery or interactive project behaviour in a live browser.
+- Deployed GitHub Pages behaviour after merge.
+- Google Search Console indexing, clicks, impressions, CTR or ranking changes.
+- Field Core Web Vitals.
 
-These checks require a browser or live deployment/account access. Static source checks are not substitutes for those tests.
+Static repository checks do not replace browser, deployment or Search Console testing.
+
+## Publishing status
+
+This report describes the feature branch only. The changes are not live until the pull request is merged and GitHub Pages finishes deploying.
+
+
+## Indexing hygiene follow-up
+
+| Check | Result | Evidence / scope |
+|---|---|---|
+| Legacy storefront demo directives | PASS | Seven ECO/NOVA product demo pages now specify `noindex,follow` |
+| Sitemap relevance | PASS | The seven unrelated storefront demo URLs were removed; the pages remain directly accessible |
+
+Google recrawl and deindexing confirmation have not been measured.
