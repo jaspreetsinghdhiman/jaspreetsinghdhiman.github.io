@@ -1,29 +1,37 @@
-# Portfolio Optimization & Cleanup Report
+# Portfolio SEO & Content Implementation Report
 
 Website: https://jaspreetsinghdhiman.github.io/
 Repository: `jaspreetsinghdhiman/jaspreetsinghdhiman.github.io`
-Branch: `portfolio-audit-fixes-nov-2026`
+Branch: `seo-portfolio-content-fix-nov-2026`
+Date: 18 November 2026
 
-## Completed
+## Implemented in this branch
 
-- Retired `skills.html` and `process.html`; removed both URLs from the sitemap and replaced remaining navigation links with valid destinations.
-- Removed the public employer organization name from the profile page and its Person structured data.
-- Kept the current profile portrait in the About section with a WebP source, JPG fallback, descriptive alt text, intrinsic dimensions, and lazy loading. The image is below the homepage hero, so it is not forced to load eagerly.
-- Deferred the non-critical Lucide icon library on the homepage, primary content pages, and 404 page.
-- Completed Twitter title and description metadata on the three newest article pages.
-- Preserved the existing visual system, page layout, animations, working demos, case studies, CV, current article WebP images, favicon variants, web manifest, and Open Graph JPG.
-- Removed eight verified unused files: `main.js`, `style.css`, `favicon.png`, `logo-dark.png`, `logo.png`, `ai-code-quality.png`, `ai-coding-tools-2026.png`, and `ai-developer-collaboration.png`. Their references were checked across site pages and supporting source files before deletion.
+- Aligned the homepage selected-work section and the dedicated Work page around the six existing portfolio demos: Budget Ledger, Habit Grid, PulseTrack, TaskFlow, MarkStudio and WeatherNow.
+- Replaced the Work page's two unrelated storefront cards with six real project cards linked to their existing local demos.
+- Added working category filters to the Work page: Finance, Productivity and Tools.
+- Added matching category filters to the homepage project cards.
+- Updated Work page title, meta description, Open Graph and Twitter metadata to accurately describe the six projects.
+- Added a CollectionPage / ItemList structured-data block for the Work project collection.
+- Kept the Blog article links as ordinary HTML links so crawlers and visitors can reach the ten individual article pages without depending on client-side rendering.
+- Updated Blog title, meta description, Open Graph and Twitter metadata.
+- Replaced the unused empty-post JavaScript/modal workflow with a small filter script that filters the ten existing article links by their actual categories.
+- Added CollectionPage / ItemList structured data for the ten linked articles.
+- Updated the sitemap last-modified dates for the Work and Blog landing pages.
 
-## SEO and source audit
+## Repository verification
 
-- The sitemap contains 26 URLs, and every URL maps to a tracked repository file.
-- All 26 sitemap pages have a page title, meta description, canonical URL, Open Graph title/description, Twitter card metadata, and exactly one H1.
-- Local href/src/poster references across all 26 sitemap pages and `404.html` resolve to tracked files.
-- No references to the retired `skills.html` or `process.html` pages remain in the checked site pages.
-- `robots.txt` points to the HTTPS sitemap URL.
+- The sitemap contains 34 URLs; every URL maps to a file at the repository root.
+- The modified homepage, Work page and Blog page each contain one H1, a title, a meta description and a canonical URL.
+- All local href/src references checked on the three modified pages resolve to repository files.
+- The Work page contains six project cards with links to existing demos; four cards also link to their existing case studies.
+- The Blog page contains ten static article links, all pointing to existing article files.
+- Existing visual styles, animations and individual project/demo files were preserved.
 
-## Scope and limitations
+## Not measured
 
-This work was performed directly on a GitHub feature branch and is held in draft PR #9. The changes have not been merged or published.
+No Lighthouse run, browser automation, real-device testing, deployed Core Web Vitals, or live Google Search Console data was available during this source-level pass. No ranking, traffic or speed improvement is guaranteed by metadata or source changes alone.
 
-No browser session, Lighthouse runner, or Search Console account was used. Lighthouse scores, real device rendering, deployed Core Web Vitals, actual Google indexing, and ranking improvements have not been measured or guaranteed. See `TESTING-REPORT.md` for the verification scope.
+## Publishing status
+
+Changes are committed to the feature branch above and await review in a pull request. They are not live on the published site until merged and deployed by GitHub Pages.
