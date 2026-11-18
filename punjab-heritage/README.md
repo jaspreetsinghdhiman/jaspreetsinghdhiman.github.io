@@ -74,3 +74,10 @@ Punjab Heritage — Preserving Our Roots. Celebrating Our Heritage.
 - Added canonical URLs, Open Graph metadata, CollectionPage structured data and sitemap entries for all five pages.
 - Each page includes regional context, topic guides, Punjabi terminology, editorial safeguards and starting references. These are editorial foundations, not claims that every local practice is uniform or fully verified.
 - New collection pages are text-led; no unrelated or mismatched stock photographs were added. Exact documentary photography should be added only after subject, location, rights and caption checks.
+
+
+## 2026-11-18 — Bilingual heritage story expansion
+- Added five bilingual (English and Gurmukhi) editorial stories: Punjabi across Gurmukhi and Shahmukhi; 1947 Partition and oral-history ethics; Punjab's river systems; Punjabi folk instruments and performance; village markets and agricultural exchange.
+- Added story navigation links and XML sitemap entries.
+- Each article includes Article structured data, canonical URL, meta description, English and Gurmukhi text, references and an editorial note distinguishing research from local testimony.
+- New articles intentionally do not use generic or mismatched imagery. Add photographs only after exact subject, place, date, rights and caption are verified; host approved image files locally.
