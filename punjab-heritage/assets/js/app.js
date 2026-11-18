@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'A TEXTILE TRADITION':'ਕੱਪੜੇ ਦੀ ਰਵਾਇਤ','References':'ਹਵਾਲੇ','Research note:':'ਖੋਜ ਸੰਬੰਧੀ ਨੋਟ:',
     'A traditional cooking hearth, often built from earth or masonry and adapted to local fuel and household needs.':'ਰਵਾਇਤੀ ਚੁੱਲ੍ਹਾ, ਜੋ ਅਕਸਰ ਮਿੱਟੀ ਜਾਂ ਇੱਟਾਂ ਨਾਲ ਬਣਾਇਆ ਜਾਂਦਾ ਸੀ ਅਤੇ ਸਥਾਨਕ ਬਾਲਣ ਤੇ ਘਰੇਲੂ ਲੋੜਾਂ ਅਨੁਸਾਰ ਹੁੰਦਾ ਸੀ।',
     'A hand-operated churning tool used in preparing butter from curd.':'ਦਹੀਂ ਰਿੜਕ ਕੇ ਮੱਖਣ ਤਿਆਰ ਕਰਨ ਲਈ ਵਰਤਿਆ ਜਾਣ ਵਾਲਾ ਹੱਥੀਂ ਚਲਾਇਆ ਜਾਣ ਵਾਲਾ ਸੰਦ।',
-    'A woven cot used for sitting and sleeping, commonly associated with courtyards and open-air domestic life.':'ਬੁਣਿਆ ਹੋਇਆ ਮੰਜਾ, ਜਿਸ ਉੱਤੇ ਬੈਠਿਆ ਅਤੇ ਸੁੱਤਾ ਜਾਂਦਾ ਸੀ; ਇਹ ਵਿਹੜੇ ਅਤੇ ਖੁੱਲ੍ਹੇ ਘਰੇਲੂ ਜੀਵਨ ਨਾਲ ਜੁੜਿਆ ਹੈ।'
+    'A woven cot used for sitting and sleeping, commonly associated with courtyards and open-air domestic life.':'ਬੁਣਿਆ ਹੋਇਆ ਮੰਜਾ, ਜਿਸ ਉੱਤੇ ਬੈਠਿਆ ਅਤੇ ਸੁੱਤਾ ਜਾਂਦਾ ਸੀ; ਇਹ ਵਿਹੜੇ ਅਤੇ ਖੁੱਲ੍ਹੇ ਘਰੇਲੂ ਜੀਵਨ ਨਾਲ ਜੁੜਿਆ ਹੈ।',
 
     'ONE LAND · MANY STORIES':'ਇੱਕ ਧਰਤੀ · ਅਨੇਕਾਂ ਕਹਾਣੀਆਂ',
     'A living archive of Punjab — across today’s borders':'ਅੱਜ ਦੀਆਂ ਸਰਹੱਦਾਂ ਤੋਂ ਪਾਰ ਪੰਜਾਬ ਦੀ ਜੀਵੰਤ ਵਿਰਾਸਤ',
