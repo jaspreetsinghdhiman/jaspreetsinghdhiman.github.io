@@ -139,15 +139,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if(!structured){structured=document.createElement('script');structured.id='object-jsonld';structured.type='application/ld+json';document.head.appendChild(structured);}
       structured.textContent=JSON.stringify({'@context':'https://schema.org','@type':'Thing','name':item.name_en,'alternateName':item.name_pa,'description':item.description_en,'category':item.category_en,'url':canonical.href});
       const objectVisuals = {
-        hal: {src:'https://commons.wikimedia.org/wiki/Special:FilePath/Old_Plow.jpg?width=960',alt:'Traditional wooden plough from old Punjab'},
-        panjali: {src:'https://commons.wikimedia.org/wiki/Special:FilePath/Peasant_types._Plowing._(With_yoke_of_cattle._Cows_and_oxen_are_both_used)_LOC_matpc.05921.jpg?width=960',alt:'Historical photograph of oxen working with a traditional yoke'},
-        daati: {src:'https://commons.wikimedia.org/wiki/Special:FilePath/Sickle_2.jpg?width=700',alt:'Traditional curved agricultural sickle'},
-        chulha: {src:'https://commons.wikimedia.org/wiki/Special:FilePath/Clay_stove_01.jpg?width=960',alt:'Clay cooking stove from Ishanpur, Ludhiana, Punjab'},
-        madhaani: {src:'https://commons.wikimedia.org/wiki/Special:FilePath/Churn_01.jpg?width=960',alt:'Traditional Punjabi wooden milk churn, madhani'},
-        manja: {src:'https://commons.wikimedia.org/wiki/Special:FilePath/A_Cot.jpg?width=960',alt:'Traditional woven cot used in Punjab'},
-        chakki: {src:'https://commons.wikimedia.org/wiki/Special:FilePath/Chakki.jpg?width=700',alt:'Stone hand grinder, chakki, in a Punjab home'},
-        gaggar: {src:'https://commons.wikimedia.org/wiki/Special:FilePath/Brass_vessel_02.jpg?width=700',alt:'Traditional brass gaggar vessel from Ludhiana district, Punjab'},
-        charsa: {src:'https://commons.wikimedia.org/wiki/Special:FilePath/Photograph_of_a_Saqiyah_(Persian_wheel)_near_Lahore,_Punjab,_India,_ca.1933.jpg?width=960',alt:'Historical animal-powered water-lifting wheel near Lahore, Punjab'}
+        hal: {src:'https://upload.wikimedia.org/wikipedia/commons/0/08/Old_Plow.jpg',alt:'Traditional wooden plough from old Punjab'},
+        panjali: {src:'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Peasant_types._Plowing._%28With_yoke_of_cattle._Cows_and_oxen_are_both_used%29_LOC_matpc.05921.jpg/960px-Peasant_types._Plowing._%28With_yoke_of_cattle._Cows_and_oxen_are_both_used%29_LOC_matpc.05921.jpg',alt:'Historical photograph of oxen working with a traditional yoke'},
+        daati: {src:'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Sickle_2.jpg/250px-Sickle_2.jpg',alt:'Traditional curved agricultural sickle'},
+        chulha: {src:'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Clay_stove_01.jpg/960px-Clay_stove_01.jpg',alt:'Clay cooking stove from Ishanpur, Ludhiana, Punjab'},
+        madhaani: {src:'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Churn_01.jpg/500px-Churn_01.jpg',alt:'Traditional Punjabi wooden milk churn, madhani'},
+        manja: {src:'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/A_Cot.jpg/960px-A_Cot.jpg',alt:'Traditional woven cot used in Punjab'},
+        chakki: {src:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Chakki.jpg/500px-Chakki.jpg',alt:'Stone hand grinder, chakki, in a Punjab home'},
+        gaggar: {src:'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Brass_vessel_02.jpg/960px-Brass_vessel_02.jpg',alt:'Traditional brass gaggar vessel from Ludhiana district, Punjab'},
+        charsa: {src:'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Photograph_of_a_Saqiyah_%28Persian_wheel%29_near_Lahore%2C_Punjab%2C_India%2C_ca.1933.jpg/960px-Photograph_of_a_Saqiyah_%28Persian_wheel%29_near_Lahore%2C_Punjab%2C_India%2C_ca.1933.jpg',alt:'Historical animal-powered water-lifting wheel near Lahore, Punjab'}
       };
       const visual = objectVisuals[item.id] || {src:'',alt:''};
       visual.credit = '<a href="image-credits.html">Photo source & licence details</a>.';
