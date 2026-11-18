@@ -191,3 +191,67 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+/* Punjab Heritage Atlas: data-driven discovery, place filters and browser audio. */
+document.addEventListener('DOMContentLoaded', () => {
+  const nav = document.querySelector('.main-nav');
+  if (nav && !nav.querySelector('[data-atlas-nav]')) {
+    const prefix = /\/(stories|collections)\//.test(location.pathname) ? '../' : '';
+    const link = document.createElement('a');
+    link.href = prefix + 'heritage-atlas.html';
+    link.dataset.atlasNav = 'true';
+    link.textContent = document.documentElement.lang === 'pa' ? 'ਵਿਰਾਸਤ ਐਟਲਸ' : 'Heritage Atlas';
+    const exploreLink = [...nav.querySelectorAll('a')].find(a => a.getAttribute('href') && a.getAttribute('href').includes('explore.html'));
+    if (exploreLink) exploreLink.insertAdjacentElement('afterend', link);
+  }
+  const root = document.getElementById('atlas-topics');
+  if (!root) return;
+  fetch('data/heritage-atlas.json').then(response => {
+    if (!response.ok) throw new Error('Atlas data could not be loaded');
+    return response.json();
+  }).then(data => {
+    const search = document.getElementById('atlas-search');
+    const count = document.getElementById('atlas-count');
+    const filters = [...document.querySelectorAll('[data-region]')];
+    let region = 'all';
+    const allItems = [
+      ...data.sections.map(item => ({...item,type:'Collection',href:'#atlas-explore'})),
+      ...data.places.map(item => ({title:item.name,description:item.kind,region:item.region,type:'Place',href:'#atlas-places'})),
+      ...data.personalities.map(item => ({title:item.name,description:item.description,region:item.region,type:'Person',href:'#atlas-people'})),
+      ...data.glossary.map(item => ({title:item.term+' · '+item.pa,description:item.meaning,region:'shared',type:'Glossary',href:'#atlas-glossary'})),
+      ...data.timeline.map(item => ({title:item.date+' · '+item.title,description:item.detail,region:'shared',type:'History',href:'#atlas-timeline'}))
+    ];
+    function renderTopics() {
+      const q = (search?.value || '').trim().toLocaleLowerCase();
+      const items = allItems.filter(item => (region === 'all' || item.region === region || (region === 'shared' && item.region === 'shared')) && (!q || (item.title+' '+item.description+' '+(item.pa||'')).toLocaleLowerCase().includes(q)));
+      root.innerHTML = items.slice(0,60).map(item => '<a class="atlas-topic-card" href="'+item.href+'"><span>'+item.type+'</span><h3>'+item.title+'</h3><p>'+item.description+'</p><b>Explore entry ↗</b></a>').join('') || '<p class="content-note">No matching entries. Try another word or region.</p>';
+      if(count) count.textContent = items.length+' entries';
+    }
+    filters.forEach(button => button.addEventListener('click', () => {region=button.dataset.region;filters.forEach(b=>b.classList.toggle('is-active',b===button));renderTopics();}));
+    search?.addEventListener('input',renderTopics);
+    renderTopics();
+    const riverRoot=document.getElementById('atlas-rivers');
+    if(riverRoot) riverRoot.innerHTML=data.rivers.map((river,i)=>'<span><i>0'+(i+1)+'</i>'+river+'</span>').join('');
+    const placesRoot=document.getElementById('atlas-places');
+    let placeRegion='all';
+    function renderPlaces(){const filtered=data.places.filter(p=>placeRegion==='all'||p.region===placeRegion);placesRoot.innerHTML=filtered.map(p=>'<article class="place-chip"><span>'+ (p.region==='charda'?'CHARDĀ · INDIA':'LEHNDĀ · PAKISTAN')+'</span><b>'+p.name+'</b><small>'+p.kind+'</small></article>').join('');}
+    document.querySelectorAll('[data-place-region]').forEach(button=>button.addEventListener('click',()=>{placeRegion=button.dataset.placeRegion;document.querySelectorAll('[data-place-region]').forEach(b=>b.classList.toggle('is-active',b===button));renderPlaces();}));
+    renderPlaces();
+    const timeline=document.getElementById('atlas-timeline');
+    if(timeline) timeline.innerHTML=data.timeline.map((item,i)=>'<article class="timeline-entry"><span>'+item.date+'</span><div><h3>'+item.title+'</h3><p>'+item.detail+'</p><a href="'+item.url+'" target="_blank" rel="noopener">'+item.source+' ↗</a></div></article>').join('');
+    const people=document.getElementById('atlas-people');
+    if(people) people.innerHTML=data.personalities.map(item=>'<article><span>'+(item.region==='lehnda'?'WESTERN PUNJAB':item.region==='charda'?'EASTERN PUNJAB':'WIDER PUNJAB')+'</span><h3>'+item.name+'</h3><p>'+item.description+'</p></article>').join('');
+    const glossary=document.getElementById('atlas-glossary');
+    if(glossary) glossary.innerHTML=data.glossary.map(item=>'<article><h3>'+item.term+' <span>'+item.pa+'</span></h3><p>'+item.meaning+'</p></article>').join('');
+    const sources=document.getElementById('atlas-sources-list');
+    if(sources) sources.innerHTML=data.sources.map(item=>'<li><a href="'+item.url+'" target="_blank" rel="noopener">'+item.label+' ↗</a></li>').join('');
+    const speak=document.getElementById('atlas-speak'),stop=document.getElementById('atlas-stop'),language=document.getElementById('atlas-audio-language'),status=document.getElementById('atlas-audio-status');
+    speak?.addEventListener('click',()=>{
+      if(!('speechSynthesis' in window)||!('SpeechSynthesisUtterance' in window)){status.textContent='Speech playback is not supported by this browser.';return;}
+      window.speechSynthesis.cancel();
+      const punjabi=language.value==='pa-IN';
+      const text=punjabi?'ਪੰਜਾਬ ਦੀ ਵਿਰਾਸਤ ਦਰਿਆਵਾਂ, ਬੋਲੀਆਂ, ਕਵਿਤਾ, ਕਾਰੀਗਰੀ, ਰੋਜ਼ਾਨਾ ਜੀਵਨ ਅਤੇ ਪਰਿਵਾਰਕ ਯਾਦਾਂ ਵਿੱਚ ਵੱਸਦੀ ਹੈ। ਚੜ੍ਹਦਾ ਪੰਜਾਬ ਅਤੇ ਲਹਿੰਦਾ ਪੰਜਾਬ ਵੱਖ-ਵੱਖ ਇਲਾਕਾਈ ਪਛਾਣਾਂ ਰੱਖਦੇ ਹਨ, ਪਰ ਇਨ੍ਹਾਂ ਦੇ ਇਤਿਹਾਸ ਵਿੱਚ ਕਈ ਸਾਂਝੇ ਧਾਗੇ ਵੀ ਹਨ।':'Punjab’s heritage lives in its rivers, languages, poetry, craftsmanship, everyday life and family memories. Charda Punjab and Lehnda Punjab have distinct regional identities, while their histories also carry many shared threads.';
+      const utterance=new SpeechSynthesisUtterance(text);utterance.lang=language.value;utterance.onstart=()=>status.textContent='Playing introduction…';utterance.onend=()=>status.textContent='Introduction finished.';utterance.onerror=()=>status.textContent='The selected voice is unavailable. Try the other language.';window.speechSynthesis.speak(utterance);
+    });
+    stop?.addEventListener('click',()=>{if('speechSynthesis' in window)window.speechSynthesis.cancel();status.textContent='Playback stopped.';});
+  }).catch(error => {root.innerHTML='<p class="content-note">The heritage index is temporarily unavailable. Please refresh the page.</p>';console.error(error);});
+});

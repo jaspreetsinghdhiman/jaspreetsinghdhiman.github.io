@@ -1,0 +1,460 @@
+{
+  "sections": [
+    {
+      "id": "language-literature",
+      "title": "Punjabi Language & Literature",
+      "pa": "ਪੰਜਾਬੀ ਭਾਸ਼ਾ ਅਤੇ ਸਾਹਿਤ",
+      "region": "shared",
+      "description": "Scripts, dialects, oral poetry, manuscripts, print culture and the writers who shaped Punjabi expression.",
+      "status": "Research collection"
+    },
+    {
+      "id": "sikh-heritage",
+      "title": "Sikh Heritage & Sacred Architecture",
+      "pa": "ਸਿੱਖ ਵਿਰਾਸਤ ਅਤੇ ਪਵਿੱਤਰ ਇਮਾਰਤਸਾਜ਼ੀ",
+      "region": "shared",
+      "description": "Gurdwaras, historical sites, material culture, architecture and traditions documented with care and context.",
+      "status": "Research collection"
+    },
+    {
+      "id": "sufi-heritage",
+      "title": "Sufi Heritage & Spiritual Traditions",
+      "pa": "ਸੂਫ਼ੀ ਵਿਰਾਸਤ ਅਤੇ ਰੂਹਾਨੀ ਰਵਾਇਤਾਂ",
+      "region": "shared",
+      "description": "Shrines, poetry, devotional music and the many spiritual histories rooted in the wider Punjab region.",
+      "status": "Research collection"
+    },
+    {
+      "id": "rivers-ecology",
+      "title": "Rivers, Canals & Punjab Ecology",
+      "pa": "ਦਰਿਆ, ਨਹਿਰਾਂ ਅਤੇ ਪੰਜਾਬ ਦਾ ਵਾਤਾਵਰਣ",
+      "region": "shared",
+      "description": "The five historic rivers, canal networks, wetlands, farming landscapes and changing water ecologies.",
+      "status": "Research collection"
+    },
+    {
+      "id": "migration-memories",
+      "title": "Migration, Partition & Family Memories",
+      "pa": "ਪਰਵਾਸ, ਵੰਡ ਅਤੇ ਪਰਿਵਾਰਕ ਯਾਦਾਂ",
+      "region": "shared",
+      "description": "A people-centred record of 1947, later migration, family objects, oral histories and the rebuilding of lives.",
+      "status": "Oral-history collection"
+    },
+    {
+      "id": "historical-timeline",
+      "title": "Punjab’s Historical Timeline",
+      "pa": "ਪੰਜਾਬ ਦਾ ਇਤਿਹਾਸਕ ਸਮਾਂ-ਚੱਕਰ",
+      "region": "shared",
+      "description": "A source-led chronology that distinguishes established dates, historical interpretation and memories.",
+      "status": "Chronology"
+    },
+    {
+      "id": "markets-havelis",
+      "title": "Traditional Markets, Trade & Havelis",
+      "pa": "ਰਵਾਇਤੀ ਬਾਜ਼ਾਰ, ਵਪਾਰ ਅਤੇ ਹਵੇਲੀਆਂ",
+      "region": "shared",
+      "description": "Historic bazaars, caravan routes, merchant homes, urban craft quarters and the architecture of exchange.",
+      "status": "Research collection"
+    },
+    {
+      "id": "folk-music",
+      "title": "Punjabi Folk Music & Instruments",
+      "pa": "ਪੰਜਾਬੀ ਲੋਕ-ਸੰਗੀਤ ਅਤੇ ਸਾਜ਼",
+      "region": "shared",
+      "description": "Regional musical forms, performance settings, instrument makers and the knowledge carried by musicians.",
+      "status": "Research collection"
+    },
+    {
+      "id": "vanishing-skills",
+      "title": "Traditional Occupations & Vanishing Skills",
+      "pa": "ਰਵਾਇਤੀ ਕਿੱਤੇ ਅਤੇ ਲੁਪਤ ਹੁੰਦੇ ਹੁਨਰ",
+      "region": "shared",
+      "description": "Craftspeople, farming knowledge, metalwork, pottery, weaving, woodwork and skills at risk of disappearing.",
+      "status": "Living-knowledge collection"
+    },
+    {
+      "id": "personalities",
+      "title": "Punjab’s Historic Personalities",
+      "pa": "ਪੰਜਾਬ ਦੀਆਂ ਇਤਿਹਾਸਕ ਸ਼ਖ਼ਸੀਅਤਾਂ",
+      "region": "shared",
+      "description": "Biographical records of poets, reformers, rulers, artists, scholars and community figures with cited sources.",
+      "status": "Biographical collection"
+    }
+  ],
+  "places": [
+    {
+      "name": "Amritsar",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "Barnala",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "Bathinda",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "Faridkot",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "Fatehgarh Sahib",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "Fazilka",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "Ferozepur",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "Gurdaspur",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "Hoshiarpur",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "Jalandhar",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "Kapurthala",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "Ludhiana",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "Malerkotla",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "Mansa",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "Moga",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "Pathankot",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "Patiala",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "Rupnagar",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "S.A.S. Nagar (Mohali)",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "Sangrur",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "Shaheed Bhagat Singh Nagar",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "Sri Muktsar Sahib",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "Tarn Taran",
+      "region": "charda",
+      "kind": "District · Indian Punjab"
+    },
+    {
+      "name": "Lahore",
+      "region": "lehnda",
+      "kind": "Historic city / district centre · Pakistani Punjab"
+    },
+    {
+      "name": "Multan",
+      "region": "lehnda",
+      "kind": "Historic city / district centre · Pakistani Punjab"
+    },
+    {
+      "name": "Rawalpindi",
+      "region": "lehnda",
+      "kind": "Historic city / district centre · Pakistani Punjab"
+    },
+    {
+      "name": "Faisalabad",
+      "region": "lehnda",
+      "kind": "Historic city / district centre · Pakistani Punjab"
+    },
+    {
+      "name": "Gujranwala",
+      "region": "lehnda",
+      "kind": "Historic city / district centre · Pakistani Punjab"
+    },
+    {
+      "name": "Sialkot",
+      "region": "lehnda",
+      "kind": "Historic city / district centre · Pakistani Punjab"
+    },
+    {
+      "name": "Gujrat",
+      "region": "lehnda",
+      "kind": "Historic city / district centre · Pakistani Punjab"
+    },
+    {
+      "name": "Jhelum",
+      "region": "lehnda",
+      "kind": "Historic city / district centre · Pakistani Punjab"
+    },
+    {
+      "name": "Sargodha",
+      "region": "lehnda",
+      "kind": "Historic city / district centre · Pakistani Punjab"
+    },
+    {
+      "name": "Bahawalpur",
+      "region": "lehnda",
+      "kind": "Historic city / district centre · Pakistani Punjab"
+    },
+    {
+      "name": "Bahawalnagar",
+      "region": "lehnda",
+      "kind": "Historic city / district centre · Pakistani Punjab"
+    },
+    {
+      "name": "Dera Ghazi Khan",
+      "region": "lehnda",
+      "kind": "Historic city / district centre · Pakistani Punjab"
+    },
+    {
+      "name": "Muzaffargarh",
+      "region": "lehnda",
+      "kind": "Historic city / district centre · Pakistani Punjab"
+    },
+    {
+      "name": "Attock",
+      "region": "lehnda",
+      "kind": "Historic city / district centre · Pakistani Punjab"
+    },
+    {
+      "name": "Chiniot",
+      "region": "lehnda",
+      "kind": "Historic city / district centre · Pakistani Punjab"
+    },
+    {
+      "name": "Rahim Yar Khan",
+      "region": "lehnda",
+      "kind": "Historic city / district centre · Pakistani Punjab"
+    },
+    {
+      "name": "Kasur",
+      "region": "lehnda",
+      "kind": "Historic city / district centre · Pakistani Punjab"
+    },
+    {
+      "name": "Sheikhupura",
+      "region": "lehnda",
+      "kind": "Historic city / district centre · Pakistani Punjab"
+    },
+    {
+      "name": "Sahiwal",
+      "region": "lehnda",
+      "kind": "Historic city / district centre · Pakistani Punjab"
+    },
+    {
+      "name": "Okara",
+      "region": "lehnda",
+      "kind": "Historic city / district centre · Pakistani Punjab"
+    },
+    {
+      "name": "Chakwal",
+      "region": "lehnda",
+      "kind": "Historic city / district centre · Pakistani Punjab"
+    },
+    {
+      "name": "Mianwali",
+      "region": "lehnda",
+      "kind": "Historic city / district centre · Pakistani Punjab"
+    }
+  ],
+  "timeline": [
+    {
+      "date": "1580",
+      "title": "The name Punjab enters wider written use",
+      "detail": "The Government of Punjab’s historical account notes the term in Tarikh-i-Sher Shah Suri (1580), while also tracing earlier references to the land of five rivers.",
+      "source": "Government of Punjab — History",
+      "url": "https://punjab.gov.in/know-punjab/history/"
+    },
+    {
+      "date": "1849",
+      "title": "Punjab is annexed by the British East India Company",
+      "detail": "Following the Second Anglo-Sikh War, the Treaty of Lahore and annexation brought the Punjab under Company rule.",
+      "source": "Punjab history overview",
+      "url": "https://www.punjab-tourism.com/about-punjab/history/"
+    },
+    {
+      "date": "1919",
+      "title": "Jallianwala Bagh massacre in Amritsar",
+      "detail": "A defining event in the history of colonial Punjab and the wider anti-colonial movement.",
+      "source": "Punjab history overview",
+      "url": "https://www.punjab-tourism.com/about-punjab/history/"
+    },
+    {
+      "date": "1947",
+      "title": "Partition divides historic Punjab",
+      "detail": "The Radcliffe Award was made public on 17 August. Partition caused mass displacement, violence, separation and long-term family loss.",
+      "source": "The Partition Museum — Punjab",
+      "url": "https://www.partitionmuseum.org/partition-of-india/punjab"
+    },
+    {
+      "date": "1960",
+      "title": "Indus Waters Treaty",
+      "detail": "The treaty assigned the eastern rivers Ravi, Beas and Sutlej for India's use and the western rivers Indus, Jhelum and Chenab for Pakistan's use.",
+      "source": "Bhakra Beas Management Board",
+      "url": "https://bbmb.gov.in/indus-basin.htm"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Virsa",
+      "pa": "ਵਿਰਸਾ",
+      "meaning": "Heritage; what is inherited from earlier generations."
+    },
+    {
+      "term": "Sanjha",
+      "pa": "ਸਾਂਝਾ",
+      "meaning": "Shared or held in common."
+    },
+    {
+      "term": "Charda Punjab",
+      "pa": "ਚੜ੍ਹਦਾ ਪੰਜਾਬ",
+      "meaning": "A common name for the eastern / Indian Punjab."
+    },
+    {
+      "term": "Lehnda Punjab",
+      "pa": "ਲਹਿੰਦਾ ਪੰਜਾਬ",
+      "meaning": "A common name for the western / Pakistani Punjab."
+    },
+    {
+      "term": "Phulkari",
+      "pa": "ਫੁਲਕਾਰੀ",
+      "meaning": "A family of embroidered textile traditions associated with the wider Punjab region."
+    },
+    {
+      "term": "Haveli",
+      "pa": "ਹਵੇਲੀ",
+      "meaning": "A traditional large residence, often organised around courtyards."
+    },
+    {
+      "term": "Kashigari",
+      "pa": "ਕਾਸ਼ੀਗਰੀ",
+      "meaning": "Decorative glazed-tile and pottery work associated with Multan and other centres."
+    },
+    {
+      "term": "Majha",
+      "pa": "ਮਾਝਾ",
+      "meaning": "A historic cultural region of Punjab; boundaries and local usage vary by context."
+    },
+    {
+      "term": "Doaba",
+      "pa": "ਦੋਆਬਾ",
+      "meaning": "A region between two rivers; in Indian Punjab commonly the tract between the Beas and Sutlej."
+    },
+    {
+      "term": "Malwa",
+      "pa": "ਮਾਲਵਾ",
+      "meaning": "A major cultural-geographic region of south-central Indian Punjab."
+    }
+  ],
+  "personalities": [
+    {
+      "name": "Guru Nanak",
+      "region": "shared",
+      "description": "Founder of the Sikh tradition; biographical and place records will distinguish historical sources and later traditions."
+    },
+    {
+      "name": "Baba Farid",
+      "region": "shared",
+      "description": "Sufi poet whose verses are part of the wider Punjabi literary and spiritual inheritance."
+    },
+    {
+      "name": "Waris Shah",
+      "region": "shared",
+      "description": "Punjabi poet widely associated with the qissa Heer-Ranjha."
+    },
+    {
+      "name": "Bulleh Shah",
+      "region": "lehnda",
+      "description": "Punjabi Sufi poet associated with Kasur and the literary-spiritual traditions of western Punjab."
+    },
+    {
+      "name": "Maharaja Ranjit Singh",
+      "region": "shared",
+      "description": "Ruler of the Sikh Empire, whose political centre was Lahore."
+    }
+  ],
+  "rivers": [
+    "Sutlej",
+    "Beas",
+    "Ravi",
+    "Chenab",
+    "Jhelum"
+  ],
+  "sources": [
+    {
+      "label": "Government of Punjab — Know Punjab",
+      "url": "https://punjab.gov.in/know-punjab/"
+    },
+    {
+      "label": "Government of Punjab — History",
+      "url": "https://punjab.gov.in/know-punjab/history/"
+    },
+    {
+      "label": "The Partition Museum — Punjab",
+      "url": "https://www.partitionmuseum.org/partition-of-india/punjab"
+    },
+    {
+      "label": "Bhakra Beas Management Board — Indus Basin",
+      "url": "https://bbmb.gov.in/indus-basin.htm"
+    },
+    {
+      "label": "Integrated Government Online Directory — Punjab districts",
+      "url": "https://igod.gov.in/sg/PB/E042/organizations"
+    },
+    {
+      "label": "Pakistan Bureau of Statistics — Punjab Census 2023",
+      "url": "https://www.pbs.gov.pk/wp-content/uploads/2020/07/Provincial-Census-Report-2023-Punjab.pdf"
+    }
+  ]
+}
