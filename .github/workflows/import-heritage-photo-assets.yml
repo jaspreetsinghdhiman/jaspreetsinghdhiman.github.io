@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - assets/import-verified-punjab-photos-2026-11
-    paths:
-      - .github/workflows/import-heritage-photo-assets.yml
-      - .github/scripts/import_heritage_photos.py
 
 permissions:
   contents: write
