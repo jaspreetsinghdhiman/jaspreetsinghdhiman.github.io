@@ -217,7 +217,7 @@ h1[lang="pa"],h2[lang="pa"],h3[lang="pa"],.punjabi-heading{font-family:var(--pun
  .object-card h3,.explore-card h2{font-size:19px}
 }
 
-.brand-mark{font-size:0;color:transparent;border:0;border-radius:0;box-shadow:none;background:url('../images/punjab-heritage-mark.svg') center/contain no-repeat}
+.brand-mark{font-size:16px;color:var(--gold);border:1px solid var(--gold);border-radius:50% 50% 5px 5px;box-shadow:inset 0 0 0 3px rgba(184,149,93,.10);background:linear-gradient(160deg,rgba(184,149,93,.12),rgba(184,149,93,.025))}
 .brand-mark:before,.brand-mark:after{content:none}
 
 
@@ -479,4 +479,26 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 @media(prefers-reduced-motion:reduce){
   .button,.text-link,.main-nav .nav-cta{transition:none}
   .button:hover,.text-link:hover{transform:none}
+}
+
+
+/* Site-wide motion system: restrained, consistent and accessible */
+@view-transition{navigation:auto}
+html{scroll-behavior:smooth}
+body{animation:ph-page-enter .48s ease both}
+@keyframes ph-page-enter{from{opacity:.72}to{opacity:1}}
+.collection-card,.explore-card,.object-card,.archive-card,.gallery-item,.story-feature,.region-card,.region-card-link,.lehnda-feature,.values-grid article,.contact-card,.contribute-form{transition:transform .42s cubic-bezier(.2,.7,.2,1),box-shadow .42s ease,border-color .3s ease,background-color .3s ease}
+.collection-card img,.explore-card img,.object-card img,.archive-card img,.gallery-item img,.detail-intro img,.lehnda-hero-media img{transition:transform .75s cubic-bezier(.2,.7,.2,1),filter .5s ease}
+.collection-card:hover img,.explore-card:hover img,.object-card:hover img,.archive-card:hover img,.gallery-item:hover img,.detail-intro:hover img{transform:scale(1.035);filter:saturate(1.04)}
+.archive-card:hover,.story-feature:hover,.contact-card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(38,51,38,.08)}
+.lehnda-feature:hover,.values-grid article:hover{transform:translateY(-4px)}
+.site-header{transition:box-shadow .3s ease,background-color .3s ease}
+.main-nav>a,.language-toggle,.menu-toggle{transition:color .22s ease,background-color .22s ease,transform .22s ease}
+button:active,.button:active{transform:translateY(1px)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ body{animation:none}
+ .collection-card,.explore-card,.object-card,.archive-card,.gallery-item,.story-feature,.region-card,.region-card-link,.lehnda-feature,.values-grid article,.contact-card,.contribute-form,.collection-card img,.explore-card img,.object-card img,.archive-card img,.gallery-item img,.detail-intro img,.lehnda-hero-media img,.site-header,.main-nav>a,.language-toggle,.menu-toggle,.reveal{transition:none!important;animation:none!important;transform:none!important;opacity:1!important}
 }

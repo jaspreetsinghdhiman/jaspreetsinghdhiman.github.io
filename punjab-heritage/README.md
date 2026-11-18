@@ -26,9 +26,9 @@ https://jaspreetsinghdhiman.github.io/punjab-heritage/
 1. This release is static HTML/CSS/JS and works on GitHub Pages. PHP and MySQL are not available on GitHub Pages.
 2. The contribution form posts to FormSubmit at jassp708737@gmail.com. The recipient must complete FormSubmit's first-use email verification before messages can be delivered. Do not collect sensitive personal information.
 3. The object archive includes Punjabi names, summaries and bilingual detail fields. The language switch now persists the selected language and translates shared navigation/common UI labels; full page-by-page Punjabi translation is still outstanding.
-4. Most photography remains illustrative stock imagery. The gallery now includes a Punjab-specific Phulkari photograph from Wikimedia Commons with creator and CC BY-SA 4.0 attribution. Continue replacing generic imagery with documented, licensed regional photographs and maintain credits.
+4. Collection and object imagery now uses subject-matched documentary photographs sourced from Wikimedia Commons. The images are currently loaded from their original hosts (not stored locally in this repository); source and licence details are listed on `image-credits.html` for the object archive.
 5. Object descriptions are introductory and require regional review, references and attribution before being marked as verified.
-6. Add the remaining collection pages using the established template and update the sitemap when they are published.
+6. Four additional collections (Forts, Food, Folk Dance and Festivals) are included in this release. Their image subjects and page metadata have been reviewed; local image hosting remains a future improvement.
 
 ## Local preview
 Open `index.html` in a browser, or run a local static server from this folder.
@@ -57,13 +57,12 @@ Punjab Heritage — Preserving Our Roots. Celebrating Our Heritage.
 - Linked the feature from the Stories page and added it to the XML sitemap.
 - Added responsive long-form article typography.
 - Added an internal research register at `data/editorial-research-register.md` to separate verified institutional facts from claims still requiring object-level confirmation.
-- Added `assets/images/IMAGE-STANDARD.md` defining the local-only image rule, exact subject matching, rights checks, asset metadata and pre-release remote-image scan.
-- Important: the image migration is not complete yet. Existing pages still contain remote image URLs and visible photo credits. The image folder currently has only the brand mark. This work must not be described as fully self-hosted until every published image has been replaced with a verified local asset and the site has passed an external-request scan.
+- Added `assets/images/IMAGE-STANDARD.md` defining exact subject matching, rights checks, asset metadata and image QA expectations.
+- The website still loads many photos from external Wikimedia hosts; it is not yet a fully self-hosted image library. The `image-credits.html` page records source and licence details for the updated object archive.
 
 ## 2026-11-17 — Local image migration progress
-- Added original, locally stored SVG illustrations for ploughed fields, chulha/kitchen, phulkari, chakki, pottery, dhol, mud houses, wedding traditions, bullock carts, kabaddi and Lahore mosque architecture.
-- Replaced remote Wikimedia image URLs in the main page, explore, gallery, stories, objects, regional pages and collection pages with local assets.
-- Removed visible image-credit/source labels and remote social preview image tags from the pages migrated in this phase.
-- Scanned the migrated HTML/CSS/JSON files for Wikimedia/Unsplash/Pexels image URLs; no matching external image URLs were found in the scanned files.
-- These are original illustrative SVG artworks, not documentary photographs of specific historic objects or sites. For named locations, people and historically specific objects, replace them later only with verified project-owned photographs or rights-cleared images whose subject has been confirmed.
-- Remaining review: verify every local relative path in browser, inspect mobile layouts, scan JS/manifest and all remaining file types, and review the article's local image choices. External Google Fonts remain a non-image network dependency and should be self-hosted if the project goal is fully independent hosting.
+- Added the Forts, Food, Folk Dance and Festivals collection pages, SEO metadata, structured data and sitemap entries.
+- Added full-site motion polish: page transitions, card/image hover transitions, scroll reveals and reduced-motion support.
+- Removed the obsolete brand-mark SVG reference; a source scan of the published HTML/CSS/JS files found no inline SVG illustrations or `.svg` image references.
+- Replaced the mismatched object-card photographs with subject-specific photographs for the plough, yoke-in-use, sickle, chulha, madhani, manja, chakki, gaggar and animal-powered water lifting. Detail pages now use the same object-specific mapping.
+- Added `image-credits.html` with source and licence details. Image files are still remotely hosted by their sources rather than copied into this repository; a local asset migration remains outstanding.
