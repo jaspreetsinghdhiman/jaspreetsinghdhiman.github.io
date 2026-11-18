@@ -2,6 +2,7 @@ from io import BytesIO
 from pathlib import Path
 from urllib.parse import unquote
 import hashlib
+import time
 import requests
 from PIL import Image, ImageOps
 
@@ -126,17 +127,30 @@ for item in ASSETS:
         "https://commons.wikimedia.org/wiki/Special:Redirect/file/" + requests.utils.quote(original_name, safe=""),
     ]
     errors = []
+    # Commons rate-limits bursts from shared CI runners. Pace requests and
+    # honour Retry-After with exponential backoff instead of failing the batch.
+    time.sleep(12)
     for candidate in candidates:
-        try:
-            candidate_response = session.get(candidate, timeout=60, allow_redirects=True)
-            candidate_response.raise_for_status()
-            content_type = candidate_response.headers.get("Content-Type", "")
-            if "image/" not in content_type or len(candidate_response.content) < 1000:
-                raise RuntimeError(f"unexpected response {candidate_response.status_code} {content_type} ({len(candidate_response.content)} bytes)")
-            response = candidate_response
+        for attempt in range(5):
+            try:
+                candidate_response = session.get(candidate, timeout=90, allow_redirects=True)
+                if candidate_response.status_code == 429 or candidate_response.status_code >= 500:
+                    retry_after = candidate_response.headers.get("Retry-After")
+                    delay = int(retry_after) if retry_after and retry_after.isdigit() else min(90, 15 * (attempt + 1))
+                    print(f"Rate/server response {candidate_response.status_code}; retrying in {delay}s", flush=True)
+                    time.sleep(delay)
+                    continue
+                candidate_response.raise_for_status()
+                content_type = candidate_response.headers.get("Content-Type", "")
+                if "image/" not in content_type or len(candidate_response.content) < 1000:
+                    raise RuntimeError(f"unexpected response {candidate_response.status_code} {content_type} ({len(candidate_response.content)} bytes)")
+                response = candidate_response
+                break
+            except Exception as exc:
+                errors.append(f"{candidate}: {exc}")
+                break
+        if response is not None:
             break
-        except Exception as exc:
-            errors.append(f"{candidate}: {exc}")
     if response is None:
         raise RuntimeError("Unable to acquire " + item["file"] + ": " + " | ".join(errors))
     print(f"Downloaded {item['file']} ({len(response.content)} bytes) from {response.url}", flush=True)
