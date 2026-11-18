@@ -78,6 +78,39 @@ document.addEventListener('DOMContentLoaded', () => {
     'A traditional cooking hearth, often built from earth or masonry and adapted to local fuel and household needs.':'ਰਵਾਇਤੀ ਚੁੱਲ੍ਹਾ, ਜੋ ਅਕਸਰ ਮਿੱਟੀ ਜਾਂ ਇੱਟਾਂ ਨਾਲ ਬਣਾਇਆ ਜਾਂਦਾ ਸੀ ਅਤੇ ਸਥਾਨਕ ਬਾਲਣ ਤੇ ਘਰੇਲੂ ਲੋੜਾਂ ਅਨੁਸਾਰ ਹੁੰਦਾ ਸੀ।',
     'A hand-operated churning tool used in preparing butter from curd.':'ਦਹੀਂ ਰਿੜਕ ਕੇ ਮੱਖਣ ਤਿਆਰ ਕਰਨ ਲਈ ਵਰਤਿਆ ਜਾਣ ਵਾਲਾ ਹੱਥੀਂ ਚਲਾਇਆ ਜਾਣ ਵਾਲਾ ਸੰਦ।',
     'A woven cot used for sitting and sleeping, commonly associated with courtyards and open-air domestic life.':'ਬੁਣਿਆ ਹੋਇਆ ਮੰਜਾ, ਜਿਸ ਉੱਤੇ ਬੈਠਿਆ ਅਤੇ ਸੁੱਤਾ ਜਾਂਦਾ ਸੀ; ਇਹ ਵਿਹੜੇ ਅਤੇ ਖੁੱਲ੍ਹੇ ਘਰੇਲੂ ਜੀਵਨ ਨਾਲ ਜੁੜਿਆ ਹੈ।'
+
+    'ONE LAND · MANY STORIES':'ਇੱਕ ਧਰਤੀ · ਅਨੇਕਾਂ ਕਹਾਣੀਆਂ',
+    'A living archive of Punjab — across today’s borders':'ਅੱਜ ਦੀਆਂ ਸਰਹੱਦਾਂ ਤੋਂ ਪਾਰ ਪੰਜਾਬ ਦੀ ਜੀਵੰਤ ਵਿਰਾਸਤ',
+    'A SHARED DIGITAL HOME FOR PUNJAB':'ਪੰਜਾਬ ਲਈ ਸਾਂਝਾ ਡਿਜ਼ਿਟਲ ਘਰ',
+    'Every object':'ਹਰ ਵਸਤ','holds a':'ਵਿੱਚ ਵੱਸਦੀ ਹੈ','memory.':'ਇੱਕ ਯਾਦ।',
+    'Discover the Punjab we inherited across today’s borders — its fields, homes, craftsmanship, everyday objects and the stories that keep them alive.':'ਆਓ ਉਸ ਪੰਜਾਬ ਨੂੰ ਜਾਣੀਏ ਜੋ ਸਾਨੂੰ ਵਿਰਸੇ ਵਿੱਚ ਮਿਲਿਆ — ਇਸ ਦੇ ਖੇਤ, ਘਰ, ਕਾਰੀਗਰੀ, ਰੋਜ਼ਾਨਾ ਦੀਆਂ ਵਸਤਾਂ ਅਤੇ ਉਨ੍ਹਾਂ ਨੂੰ ਜਿਉਂਦਾ ਰੱਖਣ ਵਾਲੀਆਂ ਕਹਾਣੀਆਂ।',
+    'Explore the heritage':'ਵਿਰਾਸਤ ਦੀ ਖੋਜ ਕਰੋ','Why this archive exists':'ਇਹ ਪੁਰਾਲੇਖ ਕਿਉਂ ਬਣਿਆ',
+    'SCROLL TO DISCOVER':'ਹੋਰ ਜਾਣਨ ਲਈ ਹੇਠਾਂ ਜਾਓ','ONE PUNJAB · THREE PERSPECTIVES':'ਇੱਕ ਪੰਜਾਬ · ਤਿੰਨ ਨਜ਼ਰੀਏ',
+    'Explore the':'ਖੋਜੋ','whole story.':'ਪੂਰੀ ਕਹਾਣੀ।','Indian Punjab ↗':'ਭਾਰਤੀ ਪੰਜਾਬ ↗','Pakistani Punjab ↗':'ਪਾਕਿਸਤਾਨੀ ਪੰਜਾਬ ↗','Shared heritage ↗':'ਸਾਂਝੀ ਵਿਰਾਸਤ ↗',
+    'Charda Punjab':'ਚੜ੍ਹਦਾ ਪੰਜਾਬ','Lehnda Punjab':'ਲਹਿੰਦਾ ਪੰਜਾਬ','Sanjha Virsa':'ਸਾਂਝਾ ਵਿਰਸਾ',
+    'THE DIGITAL COLLECTION':'ਡਿਜ਼ਿਟਲ ਸੰਗ੍ਰਹਿ','Explore our':'ਸਾਡੀ ਵਿਰਾਸਤ ਦੀ ਖੋਜ ਕਰੋ','heritage.':'ਵਿਰਾਸਤ।',
+    'Discover the objects, skills, places and traditions of Charda Punjab, Lehnda Punjab and our shared heritage.':'ਚੜ੍ਹਦੇ ਪੰਜਾਬ, ਲਹਿੰਦੇ ਪੰਜਾਬ ਅਤੇ ਸਾਡੀ ਸਾਂਝੀ ਵਿਰਾਸਤ ਦੀਆਂ ਵਸਤਾਂ, ਹੁਨਰਾਂ, ਥਾਵਾਂ ਅਤੇ ਰਵਾਇਤਾਂ ਨੂੰ ਜਾਣੋ।',
+    'ONE CULTURAL REGION · MANY HOMELANDS':'ਇੱਕ ਸੱਭਿਆਚਾਰਕ ਖੇਤਰ · ਕਈ ਵਤਨ','Explore all of Punjab.':'ਸਾਰੇ ਪੰਜਾਬ ਨੂੰ ਜਾਣੋ।',
+    'Punjab’s heritage lives across today’s borders. Discover regional traditions without losing sight of the shared history, languages and memories that connect them.':'ਪੰਜਾਬ ਦੀ ਵਿਰਾਸਤ ਅੱਜ ਦੀਆਂ ਸਰਹੱਦਾਂ ਤੋਂ ਪਾਰ ਵੱਸਦੀ ਹੈ। ਸਾਂਝੇ ਇਤਿਹਾਸ, ਭਾਸ਼ਾਵਾਂ ਅਤੇ ਯਾਦਾਂ ਨੂੰ ਧਿਆਨ ਵਿੱਚ ਰੱਖਦਿਆਂ ਵੱਖ-ਵੱਖ ਇਲਾਕਿਆਂ ਦੀਆਂ ਰਵਾਇਤਾਂ ਜਾਣੋ।',
+    '01 · EASTERN PUNJAB':'01 · ਪੂਰਬੀ ਪੰਜਾਬ','02 · WESTERN PUNJAB':'02 · ਪੱਛਮੀ ਪੰਜਾਬ','03 · BEFORE & BEYOND BORDERS':'03 · ਸਰਹੱਦਾਂ ਤੋਂ ਪਹਿਲਾਂ ਅਤੇ ਪਾਰ',
+    'Indian Punjab — its villages, crafts, foodways, music, landscapes and living traditions.':'ਭਾਰਤੀ ਪੰਜਾਬ — ਇਸ ਦੇ ਪਿੰਡ, ਕਾਰੀਗਰੀ, ਖਾਣ-ਪੀਣ ਦੀਆਂ ਰਵਾਇਤਾਂ, ਸੰਗੀਤ, ਕੁਦਰਤੀ ਨਜ਼ਾਰੇ ਅਤੇ ਜੀਵੰਤ ਸੱਭਿਆਚਾਰ।',
+    'Pakistani Punjab — including Lahore, Multan, Bahawalpur, Pothohar and the region’s diverse cultural traditions.':'ਪਾਕਿਸਤਾਨੀ ਪੰਜਾਬ — ਲਾਹੌਰ, ਮੁਲਤਾਨ, ਬਹਾਵਲਪੁਰ, ਪੋਠੋਹਾਰ ਅਤੇ ਇਲਾਕੇ ਦੀਆਂ ਵਿਭਿੰਨ ਸੱਭਿਆਚਾਰਕ ਰਵਾਇਤਾਂ ਸਮੇਤ।',
+    'Shared Punjabi heritage, pre-1947 histories, family memories, language, music and traditions that cross borders.':'ਸਾਂਝੀ ਪੰਜਾਬੀ ਵਿਰਾਸਤ, 1947 ਤੋਂ ਪਹਿਲਾਂ ਦਾ ਇਤਿਹਾਸ, ਪਰਿਵਾਰਕ ਯਾਦਾਂ, ਭਾਸ਼ਾ, ਸੰਗੀਤ ਅਤੇ ਸਰਹੱਦਾਂ ਤੋਂ ਪਾਰ ਦੀਆਂ ਰਵਾਇਤਾਂ।',
+    'ਪੂਰਬੀ ਪੰਜਾਬ · India · Explore collection':'ਪੂਰਬੀ ਪੰਜਾਬ · ਭਾਰਤ · ਸੰਗ੍ਰਹਿ ਵੇਖੋ','ਪੱਛਮੀ ਪੰਜਾਬ · Pakistan · Explore collection':'ਪੱਛਮੀ ਪੰਜਾਬ · ਪਾਕਿਸਤਾਨ · ਸੰਗ੍ਰਹਿ ਵੇਖੋ','ਸਾਂਝਾ ਵਿਰਸਾ · Shared heritage · Explore collection':'ਸਾਂਝਾ ਵਿਰਸਾ · ਸਾਂਝੀ ਵਿਰਾਸਤ · ਸੰਗ੍ਰਹਿ ਵੇਖੋ',
+    'Research promise:':'ਖੋਜ ਸੰਬੰਧੀ ਵਚਨਬੱਧਤਾ:','Each record will identify its specific place, region, source and image rights. We will not assign a tradition to one side of the border without evidence.':'ਹਰ ਰਿਕਾਰਡ ਵਿੱਚ ਉਸ ਦੀ ਖਾਸ ਥਾਂ, ਇਲਾਕਾ, ਸਰੋਤ ਅਤੇ ਤਸਵੀਰਾਂ ਦੇ ਹੱਕ ਦਰਜ ਹੋਣਗੇ। ਸਬੂਤ ਤੋਂ ਬਿਨਾਂ ਕਿਸੇ ਰਵਾਇਤ ਨੂੰ ਸਰਹੱਦ ਦੇ ਇੱਕ ਪਾਸੇ ਨਾਲ ਨਹੀਂ ਜੋੜਿਆ ਜਾਵੇਗਾ।',
+    'Search collections…':'ਸੰਗ੍ਰਹਿ ਖੋਜੋ…','13 collections':'13 ਸੰਗ੍ਰਹਿ','Agriculture & Farming':'ਖੇਤੀਬਾੜੀ','Ghar & Rasoi':'ਘਰ ਅਤੇ ਰਸੋਈ','Pind di Zindagi':'ਪਿੰਡ ਦੀ ਜ਼ਿੰਦਗੀ',
+    'Clothing & Textiles':'ਪਹਿਰਾਵਾ ਅਤੇ ਕੱਪੜੇ','Arts & Crafts':'ਕਲਾ ਅਤੇ ਕਾਰੀਗਰੀ','Music & Folk Culture':'ਸੰਗੀਤ ਅਤੇ ਲੋਕ-ਸੱਭਿਆਚਾਰ',
+    'Traditional Transport':'ਰਵਾਇਤੀ ਆਵਾਜਾਈ','Games & Sports':'ਖੇਡਾਂ ਅਤੇ ਰਵਾਇਤੀ ਮੁਕਾਬਲੇ','Reet-Riwaaz':'ਰੀਤ-ਰਿਵਾਜ',
+    'Forts & Historic Places':'ਕਿਲ੍ਹੇ ਅਤੇ ਇਤਿਹਾਸਕ ਥਾਵਾਂ','Punjabi Food & Cuisine':'ਪੰਜਾਬੀ ਖਾਣਾ ਅਤੇ ਪਕਵਾਨ','Folk Dance & Performance':'ਲੋਕ-ਨਾਚ ਅਤੇ ਪੇਸ਼ਕਾਰੀ','Festivals & Celebrations':'ਤਿਉਹਾਰ ਅਤੇ ਜਸ਼ਨ',
+    'Traditional tools, farming knowledge and the rhythms of rural life.':'ਰਵਾਇਤੀ ਸੰਦ, ਖੇਤੀਬਾੜੀ ਦਾ ਗਿਆਨ ਅਤੇ ਪੇਂਡੂ ਜੀਵਨ ਦੀ ਲੈਅ।',
+    'Household objects, cooking traditions and the warmth of home.':'ਘਰੇਲੂ ਵਸਤਾਂ, ਖਾਣਾ ਪਕਾਉਣ ਦੀਆਂ ਰਵਾਇਤਾਂ ਅਤੇ ਘਰ ਦਾ ਨਿੱਘ।',
+    'Village spaces, daily routines, homes and community life.':'ਪਿੰਡਾਂ ਦੀਆਂ ਥਾਵਾਂ, ਰੋਜ਼ਾਨਾ ਦੇ ਕੰਮ, ਘਰ ਅਤੇ ਭਾਈਚਾਰਕ ਜੀਵਨ।',
+    'Phulkari, woven fabrics, traditional dress and adornment.':'ਫੁਲਕਾਰੀ, ਬੁਣੇ ਹੋਏ ਕੱਪੜੇ, ਰਵਾਇਤੀ ਪਹਿਰਾਵਾ ਅਤੇ ਗਹਿਣੇ।',
+    'Search English or Punjabi names…':'ਅੰਗਰੇਜ਼ੀ ਜਾਂ ਪੰਜਾਬੀ ਨਾਂ ਖੋਜੋ…','No collections found. Try another search.':'ਕੋਈ ਸੰਗ੍ਰਹਿ ਨਹੀਂ ਮਿਲਿਆ। ਹੋਰ ਸ਼ਬਦ ਨਾਲ ਖੋਜੋ।',
+    'Photo sources and reuse terms for the Traditional Objects Archive.':'ਰਵਾਇਤੀ ਵਸਤਾਂ ਦੇ ਪੁਰਾਲੇਖ ਲਈ ਤਸਵੀਰਾਂ ਦੇ ਸਰੋਤ ਅਤੇ ਮੁੜ ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ।',
+    'A museum that keeps':'ਇੱਕ ਅਜਾਇਬਘਰ ਜੋ ਸੰਭਾਲਦਾ ਹੈ','old Punjab present.':'ਪੁਰਾਣੇ ਪੰਜਾਬ ਦੀਆਂ ਯਾਦਾਂ।',
+    'A museum that keeps old Punjab present.':'ਇੱਕ ਅਜਾਇਬਘਰ ਜੋ ਪੁਰਾਣੇ ਪੰਜਾਬ ਦੀਆਂ ਯਾਦਾਂ ਨੂੰ ਜੀਵੰਤ ਰੱਖਦਾ ਹੈ।'
+
   };
   let currentLanguage = 'en';
   function applyLanguage(language) {
