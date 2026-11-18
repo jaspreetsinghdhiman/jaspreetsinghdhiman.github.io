@@ -1,0 +1,34 @@
+name: Import verified Punjab Heritage photo assets
+
+on:
+  push:
+    branches:
+      - assets/import-verified-punjab-photos-2026-11
+    paths:
+      - .github/workflows/import-heritage-photo-assets.yml
+      - .github/scripts/import_heritage_photos.py
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install image optimizer
+        run: python -m pip install --disable-pip-version-check Pillow requests
+      - name: Download and optimize verified source images
+        run: python .github/scripts/import_heritage_photos.py
+      - name: Commit local originals, WebP derivatives and rights register
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add punjab-heritage/assets/images/photos
+          git diff --cached --quiet || git commit -m "Import verified local Punjab heritage photographs"
+          git push
