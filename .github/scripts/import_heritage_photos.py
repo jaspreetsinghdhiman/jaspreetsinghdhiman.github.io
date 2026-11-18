@@ -1,5 +1,6 @@
 from io import BytesIO
 from pathlib import Path
+from urllib.parse import unquote
 import hashlib
 import requests
 from PIL import Image, ImageOps
@@ -118,11 +119,27 @@ rows = [
     "|---|---|---|---|---|---|",
 ]
 for item in ASSETS:
-    response = session.get(item["url"], timeout=60)
-    response.raise_for_status()
-    content_type = response.headers.get("Content-Type", "")
-    if "image/" not in content_type:
-        raise RuntimeError(f"Not an image for {item['file']}: {content_type}")
+    response = None
+    original_name = unquote(item["url"].rsplit("/", 1)[-1])
+    candidates = [
+        item["url"],
+        "https://commons.wikimedia.org/wiki/Special:Redirect/file/" + requests.utils.quote(original_name, safe=""),
+    ]
+    errors = []
+    for candidate in candidates:
+        try:
+            candidate_response = session.get(candidate, timeout=60, allow_redirects=True)
+            candidate_response.raise_for_status()
+            content_type = candidate_response.headers.get("Content-Type", "")
+            if "image/" not in content_type or len(candidate_response.content) < 1000:
+                raise RuntimeError(f"unexpected response {candidate_response.status_code} {content_type} ({len(candidate_response.content)} bytes)")
+            response = candidate_response
+            break
+        except Exception as exc:
+            errors.append(f"{candidate}: {exc}")
+    if response is None:
+        raise RuntimeError("Unable to acquire " + item["file"] + ": " + " | ".join(errors))
+    print(f"Downloaded {item['file']} ({len(response.content)} bytes) from {response.url}", flush=True)
     image = Image.open(BytesIO(response.content))
     image.verify()
     image = Image.open(BytesIO(response.content))
