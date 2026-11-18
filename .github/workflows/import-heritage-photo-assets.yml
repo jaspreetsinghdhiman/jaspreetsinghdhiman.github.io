@@ -1,4 +1,4 @@
-name: Import verified Punjab Heritage photo assets (paced downloads)
+name: Import verified Punjab Heritage photo assets (paced downloads and safe sync)
 
 on:
   push:
