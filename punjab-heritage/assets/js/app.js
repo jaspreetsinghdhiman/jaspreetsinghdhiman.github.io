@@ -282,7 +282,6 @@ document.addEventListener('DOMContentLoaded', () => {
       menuButton.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
       menuButton.textContent = open ? '×' : '☰';
     };
-    menuButton.addEventListener('click', () => setMenu(!menu.classList.contains('is-open')));
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && menu.classList.contains('is-open')) {
         setMenu(false);
