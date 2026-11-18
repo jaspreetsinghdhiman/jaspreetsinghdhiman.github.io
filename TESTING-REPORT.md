@@ -37,3 +37,13 @@ Static repository checks do not replace browser, deployment or Search Console te
 ## Publishing status
 
 This report describes the feature branch only. The changes are not live until the pull request is merged and GitHub Pages finishes deploying.
+
+
+## Indexing hygiene follow-up
+
+| Check | Result | Evidence / scope |
+|---|---|---|
+| Legacy storefront demo directives | PASS | Seven ECO/NOVA product demo pages now specify `noindex,follow` |
+| Sitemap relevance | PASS | The seven unrelated storefront demo URLs were removed; the pages remain directly accessible |
+
+Google recrawl and deindexing confirmation have not been measured.
