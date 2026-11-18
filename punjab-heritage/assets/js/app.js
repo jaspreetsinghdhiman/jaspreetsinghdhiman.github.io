@@ -109,7 +109,17 @@ document.addEventListener('DOMContentLoaded', () => {
     'Search English or Punjabi names…':'ਅੰਗਰੇਜ਼ੀ ਜਾਂ ਪੰਜਾਬੀ ਨਾਂ ਖੋਜੋ…','No collections found. Try another search.':'ਕੋਈ ਸੰਗ੍ਰਹਿ ਨਹੀਂ ਮਿਲਿਆ। ਹੋਰ ਸ਼ਬਦ ਨਾਲ ਖੋਜੋ।',
     'Photo sources and reuse terms for the Traditional Objects Archive.':'ਰਵਾਇਤੀ ਵਸਤਾਂ ਦੇ ਪੁਰਾਲੇਖ ਲਈ ਤਸਵੀਰਾਂ ਦੇ ਸਰੋਤ ਅਤੇ ਮੁੜ ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ।',
     'A museum that keeps':'ਇੱਕ ਅਜਾਇਬਘਰ ਜੋ ਸੰਭਾਲਦਾ ਹੈ','old Punjab present.':'ਪੁਰਾਣੇ ਪੰਜਾਬ ਦੀਆਂ ਯਾਦਾਂ।',
-    'A museum that keeps old Punjab present.':'ਇੱਕ ਅਜਾਇਬਘਰ ਜੋ ਪੁਰਾਣੇ ਪੰਜਾਬ ਦੀਆਂ ਯਾਦਾਂ ਨੂੰ ਜੀਵੰਤ ਰੱਖਦਾ ਹੈ।'
+    'A museum that keeps old Punjab present.':'ਇੱਕ ਅਜਾਇਬਘਰ ਜੋ ਪੁਰਾਣੇ ਪੰਜਾਬ ਦੀਆਂ ਯਾਦਾਂ ਨੂੰ ਜੀਵੰਤ ਰੱਖਦਾ ਹੈ।',
+    'A FIELD GUIDE TO OUR SHARED INHERITANCE':'ਸਾਡੀ ਸਾਂਝੀ ਵਿਰਾਸਤ ਲਈ ਮਾਰਗਦਰਸ਼ਕ',
+    'Discover the':'ਖੋਜੋ','whole Punjab.':'ਪੂਰਾ ਪੰਜਾਬ।',
+    'Explore the places, rivers, voices, skills and memories that shape Charda Punjab, Lehnda Punjab and the heritage they share.':'ਉਹ ਥਾਵਾਂ, ਦਰਿਆ, ਆਵਾਜ਼ਾਂ, ਹੁਨਰ ਅਤੇ ਯਾਦਾਂ ਜਾਣੋ ਜੋ ਚੜ੍ਹਦੇ ਪੰਜਾਬ, ਲਹਿੰਦੇ ਪੰਜਾਬ ਅਤੇ ਉਨ੍ਹਾਂ ਦੀ ਸਾਂਝੀ ਵਿਰਾਸਤ ਨੂੰ ਘੜਦੀਆਂ ਹਨ।',
+    'THE HERITAGE INDEX':'ਵਿਰਾਸਤ ਸੂਚੀ','Many threads.':'ਅਨੇਕਾਂ ਧਾਗੇ।','One living archive.':'ਇੱਕ ਜੀਵੰਤ ਪੁਰਾਲੇਖ।',
+    'PLACE DIRECTORY':'ਥਾਵਾਂ ਦੀ ਸੂਚੀ','Explore by':'ਖੇਤਰ ਅਨੁਸਾਰ ਖੋਜੋ','region.':'ਇਲਾਕਾ।',
+    'A SOURCE-LED CHRONOLOGY':'ਸਰੋਤਾਂ ਅਧਾਰਿਤ ਸਮਾਂ-ਰੇਖਾ','Moments that shaped':'ਪੰਜਾਬ ਨੂੰ ਘੜਨ ਵਾਲੇ ਪਲ','Punjab.':'ਪੰਜਾਬ।',
+    'PEOPLE & IDEAS':'ਲੋਕ ਅਤੇ ਵਿਚਾਰ','Voices across':'ਪੀੜ੍ਹੀਆਂ ਦੀਆਂ ਆਵਾਜ਼ਾਂ','generations.':'ਪੀੜ੍ਹੀਆਂ।',
+    'WORDS THAT CARRY CULTURE':'ਸੱਭਿਆਚਾਰ ਸੰਭਾਲਦੇ ਸ਼ਬਦ','A small Punjabi':'ਛੋਟੀ ਪੰਜਾਬੀ','glossary.':'ਸ਼ਬਦਾਵਲੀ।',
+    'LISTEN & LEARN':'ਸੁਣੋ ਅਤੇ ਸਿੱਖੋ','Hear a short':'ਇੱਕ ਛੋਟੀ ਜਾਣ-ਪਛਾਣ ਸੁਣੋ','heritage introduction.':'ਵਿਰਾਸਤ ਦੀ।',
+    'RESEARCH STARTING POINTS':'ਖੋਜ ਲਈ ਸ਼ੁਰੂਆਤੀ ਸਰੋਤ','Sources &':'ਸਰੋਤ ਅਤੇ','further reading.':'ਹੋਰ ਪੜ੍ਹੋ।'
 
   };
   let currentLanguage = 'en';
@@ -194,11 +204,13 @@ document.addEventListener('DOMContentLoaded', () => {
 /* Punjab Heritage Atlas: data-driven discovery, place filters and browser audio. */
 document.addEventListener('DOMContentLoaded', () => {
   const nav = document.querySelector('.main-nav');
-  if (nav && !nav.querySelector('[data-atlas-nav]')) {
+  if (nav && !nav.querySelector('[data-atlas-nav]') && ![...nav.querySelectorAll('a')].some(item => item.href.includes('heritage-atlas.html'))) {
     const prefix = /\/(stories|collections)\//.test(location.pathname) ? '../' : '';
     const link = document.createElement('a');
     link.href = prefix + 'heritage-atlas.html';
     link.dataset.atlasNav = 'true';
+    link.setAttribute('data-en','Heritage Atlas');
+    link.setAttribute('data-pa','ਵਿਰਾਸਤ ਐਟਲਸ');
     link.textContent = document.documentElement.lang === 'pa' ? 'ਵਿਰਾਸਤ ਐਟਲਸ' : 'Heritage Atlas';
     const exploreLink = [...nav.querySelectorAll('a')].find(a => a.getAttribute('href') && a.getAttribute('href').includes('explore.html'));
     if (exploreLink) exploreLink.insertAdjacentElement('afterend', link);
@@ -222,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
     function renderTopics() {
       const q = (search?.value || '').trim().toLocaleLowerCase();
-      const items = allItems.filter(item => (region === 'all' || item.region === region || (region === 'shared' && item.region === 'shared')) && (!q || (item.title+' '+item.description+' '+(item.pa||'')).toLocaleLowerCase().includes(q)));
+      const items = allItems.filter(item => (region === 'all' || item.region === 'shared' || item.region === region) && (!q || (item.title+' '+item.description+' '+(item.pa||'')).toLocaleLowerCase().includes(q)));
       root.innerHTML = items.slice(0,60).map(item => '<a class="atlas-topic-card" href="'+item.href+'"><span>'+item.type+'</span><h3>'+item.title+'</h3><p>'+item.description+'</p><b>Explore entry ↗</b></a>').join('') || '<p class="content-note">No matching entries. Try another word or region.</p>';
       if(count) count.textContent = items.length+' entries';
     }
