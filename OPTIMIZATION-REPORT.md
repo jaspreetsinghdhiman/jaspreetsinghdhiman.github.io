@@ -35,3 +35,9 @@ No Lighthouse run, browser automation, real-device testing, deployed Core Web Vi
 ## Publishing status
 
 Changes are committed to the feature branch above and await review in a pull request. They are not live on the published site until merged and deployed by GitHub Pages.
+
+
+## Indexing hygiene follow-up
+
+- Added `noindex,follow` to seven legacy ECO/NOVA storefront product demo pages (`everyday-runner.html`, `velocity-run.html`, `street-classic.html`, `mono-flex.html`, `airbeat-pro.html`, `pulse-smartwatch.html`, `studio-wireless.html`). These pages describe unrelated retail demo products rather than the frontend developer portfolio projects.
+- Removed those seven URLs from `sitemap.xml` while keeping the pages accessible to visitors through direct links. Google must recrawl the pages before the noindex directives are reflected in search results.
