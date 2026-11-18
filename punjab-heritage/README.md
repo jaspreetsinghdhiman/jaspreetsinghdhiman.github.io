@@ -66,3 +66,11 @@ Punjab Heritage — Preserving Our Roots. Celebrating Our Heritage.
 - Removed the obsolete brand-mark SVG reference; a source scan of the published HTML/CSS/JS files found no inline SVG illustrations or `.svg` image references.
 - Replaced the mismatched object-card photographs with subject-specific photographs for the plough, yoke-in-use, sickle, chulha, madhani, manja, chakki, gaggar and animal-powered water lifting. Detail pages now use the same object-specific mapping.
 - Added `image-credits.html` with source and licence details. Image files are still remotely hosted by their sources rather than copied into this repository; a local asset migration remains outstanding.
+
+
+## 2026-11-18 — Expanded editorial collections
+- Added five new research-led collections: Punjabi Language & Literature; Sacred Places & Architecture; Rivers, Canals & Ecology; Traditional Markets & Trade; Migration & Punjabi Diaspora.
+- Added collection discovery links and updated the collection count to 18.
+- Added canonical URLs, Open Graph metadata, CollectionPage structured data and sitemap entries for all five pages.
+- Each page includes regional context, topic guides, Punjabi terminology, editorial safeguards and starting references. These are editorial foundations, not claims that every local practice is uniform or fully verified.
+- New collection pages are text-led; no unrelated or mismatched stock photographs were added. Exact documentary photography should be added only after subject, location, rights and caption checks.
