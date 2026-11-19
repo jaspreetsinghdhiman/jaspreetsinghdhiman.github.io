@@ -200,17 +200,21 @@ ASSETS = [
 
 session = requests.Session()
 session.headers.update({"User-Agent": "PunjabHeritagePhotoArchive/1.0 (local asset import; contact via repository)"})
-rows = [
-    "# Punjab Heritage — locally stored photo asset register",
-    "",
-    "All source binaries and WebP derivatives in this directory were imported from the individual Wikimedia Commons file pages listed below.",
-    "WebP derivatives are resized to a maximum 1800px long edge, quality 84; originals are retained unchanged.",
-    "Where CC BY-SA applies, the derivative remains under the same or a compatible licence. Changes: resized and converted to WebP.",
-    "",
-    "| Local asset | Depicted subject | Creator | Date | Rights | Source |",
-    "|---|---|---|---|---|---|",
-]
+rows = []
 for item in ASSETS:
+    original_path = ORIGINALS / item["file"]
+    webp_name = Path(item["file"]).stem + ".webp"
+    webp_path = WEBP / webp_name
+    if original_path.exists() and webp_path.exists():
+        digest = hashlib.sha256(original_path.read_bytes()).hexdigest()
+        print(f"Already present; keeping existing local asset {item['file']}", flush=True)
+        rows.append(
+            f"| `webp/{webp_name}` + `original/{item['file']}` | {item['subject']} | {item['creator']} | {item['date']} | [{item['rights']}]({item['license']}) | [Commons file page]({item['source']}) |"
+        )
+        rows.append("")
+        rows.append(f"SHA-256 original: `{digest}`")
+        rows.append("")
+        continue
     response = None
     original_name = unquote(item["url"].rsplit("/", 1)[-1])
     candidates = [
@@ -263,5 +267,24 @@ for item in ASSETS:
     rows.append("")
     rows.append(f"SHA-256 original: `{digest}`")
     rows.append("")
-(ROOT / "PHOTO-ASSET-REGISTER.md").write_text("\n".join(rows) + "\n", encoding="utf-8")
-print(f"Imported {len(ASSETS)} source photographs and WebP derivatives.")
+register_path = ROOT / "PHOTO-ASSET-REGISTER.md"
+header = "\n".join([
+    "# Punjab Heritage — locally stored photo asset register",
+    "",
+    "Source binaries and WebP derivatives are stored locally. WebP derivatives are resized to a maximum 1800px long edge, quality 84; originals are retained unchanged.",
+    "Where CC BY-SA applies, derivatives retain the same or a compatible licence. Changes: resized and converted to WebP.",
+    "",
+    "| Local asset | Depicted subject | Creator | Date | Rights | Source |",
+    "|---|---|---|---|---|---|",
+])
+existing = register_path.read_text(encoding="utf-8") if register_path.exists() else header
+additions = []
+for index in range(0, len(rows), 4):
+    entry = rows[index:index + 4]
+    asset_marker = entry[0].split("`")[1]
+    if asset_marker not in existing:
+        additions.extend(entry)
+if additions:
+    existing = existing.rstrip() + "\n\n" + "\n".join(additions) + "\n"
+register_path.write_text(existing, encoding="utf-8")
+print(f"Verified {len(ASSETS)} manifest entries; added {len(additions) // 4} new register entries.")
