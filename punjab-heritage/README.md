@@ -81,3 +81,8 @@ Punjab Heritage — Preserving Our Roots. Celebrating Our Heritage.
 - Added story navigation links and XML sitemap entries.
 - Each article includes Article structured data, canonical URL, meta description, English and Gurmukhi text, references and an editorial note distinguishing research from local testimony.
 - New articles intentionally do not use generic or mismatched imagery. Add photographs only after exact subject, place, date, rights and caption are verified; host approved image files locally.
+
+## 2026-11-19 — Homepage image dependency cleanup
+- Replaced the homepage manifesto's externally hosted Phulkari background with the verified local WebP asset at `assets/images/photos/webp/phulkari-embroidery-rajpura-2015.webp`.
+- The homepage hero already uses the locally hosted Patiala bullock-cart photograph.
+- This is a partial migration only: several homepage collection cards still reference externally hosted photographs. Keep the local-image migration open until each image is acquired, rights-checked, optimized and mapped to its exact subject.
