@@ -8,6 +8,10 @@ on:
     paths:
       - .github/scripts/import_heritage_photos.py
 
+concurrency:
+  group: heritage-photo-import-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
