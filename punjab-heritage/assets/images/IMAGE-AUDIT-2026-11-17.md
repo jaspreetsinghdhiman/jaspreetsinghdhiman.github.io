@@ -91,3 +91,12 @@ After the broken-target repair, a second editorial pass checked that visible lin
 - `collections/traditions.html`: clarified the Boliyan link as “Wedding songs and boliyan” and the Vaisakhi link as “Vaisakhi and harvest celebrations”, so the labels do not imply broader standalone articles than the destinations provide.
 
 The two pages were updated in separate commits and should be checked in the browser at desktop and mobile widths. The remaining Wazir Khan Mosque and Bhangra documentary image binaries are still not locally hosted; their existing remote image references and credits have been retained rather than substituting unrelated artwork.
+
+
+## Accessibility and local-image follow-up — 2026-11-19
+
+A focused accessibility pass added a keyboard-visible “Skip to main content” link and a matching `id="main-content"` target to these 12 high-priority pages: `index.html`, `lehnda-punjab.html`, `collections/dance.html`, `objects.html`, `explore.html`, `contribute.html`, `gallery.html`, `about.html`, `sanjha-virsa.html`, `collections/traditions.html`, `collections/markets-trade.html` and `collections/rivers-ecology.html`. The shared stylesheet now includes focus-visible skip-link styling. This is a targeted improvement; the other HTML pages still need the same keyboard-navigation review.
+
+The contribution page's Phulkari image now uses the verified local WebP asset `assets/images/photos/webp/phulkari-embroidery-rajpura-2015.webp` instead of its remote Wikimedia image URL. The original source/credit link remains documented. The local asset is already recorded in the photo asset register.
+
+A targeted image inventory of the homepage, Explore, Objects, Gallery, Contribute, Lehnda Punjab and Dance pages confirmed that these sampled pages have no missing `alt` attributes on their `img` elements and each has one `h1`, a `main` landmark, a viewport declaration and a meta description. The homepage, Explore and Objects pages still contain remote documentary image references. The Wazir Khan Mosque and Bhangra photographs also remain remote because matching binaries are not available locally. No browser-based visual regression, mobile interaction, colour-contrast or screen-reader test has been completed; the live GitHub Pages URL could not be opened by the available browser retrieval, so deployment and rendering remain unverified.
