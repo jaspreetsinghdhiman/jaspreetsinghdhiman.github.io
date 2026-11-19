@@ -83,6 +83,9 @@ Punjab Heritage — Preserving Our Roots. Celebrating Our Heritage.
 - New articles intentionally do not use generic or mismatched imagery. Add photographs only after exact subject, place, date, rights and caption are verified; host approved image files locally.
 
 ## 2026-11-19 — Homepage image dependency cleanup
+- Updated the Agriculture collection's main image and Open Graph/Twitter image metadata to use the locally hosted Patiala bullock-cart WebP asset.
+- Added complete Open Graph URL/image and Twitter large-image preview metadata to the homepage, using its locally hosted hero photograph.
+- Added `noindex,follow` to the generic `object.html` loading template; individual object records remain the indexable destinations. The `thank-you.html` page was already marked `noindex,follow`.
 - Replaced the homepage Agriculture card image with the locally hosted Patiala bullock-cart photograph and the Bhangra/performance card image with the locally hosted Chandigarh dhol-player photograph. Both are subject-related local assets; the remaining wedding, fort, food and Lohri card images still need verified local acquisitions.
 - Replaced the homepage manifesto's externally hosted Phulkari background with the verified local WebP asset at `assets/images/photos/webp/phulkari-embroidery-rajpura-2015.webp`.
 - The homepage hero already uses the locally hosted Patiala bullock-cart photograph.
