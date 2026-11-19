@@ -80,4 +80,14 @@ The two image subjects explicitly targeted in this pass still need binary files 
 - `lehnda-punjab.html`: Wazir Khan Mosque outer-wall calligraphy, Lahore. Source creator: Usmaan.khaled; 12 January 2013; CC BY-SA 4.0. Provenance and licence are now documented in `image-credits.html`.
 - `collections/dance.html`: Bhangra performance photograph by Monisankar54; 18 January 2014; CC BY-SA 4.0. Provenance is documented in `image-credits.html`.
 
-The repository integration used for this pass can commit UTF-8 text files but does not provide a verified binary-image import path in this workflow. Therefore, no placeholder, unrelated image, or generated image has been substituted for these documentary photographs. Other pages identified in the earlier audit still have remote image references and remain in the migration queue.
+The GitHub integration exposes Git Data blob/tree/commit operations that can carry base64-encoded binary content. However, the source image binaries could not be retrieved in this execution environment, so no binary import was attempted. No placeholder, unrelated image, or generated image has been substituted for these documentary photographs. Other pages identified in the earlier audit still have remote image references and remain in the migration queue.
+
+
+## Link-label accuracy follow-up — 2026-11-19
+
+After the broken-target repair, a second editorial pass checked that visible link labels describe the destination article rather than merely pointing to an existing URL.
+
+- `collections/markets-trade.html`: changed the urban-bazaar card label to “Village haats and weekly markets” because its repaired destination is the village-haat article, not a dedicated urban-bazaar feature.
+- `collections/traditions.html`: clarified the Boliyan link as “Wedding songs and boliyan” and the Vaisakhi link as “Vaisakhi and harvest celebrations”, so the labels do not imply broader standalone articles than the destinations provide.
+
+The two pages were updated in separate commits and should be checked in the browser at desktop and mobile widths. The remaining Wazir Khan Mosque and Bhangra documentary image binaries are still not locally hosted; their existing remote image references and credits have been retained rather than substituting unrelated artwork.
