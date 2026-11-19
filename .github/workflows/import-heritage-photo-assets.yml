@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - assets/import-verified-punjab-photos-2026-11
+      - assets/import-object-photos-2026-11
 
 permissions:
   contents: write
