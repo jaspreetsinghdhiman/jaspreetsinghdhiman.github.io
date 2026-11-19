@@ -60,3 +60,24 @@ The local asset files were confirmed present in the repository. The remaining sa
 The agriculture collection already uses the locally stored Patiala bullock-cart image, although its URL is written as the site's absolute GitHub Pages URL. This is still first-party hosting, not a third-party image host.
 
 This follow-up is a targeted pass, not a full site-wide external-image certification. Other pages and CSS background images still require a complete crawl and visual review.
+
+## Full HTML reference scan — 2026-11-19
+
+A repository-tree-based scan checked local `href`, `src`, and `poster` references across all 134 HTML files under `punjab-heritage/`.
+
+- The first pass found 11 broken internal article links, all in three collection pages.
+- Repaired all 11 references:
+  - `collections/markets-trade.html`: six links now point to existing village-market, grain-mandi and thathera-craft articles.
+  - `collections/rivers-ecology.html`: two links now point to the existing five-river landscape and canals/agricultural-change articles.
+  - `collections/traditions.html`: three links now point to existing Teeyan, Boliyan and Vaisakhi articles.
+- Rechecked all three modified pages against the repository tree: zero remaining missing local targets.
+
+This is a repository-reference audit, not a browser crawl. It verifies that referenced local paths exist in the repository; it does not prove every link renders successfully in a browser, every anchor ID exists, or every remote URL responds.
+
+## Remaining verified remote photo references
+
+The two image subjects explicitly targeted in this pass still need binary files imported before they can be served locally:
+- `lehnda-punjab.html`: Wazir Khan Mosque outer-wall calligraphy, Lahore. Source creator: Usmaan.khaled; 12 January 2013; CC BY-SA 4.0. Provenance and licence are now documented in `image-credits.html`.
+- `collections/dance.html`: Bhangra performance photograph by Monisankar54; 18 January 2014; CC BY-SA 4.0. Provenance is documented in `image-credits.html`.
+
+The repository integration used for this pass can commit UTF-8 text files but does not provide a verified binary-image import path in this workflow. Therefore, no placeholder, unrelated image, or generated image has been substituted for these documentary photographs. Other pages identified in the earlier audit still have remote image references and remain in the migration queue.
