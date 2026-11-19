@@ -220,14 +220,14 @@ for item in ASSETS:
     errors = []
     # Commons rate-limits bursts from shared CI runners. Pace requests and
     # honour Retry-After with exponential backoff instead of failing the batch.
-    time.sleep(12)
+    time.sleep(2)
     for candidate in candidates:
-        for attempt in range(5):
+        for attempt in range(3):
             try:
-                candidate_response = session.get(candidate, timeout=90, allow_redirects=True)
+                candidate_response = session.get(candidate, timeout=45, allow_redirects=True)
                 if candidate_response.status_code == 429 or candidate_response.status_code >= 500:
                     retry_after = candidate_response.headers.get("Retry-After")
-                    delay = int(retry_after) if retry_after and retry_after.isdigit() else min(90, 15 * (attempt + 1))
+                    delay = int(retry_after) if retry_after and retry_after.isdigit() else min(30, 10 * (attempt + 1))
                     print(f"Rate/server response {candidate_response.status_code}; retrying in {delay}s", flush=True)
                     time.sleep(delay)
                     continue
