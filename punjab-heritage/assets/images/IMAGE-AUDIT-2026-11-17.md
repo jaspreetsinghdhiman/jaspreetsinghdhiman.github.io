@@ -40,3 +40,23 @@ The homepage manifesto uses `plough-field.svg` as a CSS background while its cap
 - Correct the five malformed source links and all illustration/photo caption mismatches.
 - Complete the remaining three HTML-file checks and run a full broken-image / remote-dependency scan.
 - Test every affected page at desktop and mobile widths before publishing.
+
+## Follow-up pass — 2026-11-19
+
+A further pass checked the previously unreviewed image references and migrated matching, already-verified local photo assets into the pages below. Both page imagery and social-preview metadata were updated where present.
+
+- `about.html` — archival Punjabi life photograph (1899).
+- `sanjha-virsa.html` — archival Punjabi lifestyle photograph (1899).
+- `collections/ghar-rasoi.html` — Punjabi woman in a kitchen (2007).
+- `collections/arts-crafts.html` — Punjabi potter (1899).
+- `collections/pind-life.html` — mud houses in Mannan (2022).
+- `collections/clothing.html` — Phulkari embroidery in Rajpura (depicting 2015).
+- `collections/music.html` — dhol player in Chandigarh (2020).
+
+The local asset files were confirmed present in the repository. The remaining sampled pages with remote image references are:
+- `lehnda-punjab.html` — Wazir Khan Mosque calligraphy, Lahore. No matching local asset was present, so the source image was not replaced with an unrelated photograph.
+- `collections/dance.html` — regional Bhangra performance. No matching local Bhangra photograph was present, so the source image was not replaced with an unrelated photograph.
+
+The agriculture collection already uses the locally stored Patiala bullock-cart image, although its URL is written as the site's absolute GitHub Pages URL. This is still first-party hosting, not a third-party image host.
+
+This follow-up is a targeted pass, not a full site-wide external-image certification. Other pages and CSS background images still require a complete crawl and visual review.
