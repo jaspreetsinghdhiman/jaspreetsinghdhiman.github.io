@@ -42,31 +42,39 @@ SHA-256 original: `c33df29f576de7c559da85fa0be748e24a54ad5ef0acd854404270b7cd6d9
 
 SHA-256 original: `3915d4ec60a36c96fdddf97692571ababb9ac25edfd6209a67ba0bede7b1533a`
 
-| `webp/ploughed-field-punjab-2019.webp` + `original/ploughed-field-punjab-2019.jpg` | Ploughed field in Punjab | Mulkh Singh | 9 November 2019 | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Commons file page](https://commons.wikimedia.org/wiki/File:Ploughed_field_in_Punjab.jpg) |
+| `webp/old-plow-punjab.webp` + `original/old-plow-punjab.jpg` | Traditional plough documented in the Punjab Objects Archive | Harry sidhuz | Date not stated on source record | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Commons file page](https://commons.wikimedia.org/wiki/File:Old_Plow.jpg) |
 
-SHA-256 original: `d588899a3eacb19f416e39a2c7c74d63e1c98b730afe5d99ce78a8d3e5f37da6`
+SHA-256 original: `25cf430b9a5b439854d29a37c9b24b615ae15bb021f2a09a8defef39a283ddb3`
 
-| `webp/punjabi-wedding-ceremony-2019.webp` + `original/punjabi-wedding-ceremony-2019.jpg` | Punjabi wedding ceremony | Dhuity | 6 April 2019 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Commons file page](https://commons.wikimedia.org/wiki/File:Punjabi_wedding_ceremony.jpg) |
+| `webp/oxen-yoke-ploughing-loc.webp` + `original/oxen-yoke-ploughing-loc.jpg` | Historical photograph of oxen working with a traditional yoke; Matson Collection, Library of Congress | Matson Collection, Library of Congress | Historical photograph; date not stated in current register | [No known restrictions on publication](https://www.loc.gov/rr/print/res/096_bib.html) | [Commons file page](https://commons.wikimedia.org/wiki/File:Peasant_types._Plowing._(With_yoke_of_cattle._Cows_and_oxen_are_both_used)_LOC_matpc.05921.jpg) |
 
-SHA-256 original: `8bc39bc564b401c819c36ff524d6cf0a371cf347d873a05903201cd9be22cbe0`
+SHA-256 original: `a128bb6b8465a393be241ce4b0dc2f6818e94d898a8d735bf823a9eed1c85e73`
 
-| `webp/gobindgarh-fort-bathinda-2024.webp` + `original/gobindgarh-fort-bathinda-2024.jpg` | Gobindgarh Fort in Bathinda | Baghesukoon | 23 September 2024 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Commons file page](https://commons.wikimedia.org/wiki/File:Gobindgarh_Fort,_Bathinda.jpg) |
+| `webp/sickle-daati.webp` + `original/sickle-daati.jpg` | Curved hand sickle used for cutting crops | S. Jasmine jeno | Date not stated on source record | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) | [Commons file page](https://commons.wikimedia.org/wiki/File:Sickle_2.jpg) |
 
-SHA-256 original: `1a13885619c9986123c536d058c16e6b88ee407192218d28ba81d54047d8b20b`
+SHA-256 original: `988ecff78d9508a8b16b4e9c0b4e5050bd1a84937803e2838178c81d9f218697`
 
-| `webp/makke-di-roti-sarson-da-saag-2014.webp` + `original/makke-di-roti-sarson-da-saag-2014.jpg` | Makki di roti and sarson da saag | Rachna23Nov | 30 December 2014 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Commons file page](https://commons.wikimedia.org/wiki/File:Makke_di_roti_te_sarson_da_saag.jpg) |
+| `webp/clay-stove-chulha.webp` + `original/clay-stove-chulha.jpg` | Clay cooking stove from Ishanpur, Ludhiana, Punjab | Gurnoor ghuman | Date not stated on source record | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Commons file page](https://commons.wikimedia.org/wiki/File:Clay_stove_01.jpg) |
 
-SHA-256 original: `c4ddbdfaf9d4e67317caa8adb40f86c8be8e358c58e90e1bb16e2aab08e1b63e`
+SHA-256 original: `d003e83fcaf58a44e44675029209630feb779bc6f8cd19ed1b6dc40fd8e70c14`
 
-| `webp/bhangra-performance-panjab-2014.webp` + `original/bhangra-performance-panjab-2014.jpg` | Regional Bhangra folk dance performance in Panjab | Monisankar54 | 18 January 2014 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Commons file page](https://commons.wikimedia.org/wiki/File:Performing_regional_Bhangra_dance_of_Panjab.jpg) |
+| `webp/wooden-churn-madhaani.webp` + `original/wooden-churn-madhaani.jpg` | Traditional wooden churn from Ishanpur, Ludhiana, Punjab | Gurnoor ghuman | Date not stated on source record | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Commons file page](https://commons.wikimedia.org/wiki/File:Churn_01.jpg) |
 
-SHA-256 original: `a5c0cc7a4e783b56982ea77dd4ecdfc93e75016776b03fa5247e63eaba38926b`
+SHA-256 original: `8df3a2934baf3130715b8292693d2ed0c41fb7f829e7ea978fce02b9391d1e84`
 
-| `webp/lohri-bonfire-ritual-punjab-2000.webp` + `original/lohri-bonfire-ritual-punjab-2000.jpg` | Bonfire ritual during Lohri celebrations in Punjab | Benipal hardarshan | 22 January 2000 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Commons file page](https://commons.wikimedia.org/wiki/File:Lohri_Festival_Ritual_from_Punjab.jpg) |
+| `webp/woven-cot-manja.webp` + `original/woven-cot-manja.jpg` | Woven cot documented in Punjab | Mulkh Singh | Date not stated on source record | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Commons file page](https://commons.wikimedia.org/wiki/File:A_Cot.jpg) |
 
-SHA-256 original: `04b873241ea6aa996463822bcfb14dd7368f4564a512888cbf5d3184cd5f0118`
+SHA-256 original: `538600167614b9c67146c5a4f0eff1615c9c879e6ebed0b9ab1b4cc14b3c8c63`
 
-| `webp/wazir-khan-mosque-calligraphy-lahore-2013.webp` + `original/wazir-khan-mosque-calligraphy-lahore-2013.jpg` | Calligraphy on the outer wall of Wazir Khan Mosque, Lahore | Usmaan.khaled | 12 January 2013 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Commons file page](https://commons.wikimedia.org/wiki/File:Calligraphy_on_the_outer_wall_at_the_Wazir_Khan_Mosque_in_Lahore,_Pakistan.jpg) |
+| `webp/chakki-stone-grinder.webp` + `original/chakki-stone-grinder.jpg` | Traditional stone hand grinder (chakki) | Sixtybolts | Date not stated on source record | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/) | [Commons file page](https://commons.wikimedia.org/wiki/File:Chakki.jpg) |
 
-SHA-256 original: `668d799b84e26b900180d3e5a334a9391074c1647082215e239a65e0a97fb7e5`
+SHA-256 original: `d185088e926729685d09a74f13f37aba1b7649a4cc10a957afee92ae8d85ddd0`
+
+| `webp/brass-water-vessel-gaggar.webp` + `original/brass-water-vessel-gaggar.jpg` | Brass vessel from Ishanpur, Ludhiana, Punjab | Gurnoor ghuman | Date not stated on source record | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Commons file page](https://commons.wikimedia.org/wiki/File:Brass_vessel_02.jpg) |
+
+SHA-256 original: `50dd638bcf02c5d330f42f16eb3431b7d65474cf02867d2f5e560e30f8e5d18c`
+
+| `webp/saqiyah-water-wheel-lahore-1933.webp` + `original/saqiyah-water-wheel-lahore-1933.jpg` | Historical Persian wheel water-lifting system near Lahore, Punjab, ca. 1933 | Photographer unknown | ca. 1933 | [Public Domain Mark](https://creativecommons.org/publicdomain/mark/1.0/) | [Commons file page](https://commons.wikimedia.org/wiki/File:Photograph_of_a_Saqiyah_(Persian_wheel)_near_Lahore,_Punjab,_India,_ca.1933.jpg) |
+
+SHA-256 original: `6aff91be0337193eaac497616db3ec860ce24e86af24eb24bd82e3610e3e7ed8`
 
