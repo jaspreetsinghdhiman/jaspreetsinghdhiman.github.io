@@ -100,3 +100,15 @@ A focused accessibility pass added a keyboard-visible “Skip to main content”
 The contribution page's Phulkari image now uses the verified local WebP asset `assets/images/photos/webp/phulkari-embroidery-rajpura-2015.webp` instead of its remote Wikimedia image URL. The original source/credit link remains documented. The local asset is already recorded in the photo asset register.
 
 A targeted image inventory of the homepage, Explore, Objects, Gallery, Contribute, Lehnda Punjab and Dance pages confirmed that these sampled pages have no missing `alt` attributes on their `img` elements and each has one `h1`, a `main` landmark, a viewport declaration and a meta description. The homepage, Explore and Objects pages still contain remote documentary image references. The Wazir Khan Mosque and Bhangra photographs also remain remote because matching binaries are not available locally. No browser-based visual regression, mobile interaction, colour-contrast or screen-reader test has been completed; the live GitHub Pages URL could not be opened by the available browser retrieval, so deployment and rendering remain unverified.
+
+
+## Keyboard navigation follow-up — 2026-11-19
+
+Extended the shared skip-link pattern to 24 additional content pages. Together with the 12 pages listed in the earlier accessibility follow-up, 36 of the 134 HTML pages now have a keyboard-visible “Skip to main content” link and a matching `main#main-content` target.
+
+Additional pages updated:
+- Collections: `agriculture.html`, `arts-crafts.html`, `clothing.html`, `festivals.html`, `food.html`, `forts.html`, `games.html`, `ghar-rasoi.html`, `language-literature.html`, `migration-diaspora.html`, `music.html`, `pind-life.html`, `sacred-architecture.html`, `transport.html`.
+- Regional/story indexes: `charda-punjab.html`, `stories.html`.
+- Fort and story detail pages: `forts/anandgarh-fort-anandpur-sahib.html`, `forts/gobindgarh-fort-amritsar.html`, `forts/qila-mubarak-bathinda.html`, `forts/qila-mubarak-patiala.html`, `stories/museum-of-rural-life-punjab.html`, `stories/partition-memory-and-oral-history.html`, `stories/phulkari.html`, `stories/punjabi-folk-instruments.html`.
+
+Repository re-fetch verification confirmed that the 24 updated pages contain the skip link, the target ID, exactly one main landmark and exactly one H1. The earlier 12-page group remains separately documented above. This brings the targeted keyboard-navigation coverage to 36/134 pages; the remaining 98 pages still need review. This does not replace browser keyboard testing or a full accessibility audit.
