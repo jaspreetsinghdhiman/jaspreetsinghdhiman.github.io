@@ -5,6 +5,8 @@ on:
     branches:
       - assets/import-verified-punjab-photos-2026-11
       - assets/import-object-photos-2026-11
+    paths:
+      - .github/scripts/import_heritage_photos.py
 
 permissions:
   contents: write
