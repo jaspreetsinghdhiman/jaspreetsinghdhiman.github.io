@@ -109,6 +109,41 @@ class HeritageBrowserSmokeTests(unittest.TestCase):
         self.assertEqual(errors, [], f"Browser JavaScript errors: {errors}")
         context.close()
 
+    def test_every_published_page_mobile(self):
+        html_pages = sorted(ROOT.rglob('*.html'))
+        self.assertGreater(len(html_pages), 0, 'No published HTML pages found')
+        context = self.browser.new_context(viewport={'width': 390, 'height': 844}, is_mobile=True, has_touch=True)
+        page = context.new_page()
+        failures = []
+        for html_file in html_pages:
+            route = html_file.relative_to(ROOT).as_posix()
+            page_errors = []
+            page.on('pageerror', lambda error, bucket=page_errors: bucket.append(str(error)))
+            response = page.goto(f'{BASE}/{route}', wait_until='domcontentloaded')
+            if response is None or response.status != 200:
+                failures.append(f"{route}: HTTP {response.status if response else 'no response'}")
+                continue
+            dims = page.evaluate("({client: document.documentElement.clientWidth, scroll: document.documentElement.scrollWidth})")
+            if dims['scroll'] > dims['client'] + 1:
+                failures.append(f'{route}: horizontal overflow {dims}')
+            remote = page.locator('img').evaluate_all("(nodes) => nodes.map(n => n.currentSrc || n.getAttribute('src')).filter(s => /^https?:\\/\\//i.test(s || ''))")
+            if remote:
+                failures.append(f'{route}: remotely hosted image(s): {remote}')
+            images = page.locator('img')
+            for index in range(images.count()):
+                image = images.nth(index)
+                try:
+                    image.scroll_into_view_if_needed(timeout=3000)
+                    image.evaluate('(img) => img.decode()')
+                    if not image.evaluate('(img) => img.naturalWidth > 0 && img.naturalHeight > 0'):
+                        failures.append(f'{route}: image #{index + 1} has no decoded dimensions')
+                except Exception as exc:
+                    failures.append(f'{route}: image #{index + 1} failed: {exc}')
+            if page_errors:
+                failures.append(f'{route}: JavaScript errors: {page_errors}')
+        context.close()
+        self.assertEqual(failures, [], 'Full mobile page audit failures:\\n' + '\\n'.join(failures))
+
     def test_homepage_loads(self):
         page = self.browser.new_page(viewport={"width": 390, "height": 844})
         errors = []
