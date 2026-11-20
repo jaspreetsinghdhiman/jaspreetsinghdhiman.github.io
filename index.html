@@ -811,7 +811,7 @@ const $=s=>document.querySelectorAll(s),$1=s=>document.querySelector(s);
 const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const fastMobile=window.matchMedia("(max-width:700px)").matches;
 
-if(!reduce && typeof Lenis!=="undefined"){
+if(!reduce && !fastMobile && typeof Lenis!=="undefined"){
  const lenis=new Lenis({duration:1.15,smoothWheel:true});
  lenis.on("scroll",ScrollTrigger.update);
  gsap.ticker.add(t=>lenis.raf(t*1000));
