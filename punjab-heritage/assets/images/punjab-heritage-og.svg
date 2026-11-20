@@ -13,7 +13,7 @@
 <text x="88" y="282" fill="#fff5e2" font-family="Georgia,serif" font-size="82">Punjab</text>
 <text x="88" y="370" fill="#fff5e2" font-family="Georgia,serif" font-size="82" font-style="italic">Heritage</text>
 <text x="94" y="430" fill="#e4d5b9" font-family="Arial,sans-serif" font-size="22" letter-spacing="2">THE LIVING LEGACY OF PUNJAB</text>
-<text x="94" y="500" fill="#c9c1ad" font-family="Arial,sans-serif" font-size="16" letter-spacing="3">CHARDА · LEHNDА · SANJHA VIRSA</text>
+<text x="94" y="500" fill="#c9c1ad" font-family="Arial,sans-serif" font-size="16" letter-spacing="3">CHARDA · LEHNDA · SANJHA VIRSA</text>
 <!-- emblem medallion -->
 <g transform="translate(790 75)">
  <circle cx="180" cy="230" r="178" fill="#18271f" opacity=".42" stroke="#d3ad70" stroke-width="2"/>
