@@ -128,7 +128,7 @@ class HeritageBrowserSmokeTests(unittest.TestCase):
             dims = page.evaluate("({client: document.documentElement.clientWidth, scroll: document.documentElement.scrollWidth})")
             if dims['scroll'] > dims['client'] + 1:
                 failures.append(f'{route}: horizontal overflow {dims}')
-            remote = page.locator('img').evaluate_all("(nodes) => nodes.map(n => n.currentSrc || n.getAttribute('src')).filter(s => /^https?:\\/\\//i.test(s || ''))")
+            remote = page.locator('img').evaluate_all("(nodes) => nodes.map(n => n.getAttribute('src')).filter(s => /^(?:https?:)?\\/\\//i.test(s || ''))")
             if remote:
                 failures.append(f'{route}: remotely hosted image(s): {remote}')
             if page_errors:
