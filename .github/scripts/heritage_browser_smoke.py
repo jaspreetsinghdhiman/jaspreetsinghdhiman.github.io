@@ -118,7 +118,8 @@ class HeritageBrowserSmokeTests(unittest.TestCase):
         for html_file in html_pages:
             route = html_file.relative_to(ROOT).as_posix()
             page_errors = []
-            page.on('pageerror', lambda error, bucket=page_errors: bucket.append(str(error)))
+            handler = lambda error: page_errors.append(str(error))
+            page.on('pageerror', handler)
             response = page.goto(f'{BASE}/{route}', wait_until='domcontentloaded')
             if response is None or response.status != 200:
                 failures.append(f"{route}: HTTP {response.status if response else 'no response'}")
@@ -129,7 +130,7 @@ class HeritageBrowserSmokeTests(unittest.TestCase):
             remote = page.locator('img').evaluate_all("(nodes) => nodes.map(n => n.currentSrc || n.getAttribute('src')).filter(s => /^https?:\\/\\//i.test(s || ''))")
             if remote:
                 failures.append(f'{route}: remotely hosted image(s): {remote}')
-            images = page.locator('img')
+            images = page.locator('img[src]')
             for index in range(images.count()):
                 image = images.nth(index)
                 try:
@@ -141,6 +142,7 @@ class HeritageBrowserSmokeTests(unittest.TestCase):
                     failures.append(f'{route}: image #{index + 1} failed: {exc}')
             if page_errors:
                 failures.append(f'{route}: JavaScript errors: {page_errors}')
+            page.remove_listener('pageerror', handler)
         context.close()
         self.assertEqual(failures, [], 'Full mobile page audit failures:\\n' + '\\n'.join(failures))
 
