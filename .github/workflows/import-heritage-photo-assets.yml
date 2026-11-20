@@ -4,6 +4,13 @@ on:
   push:
     branches:
       - assets/import-verified-punjab-photos-2026-11
+      - assets/import-object-photos-2026-11
+    paths:
+      - .github/scripts/import_heritage_photos.py
+
+concurrency:
+  group: heritage-photo-import-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: write

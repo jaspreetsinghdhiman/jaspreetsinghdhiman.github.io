@@ -1,0 +1,43 @@
+name: Punjab Heritage photo integrity
+
+on:
+  pull_request:
+    paths:
+      - "punjab-heritage/assets/images/photos/**"
+      - "punjab-heritage/objects.html"
+      - "punjab-heritage/image-credits.html"
+      - "punjab-heritage/objects/**"
+      - ".github/scripts/verify_heritage_photo_assets.py"
+      - ".github/workflows/heritage-photo-integrity.yml"
+  push:
+    branches:
+      - assets/import-object-photos-2026-11
+    paths:
+      - "punjab-heritage/assets/images/photos/**"
+      - "punjab-heritage/objects.html"
+      - "punjab-heritage/image-credits.html"
+      - "punjab-heritage/objects/**"
+      - ".github/scripts/verify_heritage_photo_assets.py"
+      - ".github/workflows/heritage-photo-integrity.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: heritage-photo-integrity-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify-images-and-references:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install image decoder
+        run: python -m pip install --disable-pip-version-check Pillow
+      - name: Decode all source and derivative images; verify page references
+        run: python .github/scripts/verify_heritage_photo_assets.py

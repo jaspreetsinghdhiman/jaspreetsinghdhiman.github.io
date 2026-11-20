@@ -1,0 +1,126 @@
+import os
+import threading
+import time
+import unittest
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
+
+from playwright.sync_api import sync_playwright
+
+ROOT = Path(__file__).resolve().parents[2] / "punjab-heritage"
+BASE = "http://127.0.0.1:8765"
+
+
+class QuietHandler(SimpleHTTPRequestHandler):
+    def log_message(self, *_args):
+        pass
+
+
+class HeritageBrowserSmokeTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        os.chdir(ROOT)
+        cls.server = ThreadingHTTPServer(("127.0.0.1", 8765), QuietHandler)
+        cls.thread = threading.Thread(target=cls.server.serve_forever, daemon=True)
+        cls.thread.start()
+        time.sleep(0.3)
+        cls.playwright = sync_playwright().start()
+        cls.browser = cls.playwright.chromium.launch()
+        
+    @classmethod
+    def tearDownClass(cls):
+        cls.browser.close()
+        cls.playwright.stop()
+        cls.server.shutdown()
+        cls.server.server_close()
+
+    def check_viewport(self, width, height, mobile=False):
+        context = self.browser.new_context(viewport={"width": width, "height": height}, is_mobile=mobile)
+        page = context.new_page()
+        errors = []
+        page.on("pageerror", lambda error: errors.append(str(error)))
+        response = page.goto(BASE + "/objects.html", wait_until="networkidle")
+        self.assertEqual(response.status, 200)
+        page.evaluate("document.fonts.ready")
+        page.wait_for_selector(".archive-card")
+        
+        # The archive grid must not create horizontal page overflow.
+        dimensions = page.evaluate("({client: document.documentElement.clientWidth, scroll: document.documentElement.scrollWidth})")
+        self.assertLessEqual(dimensions["scroll"], dimensions["client"] + 1, f"Horizontal overflow at {width}px: {dimensions}")
+
+        # Verify the search filters to one matching English result and then Punjabi.
+        search = page.locator("#object-search")
+        search.fill("chulha")
+        self.assertEqual(page.locator(".archive-card:visible").count(), 1)
+        self.assertIn("Chulha", page.locator(".archive-card:visible").inner_text())
+        search.fill("ਚੱਕੀ")
+        self.assertEqual(page.locator(".archive-card:visible").count(), 1)
+        self.assertIn("Chakki", page.locator(".archive-card:visible").inner_text())
+        search.fill("no-such-heritage-object")
+        self.assertEqual(page.locator(".archive-card:visible").count(), 0)
+        self.assertTrue(page.locator("#object-empty").is_visible())
+        search.fill("")
+
+        # Language switch should change the document language and toggle label.
+        page.locator(".language-toggle").first.click()
+        self.assertEqual(page.locator("html").get_attribute("lang"), "pa")
+        self.assertEqual(page.locator(".language-toggle").first.inner_text(), "English")
+        page.locator(".language-toggle").first.click()
+        self.assertEqual(page.locator("html").get_attribute("lang"), "en")
+
+        # Force lazy images to load and verify their decoded dimensions.
+        images = page.locator(".archive-card img")
+        for index in range(images.count()):
+            image = images.nth(index)
+            image.scroll_into_view_if_needed()
+            image.evaluate("(img) => img.decode()")
+            self.assertTrue(image.evaluate("(img) => img.naturalWidth > 0 && img.naturalHeight > 0"), f"Broken archive image #{index + 1}")
+
+        # Verify a detail page and its reference image.
+        page.locator('.archive-card[href="objects/hal.html"]').click()
+        page.wait_for_load_state("networkidle")
+        detail_image = page.locator(".object-reference-image img")
+        detail_image.scroll_into_view_if_needed()
+        detail_image.evaluate("(img) => img.decode()")
+        self.assertTrue(detail_image.evaluate("(img) => img.naturalWidth > 0"))
+        self.assertTrue(page.locator('.object-reference-image a[href="../image-credits.html"]').count() == 1)
+        self.assertEqual(errors, [], f"Browser JavaScript errors: {errors}")
+        context.close()
+
+    def test_desktop_archive(self):
+        self.check_viewport(1440, 1000)
+
+    def test_mobile_archive_and_navigation(self):
+        context = self.browser.new_context(viewport={"width": 390, "height": 844}, is_mobile=True, has_touch=True)
+        page = context.new_page()
+        errors = []
+        page.on("pageerror", lambda error: errors.append(str(error)))
+        response = page.goto(BASE + "/objects.html", wait_until="networkidle")
+        self.assertEqual(response.status, 200)
+        dims = page.evaluate("({client: document.documentElement.clientWidth, scroll: document.documentElement.scrollWidth})")
+        self.assertLessEqual(dims["scroll"], dims["client"] + 1, f"Mobile horizontal overflow: {dims}")
+        menu = page.locator(".menu-toggle")
+        nav = page.locator(".main-nav")
+        menu.click()
+        self.assertEqual(menu.get_attribute("aria-expanded"), "true")
+        self.assertTrue(nav.evaluate("(el) => el.classList.contains('is-open')"))
+        menu.click()
+        self.assertEqual(menu.get_attribute("aria-expanded"), "false")
+        self.assertEqual(errors, [], f"Browser JavaScript errors: {errors}")
+        context.close()
+
+    def test_homepage_loads(self):
+        page = self.browser.new_page(viewport={"width": 390, "height": 844})
+        errors = []
+        page.on("pageerror", lambda error: errors.append(str(error)))
+        response = page.goto(BASE + "/", wait_until="networkidle")
+        self.assertEqual(response.status, 200)
+        self.assertTrue(page.locator("main").count())
+        dims = page.evaluate("({client: document.documentElement.clientWidth, scroll: document.documentElement.scrollWidth})")
+        self.assertLessEqual(dims["scroll"], dims["client"] + 1, f"Homepage horizontal overflow: {dims}")
+        self.assertEqual(errors, [], f"Homepage JavaScript errors: {errors}")
+        page.close()
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
