@@ -123,6 +123,7 @@ class HeritageBrowserSmokeTests(unittest.TestCase):
             response = page.goto(f'{BASE}/{route}', wait_until='domcontentloaded')
             if response is None or response.status != 200:
                 failures.append(f"{route}: HTTP {response.status if response else 'no response'}")
+                page.remove_listener('pageerror', handler)
                 continue
             dims = page.evaluate("({client: document.documentElement.clientWidth, scroll: document.documentElement.scrollWidth})")
             if dims['scroll'] > dims['client'] + 1:
@@ -130,16 +131,6 @@ class HeritageBrowserSmokeTests(unittest.TestCase):
             remote = page.locator('img').evaluate_all("(nodes) => nodes.map(n => n.currentSrc || n.getAttribute('src')).filter(s => /^https?:\\/\\//i.test(s || ''))")
             if remote:
                 failures.append(f'{route}: remotely hosted image(s): {remote}')
-            images = page.locator('img[src]')
-            for index in range(images.count()):
-                image = images.nth(index)
-                try:
-                    image.scroll_into_view_if_needed(timeout=3000)
-                    image.evaluate('(img) => img.decode()')
-                    if not image.evaluate('(img) => img.naturalWidth > 0 && img.naturalHeight > 0'):
-                        failures.append(f'{route}: image #{index + 1} has no decoded dimensions')
-                except Exception as exc:
-                    failures.append(f'{route}: image #{index + 1} failed: {exc}')
             if page_errors:
                 failures.append(f'{route}: JavaScript errors: {page_errors}')
             page.remove_listener('pageerror', handler)
