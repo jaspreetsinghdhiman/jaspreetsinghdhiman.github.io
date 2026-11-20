@@ -806,6 +806,7 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
 gsap.registerPlugin(ScrollTrigger);
 const $=s=>document.querySelectorAll(s),$1=s=>document.querySelector(s);
 const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const fastMobile=window.matchMedia("(max-width:700px)").matches;
 
 if(!reduce && typeof Lenis!=="undefined"){
  const lenis=new Lenis({duration:1.15,smoothWheel:true});
@@ -826,7 +827,7 @@ $("[data-split]").forEach(el=>{
 const ap=$1("#abp");
 ap.innerHTML=ap.textContent.split(" ").map(w=>`<span class="w">${w}</span>`).join(" ");
 
-if(!reduce){
+if(!reduce && !fastMobile){
  gsap.set(".hero .c,.ct .c",{yPercent:115,rotate:10});
  gsap.set(".fade,.stk,.badge",{opacity:0});
 }else{
@@ -835,7 +836,7 @@ if(!reduce){
 }
 
 function startHero(){
- if(reduce){$1("#pre").style.display="none";return;}
+ if(reduce || fastMobile){$1("#pre").style.display="none";return;}
  const tl=gsap.timeline();
  tl.to(".hero .c",{yPercent:0,rotate:0,duration:1.25,ease:"expo.out",stagger:.045})
    .to(".fade",{opacity:1,duration:.9},"-=.55")
@@ -847,7 +848,7 @@ function startHero(){
  $(".stk").forEach((s,i)=>gsap.to(s,{y:i%2?16:-16,duration:2.6+i*.25,repeat:-1,yoyo:true,ease:"sine.inOut"}));
 }
 
-if(!reduce){
+if(!reduce && !fastMobile){
  const obj={v:0};
   gsap.timeline().to(obj,{v:100,duration:1.8,ease:"power2.inOut",onUpdate:()=>$1("#cnt").textContent=Math.round(obj.v)})
  .call(startHero);
