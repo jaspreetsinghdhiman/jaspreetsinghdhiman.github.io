@@ -650,3 +650,6 @@ img{height:auto}
 
 /* Keyboard accessibility: visible skip link on focus */
 .skip-link{position:fixed;top:12px;left:12px;z-index:9999;padding:10px 16px;background:var(--forest);color:#fff;border:2px solid var(--gold-light);border-radius:4px;font-weight:600;transform:translateY(-160%);transition:transform .18s ease}.skip-link:focus{transform:translateY(0);outline:3px solid var(--gold);outline-offset:3px}
+
+/* Keep long provenance filenames and source links inside narrow mobile content columns. */
+@media(max-width:700px){.story-copy,.story-copy li{min-width:0;overflow-wrap:anywhere}.story-copy code,.story-copy a{overflow-wrap:anywhere;word-break:break-word}}

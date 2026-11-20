@@ -109,6 +109,34 @@ class HeritageBrowserSmokeTests(unittest.TestCase):
         self.assertEqual(errors, [], f"Browser JavaScript errors: {errors}")
         context.close()
 
+    def test_every_published_page_mobile(self):
+        html_pages = sorted(ROOT.rglob('*.html'))
+        self.assertGreater(len(html_pages), 0, 'No published HTML pages found')
+        context = self.browser.new_context(viewport={'width': 390, 'height': 844}, is_mobile=True, has_touch=True)
+        page = context.new_page()
+        failures = []
+        for html_file in html_pages:
+            route = html_file.relative_to(ROOT).as_posix()
+            page_errors = []
+            handler = lambda error: page_errors.append(str(error))
+            page.on('pageerror', handler)
+            response = page.goto(f'{BASE}/{route}', wait_until='domcontentloaded')
+            if response is None or response.status != 200:
+                failures.append(f"{route}: HTTP {response.status if response else 'no response'}")
+                page.remove_listener('pageerror', handler)
+                continue
+            dims = page.evaluate("({client: document.documentElement.clientWidth, scroll: document.documentElement.scrollWidth})")
+            if dims['scroll'] > dims['client'] + 1:
+                failures.append(f'{route}: horizontal overflow {dims}')
+            remote = page.locator('img').evaluate_all("(nodes) => nodes.map(n => n.getAttribute('src')).filter(s => /^(?:https?:)?\\/\\//i.test(s || ''))")
+            if remote:
+                failures.append(f'{route}: remotely hosted image(s): {remote}')
+            if page_errors:
+                failures.append(f'{route}: JavaScript errors: {page_errors}')
+            page.remove_listener('pageerror', handler)
+        context.close()
+        self.assertEqual(failures, [], 'Full mobile page audit failures:\\n' + '\\n'.join(failures))
+
     def test_homepage_loads(self):
         page = self.browser.new_page(viewport={"width": 390, "height": 844})
         errors = []

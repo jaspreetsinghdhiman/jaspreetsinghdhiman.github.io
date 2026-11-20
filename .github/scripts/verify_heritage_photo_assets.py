@@ -76,6 +76,47 @@ for page in PAGES:
 if len(webps) < len(OBJECTS):
     errors.append(f"Expected at least {len(OBJECTS)} WebP derivatives; found {len(webps)}")
 
+
+# Audit every published HTML page for remotely hosted image elements.
+class AllPageImages(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.references = []
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == "img":
+            for key in ("src", "data-src", "poster"):
+                if attrs.get(key):
+                    self.references.append((key, attrs[key]))
+            if attrs.get("srcset"):
+                for candidate in attrs["srcset"].split(","):
+                    value = candidate.strip().split()[0] if candidate.strip() else ""
+                    if value:
+                        self.references.append(("srcset", value))
+
+html_pages = sorted(ROOT.rglob("*.html"))
+remote_images = []
+for page in html_pages:
+    parser = AllPageImages()
+    parser.feed(page.read_text(encoding="utf-8"))
+    for attribute, raw in parser.references:
+        parts = urlsplit(raw)
+        if parts.scheme in ("http", "https") or parts.netloc:
+            remote_images.append(f"{page}: remote {attribute} image: {raw}")
+
+# Also catch image URLs held in JavaScript image maps and CSS backgrounds.
+import re
+remote_image_pattern = re.compile(
+    r"""(?:https?:)?//[^\s"'()<>]+?\.(?:avif|gif|jpe?g|png|svg|webp)(?:[?#][^\s"'()<>]*)?""",
+    re.IGNORECASE,
+)
+for page in list(ROOT.rglob("*.js")) + list(ROOT.rglob("*.css")):
+    source = page.read_text(encoding="utf-8")
+    for match in remote_image_pattern.finditer(source):
+        remote_images.append(f"{page}: remote image URL: {match.group(0)}")
+if remote_images:
+    errors.extend(remote_images)
+
 if errors:
     for error in errors:
         print(f"::error::{error}")
