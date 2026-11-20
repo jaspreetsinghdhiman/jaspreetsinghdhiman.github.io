@@ -573,6 +573,12 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
 .project-preview img{display:block;width:88%;height:92%;object-fit:contain;filter:drop-shadow(0 18px 16px rgba(0,0,0,.2));transition:transform .55s cubic-bezier(.22,1,.36,1)}
 .pj:hover .project-preview img{transform:scale(1.07) rotate(-2deg)}
 @media(max-width:700px){.project-preview{height:180px}}
+
+/* Mobile LCP: keep the hero copy visible before JavaScript initializes */
+@media(max-width:700px){.hero .fade{opacity:1;}}
+
+/* Avoid the full-screen intro overlay delaying the first mobile paint */
+@media(max-width:700px){#pre{display:none;}}
 </style>
 <!-- Deployment security headers are configured separately in vercel.json. -->
 <meta content="Jaspreet Singh Dhiman" name="author"/><meta content="index,follow,max-image-preview:large" name="robots"/><meta content="website" property="og:type"/><meta content="Jaspreet Singh Dhiman" property="og:site_name"/><meta content="Jaspreet Singh | Frontend Developer, JavaScript & React" property="og:title"/><meta content="https://jaspreetsinghdhiman.github.io/jaspreet.webp" property="og:image"/><meta content="Portrait of Jaspreet Singh Dhiman, Frontend Developer" property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="Jaspreet Singh | Frontend Developer, JavaScript &amp; React" name="twitter:title"/><meta content="Jaspreet Singh is a frontend developer in India focused on responsive websites and interactive interfaces using JavaScript, React, HTML, CSS and WordPress. Explore projects and experience." name="twitter:description"/><meta content="https://jaspreetsinghdhiman.github.io/jaspreet.webp" name="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://jaspreetsinghdhiman.github.io/#person", "name": "Jaspreet Singh Dhiman", "alternateName": "Jaspreet Singh", "jobTitle": "Frontend Developer", "address": {"@type": "PostalAddress", "addressRegion": "Punjab", "addressCountry": "IN"}, "sameAs": ["https://github.com/jaspreetsinghdhiman", "https://www.linkedin.com/in/jaspreet-singh-49abb8314/", "https://www.instagram.com/jaspreet.dhiman__"], "url": "https://jaspreetsinghdhiman.github.io/", "email": "mailto:jassp708737@gmail.com", "image": "https://jaspreetsinghdhiman.github.io/jaspreet.jpg", "knowsAbout": ["HTML5", "CSS3", "JavaScript", "React", "WordPress", "Figma", "Adobe Photoshop", "Responsive Web Design", "Frontend Development"]}, {"@type": "WebSite", "@id": "https://jaspreetsinghdhiman.github.io/#website", "url": "https://jaspreetsinghdhiman.github.io/", "name": "Jaspreet Singh Dhiman | Frontend Developer", "publisher": {"@id": "https://jaspreetsinghdhiman.github.io/#person"}}, {"@type": "WebPage", "url": "https://jaspreetsinghdhiman.github.io/", "name": "Jaspreet Singh | Frontend Developer, JavaScript & React", "description": "Jaspreet Singh is a frontend developer in India focused on responsive websites and interactive interfaces using JavaScript, React, HTML, CSS and WordPress. Explore projects and experience.", "isPartOf": {"@id": "https://jaspreetsinghdhiman.github.io/#website"}, "about": {"@id": "https://jaspreetsinghdhiman.github.io/#person"}}]}</script><!-- Google Search Console: paste your verification tag here, e.g. <meta name="google-site-verification" content="YOUR_CODE"/> -->
@@ -800,14 +806,15 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
 <button aria-label="Back to top" class="top-btn" id="topBtn" type="button">↑</button>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>if(!window.matchMedia("(max-width:700px)").matches){document.write('<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"><\/script>');}</script>
 <script>if(window.gsap && window.ScrollTrigger){
 
 gsap.registerPlugin(ScrollTrigger);
 const $=s=>document.querySelectorAll(s),$1=s=>document.querySelector(s);
 const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const fastMobile=window.matchMedia("(max-width:700px)").matches;
 
-if(!reduce && typeof Lenis!=="undefined"){
+if(!reduce && !fastMobile && typeof Lenis!=="undefined"){
  const lenis=new Lenis({duration:1.15,smoothWheel:true});
  lenis.on("scroll",ScrollTrigger.update);
  gsap.ticker.add(t=>lenis.raf(t*1000));
@@ -826,7 +833,7 @@ $("[data-split]").forEach(el=>{
 const ap=$1("#abp");
 ap.innerHTML=ap.textContent.split(" ").map(w=>`<span class="w">${w}</span>`).join(" ");
 
-if(!reduce){
+if(!reduce && !fastMobile){
  gsap.set(".hero .c,.ct .c",{yPercent:115,rotate:10});
  gsap.set(".fade,.stk,.badge",{opacity:0});
 }else{
@@ -835,7 +842,7 @@ if(!reduce){
 }
 
 function startHero(){
- if(reduce){$1("#pre").style.display="none";return;}
+ if(reduce || fastMobile){$1("#pre").style.display="none";return;}
  const tl=gsap.timeline();
  tl.to(".hero .c",{yPercent:0,rotate:0,duration:1.25,ease:"expo.out",stagger:.045})
    .to(".fade",{opacity:1,duration:.9},"-=.55")
@@ -847,7 +854,7 @@ function startHero(){
  $(".stk").forEach((s,i)=>gsap.to(s,{y:i%2?16:-16,duration:2.6+i*.25,repeat:-1,yoyo:true,ease:"sine.inOut"}));
 }
 
-if(!reduce){
+if(!reduce && !fastMobile){
  const obj={v:0};
   gsap.timeline().to(obj,{v:100,duration:1.8,ease:"power2.inOut",onUpdate:()=>$1("#cnt").textContent=Math.round(obj.v)})
  .call(startHero);
