@@ -1,3 +1,11 @@
+// Apply the archive's shared favicon on every page that loads this script.
+if (document.head && !document.querySelector('link[rel~="icon"]')) {
+  const favicon = document.createElement('link');
+  favicon.rel = 'icon';
+  favicon.type = 'image/svg+xml';
+  favicon.href = new URL('favicon.svg', document.baseURI).href;
+  document.head.appendChild(favicon);
+}
 document.addEventListener('DOMContentLoaded', () => {
   const year = document.querySelector('[data-year]'); if (year) year.textContent = new Date().getFullYear();
   const toggle = document.querySelector('.menu-toggle'); const nav = document.querySelector('.main-nav');
