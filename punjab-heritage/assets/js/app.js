@@ -3,7 +3,7 @@ if (document.head && !document.querySelector('link[rel~="icon"]')) {
   const favicon = document.createElement('link');
   favicon.rel = 'icon';
   favicon.type = 'image/svg+xml';
-  favicon.href = new URL('favicon.svg', document.baseURI).href;
+  favicon.href = new URL('../../favicon.svg', document.currentScript.src).href;
   document.head.appendChild(favicon);
 }
 document.addEventListener('DOMContentLoaded', () => {
