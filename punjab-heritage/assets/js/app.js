@@ -1,3 +1,14 @@
+// The former contribution destination is now the visitor review form.
+// Normalize every archive link to it, including older article and collection pages.
+document.querySelectorAll('a[href]').forEach((link) => {
+  try {
+    const target = new URL(link.getAttribute('href'), window.location.href);
+    if (target.pathname.endsWith('/contribute.html')) {
+      link.textContent = 'Leave a Review ↗';
+    }
+  } catch (_) { /* Ignore malformed links and leave their original text intact. */ }
+});
+
 // Apply the archive's shared favicon on every page that loads this script.
 if (document.head && !document.querySelector('link[rel~="icon"]')) {
   const favicon = document.createElement('link');
@@ -14,8 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (search) search.addEventListener('input', () => { const q = search.value.trim().toLowerCase(); let visible = 0; cards.forEach(card => { const match = (card.dataset.search + ' ' + card.textContent).toLowerCase().includes(q); card.hidden = !match; if (match) visible++; }); if (count) count.textContent = visible + (visible === 1 ? ' collection' : ' collections'); if (empty) empty.hidden = visible !== 0; });
   const lang = document.querySelector('.language-toggle');
   const paText = {
-    'Home':'ਮੁੱਖ ਪੰਨਾ','Explore':'ਖੋਜੋ','Objects':'ਵਸਤਾਂ','Stories':'ਕਹਾਣੀਆਂ','Gallery':'ਤਸਵੀਰਾਂ','Our mission':'ਸਾਡਾ ਮਕਸਦ','Contribute':'ਯੋਗਦਾਨ ਪਾਓ',
+    'Home':'ਮੁੱਖ ਪੰਨਾ','Explore':'ਖੋਜੋ','Objects':'ਵਸਤਾਂ','Stories':'ਕਹਾਣੀਆਂ','Gallery':'ਤਸਵੀਰਾਂ','Our mission':'ਸਾਡਾ ਮਕਸਦ','Leave a Review ↗':'ਸਮੀਖਿਆ ਦਿਓ ↗',
     'Leave a Review ↗':'ਸਮੀਖਿਆ ਦਿਓ ↗',
+    'Leave a Review':'ਸਮੀਖਿਆ ਦਿਓ','Leave a review':'ਸਮੀਖਿਆ ਦਿਓ',
     'YOUR VOICE MATTERS':'ਤੁਹਾਡੀ ਰਾਏ ਮਹੱਤਵਪੂਰਨ ਹੈ',
     'Every visit':'ਹਰ ਮੁਲਾਕਾਤ',
     'deserves a':'ਇੱਕ ਆਵਾਜ਼ ਦੀ',
