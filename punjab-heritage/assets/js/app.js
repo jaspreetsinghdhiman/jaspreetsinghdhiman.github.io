@@ -432,29 +432,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const mailto = 'mailto:jassp708737@gmail.com?subject='
         + encodeURIComponent(subject)
         + '&body=' + encodeURIComponent(body);
-      const gmailCompose = 'https://mail.google.com/mail/?view=cm&fs=1'
-        + '&to=' + encodeURIComponent('jassp708737@gmail.com')
-        + '&su=' + encodeURIComponent(subject)
-        + '&body=' + encodeURIComponent(body);
-
-      // Do not force a mailto redirect: some Android browsers silently block it.
-      // Present real, user-tapped links so the visitor chooses their email app.
+      // Use the original submit button as the single email action.
+      // The visitor's configured Android email app handles the mailto link.
       if (feedback) {
-        feedback.replaceChildren();
-        const message = document.createElement('span');
-        message.textContent = 'Your review is ready. Choose how you want to send it: ';
-        const emailLink = document.createElement('a');
-        emailLink.className = 'review-email-fallback';
-        emailLink.href = mailto;
-        emailLink.textContent = 'Open email app';
-        const gmailLink = document.createElement('a');
-        gmailLink.className = 'review-email-fallback';
-        gmailLink.href = gmailCompose;
-        gmailLink.target = '_blank';
-        gmailLink.rel = 'noopener noreferrer';
-        gmailLink.textContent = 'Open Gmail';
-        feedback.append(message, emailLink, document.createTextNode(' · '), gmailLink);
+        feedback.textContent = 'Opening your email app… If nothing opens, check that an email app is installed and set up.';
       }
+      window.location.href = mailto;
     });
   }
 
