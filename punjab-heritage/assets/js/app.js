@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'What did you like? What should we improve? Tell us about your experience…':'ਤੁਹਾਨੂੰ ਕੀ ਚੰਗਾ ਲੱਗਿਆ? ਅਸੀਂ ਕੀ ਸੁਧਾਰ ਕਰੀਏ? ਆਪਣਾ ਤਜਰਬਾ ਦੱਸੋ…',
     'I confirm this review reflects my genuine experience and may be read by the Punjab Heritage team.':'ਮੈਂ ਪੁਸ਼ਟੀ ਕਰਦਾ/ਕਰਦੀ ਹਾਂ ਕਿ ਇਹ ਸਮੀਖਿਆ ਮੇਰੇ ਅਸਲ ਤਜਰਬੇ ਉੱਤੇ ਆਧਾਰਿਤ ਹੈ ਅਤੇ Punjab Heritage ਟੀਮ ਇਸ ਨੂੰ ਪੜ੍ਹ ਸਕਦੀ ਹੈ।',
     'Submit review':'ਸਮੀਖਿਆ ਭੇਜੋ',
-    'Your review is sent securely through FormSubmit to the archive owner’s email. You will be redirected after submitting.':'ਤੁਹਾਡੀ ਸਮੀਖਿਆ FormSubmit ਰਾਹੀਂ ਪੁਰਾਲੇਖ ਦੇ ਮਾਲਕ ਦੀ ਈਮੇਲ ਉੱਤੇ ਭੇਜੀ ਜਾਵੇਗੀ। ਭੇਜਣ ਤੋਂ ਬਾਅਦ ਤੁਹਾਨੂੰ ਅਗਲੇ ਪੰਨੇ ਉੱਤੇ ਲਿਜਾਇਆ ਜਾਵੇਗਾ।''Contact':'ਸੰਪਰਕ',
+    'Your review is sent securely through FormSubmit to the archive owner’s email. You will be redirected after submitting.':'ਤੁਹਾਡੀ ਸਮੀਖਿਆ FormSubmit ਰਾਹੀਂ ਪੁਰਾਲੇਖ ਦੇ ਮਾਲਕ ਦੀ ਈਮੇਲ ਉੱਤੇ ਭੇਜੀ ਜਾਵੇਗੀ। ਭੇਜਣ ਤੋਂ ਬਾਅਦ ਤੁਹਾਨੂੰ ਅਗਲੇ ਪੰਨੇ ਉੱਤੇ ਲਿਜਾਇਆ ਜਾਵੇਗਾ।','Contact':'ਸੰਪਰਕ',
     'A living archive of Punjab — its objects, people and traditions.':'ਪੰਜਾਬ ਦੀਆਂ ਵਸਤਾਂ, ਲੋਕਾਂ ਅਤੇ ਰਵਾਇਤਾਂ ਦਾ ਜੀਵੰਤ ਪੁਰਾਲੇਖ।',
     'Preserving our roots. Celebrating our heritage.':'ਆਪਣੀਆਂ ਜੜ੍ਹਾਂ ਸੰਭਾਲੀਏ। ਆਪਣੀ ਵਿਰਾਸਤ ਮਨਾਈਏ।',
     'Made with respect for Punjab and its people.':'ਪੰਜਾਬ ਅਤੇ ਇਸ ਦੇ ਲੋਕਾਂ ਦੇ ਸਤਿਕਾਰ ਨਾਲ ਤਿਆਰ ਕੀਤਾ।',
