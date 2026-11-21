@@ -384,3 +384,15 @@ document.addEventListener('DOMContentLoaded', () => {
     link.setAttribute('rel', [...rel].join(' '));
   });
 });
+
+/* Keep one review form on the home page; reroute legacy contribution links site-wide. */
+document.addEventListener('DOMContentLoaded', () => {
+  const nested = /\/(articles|collections|objects|stories|forts)\//.test(location.pathname);
+  document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href') || '';
+    if (href.includes('contribute.html') || (href.includes('contact.html') && /review|contribut/i.test(link.textContent))) {
+      link.href = (nested ? '../' : '') + 'index.html#review-form';
+      link.textContent = link.textContent.replace(/Contribute|Contribution|Contact form/gi, 'Leave a Review');
+    }
+  });
+});
