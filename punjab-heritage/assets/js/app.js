@@ -428,24 +428,33 @@ document.addEventListener('DOMContentLoaded', () => {
         + 'Title: ' + (title || '—') + '\n\n'
         + 'Review:\n' + review + '\n\n'
         + 'Consent: Confirmed for review by the Punjab Heritage team.';
+      const subject = 'Punjab Heritage Review: ' + rating + ' — ' + name;
       const mailto = 'mailto:jassp708737@gmail.com?subject='
-        + encodeURIComponent('Punjab Heritage Review: ' + rating + ' — ' + name)
+        + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+      const gmailCompose = 'https://mail.google.com/mail/?view=cm&fs=1'
+        + '&to=' + encodeURIComponent('jassp708737@gmail.com')
+        + '&su=' + encodeURIComponent(subject)
         + '&body=' + encodeURIComponent(body);
 
+      // Do not force a mailto redirect: some Android browsers silently block it.
+      // Present real, user-tapped links so the visitor chooses their email app.
       if (feedback) {
-        feedback.textContent = 'If your email app does not open automatically, use the email link below.';
-        let fallback = feedback.querySelector('a');
-        if (!fallback) {
-          fallback = document.createElement('a');
-          fallback.className = 'review-email-fallback';
-          fallback.textContent = 'Tap here to open your email app';
-          feedback.append(' ');
-          feedback.appendChild(fallback);
-        }
-        fallback.href = mailto;
+        feedback.replaceChildren();
+        const message = document.createElement('span');
+        message.textContent = 'Your review is ready. Choose how you want to send it: ';
+        const emailLink = document.createElement('a');
+        emailLink.className = 'review-email-fallback';
+        emailLink.href = mailto;
+        emailLink.textContent = 'Open email app';
+        const gmailLink = document.createElement('a');
+        gmailLink.className = 'review-email-fallback';
+        gmailLink.href = gmailCompose;
+        gmailLink.target = '_blank';
+        gmailLink.rel = 'noopener noreferrer';
+        gmailLink.textContent = 'Open Gmail';
+        feedback.append(message, emailLink, document.createTextNode(' · '), gmailLink);
       }
-      // Match the working portfolio contact form's mailto navigation pattern.
-      window.location.href = mailto;
     });
   }
 
