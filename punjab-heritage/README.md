@@ -1,4 +1,4 @@
-# Punjab Heritage — The Living Legacy of Punjab
+# Punjab Roots — Discover the Roots. Preserve the Legacy.
 
 A static, GitHub Pages-compatible heritage platform nested safely inside the existing portfolio repository.
 
@@ -34,7 +34,7 @@ https://jaspreetsinghdhiman.github.io/punjab-heritage/
 Open `index.html` in a browser, or run a local static server from this folder.
 
 ## Brand
-Punjab Heritage — Preserving Our Roots. Celebrating Our Heritage.
+Punjab Roots — Discover the Roots. Preserve the Legacy.
 
 
 ## Recent content updates
