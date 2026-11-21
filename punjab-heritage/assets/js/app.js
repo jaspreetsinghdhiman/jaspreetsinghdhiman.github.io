@@ -422,11 +422,12 @@ document.addEventListener('DOMContentLoaded', () => {
         'Title: ' + (title || '—'), '',
         'Review:', review, '',
         'Consent: Confirmed for review by the Punjab Heritage team.'
-      ].join('\\n');
+      ].join('\n');
       const subject = 'Punjab Heritage Review — ' + rating + ' — ' + name;
-      const mailto = 'mailto:jassp708737@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-      if (feedback) feedback.textContent = 'Your email app is opening with the review. Please press Send in that app. The review will be considered received only after you send the email.';
-      window.location.href = mailto;
+      const params = new URLSearchParams({view: 'cm', fs: '1', to: 'jassp708737@gmail.com', su: subject, body});
+      const gmailComposeUrl = 'https://mail.google.com/mail/?' + params.toString();
+      if (feedback) feedback.textContent = 'Opening Gmail with your review ready. Please check the details and press Send in Gmail.';
+      window.location.assign(gmailComposeUrl);
     });
   }
 
