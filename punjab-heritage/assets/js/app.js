@@ -441,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const rating = String(data.get('rating') || '').trim();
       const title = String(data.get('review_title') || '').trim();
       const review = String(data.get('review') || '').trim();
-      const body = 'NEW PUNJAB HERITAGE REVIEW\n\n'
+      const body = 'NEW PUNJAB ROOTS REVIEW\n\n'
         + 'Name: ' + name + '\n'
         + 'Visitor email (private; do not publish): ' + (email || 'Not provided') + '\n'
         + 'Topic: ' + topic + '\n'
