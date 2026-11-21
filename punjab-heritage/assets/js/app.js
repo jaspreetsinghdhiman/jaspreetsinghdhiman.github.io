@@ -405,7 +405,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if (form) {
     form.addEventListener('submit', event => {
       event.preventDefault();
-      if (!form.reportValidity()) return;
+      let valid = true;
+      form.querySelectorAll('[required]').forEach(field => {
+        const bad = !field.checkValidity();
+        field.setAttribute('aria-invalid', String(bad));
+        if (bad) valid = false;
+      });
+      if (!valid) { form.reportValidity(); return; }
+
       const data = new FormData(form);
       const name = String(data.get('name') || '').trim() || 'Visitor';
       const email = String(data.get('email') || '').trim();
@@ -413,21 +420,32 @@ document.addEventListener('DOMContentLoaded', () => {
       const rating = String(data.get('rating') || '').trim();
       const title = String(data.get('review_title') || '').trim();
       const review = String(data.get('review') || '').trim();
-      const body = [
-        'NEW PUNJAB HERITAGE REVIEW', '',
-        'Name: ' + name,
-        'Visitor email (private; do not publish): ' + (email || 'Not provided'),
-        'Topic: ' + topic,
-        'Rating: ' + rating,
-        'Title: ' + (title || '—'), '',
-        'Review:', review, '',
-        'Consent: Confirmed for review by the Punjab Heritage team.'
-      ].join('\n');
-      const subject = 'Punjab Heritage Review — ' + rating + ' — ' + name;
-      const params = new URLSearchParams({view: 'cm', fs: '1', to: 'jassp708737@gmail.com', su: subject, body});
-      const gmailComposeUrl = 'https://mail.google.com/mail/?' + params.toString();
-      if (feedback) feedback.textContent = 'Opening Gmail with your review ready. Please check the details and press Send in Gmail.';
-      window.location.assign(gmailComposeUrl);
+      const body = 'NEW PUNJAB HERITAGE REVIEW\\n\\n'
+        + 'Name: ' + name + '\\n'
+        + 'Visitor email (private; do not publish): ' + (email || 'Not provided') + '\\n'
+        + 'Topic: ' + topic + '\\n'
+        + 'Rating: ' + rating + '\\n'
+        + 'Title: ' + (title || '—') + '\\n\\n'
+        + 'Review:\\n' + review + '\\n\\n'
+        + 'Consent: Confirmed for review by the Punjab Heritage team.';
+      const mailto = 'mailto:jassp708737@gmail.com?subject='
+        + encodeURIComponent('Punjab Heritage Review: ' + rating + ' — ' + name)
+        + '&body=' + encodeURIComponent(body);
+
+      if (feedback) {
+        feedback.textContent = 'If your email app does not open automatically, use the email link below.';
+        let fallback = feedback.querySelector('a');
+        if (!fallback) {
+          fallback = document.createElement('a');
+          fallback.className = 'review-email-fallback';
+          fallback.textContent = 'Tap here to open your email app';
+          feedback.append(' ');
+          feedback.appendChild(fallback);
+        }
+        fallback.href = mailto;
+      }
+      // Match the working portfolio contact form's mailto navigation pattern.
+      window.location.href = mailto;
     });
   }
 
