@@ -396,3 +396,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
+/* Email-app review submission + public, owner-approved GitHub review feed. */
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('review-submission-form');
+  const feedback = document.getElementById('form-feedback');
+  if (form) {
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      const data = new FormData(form);
+      const name = String(data.get('name') || '').trim() || 'Visitor';
+      const email = String(data.get('email') || '').trim();
+      const topic = String(data.get('review_topic') || '').trim();
+      const rating = String(data.get('rating') || '').trim();
+      const title = String(data.get('review_title') || '').trim();
+      const review = String(data.get('review') || '').trim();
+      const body = [
+        'NEW PUNJAB HERITAGE REVIEW', '',
+        'Name: ' + name,
+        'Visitor email (private; do not publish): ' + (email || 'Not provided'),
+        'Topic: ' + topic,
+        'Rating: ' + rating,
+        'Title: ' + (title || '—'), '',
+        'Review:', review, '',
+        'Consent: Confirmed for review by the Punjab Heritage team.'
+      ].join('\\n');
+      const subject = 'Punjab Heritage Review — ' + rating + ' — ' + name;
+      const mailto = 'mailto:jassp708737@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      if (feedback) feedback.textContent = 'Your email app is opening with the review. Please press Send in that app. The review will be considered received only after you send the email.';
+      window.location.href = mailto;
+    });
+  }
+
+  const feed = document.getElementById('published-reviews');
+  if (feed) {
+    fetch('data/reviews.json', {cache:'no-store'})
+      .then(response => { if (!response.ok) throw new Error('Review feed unavailable'); return response.json(); })
+      .then(data => {
+        const reviews = Array.isArray(data.reviews) ? data.reviews.filter(item => item && item.published === true) : [];
+        if (!reviews.length) { feed.innerHTML = '<p class="muted">Be the first to share a review. Published community feedback will appear here.</p>'; return; }
+        feed.innerHTML = reviews.slice(0, 12).map(item => {
+          const card = document.createElement('article'); card.className = 'published-review';
+          const stars = document.createElement('div'); stars.className = 'review-stars'; stars.textContent = '★'.repeat(Math.max(1, Math.min(5, Number(item.rating) || 5))) + '☆'.repeat(5 - Math.max(1, Math.min(5, Number(item.rating) || 5)));
+          const heading = document.createElement('h3'); heading.textContent = item.title || 'Visitor review';
+          const copy = document.createElement('p'); copy.textContent = item.review || '';
+          const author = document.createElement('small'); author.textContent = '— ' + (item.name || 'Punjab Heritage visitor');
+          card.append(stars, heading, copy, author); return card;
+        });
+      })
+      .catch(() => { feed.innerHTML = '<p class="muted">Reviews are temporarily unavailable. Please check back soon.</p>'; });
+  }
+});
