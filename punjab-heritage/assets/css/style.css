@@ -653,3 +653,7 @@ img{height:auto}
 
 /* Keep long provenance filenames and source links inside narrow mobile content columns. */
 @media(max-width:700px){.story-copy,.story-copy li{min-width:0;overflow-wrap:anywhere}.story-copy code,.story-copy a{overflow-wrap:anywhere;word-break:break-word}}
+
+/* Community reviews — published entries are stored in data/reviews.json */
+.published-reviews{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:25px 0 70px}.published-review{background:#eae4d8;padding:24px;border-top:2px solid #b8955d}.published-review .review-stars{color:#9b7846;letter-spacing:.12em;font-size:13px}.published-review h3{font:500 22px/1.2 var(--serif);margin:12px 0 8px}.published-review p{font-size:13px;line-height:1.7;color:#55594f;white-space:pre-wrap;overflow-wrap:anywhere}.published-review small{font-size:10px;color:#77766d;letter-spacing:.06em}.published-reviews .muted{grid-column:1/-1}.form-honeypot{display:none!important}
+@media(max-width:700px){.published-reviews{grid-template-columns:1fr;gap:12px;margin:18px 0 45px}.published-review{padding:20px}}
