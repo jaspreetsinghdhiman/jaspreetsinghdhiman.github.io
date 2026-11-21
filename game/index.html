@@ -53,8 +53,7 @@ for(const pos of [[-22,-22],[25,-35],[13,-72],[-46,-64],[48,-82]])enemies.push(b
 let started=false,keys={},joy={x:0,y:0},jumpV=0,onGround=true,run=false,found=0,health=100,near=null,walkT=0,attackT=0,attackCooldown=0,mounted=false,camYaw=0,camPitch=0,lastTouch=null,toastT=0,damageFlash=0;
 const stick=document.querySelector('#stick'),nub=document.querySelector('#nub');let pointer=null;stick.addEventListener('pointerdown',e=>{pointer=e.pointerId;stick.setPointerCapture(pointer);moveJoy(e)});stick.addEventListener('pointermove',e=>{if(pointer===e.pointerId)moveJoy(e)});function moveJoy(e){const r=stick.getBoundingClientRect(),dx=e.clientX-r.left-r.width/2,dy=e.clientY-r.top-r.height/2,l=Math.hypot(dx,dy),m=Math.min(1,l/42);joy.x=dx/(l||1)*m;joy.y=dy/(l||1)*m;nub.style.transform='translate('+joy.x*34+'px,'+joy.y*34+'px)'}function stopJoy(){pointer=null;joy.x=joy.y=0;nub.style.transform=''}stick.addEventListener('pointerup',stopJoy);stick.addEventListener('pointercancel',stopJoy);
 addEventListener('keydown',e=>{keys[e.key.toLowerCase()]=true;if(e.key===' '&&onGround){jumpV=7;onGround=false}if(e.key.toLowerCase()==='f')attack()});addEventListener('keyup',e=>keys[e.key.toLowerCase()]=false);
-document.querySelector('#run').?.addEventListener?.('pointerdown',()=>run=true);
-const runBtn=document.createElement('button'); // keyboard sprint is available; mobile movement uses joystick
+// Sprint is available with Shift on keyboard; mounted horse provides faster travel on mobile.
 document.querySelector('#jump').onpointerdown=()=>{if(onGround){jumpV=7;onGround=false}};
 document.querySelector('#attack').onpointerdown=attack;
 document.querySelector('#ride').onpointerdown=()=>{if(hero.position.distanceTo(horse.position)<4){mounted=!mounted;say(mounted?'You mounted your horse. Ride into the valley!':'You dismounted.');}else say('Move closer to your horse to mount.');};
