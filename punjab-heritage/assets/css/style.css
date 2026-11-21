@@ -657,3 +657,43 @@ img{height:auto}
 /* Community reviews — published entries are stored in data/reviews.json */
 .published-reviews{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:25px 0 70px}.published-review{background:#eae4d8;padding:24px;border-top:2px solid #b8955d}.published-review .review-stars{color:#9b7846;letter-spacing:.12em;font-size:13px}.published-review h3{font:500 22px/1.2 var(--serif);margin:12px 0 8px}.published-review p{font-size:13px;line-height:1.7;color:#55594f;white-space:pre-wrap;overflow-wrap:anywhere}.published-review small{font-size:10px;color:#77766d;letter-spacing:.06em}.published-reviews .muted{grid-column:1/-1}.form-honeypot{display:none!important}
 @media(max-width:700px){.published-reviews{grid-template-columns:1fr;gap:12px;margin:18px 0 45px}.published-review{padding:20px}}
+
+
+/* Mobile stability pass — prevent grid/flex children and long content from breaking sections. */
+html,body{max-width:100%;overflow-x:clip}
+main,section,header,footer,.container{min-width:0}
+img,video,svg,iframe{max-width:100%}
+p,h1,h2,h3,h4,small,a,button,label{overflow-wrap:break-word}
+.grid,.collection-grid,.explore-grid,.object-grid,.archive-grid,.values-grid,.people-grid,.place-grid,.glossary-grid{min-width:0}
+.collection-card,.explore-card,.object-card,.archive-card,.published-review{min-width:0;max-width:100%}
+.contribution-layout{align-items:start}
+.contribute-form{min-width:0;width:100%;max-width:100%;box-sizing:border-box}
+.contribute-form input,.contribute-form textarea,.contribute-form select{min-width:0;max-width:100%;box-sizing:border-box}
+.contribute-form .button{width:100%;min-height:48px;justify-content:center;white-space:normal}
+.form-feedback{margin:0;line-height:1.65;overflow-wrap:anywhere}
+@media(max-width:700px){
+  .section-pad{padding-block:clamp(52px,12vw,72px)}
+  .section-heading{gap:14px;min-width:0}
+  .section-heading>div{min-width:0}
+  .published-reviews{margin-bottom:30px}
+  .contribution-layout{gap:22px}
+  .contribute-form{padding:clamp(16px,5vw,22px);gap:14px}
+  .contribute-form label{font-size:11px;line-height:1.5}
+  .contribute-form input,.contribute-form textarea,.contribute-form select{font-size:16px;padding:12px}
+  .contribute-form textarea{min-height:140px;resize:vertical}
+  .contribute-form .consent{align-items:flex-start}
+  .contribute-form .consent input{flex:0 0 18px;width:18px;height:18px}
+  .footer-main{grid-template-columns:1fr;gap:28px}
+  .footer-column{min-width:0}
+  .footer-bottom{gap:10px}
+}
+@media(max-width:420px){
+  .site-header{padding-inline:16px}
+  .container{width:calc(100% - 32px)}
+  .brand{gap:9px}
+  .brand b{font-size:15px}
+  .brand small{font-size:7px;letter-spacing:.1em}
+  .hero h1{font-size:clamp(48px,13vw,60px)}
+  .section-heading h2,.intro-grid h2{font-size:clamp(32px,9vw,39px)}
+  .contribution-layout h2{font-size:36px}
+}
