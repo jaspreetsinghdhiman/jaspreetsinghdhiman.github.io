@@ -90,3 +90,11 @@ Punjab Heritage — Preserving Our Roots. Celebrating Our Heritage.
 - Replaced the homepage manifesto's externally hosted Phulkari background with the verified local WebP asset at `assets/images/photos/webp/phulkari-embroidery-rajpura-2015.webp`.
 - The homepage hero already uses the locally hosted Patiala bullock-cart photograph.
 - This is a partial migration only: several homepage collection cards still reference externally hosted photographs. Keep the local-image migration open until each image is acquired, rights-checked, optimized and mapped to its exact subject.
+
+
+## GitHub-managed visitor reviews (2026-11-21)
+- The homepage has the single visitor review form. It opens the visitor's configured email app using a `mailto:` link addressed to the archive owner; no third-party form service or external submission endpoint is used.
+- Email apps do not send a copy of the message into GitHub automatically. The owner receives the email, checks it, and manually adds only approved public fields (display name, numeric rating, optional title, review text) to `data/reviews.json` with `published: true`. Never publish visitor email addresses or other private details.
+- The public review cards are read from `data/reviews.json` and appear only when `published` is `true`. GitHub commit history is the moderation/publishing audit trail; unapproved entries should not be added to the public JSON file.
+- Example entry: `{ "name": "Visitor", "rating": 5, "title": "A thoughtful archive", "review": "A useful look at Punjab's heritage.", "published": true }`.
+- A `mailto:` handoff cannot verify that the visitor actually pressed Send; the page explains this clearly. Fully automatic email-to-GitHub publishing would require a separately authenticated mail-processing backend, which GitHub Pages alone does not provide.
