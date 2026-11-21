@@ -1,7 +1,7 @@
 {
-  "name": "Punjab Heritage",
-  "short_name": "Punjab Heritage",
-  "description": "The Living Legacy of Punjab",
+  "name": "Punjab Roots",
+  "short_name": "Punjab Roots",
+  "description": "Discover the Roots. Preserve the Legacy.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#f4f0e7",

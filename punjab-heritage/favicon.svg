@@ -16,5 +16,5 @@
 <!-- Furrows -->
 <path d="M157 310c62-34 136-34 198 0M157 335c62-34 136-34 198 0M175 359c51-24 111-24 162 0" fill="none" stroke="url(#brass)" stroke-width="7" stroke-linecap="round"/>
 <path d="M112 388h288" stroke="#d8b777" stroke-width="2" opacity=".75"/>
-<text x="256" y="445" text-anchor="middle" fill="#f5e7c8" font-family="Georgia,serif" font-size="36" letter-spacing="8">PH</text>
+<text x="256" y="445" text-anchor="middle" fill="#f5e7c8" font-family="Georgia,serif" font-size="36" letter-spacing="8">PR</text>
 </svg>
