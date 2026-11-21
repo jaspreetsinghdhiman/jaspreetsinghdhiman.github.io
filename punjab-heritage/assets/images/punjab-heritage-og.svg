@@ -24,7 +24,7 @@
  <path d="M180 146v-16M180 268v-15M127 199h-16M249 199h-16M142 161l-11-11M229 249l-11-11M218 161l11-11M131 249l11-11" stroke="#e5c78d" stroke-width="5" stroke-linecap="round"/>
  <path d="M82 292c61-33 135-33 196 0M82 318c61-33 135-33 196 0M99 343c51-23 111-23 162 0" fill="none" stroke="url(#gold)" stroke-width="7" stroke-linecap="round"/>
  <path d="M65 370h230" stroke="#d3ad70" stroke-width="2"/>
- <text x="180" y="421" text-anchor="middle" fill="#f5e7c8" font-family="Georgia,serif" font-size="32" letter-spacing="9">PH</text>
+ <text x="180" y="421" text-anchor="middle" fill="#f5e7c8" font-family="Georgia,serif" font-size="32" letter-spacing="9">PR</text>
 </g>
 <g fill="#d5b276" opacity=".85"><path d="M1100 90l10 10-10 10-10-10zM1100 520l10 10-10 10-10-10zM70 555l10 10-10 10-10-10z"/></g>
 </svg>
