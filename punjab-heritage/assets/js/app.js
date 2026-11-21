@@ -1,3 +1,24 @@
+// Punjab Roots rebrand: keep shared navigation, page titles and metadata consistent
+// across the archive while legacy URLs remain unchanged.
+(() => {
+  const replaceBrand = (value) => String(value)
+    .replaceAll('Punjab Heritage', 'Punjab Roots')
+    .replaceAll('Punjab heritage', 'Punjab Roots')
+    .replaceAll('The Living Legacy of Punjab', 'Discover the Roots. Preserve the Legacy.')
+    .replaceAll('Preserving our roots. Celebrating our heritage.', 'Discover the Roots. Preserve the Legacy.')
+    .replaceAll('Preserving Our Roots. Celebrating Our Heritage.', 'Discover the Roots. Preserve the Legacy.');
+  const updateBrand = () => {
+    document.title = replaceBrand(document.title);
+    document.querySelectorAll('meta[content]').forEach((el) => el.setAttribute('content', replaceBrand(el.getAttribute('content'))));
+    document.querySelectorAll('script[type="application/ld+json"]').forEach((el) => { el.textContent = replaceBrand(el.textContent); });
+    document.querySelectorAll('.brand-mark').forEach((el) => { if (el.textContent.trim() === 'PH') el.textContent = 'PR'; });
+    const walker = document.createTreeWalker(document.body || document.documentElement, NodeFilter.SHOW_TEXT);
+    let node;
+    while ((node = walker.nextNode())) node.nodeValue = replaceBrand(node.nodeValue);
+  };
+  updateBrand();
+  document.addEventListener('DOMContentLoaded', updateBrand, { once: true });
+})();
 // The former contribution destination is now the visitor review form.
 // Normalize every archive link to it, including older article and collection pages.
 document.querySelectorAll('a[href]').forEach((link) => {
