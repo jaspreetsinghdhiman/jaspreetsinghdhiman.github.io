@@ -2,8 +2,8 @@
 // across the archive while legacy URLs remain unchanged.
 (() => {
   const replaceBrand = (value) => String(value)
-    .replaceAll('Punjab Heritage', 'Punjab Roots')
-    .replaceAll('Punjab heritage', 'Punjab Roots')
+    .replaceAll('Punjab Roots', 'Punjab Roots')
+    .replaceAll('Punjab Roots', 'Punjab Roots')
     .replaceAll('The Living Legacy of Punjab', 'Discover the Roots. Preserve the Legacy.')
     .replaceAll('Preserving our roots. Celebrating our heritage.', 'Discover the Roots. Preserve the Legacy.')
     .replaceAll('Preserving Our Roots. Celebrating Our Heritage.', 'Discover the Roots. Preserve the Legacy.');
@@ -53,11 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
     'Every visit':'ਹਰ ਮੁਲਾਕਾਤ',
     'deserves a':'ਇੱਕ ਆਵਾਜ਼ ਦੀ',
     'voice.':'ਹੱਕਦਾਰ ਹੈ।',
-    'Visited Punjab Heritage? Tell us what you liked and what we can make better.':'ਪੰਜਾਬ ਹੈਰੀਟੇਜ ਤੁਹਾਨੂੰ ਕਿਵੇਂ ਲੱਗੀ? ਦੱਸੋ ਕਿ ਕੀ ਚੰਗਾ ਲੱਗਿਆ ਅਤੇ ਅਸੀਂ ਕੀ ਬਿਹਤਰ ਕਰ ਸਕਦੇ ਹਾਂ।',
+    'Visited Punjab Roots? Tell us what you liked and what we can make better.':'ਪੰਜਾਬ ਹੈਰੀਟੇਜ ਤੁਹਾਨੂੰ ਕਿਵੇਂ ਲੱਗੀ? ਦੱਸੋ ਕਿ ਕੀ ਚੰਗਾ ਲੱਗਿਆ ਅਤੇ ਅਸੀਂ ਕੀ ਬਿਹਤਰ ਕਰ ਸਕਦੇ ਹਾਂ।',
     'SHARE YOUR EXPERIENCE':'ਆਪਣਾ ਤਜਰਬਾ ਸਾਂਝਾ ਕਰੋ',
     'Help us make':'ਇਸ ਨੂੰ ਬਿਹਤਰ',
     'it better.':'ਬਣਾਉਣ ਵਿੱਚ ਮਦਦ ਕਰੋ।',
-    'Your review will be emailed to the Punjab Heritage team at jassp708737@gmail.com through FormSubmit. The receiving address must be verified with FormSubmit before the first review can be delivered. Please do not include passwords, financial details or other sensitive information.':'ਤੁਹਾਡੀ ਸਮੀਖਿਆ FormSubmit ਰਾਹੀਂ Punjab Heritage ਟੀਮ ਨੂੰ ਈਮੇਲ ਕੀਤੀ ਜਾਵੇਗੀ। ਪਹਿਲੀ ਸਮੀਖਿਆ ਭੇਜਣ ਤੋਂ ਪਹਿਲਾਂ ਪ੍ਰਾਪਤਕਰਤਾ ਈਮੇਲ ਦੀ FormSubmit ਨਾਲ ਪੁਸ਼ਟੀ ਲਾਜ਼ਮੀ ਹੈ। ਪਾਸਵਰਡ ਜਾਂ ਨਿੱਜੀ ਵਿੱਤੀ ਜਾਣਕਾਰੀ ਨਾ ਭੇਜੋ।',
+    'Your review will be emailed to the Punjab Roots team at jassp708737@gmail.com through FormSubmit. The receiving address must be verified with FormSubmit before the first review can be delivered. Please do not include passwords, financial details or other sensitive information.':'ਤੁਹਾਡੀ ਸਮੀਖਿਆ FormSubmit ਰਾਹੀਂ Punjab Roots ਟੀਮ ਨੂੰ ਈਮੇਲ ਕੀਤੀ ਜਾਵੇਗੀ। ਪਹਿਲੀ ਸਮੀਖਿਆ ਭੇਜਣ ਤੋਂ ਪਹਿਲਾਂ ਪ੍ਰਾਪਤਕਰਤਾ ਈਮੇਲ ਦੀ FormSubmit ਨਾਲ ਪੁਸ਼ਟੀ ਲਾਜ਼ਮੀ ਹੈ। ਪਾਸਵਰਡ ਜਾਂ ਨਿੱਜੀ ਵਿੱਤੀ ਜਾਣਕਾਰੀ ਨਾ ਭੇਜੋ।',
     'What felt useful, clear or interesting.':'ਕੀ ਲਾਭਦਾਇਕ, ਸਪਸ਼ਟ ਜਾਂ ਦਿਲਚਸਪ ਲੱਗਿਆ।',
     'Share any issue you faced on mobile or desktop.':'ਮੋਬਾਈਲ ਜਾਂ ਕੰਪਿਊਟਰ ਉੱਤੇ ਆਈ ਸਮੱਸਿਆ ਦੱਸੋ।',
     'Suggest a topic or feature you would like to see.':'ਕੋਈ ਵਿਸ਼ਾ ਜਾਂ ਵਿਸ਼ੇਸ਼ਤਾ ਸੁਝਾਓ ਜੋ ਤੁਸੀਂ ਵੇਖਣਾ ਚਾਹੁੰਦੇ ਹੋ।',
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'A few words about your experience':'ਆਪਣੇ ਤਜਰਬੇ ਬਾਰੇ ਕੁਝ ਸ਼ਬਦ',
     'Your review':'ਤੁਹਾਡੀ ਸਮੀਖਿਆ',
     'What did you like? What should we improve? Tell us about your experience…':'ਤੁਹਾਨੂੰ ਕੀ ਚੰਗਾ ਲੱਗਿਆ? ਅਸੀਂ ਕੀ ਸੁਧਾਰ ਕਰੀਏ? ਆਪਣਾ ਤਜਰਬਾ ਦੱਸੋ…',
-    'I confirm this review reflects my genuine experience and may be read by the Punjab Heritage team.':'ਮੈਂ ਪੁਸ਼ਟੀ ਕਰਦਾ/ਕਰਦੀ ਹਾਂ ਕਿ ਇਹ ਸਮੀਖਿਆ ਮੇਰੇ ਅਸਲ ਤਜਰਬੇ ਉੱਤੇ ਆਧਾਰਿਤ ਹੈ ਅਤੇ Punjab Heritage ਟੀਮ ਇਸ ਨੂੰ ਪੜ੍ਹ ਸਕਦੀ ਹੈ।',
+    'I confirm this review reflects my genuine experience and may be read by the Punjab Roots team.':'ਮੈਂ ਪੁਸ਼ਟੀ ਕਰਦਾ/ਕਰਦੀ ਹਾਂ ਕਿ ਇਹ ਸਮੀਖਿਆ ਮੇਰੇ ਅਸਲ ਤਜਰਬੇ ਉੱਤੇ ਆਧਾਰਿਤ ਹੈ ਅਤੇ Punjab Roots ਟੀਮ ਇਸ ਨੂੰ ਪੜ੍ਹ ਸਕਦੀ ਹੈ।',
     'Submit review':'ਸਮੀਖਿਆ ਭੇਜੋ',
     'Your review is sent securely through FormSubmit to the archive owner’s email. You will be redirected after submitting.':'ਤੁਹਾਡੀ ਸਮੀਖਿਆ FormSubmit ਰਾਹੀਂ ਪੁਰਾਲੇਖ ਦੇ ਮਾਲਕ ਦੀ ਈਮੇਲ ਉੱਤੇ ਭੇਜੀ ਜਾਵੇਗੀ। ਭੇਜਣ ਤੋਂ ਬਾਅਦ ਤੁਹਾਨੂੰ ਅਗਲੇ ਪੰਨੇ ਉੱਤੇ ਲਿਜਾਇਆ ਜਾਵੇਗਾ।','Contact':'ਸੰਪਰਕ',
     'A living archive of Punjab — its objects, people and traditions.':'ਪੰਜਾਬ ਦੀਆਂ ਵਸਤਾਂ, ਲੋਕਾਂ ਅਤੇ ਰਵਾਇਤਾਂ ਦਾ ਜੀਵੰਤ ਪੁਰਾਲੇਖ।',
@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('data/objects.json').then(r=>{if(!r.ok)throw new Error('Unable to load archive');return r.json();}).then(items=>{
       const item=items.find(x=>x.id===id);
       if(!item)throw new Error('Record not found');
-      document.title=item.name_en+' ('+item.name_pa+') | Punjab Heritage';
+      document.title=item.name_en+' ('+item.name_pa+') | Punjab Roots';
       const metaDescription=document.querySelector('meta[name="description"]');
       if(metaDescription) metaDescription.content=item.summary_en;
       const canonical=document.querySelector('link[rel="canonical"]')||document.head.appendChild(Object.assign(document.createElement('link'),{rel:'canonical'}));
@@ -285,7 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
-/* Punjab Heritage Atlas: data-driven discovery, place filters and browser audio. */
+/* Punjab Roots Atlas: data-driven discovery, place filters and browser audio. */
 document.addEventListener('DOMContentLoaded', () => {
   const nav = document.querySelector('.main-nav');
   if (nav && !nav.querySelector('[data-atlas-nav]') && ![...nav.querySelectorAll('a')].some(item => item.href.includes('heritage-atlas.html'))) {
@@ -448,8 +448,8 @@ document.addEventListener('DOMContentLoaded', () => {
         + 'Rating: ' + rating + '\n'
         + 'Title: ' + (title || '—') + '\n\n'
         + 'Review:\n' + review + '\n\n'
-        + 'Consent: Confirmed for review by the Punjab Heritage team.';
-      const subject = 'Punjab Heritage Review: ' + rating + ' — ' + name;
+        + 'Consent: Confirmed for review by the Punjab Roots team.';
+      const subject = 'Punjab Roots Review: ' + rating + ' — ' + name;
       const mailto = 'mailto:jassp708737@gmail.com?subject='
         + encodeURIComponent(subject)
         + '&body=' + encodeURIComponent(body);
@@ -474,7 +474,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const stars = document.createElement('div'); stars.className = 'review-stars'; stars.textContent = '★'.repeat(Math.max(1, Math.min(5, Number(item.rating) || 5))) + '☆'.repeat(5 - Math.max(1, Math.min(5, Number(item.rating) || 5)));
           const heading = document.createElement('h3'); heading.textContent = item.title || 'Visitor review';
           const copy = document.createElement('p'); copy.textContent = item.review || '';
-          const author = document.createElement('small'); author.textContent = '— ' + (item.name || 'Punjab Heritage visitor');
+          const author = document.createElement('small'); author.textContent = '— ' + (item.name || 'Punjab Roots visitor');
           card.append(stars, heading, copy, author); return card;
         });
       })
