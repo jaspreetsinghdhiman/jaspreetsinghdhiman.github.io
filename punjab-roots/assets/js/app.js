@@ -1,3 +1,5 @@
+/* Canonical URL normalisation for all Punjab Roots archive pages. */
+(()=>{const old='/punjab-heritage/',now='/punjab-roots/';const canonical=document.querySelector('link[rel="canonical"]');if(canonical&&canonical.href.includes(old))canonical.href=canonical.href.replace(old,now);document.querySelectorAll('meta[property="og:url"]').forEach(m=>{if(m.content.includes(old))m.content=m.content.replace(old,now);});})();
 // Punjab Roots rebrand: keep shared navigation, page titles and metadata consistent
 // across the archive while legacy URLs remain unchanged.
 (() => {
