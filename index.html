@@ -845,11 +845,11 @@ function startHero(){
  if(reduce){$1("#pre").style.display="none";return;}
  const mobileIntro=fastMobile;
  const tl=gsap.timeline();
- tl.to(".hero .c",{yPercent:0,rotate:0,duration:mobileIntro?.82:1.25,ease:"expo.out",stagger:mobileIntro?.018:.045})
-   .to(".fade",{opacity:1,duration:mobileIntro?.55:.9},mobileIntro?"-=.3":"-=.55")
-   .fromTo(".stk",{opacity:0,scale:.8},{opacity:1,scale:1,duration:mobileIntro?.55:.8,ease:"back.out(1.8)",stagger:mobileIntro?.05:.12},mobileIntro?"-=.3":"-=.65")
-   .to(".badge",{opacity:1,duration:mobileIntro?.5:.9},mobileIntro?"-=.2":"-=.35")
-   .to("#pre",{yPercent:-100,borderBottomLeftRadius:"50%",borderBottomRightRadius:"50%",duration:mobileIntro?.7:1.05,ease:"expo.inOut"},mobileIntro?"-=.25":"-=.45")
+ tl.to(".hero .c",{yPercent:0,rotate:0,duration:mobileIntro ? 0.82 : 1.25,ease:"expo.out",stagger:mobileIntro ? 0.018 : 0.045})
+   .to(".fade",{opacity:1,duration:mobileIntro ? 0.55 : 0.9},mobileIntro?"-=.3":"-=.55")
+   .fromTo(".stk",{opacity:0,scale:.8},{opacity:1,scale:1,duration:mobileIntro?.55:.8,ease:"back.out(1.8)",stagger:mobileIntro ? 0.05 : 0.12},mobileIntro?"-=.3":"-=.65")
+   .to(".badge",{opacity:1,duration:mobileIntro ? 0.5 : 0.9},mobileIntro?"-=.2":"-=.35")
+   .to("#pre",{yPercent:-100,borderBottomLeftRadius:"50%",borderBottomRightRadius:"50%",duration:mobileIntro ? 0.7 : 1.05,ease:"expo.inOut"},mobileIntro?"-=.25":"-=.45")
    .set("#pre",{display:"none"});
  gsap.to("#bg",{rotation:360,duration:16,repeat:-1,ease:"none"});
  $(".stk").forEach((s,i)=>gsap.to(s,{y:i%2?16:-16,duration:2.6+i*.25,repeat:-1,yoyo:true,ease:"sine.inOut"}));
