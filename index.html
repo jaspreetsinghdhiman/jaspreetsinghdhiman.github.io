@@ -579,6 +579,14 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
 
 /* Avoid the full-screen intro overlay delaying the first mobile paint */
 @media(max-width:700px){#pre{display:none;}}
+/* Reliable homepage intro if a third-party animation CDN is unavailable */
+@keyframes heroFallbackRise{from{opacity:0;transform:translate3d(0,38px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes heroFallbackFade{from{opacity:0;transform:translate3d(0,18px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+.motion-fallback .hero h1{animation:heroFallbackRise .95s cubic-bezier(.22,1,.36,1) both}
+.motion-fallback .hero .fade{opacity:1;animation:heroFallbackFade .75s .22s cubic-bezier(.22,1,.36,1) both}
+.motion-fallback .hero .hero-meta{animation:heroFallbackFade .7s .4s cubic-bezier(.22,1,.36,1) both}
+.motion-fallback #pre{display:none!important}
+@media(prefers-reduced-motion:reduce){.motion-fallback .hero h1,.motion-fallback .hero .fade,.motion-fallback .hero .hero-meta{animation:none!important;opacity:1;transform:none}}
 </style>
 <!-- Deployment security headers are configured separately in vercel.json. -->
 <meta content="Jaspreet Singh Dhiman" name="author"/><meta content="index,follow,max-image-preview:large" name="robots"/><meta content="website" property="og:type"/><meta content="Jaspreet Singh Dhiman" property="og:site_name"/><meta content="Jaspreet Singh | Frontend Developer, JavaScript & React" property="og:title"/><meta content="https://jaspreetsinghdhiman.github.io/jaspreet.webp" property="og:image"/><meta content="Portrait of Jaspreet Singh Dhiman, Frontend Developer" property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="Jaspreet Singh | Frontend Developer, JavaScript &amp; React" name="twitter:title"/><meta content="Jaspreet Singh is a frontend developer in India focused on responsive websites and interactive interfaces using JavaScript, React, HTML, CSS and WordPress. Explore projects and experience." name="twitter:description"/><meta content="https://jaspreetsinghdhiman.github.io/jaspreet.webp" name="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://jaspreetsinghdhiman.github.io/#person", "name": "Jaspreet Singh Dhiman", "alternateName": "Jaspreet Singh", "jobTitle": "Frontend Developer", "address": {"@type": "PostalAddress", "addressRegion": "Punjab", "addressCountry": "IN"}, "sameAs": ["https://github.com/jaspreetsinghdhiman", "https://www.linkedin.com/in/jaspreet-singh-49abb8314/", "https://www.instagram.com/jaspreet.dhiman__"], "url": "https://jaspreetsinghdhiman.github.io/", "email": "mailto:jassp708737@gmail.com", "image": "https://jaspreetsinghdhiman.github.io/jaspreet.jpg", "knowsAbout": ["HTML5", "CSS3", "JavaScript", "React", "WordPress", "Figma", "Adobe Photoshop", "Responsive Web Design", "Frontend Development"]}, {"@type": "WebSite", "@id": "https://jaspreetsinghdhiman.github.io/#website", "url": "https://jaspreetsinghdhiman.github.io/", "name": "Jaspreet Singh Dhiman | Frontend Developer", "publisher": {"@id": "https://jaspreetsinghdhiman.github.io/#person"}}, {"@type": "WebPage", "url": "https://jaspreetsinghdhiman.github.io/", "name": "Jaspreet Singh | Frontend Developer, JavaScript & React", "description": "Jaspreet Singh is a frontend developer in India focused on responsive websites and interactive interfaces using JavaScript, React, HTML, CSS and WordPress. Explore projects and experience.", "isPartOf": {"@id": "https://jaspreetsinghdhiman.github.io/#website"}, "about": {"@id": "https://jaspreetsinghdhiman.github.io/#person"}}]}</script><!-- Google Search Console: paste your verification tag here, e.g. <meta name="google-site-verification" content="YOUR_CODE"/> -->
@@ -1125,6 +1133,11 @@ addEventListener("load",()=>setTimeout(()=>ScrollTrigger.refresh(),150));
 })();
 
 
+} else {
+ // Keep the opening hero animated and readable if GSAP/ScrollTrigger fails to load.
+ document.documentElement.classList.add("motion-fallback");
+ const intro = document.getElementById("pre");
+ if(intro) intro.style.display = "none";
 }</script>
 <!-- Floating Action Button -->
 <div class="fab-wrap" id="fabWrap">
