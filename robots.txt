@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://jaspreetsinghdhiman.github.io/sitemap.xml
+Sitemap: https://jaspreetsinghdhiman.github.io/punjab-roots/sitemap.xml
