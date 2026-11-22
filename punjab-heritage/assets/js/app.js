@@ -1,3 +1,5 @@
+/* Legacy URL migration: send every old Punjab Heritage route to Punjab Roots. */
+(()=>{const old='/punjab-heritage/';if(location.pathname.startsWith(old)){location.replace(location.href.replace(old,'/punjab-roots/'));}})();
 // Punjab Roots rebrand: keep shared navigation, page titles and metadata consistent
 // across the archive while legacy URLs remain unchanged.
 (() => {
