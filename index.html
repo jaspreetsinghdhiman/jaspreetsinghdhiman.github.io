@@ -833,7 +833,7 @@ $("[data-split]").forEach(el=>{
 const ap=$1("#abp");
 ap.innerHTML=ap.textContent.split(" ").map(w=>`<span class="w">${w}</span>`).join(" ");
 
-if(!reduce && !fastMobile){
+if(!reduce){
  gsap.set(".hero .c,.ct .c",{yPercent:115,rotate:10});
  gsap.set(".fade,.stk,.badge",{opacity:0});
 }else{
@@ -842,19 +842,20 @@ if(!reduce && !fastMobile){
 }
 
 function startHero(){
- if(reduce || fastMobile){$1("#pre").style.display="none";return;}
+ if(reduce){$1("#pre").style.display="none";return;}
+ const mobileIntro=fastMobile;
  const tl=gsap.timeline();
- tl.to(".hero .c",{yPercent:0,rotate:0,duration:1.25,ease:"expo.out",stagger:.045})
-   .to(".fade",{opacity:1,duration:.9},"-=.55")
-   .fromTo(".stk",{opacity:0,scale:.8},{opacity:1,scale:1,duration:.8,ease:"back.out(1.8)",stagger:.12},"-=.65")
-   .to(".badge",{opacity:1,duration:.9},"-=.35")
-   .to("#pre",{yPercent:-100,borderBottomLeftRadius:"50%",borderBottomRightRadius:"50%",duration:1.05,ease:"expo.inOut"},"-=.45")
+ tl.to(".hero .c",{yPercent:0,rotate:0,duration:mobileIntro?.82:1.25,ease:"expo.out",stagger:mobileIntro?.018:.045})
+   .to(".fade",{opacity:1,duration:mobileIntro?.55:.9},mobileIntro?"-=.3":"-=.55")
+   .fromTo(".stk",{opacity:0,scale:.8},{opacity:1,scale:1,duration:mobileIntro?.55:.8,ease:"back.out(1.8)",stagger:mobileIntro?.05:.12},mobileIntro?"-=.3":"-=.65")
+   .to(".badge",{opacity:1,duration:mobileIntro?.5:.9},mobileIntro?"-=.2":"-=.35")
+   .to("#pre",{yPercent:-100,borderBottomLeftRadius:"50%",borderBottomRightRadius:"50%",duration:mobileIntro?.7:1.05,ease:"expo.inOut"},mobileIntro?"-=.25":"-=.45")
    .set("#pre",{display:"none"});
  gsap.to("#bg",{rotation:360,duration:16,repeat:-1,ease:"none"});
  $(".stk").forEach((s,i)=>gsap.to(s,{y:i%2?16:-16,duration:2.6+i*.25,repeat:-1,yoyo:true,ease:"sine.inOut"}));
 }
 
-if(!reduce && !fastMobile){
+if(!reduce){
  const obj={v:0};
   gsap.timeline().to(obj,{v:100,duration:1.8,ease:"power2.inOut",onUpdate:()=>$1("#cnt").textContent=Math.round(obj.v)})
  .call(startHero);
