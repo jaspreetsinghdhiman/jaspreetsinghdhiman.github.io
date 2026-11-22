@@ -1,16 +1,16 @@
-name: Punjab Heritage browser smoke tests
+name: Punjab Roots browser smoke tests
 
 on:
   pull_request:
     paths:
-      - "punjab-heritage/**"
+      - "punjab-roots/**"
       - ".github/scripts/heritage_browser_smoke.py"
       - ".github/workflows/heritage-browser-smoke.yml"
   push:
     branches:
-      - assets/import-object-photos-2026-11
+      - main
     paths:
-      - "punjab-heritage/**"
+      - "punjab-roots/**"
       - ".github/scripts/heritage_browser_smoke.py"
       - ".github/workflows/heritage-browser-smoke.yml"
 
@@ -18,7 +18,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: heritage-browser-smoke-${{ github.ref }}
+  group: punjab-roots-browser-smoke-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
