@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#354936"/><stop offset="1" stop-color="#17251e"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f3dfb4"/><stop offset="1" stop-color="#bd8747"/></linearGradient>
+ <pattern id="stitch" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M21 5l16 16-16 16L5 21z" fill="none" stroke="#d4ad6c" stroke-width="1" opacity=".13"/><circle cx="21" cy="21" r="2" fill="#d4ad6c" opacity=".16"/></pattern>
+</defs>
+<rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#stitch)"/>
+<rect x="24" y="24" width="1152" height="582" rx="14" fill="none" stroke="#cda66a" stroke-width="1.5" opacity=".75"/>
+<rect x="38" y="38" width="1124" height="554" rx="10" fill="none" stroke="#cda66a" stroke-width="1" opacity=".22"/>
+<!-- left editorial typography -->
+<text x="92" y="150" fill="#d9b77c" font-family="Arial,sans-serif" font-size="18" letter-spacing="6">ONE LAND · MANY STORIES</text>
+<path d="M94 180h84" stroke="#d9b77c" stroke-width="3"/>
+<text x="88" y="282" fill="#fff5e2" font-family="Georgia,serif" font-size="82">Punjab</text>
+<text x="88" y="370" fill="#fff5e2" font-family="Georgia,serif" font-size="82" font-style="italic">Heritage</text>
+<text x="94" y="430" fill="#e4d5b9" font-family="Arial,sans-serif" font-size="22" letter-spacing="2">THE LIVING LEGACY OF PUNJAB</text>
+<text x="94" y="500" fill="#c9c1ad" font-family="Arial,sans-serif" font-size="16" letter-spacing="3">CHARDA · LEHNDA · SANJHA VIRSA</text>
+<!-- emblem medallion -->
+<g transform="translate(790 75)">
+ <circle cx="180" cy="230" r="178" fill="#18271f" opacity=".42" stroke="#d3ad70" stroke-width="2"/>
+ <circle cx="180" cy="230" r="158" fill="none" stroke="#d3ad70" stroke-width="1.5" opacity=".6"/>
+ <circle cx="180" cy="230" r="143" fill="none" stroke="#d3ad70" stroke-width="1" opacity=".25"/>
+ <path d="M67 331V206c0-63 51-114 113-114s113 51 113 114v125" fill="none" stroke="url(#gold)" stroke-width="9" stroke-linecap="round"/>
+ <circle cx="180" cy="199" r="36" fill="none" stroke="url(#gold)" stroke-width="7"/>
+ <path d="M180 146v-16M180 268v-15M127 199h-16M249 199h-16M142 161l-11-11M229 249l-11-11M218 161l11-11M131 249l11-11" stroke="#e5c78d" stroke-width="5" stroke-linecap="round"/>
+ <path d="M82 292c61-33 135-33 196 0M82 318c61-33 135-33 196 0M99 343c51-23 111-23 162 0" fill="none" stroke="url(#gold)" stroke-width="7" stroke-linecap="round"/>
+ <path d="M65 370h230" stroke="#d3ad70" stroke-width="2"/>
+ <text x="180" y="421" text-anchor="middle" fill="#f5e7c8" font-family="Georgia,serif" font-size="32" letter-spacing="9">PR</text>
+</g>
+<g fill="#d5b276" opacity=".85"><path d="M1100 90l10 10-10 10-10-10zM1100 520l10 10-10 10-10-10zM70 555l10 10-10 10-10-10z"/></g>
+</svg>

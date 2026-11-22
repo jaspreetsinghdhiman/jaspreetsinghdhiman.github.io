@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jaspreetsinghdhiman.github.io/punjab-heritage/sitemap.xml
