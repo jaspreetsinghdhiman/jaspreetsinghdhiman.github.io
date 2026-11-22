@@ -578,14 +578,14 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
 @media(max-width:700px){.hero .fade{opacity:1;}}
 
 /* Avoid the full-screen intro overlay delaying the first mobile paint */
-@media(max-width:700px){#pre{display:none;}}
+@media(max-width:700px){#pre{display:flex;}}
 /* Reliable homepage intro if a third-party animation CDN is unavailable */
 @keyframes heroFallbackRise{from{opacity:0;transform:translate3d(0,38px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
 @keyframes heroFallbackFade{from{opacity:0;transform:translate3d(0,18px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
 .motion-fallback .hero h1{animation:heroFallbackRise .95s cubic-bezier(.22,1,.36,1) both}
 .motion-fallback .hero .fade{opacity:1;animation:heroFallbackFade .75s .22s cubic-bezier(.22,1,.36,1) both}
 .motion-fallback .hero .hero-meta{animation:heroFallbackFade .7s .4s cubic-bezier(.22,1,.36,1) both}
-.motion-fallback #pre{display:none!important}
+.motion-fallback #pre{display:flex;transition:transform .8s cubic-bezier(.77,0,.18,1)}.motion-fallback #pre.is-complete{transform:translateY(-100%)}
 @media(prefers-reduced-motion:reduce){.motion-fallback .hero h1,.motion-fallback .hero .fade,.motion-fallback .hero .hero-meta{animation:none!important;opacity:1;transform:none}}
 </style>
 <!-- Deployment security headers are configured separately in vercel.json. -->
@@ -1134,10 +1134,24 @@ addEventListener("load",()=>setTimeout(()=>ScrollTrigger.refresh(),150));
 
 
 } else {
- // Keep the opening hero animated and readable if GSAP/ScrollTrigger fails to load.
+ // Preserve the full-screen 0–100 preloader even when GSAP/ScrollTrigger is unavailable.
  document.documentElement.classList.add("motion-fallback");
  const intro = document.getElementById("pre");
- if(intro) intro.style.display = "none";
+ const counter = document.getElementById("cnt");
+ if(intro && counter && !window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+  const start = performance.now();
+  const duration = 1500;
+  const countUp = now => {
+   const progress = Math.min((now - start) / duration, 1);
+   counter.textContent = Math.round(progress * 100);
+   if(progress < 1) requestAnimationFrame(countUp);
+   else {
+    intro.classList.add("is-complete");
+    setTimeout(() => { intro.style.display = "none"; }, 850);
+   }
+  };
+  requestAnimationFrame(countUp);
+ } else if(intro) intro.style.display = "none";
 }</script>
 <!-- Floating Action Button -->
 <div class="fab-wrap" id="fabWrap">
