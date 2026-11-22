@@ -751,3 +751,35 @@ p,h1,h2,h3,h4,small,a,button,label{overflow-wrap:break-word}
   .atlas-hero-meta{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
   .site-footer .footer-bottom{display:flex;flex-direction:column;align-items:flex-start}
 }
+
+
+/* Punjab Roots mobile editorial rhythm — prevent crowded bilingual copy and heading collisions. */
+.editorial-story{min-width:0;overflow-wrap:anywhere}
+.editorial-story h2{display:block;max-width:100%;line-height:1.22;margin:clamp(30px,4vw,42px) 0 16px;overflow-wrap:break-word}
+.editorial-story h2:first-of-type{margin-top:24px}
+.editorial-story p{max-width:100%;margin:0 0 18px;line-height:1.9;overflow-wrap:break-word}
+.editorial-story .punjabi-copy{margin:0 0 24px;padding:0 0 2px;font-size:14px;line-height:2.05;word-break:normal;overflow-wrap:break-word}
+.editorial-story figure{max-width:100%;margin:28px 0 34px}
+.editorial-story figure img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain}
+.editorial-story figcaption{line-height:1.75;overflow-wrap:anywhere}
+.editorial-story .record-verification{margin:28px 0;line-height:1.85;overflow-wrap:anywhere}
+.editorial-story .source-list{padding-left:22px;margin:18px 0 28px;line-height:1.85}
+.editorial-story .source-list li{margin:0 0 12px;overflow-wrap:anywhere}
+.editorial-story .record-nav{display:flex;flex-wrap:wrap;align-items:flex-start;gap:14px 24px;margin-top:34px}
+.editorial-story .record-nav a{max-width:100%;line-height:1.7;overflow-wrap:anywhere}
+.page-hero h1{line-height:1.08;overflow-wrap:break-word}
+.breadcrumb{line-height:1.8;overflow-wrap:anywhere}
+@media(max-width:700px){
+ .editorial-story h2{font-size:clamp(29px,8vw,37px);line-height:1.2;margin:30px 0 13px}
+ .editorial-story h2:first-of-type{margin-top:18px}
+ .editorial-story p{font-size:14px;line-height:1.85;margin-bottom:16px}
+ .editorial-story .punjabi-copy{font-size:14px;line-height:2;margin:0 0 22px}
+ .editorial-story figure{margin:22px 0 26px!important}
+ .editorial-story figcaption{font-size:11px!important;line-height:1.75!important}
+ .editorial-story .record-verification{padding:16px;margin:22px 0}
+ .editorial-story .source-list{padding-left:20px}
+ .editorial-story .record-nav{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-top:28px}
+ .editorial-story .record-nav a{width:fit-content;max-width:100%}
+ .page-hero h1{font-size:clamp(38px,11vw,54px);line-height:1.08}
+ .page-hero .container>p:not(.eyebrow){line-height:1.8}
+}
