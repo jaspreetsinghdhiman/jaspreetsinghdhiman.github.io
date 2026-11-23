@@ -11,6 +11,7 @@ Branch: `portfolio-seo-content-pass-nov-2026`
 - Replaced the generic social-image alternative text on the four older case studies with descriptions that identify the actual project interface.
 - Added complete Twitter/X card title, description and image metadata where it was missing.
 - Added author, Open Graph article metadata, image dimensions and BreadcrumbList structured data to the MarkStudio and WeatherNow case studies.
+- Added an About-page GitHub panel linking directly to the owner's verified GitHub profile and three pinned public repositories. The contribution calendar remains on GitHub itself, so the portfolio links to the authoritative live graph instead of embedding an unofficial third-party counter or fabricating activity.
 - Marked the six interactive demo-only pages `noindex,follow` while keeping them linked from the Work page and their indexable case studies.
 - Removed those six thin app-shell URLs from the XML sitemap and refreshed the six case-study `lastmod` dates. The case studies remain the search-facing project pages.
 - Preserved the existing case-study content, project demos, limitations, and honest personal-project disclosures.
@@ -27,6 +28,12 @@ The six case studies describe the project purpose, UX decisions, implementation,
 - Lighthouse/PageSpeed scores, field Core Web Vitals, Search Console indexing, and actual social-platform preview rendering have not been measured in this pass.
 - Blog claims that depend on changing product or service details should be periodically rechecked against primary sources and given visible source links where appropriate.
 - Do not add fabricated experience details, testimonials, project impact figures, or GitHub repositories. Add them only when the owner supplies verifiable information.
+
+## GitHub profile review
+
+Public profile checked at https://github.com/jaspreetsinghdhiman/. The profile has a profile README, four public repositories, three pinned repositories (the portfolio source, `ring-ai`, and `stack`), one follower, one following, three stars and two achievements at the time of review. The README lists only four of the six portfolio projects, so it is now out of sync with the website. An attempt to update that separate profile README through the connected GitHub integration was rejected with a permissions error; no profile repository content was changed. The portfolio itself links to the official profile and the three pinned repositories.
+
+The contribution graph is GitHub's authoritative record and may include only eligible contributions. It is not recreated as a made-up graphic or third-party widget. GitHub explains that commits must use an email associated with the account and be pushed to the default or `gh-pages` branch, among other criteria.
 
 ## Verification
 
