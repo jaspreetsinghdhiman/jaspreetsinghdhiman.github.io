@@ -119,3 +119,8 @@ Punjab Roots — Discover the Roots. Preserve the Legacy.
 ### 2026-11-23 — Ten bilingual heritage records expanded
 
 Added two new English-and-Gurmukhi-Punjabi topic sections to each of ten concise records: Madhaani, Daati, Hal, Panjali, Sandook, Peedhi, Gulli-danda, Bante, Manja and Suhaga. Topics cover object use and context, craft and repair, local variation, family memory, play rules and careful documentation. Existing URLs and page structure were retained. See the [full audit report](AUDIT-REPORT-2026-11-23.md) for scope and verification limits.
+
+
+### 2026-11-23 — Own-site content policy
+
+Punjab Roots now has an internal [Research Notes & Editorial Method](research-notes.html) page. The Partition article's external further-reading links have been replaced by an internal research note, and the homepage photo-credit link now stays on the site. Third-party photo source/licence links remain on [Image Credits](image-credits.html) where required for provenance and reuse compliance; they are not editorial reading links. A full outbound-link sweep across every page remains in progress. See the [audit report](AUDIT-REPORT-2026-11-23.md).
