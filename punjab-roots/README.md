@@ -104,3 +104,13 @@ Punjab Roots — Discover the Roots. Preserve the Legacy.
 - The public review cards are read from `data/reviews.json` and appear only when `published` is `true`. GitHub commit history is the moderation/publishing audit trail; unapproved entries should not be added to the public JSON file.
 - Example entry: `{ "name": "Visitor", "rating": 5, "title": "A thoughtful archive", "review": "A useful look at Punjab's heritage.", "published": true }`.
 - A `mailto:` handoff cannot verify that the visitor actually pressed Send; the page explains this clearly. Fully automatic email-to-GitHub publishing would require a separately authenticated mail-processing backend, which GitHub Pages alone does not provide.
+
+## 2026-11-23 — Full technical and SEO audit
+- Added the complete report at [AUDIT-REPORT-2026-11-23.md](AUDIT-REPORT-2026-11-23.md).
+- Reconciled the sitemap with the repository: 142 HTML files, 139 indexable URLs, 17 object-detail URLs, no missing file targets and no duplicate sitemap entries.
+- Added eight omitted object-detail URLs and removed the noindex review redirect from the sitemap.
+- Marked the review-form redirect as `noindex,follow`; the generic object template and thank-you page also remain noindex.
+- A static scan of all 142 HTML pages found no direct third-party image delivery in `img`/`source` `src` or `srcset` attributes. The shared stylesheet has no remote URL references; source/creator/licence links remain external by design.
+- Verified 11 locally hosted font files referenced by the shared stylesheet. The homepage preloads its primary Cormorant Garamond and DM Sans font files.
+- Expanded the Partition memory article with regional context, oral-history safeguards and institutional references.
+- Browser-based desktop/mobile rendering, a live HTTP status crawl, Lighthouse and Google Search Console checks remain outstanding.
