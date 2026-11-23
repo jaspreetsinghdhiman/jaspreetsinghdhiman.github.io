@@ -631,3 +631,8 @@ picture{display:block;max-width:100%}
 .github-repo-list b{grid-column:3;grid-row:1/3;justify-self:end;font-size:18px;font-weight:400}
 .github-repo-list a:hover strong{text-decoration:underline;text-decoration-color:var(--acc);text-underline-offset:4px}
 @media(max-width:760px){.github-profile-grid{grid-template-columns:minmax(0,1fr);gap:28px}.github-profile-copy h2{font-size:clamp(38px,11vw,58px)}.github-repo-list a{padding:15px 2px}}
+
+
+/* Reuse the existing About portrait as the GitHub profile section image */
+.github-profile-photo{display:block;width:clamp(88px,10vw,132px);height:clamp(88px,10vw,132px);margin:0 0 24px;border-radius:50%;object-fit:cover;object-position:50% 18%;border:2px solid var(--acc);box-shadow:0 12px 36px rgba(0,0,0,.22)}
+@media(max-width:760px){.github-profile-photo{width:104px;height:104px;margin-bottom:20px}}
