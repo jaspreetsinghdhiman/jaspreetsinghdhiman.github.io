@@ -24,7 +24,7 @@ Working branch: `portfolio-quality-pass-nov-2026`
 
 - Confirmed by repository reads: all six primary pages contain one skip link and a focusable `#top` main section; the shared stylesheet contains focus-visible and reduced-motion rules.
 - GitHub Actions static audit: PASS. It checked 29 sitemap URLs / HTML pages; titles, descriptions, canonicals and H1 presence passed, and all checked local href/src references resolved.
-- Live mobile rendering, keyboard/screen-reader testing, Lighthouse scores, deployed Core Web Vitals and Search Console indexing have not yet been measured.
+- Chromium browser smoke tests: PASS for all 29 sitemap HTML pages at 390px mobile and 1440px desktop widths; no horizontal overflow or page JavaScript errors were found. The six primary-page skip links also passed keyboard focus and activation checks.\n- Lighthouse scores, real-device screen-reader testing, deployed Core Web Vitals and Search Console indexing have not yet been measured.
 
 ## Publishing
 
