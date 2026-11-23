@@ -4,7 +4,13 @@ A static, GitHub Pages-compatible heritage platform nested safely inside the exi
 
 ## Preview
 After the GitHub Pages deployment completes, open:
-https://jaspreetsinghdhiman.github.io/punjab-heritage/
+https://jaspreetsinghdhiman.github.io/punjab-roots/
+
+## Current image-hosting rule (2026-11-23)
+- The repository contains original photo files and optimized WebP derivatives under `assets/images/photos/`; use these local files for all visible images, CSS backgrounds, social preview images and thumbnails.
+- External Wikimedia URLs may appear as source/creator/licence links in captions and `image-credits.html`, but must not be used as `img src`, `srcset`, CSS `url()` or Open Graph/Twitter image URLs.
+- Do not mark the migration complete until every HTML page, stylesheet, JSON data file and generated image URL has been scanned and tested for external image delivery and missing local assets.
+- Fonts loaded from a font provider are not image assets; they are a separate external dependency and can be self-hosted in a later performance pass.
 
 ## Structure
 - `index.html` — homepage
@@ -26,9 +32,9 @@ https://jaspreetsinghdhiman.github.io/punjab-heritage/
 1. This release is static HTML/CSS/JS and works on GitHub Pages. PHP and MySQL are not available on GitHub Pages.
 2. The contribution form posts to FormSubmit at jassp708737@gmail.com. The recipient must complete FormSubmit's first-use email verification before messages can be delivered. Do not collect sensitive personal information.
 3. The object archive includes Punjabi names, summaries and bilingual detail fields. The language switch now persists the selected language and translates shared navigation/common UI labels; full page-by-page Punjabi translation is still outstanding.
-4. Collection and object imagery now uses subject-matched documentary photographs sourced from Wikimedia Commons. The images are currently loaded from their original hosts (not stored locally in this repository); source and licence details are listed on `image-credits.html` for the object archive.
+4. Documentary image files are stored in this repository under `assets/images/photos/original/` and optimized `assets/images/photos/webp/`. Pages should load images from these local relative paths; Wikimedia Commons links are source/credit records only and must never be used as the image delivery URL. Complete a repository-wide `src`, `srcset`, CSS background and Open Graph image audit before claiming every page is fully self-hosted.
 5. Object descriptions are introductory and require regional review, references and attribution before being marked as verified.
-6. Four additional collections (Forts, Food, Folk Dance and Festivals) are included in this release. Their image subjects and page metadata have been reviewed; local image hosting remains a future improvement.
+6. Four additional collections (Forts, Food, Folk Dance and Festivals) are included. Use only a locally stored, subject-matched image for each page; if a verified local asset is unavailable, use a clearly labelled local illustration or omit the image rather than hotlinking or substituting an unrelated photo.
 
 ## Local preview
 Open `index.html` in a browser, or run a local static server from this folder.
