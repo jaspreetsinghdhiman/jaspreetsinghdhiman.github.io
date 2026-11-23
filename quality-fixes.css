@@ -606,3 +606,13 @@ picture{display:block;max-width:100%}
 @media(prefers-reduced-motion:reduce){
   .project-preview img{transition:none!important}
 }
+
+/* ===== Accessibility and reduced-motion baseline — 2026-11-23 ===== */
+.skip-link{position:fixed;top:12px;left:12px;z-index:1000;padding:12px 18px;border:2px solid var(--fg,#f1f3df);border-radius:999px;background:var(--acc,#b5c95b);color:var(--on,#0b0d08);font:600 14px/1.2 system-ui,sans-serif;text-decoration:none;transform:translateY(calc(-100% - 18px));transition:transform .2s ease}
+.skip-link:focus{transform:translateY(0)}
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:3px solid var(--acc,#b5c95b);outline-offset:4px}
+[role="main"]:focus{outline:none}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto!important}
+ *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}

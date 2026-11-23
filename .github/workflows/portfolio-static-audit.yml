@@ -1,0 +1,34 @@
+name: Portfolio static quality checks
+
+on:
+  pull_request:
+    paths:
+      - "*.html"
+      - "sitemap.xml"
+      - "robots.txt"
+      - ".github/scripts/portfolio_static_audit.py"
+      - ".github/workflows/portfolio-static-audit.yml"
+  push:
+    branches: [main]
+    paths:
+      - "*.html"
+      - "sitemap.xml"
+      - "robots.txt"
+      - ".github/scripts/portfolio_static_audit.py"
+      - ".github/workflows/portfolio-static-audit.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  static-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Audit sitemap, metadata and local references
+        run: python .github/scripts/portfolio_static_audit.py
