@@ -23,7 +23,7 @@ Working branch: `portfolio-quality-pass-nov-2026`
 ## Verification status
 
 - Confirmed by repository reads: all six primary pages contain one skip link and a focusable `#top` main section; the shared stylesheet contains focus-visible and reduced-motion rules.
-- The new automated audit is configured in GitHub Actions. Its pass/fail result must be read from the pull-request check run; it is not represented as passed before execution.
+- GitHub Actions static audit: PASS. It checked 29 sitemap URLs / HTML pages; titles, descriptions, canonicals and H1 presence passed, and all checked local href/src references resolved.
 - Live mobile rendering, keyboard/screen-reader testing, Lighthouse scores, deployed Core Web Vitals and Search Console indexing have not yet been measured.
 
 ## Publishing
