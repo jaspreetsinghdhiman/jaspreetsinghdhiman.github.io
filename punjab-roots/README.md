@@ -10,7 +10,7 @@ https://jaspreetsinghdhiman.github.io/punjab-roots/
 - The repository contains original photo files and optimized WebP derivatives under `assets/images/photos/`; use these local files for all visible images, CSS backgrounds, social preview images and thumbnails.
 - External Wikimedia URLs may appear as source/creator/licence links in captions and `image-credits.html`, but must not be used as `img src`, `srcset`, CSS `url()` or Open Graph/Twitter image URLs.
 - Do not mark the migration complete until every HTML page, stylesheet, JSON data file and generated image URL has been scanned and tested for external image delivery and missing local assets.
-- Fonts loaded from a font provider are not image assets; they are a separate external dependency and can be self-hosted in a later performance pass.
+- The shared stylesheet uses 11 self-hosted font files under `assets/fonts/`; keep font requests local and verify the corresponding files exist when adding new font weights or scripts.
 
 ## Structure
 - `index.html` — homepage
