@@ -3,27 +3,21 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url><loc>https://jaspreetsinghdhiman.github.io/about.html</loc></url>
   <url><loc>https://jaspreetsinghdhiman.github.io/blog.html</loc><lastmod>2026-11-20</lastmod></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/budget-ledger-case-study.html</loc></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/budget-ledger.html</loc></url>
+  <url><loc>https://jaspreetsinghdhiman.github.io/budget-ledger-case-study.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://jaspreetsinghdhiman.github.io/contact.html</loc></url>
   <url><loc>https://jaspreetsinghdhiman.github.io/experience.html</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://jaspreetsinghdhiman.github.io/frontend-developer-india.html</loc></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/habit-grid-case-study.html</loc></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/habit-grid.html</loc></url>
+  <url><loc>https://jaspreetsinghdhiman.github.io/habit-grid-case-study.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://jaspreetsinghdhiman.github.io/</loc></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/markstudio.html</loc></url>
   <url><loc>https://jaspreetsinghdhiman.github.io/modern-frontend.html</loc></url>
   <url><loc>https://jaspreetsinghdhiman.github.io/performance-accessibility.html</loc></url>
 
-  <url><loc>https://jaspreetsinghdhiman.github.io/pulsetrack-case-study.html</loc></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/pulsetrack.html</loc></url>
+  <url><loc>https://jaspreetsinghdhiman.github.io/pulsetrack-case-study.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://jaspreetsinghdhiman.github.io/react-component-architecture.html</loc></url>
   <url><loc>https://jaspreetsinghdhiman.github.io/responsive-websites.html</loc></url>
   <url><loc>https://jaspreetsinghdhiman.github.io/semantic-html-accessibility.html</loc></url>
 
-  <url><loc>https://jaspreetsinghdhiman.github.io/taskflow-case-study.html</loc></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/taskflow.html</loc></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/weathernow.html</loc></url>
+  <url><loc>https://jaspreetsinghdhiman.github.io/taskflow-case-study.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://jaspreetsinghdhiman.github.io/wordpress-elementor-performance.html</loc></url>
   <url><loc>https://jaspreetsinghdhiman.github.io/work.html</loc><lastmod>2026-11-20</lastmod></url>
   <url>
@@ -56,6 +50,6 @@
       <image:caption>Code snippet with an untested edge case marked as a TODO, beside an illustrative code review checklist</image:caption>
     </image:image>
   </url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/microsoft-outlook-global-outage-november-2026.html</loc><lastmod>2026-11-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>  <url><loc>https://jaspreetsinghdhiman.github.io/markstudio-case-study.html</loc></url>
-  <url><loc>https://jaspreetsinghdhiman.github.io/weathernow-case-study.html</loc></url>
+  <url><loc>https://jaspreetsinghdhiman.github.io/microsoft-outlook-global-outage-november-2026.html</loc><lastmod>2026-11-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>  <url><loc>https://jaspreetsinghdhiman.github.io/markstudio-case-study.html</loc><lastmod>2026-11-23</lastmod></url>
+  <url><loc>https://jaspreetsinghdhiman.github.io/weathernow-case-study.html</loc><lastmod>2026-11-23</lastmod></url>
 </urlset>
