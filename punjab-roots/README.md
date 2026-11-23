@@ -114,3 +114,8 @@ Punjab Roots — Discover the Roots. Preserve the Legacy.
 - Verified 11 locally hosted font files referenced by the shared stylesheet. The homepage preloads its primary Cormorant Garamond and DM Sans font files.
 - Expanded the Partition memory article with regional context, oral-history safeguards and institutional references.
 - Browser-based desktop/mobile rendering, a live HTTP status crawl, Lighthouse and Google Search Console checks remain outstanding.
+
+
+### 2026-11-23 — Ten bilingual heritage records expanded
+
+Added two new English-and-Gurmukhi-Punjabi topic sections to each of ten concise records: Madhaani, Daati, Hal, Panjali, Sandook, Peedhi, Gulli-danda, Bante, Manja and Suhaga. Topics cover object use and context, craft and repair, local variation, family memory, play rules and careful documentation. Existing URLs and page structure were retained. See the [full audit report](AUDIT-REPORT-2026-11-23.md) for scope and verification limits.
