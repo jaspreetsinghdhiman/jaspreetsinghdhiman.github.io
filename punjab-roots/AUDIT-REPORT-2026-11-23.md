@@ -163,3 +163,21 @@ After deployment:
 **Live/mobile verification:** Not yet completed.
 
 Do not describe the website as fully browser-tested or Google-indexed until the remaining live checks are completed.
+
+
+## 2026-11-23 — Bilingual content expansion batch
+
+Expanded ten of the shortest object/article records with new English and Punjabi sections, while preserving the existing page layout, canonical URLs, image-credit links, collection navigation and explicit verification notes:
+
+- `articles/madhaani.html` — household dairy work, churning context and object documentation.
+- `objects/daati.html` — blade/handle context, maker knowledge and careful safety framing.
+- `objects/hal.html` — place in the farming cycle and provenance requirements.
+- `objects/panjali.html` — animal-powered cultivation context and local identification questions.
+- `articles/sandook.html` — household storage, family memory, construction and provenance.
+- `articles/peedhi.html` — everyday seating, construction and repair history.
+- `articles/gulli-danda.html` — local rules, play spaces and inclusive oral-history recording.
+- `articles/bante.html` — local terminology, materials and player-specific rules.
+- `articles/manja.html` — weaving, maintenance and courtyard social life.
+- `articles/suhaga.html` — field preparation context and documentation of farming knowledge.
+
+Each page now contains two additional bilingual topic sections (English and Gurmukhi Punjabi). The ten files were re-fetched after the commits and verified to contain the new sections and Punjabi copy. These are carefully qualified editorial expansions, not claims that every regional practice is identical. Illustrative images remain explicitly labelled; no unverified provenance was added. Local interviews, dated object records, specialist review and source citations are still needed before treating region-specific details as fully verified.
