@@ -181,3 +181,13 @@ Expanded ten of the shortest object/article records with new English and Punjabi
 - `articles/suhaga.html` — field preparation context and documentation of farming knowledge.
 
 Each page now contains two additional bilingual topic sections (English and Gurmukhi Punjabi). The ten files were re-fetched after the commits and verified to contain the new sections and Punjabi copy. These are carefully qualified editorial expansions, not claims that every regional practice is identical. Illustrative images remain explicitly labelled; no unverified provenance was added. Local interviews, dated object records, specialist review and source citations are still needed before treating region-specific details as fully verified.
+
+
+## 2026-11-23 — Own-site content and outbound-link policy
+
+- Created `research-notes.html`, a bilingual Punjab Roots editorial-method page describing original writing, evidence categories, regional variation, consent and image-rights handling. It is an internal page with no outbound anchor links.
+- Replaced the five external further-reading links in `articles/partition-memory.html` with an original bilingual research note and an internal link to `research-notes.html`. The institutions and works consulted remain named transparently on the internal research page; the article no longer sends readers to outside reading pages.
+- Replaced the homepage Phulkari photo's external Commons link with an internal link to the Punjab Roots image-credits page.
+- Added the research-notes page to the sitemap and linked it from the homepage footer.
+- Static check of the updated homepage, Partition article, research-notes page and sitemap found zero external anchor links. The image-credits page still contains 32 external source-record links for third-party photographs. These are provenance/licence references, not outbound editorial reading links. Removing them while those images remain in use could violate attribution or licence conditions. The long-term fully self-owned route is to replace each third-party image with original photography or assets with rights that permit the intended use, then retire the corresponding external credit links.
+- This is a targeted check of the files above, not yet a complete 142-page outbound-link audit. Remaining pages and scripts still require a full sweep before claiming that every external link has been removed. Platform-required technical identifiers such as Schema.org vocabulary and the website's own canonical domain are not third-party content links.
