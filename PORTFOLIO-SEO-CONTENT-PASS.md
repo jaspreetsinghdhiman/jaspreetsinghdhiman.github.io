@@ -11,6 +11,8 @@ Branch: `portfolio-seo-content-pass-nov-2026`
 - Replaced the generic social-image alternative text on the four older case studies with descriptions that identify the actual project interface.
 - Added complete Twitter/X card title, description and image metadata where it was missing.
 - Added author, Open Graph article metadata, image dimensions and BreadcrumbList structured data to the MarkStudio and WeatherNow case studies.
+- Marked the six interactive demo-only pages `noindex,follow` while keeping them linked from the Work page and their indexable case studies.
+- Removed those six thin app-shell URLs from the XML sitemap and refreshed the six case-study `lastmod` dates. The case studies remain the search-facing project pages.
 - Preserved the existing case-study content, project demos, limitations, and honest personal-project disclosures.
 
 ## Case-study content quality
@@ -20,7 +22,8 @@ The six case studies describe the project purpose, UX decisions, implementation,
 ## Findings to address in a later performance/content pass
 
 - Main portfolio pages still request DM Sans, Instrument Serif and Unbounded from Google Fonts. Some pages also load icon and animation libraries from third-party CDNs. A local-hosting migration should preserve the existing visual identity and verify font licences, weights, and fallback behaviour before removing the CDN versions.
-- The six case studies currently share the general portfolio Open Graph image. Project-specific raster social cards could improve link previews; the existing SVG interface previews should not be assumed to work consistently as social images.
+- The six case studies currently share the general portfolio Open Graph image.
+- Demo pages remain accessible to visitors through the Work page and case studies; the noindex directive is intended to focus search visibility on their fuller explanatory case studies, not to hide the demos from users. Project-specific raster social cards could improve link previews; the existing SVG interface previews should not be assumed to work consistently as social images.
 - Lighthouse/PageSpeed scores, field Core Web Vitals, Search Console indexing, and actual social-platform preview rendering have not been measured in this pass.
 - Blog claims that depend on changing product or service details should be periodically rechecked against primary sources and given visible source links where appropriate.
 - Do not add fabricated experience details, testimonials, project impact figures, or GitHub repositories. Add them only when the owner supplies verifiable information.
