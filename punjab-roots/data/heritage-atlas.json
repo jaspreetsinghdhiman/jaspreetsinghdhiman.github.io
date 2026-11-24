@@ -85,228 +85,272 @@
     {
       "name": "Amritsar",
       "region": "charda",
-      "kind": "District · Indian Punjab"
+      "kind": "District · Indian Punjab",
+      "href": "place.html?name=Amritsar"
     },
     {
       "name": "Barnala",
       "region": "charda",
-      "kind": "District · Indian Punjab"
+      "kind": "District · Indian Punjab",
+      "href": "place.html?name=Barnala"
     },
     {
       "name": "Bathinda",
       "region": "charda",
       "kind": "District · Indian Punjab",
-      "href": "places/bathinda.html"
+      "href": "place.html?name=Bathinda"
     },
     {
       "name": "Faridkot",
       "region": "charda",
-      "kind": "District · Indian Punjab"
+      "kind": "District · Indian Punjab",
+      "href": "place.html?name=Faridkot"
     },
     {
       "name": "Fatehgarh Sahib",
       "region": "charda",
-      "kind": "District · Indian Punjab"
+      "kind": "District · Indian Punjab",
+      "href": "place.html?name=Fatehgarh%20Sahib"
     },
     {
       "name": "Fazilka",
       "region": "charda",
-      "kind": "District · Indian Punjab"
+      "kind": "District · Indian Punjab",
+      "href": "place.html?name=Fazilka"
     },
     {
       "name": "Ferozepur",
       "region": "charda",
-      "kind": "District · Indian Punjab"
+      "kind": "District · Indian Punjab",
+      "href": "place.html?name=Ferozepur"
     },
     {
       "name": "Gurdaspur",
       "region": "charda",
-      "kind": "District · Indian Punjab"
+      "kind": "District · Indian Punjab",
+      "href": "place.html?name=Gurdaspur"
     },
     {
       "name": "Hoshiarpur",
       "region": "charda",
-      "kind": "District · Indian Punjab"
+      "kind": "District · Indian Punjab",
+      "href": "place.html?name=Hoshiarpur"
     },
     {
       "name": "Jalandhar",
       "region": "charda",
-      "kind": "District · Indian Punjab"
+      "kind": "District · Indian Punjab",
+      "href": "place.html?name=Jalandhar"
     },
     {
       "name": "Kapurthala",
       "region": "charda",
-      "kind": "District · Indian Punjab"
+      "kind": "District · Indian Punjab",
+      "href": "place.html?name=Kapurthala"
     },
     {
       "name": "Ludhiana",
       "region": "charda",
-      "kind": "District · Indian Punjab"
+      "kind": "District · Indian Punjab",
+      "href": "place.html?name=Ludhiana"
     },
     {
       "name": "Malerkotla",
       "region": "charda",
-      "kind": "District · Indian Punjab"
+      "kind": "District · Indian Punjab",
+      "href": "place.html?name=Malerkotla"
     },
     {
       "name": "Mansa",
       "region": "charda",
-      "kind": "District · Indian Punjab"
+      "kind": "District · Indian Punjab",
+      "href": "place.html?name=Mansa"
     },
     {
       "name": "Moga",
       "region": "charda",
-      "kind": "District · Indian Punjab"
+      "kind": "District · Indian Punjab",
+      "href": "place.html?name=Moga"
     },
     {
       "name": "Pathankot",
       "region": "charda",
-      "kind": "District · Indian Punjab"
+      "kind": "District · Indian Punjab",
+      "href": "place.html?name=Pathankot"
     },
     {
       "name": "Patiala",
       "region": "charda",
-      "kind": "District · Indian Punjab"
+      "kind": "District · Indian Punjab",
+      "href": "place.html?name=Patiala"
     },
     {
       "name": "Rupnagar",
       "region": "charda",
-      "kind": "District · Indian Punjab"
+      "kind": "District · Indian Punjab",
+      "href": "place.html?name=Rupnagar"
     },
     {
       "name": "S.A.S. Nagar (Mohali)",
       "region": "charda",
-      "kind": "District · Indian Punjab"
+      "kind": "District · Indian Punjab",
+      "href": "place.html?name=S.A.S.%20Nagar%20(Mohali)"
     },
     {
       "name": "Sangrur",
       "region": "charda",
-      "kind": "District · Indian Punjab"
+      "kind": "District · Indian Punjab",
+      "href": "place.html?name=Sangrur"
     },
     {
       "name": "Shaheed Bhagat Singh Nagar",
       "region": "charda",
-      "kind": "District · Indian Punjab"
+      "kind": "District · Indian Punjab",
+      "href": "place.html?name=Shaheed%20Bhagat%20Singh%20Nagar"
     },
     {
       "name": "Sri Muktsar Sahib",
       "region": "charda",
-      "kind": "District · Indian Punjab"
+      "kind": "District · Indian Punjab",
+      "href": "place.html?name=Sri%20Muktsar%20Sahib"
     },
     {
       "name": "Tarn Taran",
       "region": "charda",
-      "kind": "District · Indian Punjab"
+      "kind": "District · Indian Punjab",
+      "href": "place.html?name=Tarn%20Taran"
     },
     {
       "name": "Lahore",
       "region": "lehnda",
-      "kind": "Historic city / district centre · Pakistani Punjab"
+      "kind": "Historic city / district centre · Pakistani Punjab",
+      "href": "place.html?name=Lahore"
     },
     {
       "name": "Multan",
       "region": "lehnda",
-      "kind": "Historic city / district centre · Pakistani Punjab"
+      "kind": "Historic city / district centre · Pakistani Punjab",
+      "href": "place.html?name=Multan"
     },
     {
       "name": "Rawalpindi",
       "region": "lehnda",
-      "kind": "Historic city / district centre · Pakistani Punjab"
+      "kind": "Historic city / district centre · Pakistani Punjab",
+      "href": "place.html?name=Rawalpindi"
     },
     {
       "name": "Faisalabad",
       "region": "lehnda",
-      "kind": "Historic city / district centre · Pakistani Punjab"
+      "kind": "Historic city / district centre · Pakistani Punjab",
+      "href": "place.html?name=Faisalabad"
     },
     {
       "name": "Gujranwala",
       "region": "lehnda",
-      "kind": "Historic city / district centre · Pakistani Punjab"
+      "kind": "Historic city / district centre · Pakistani Punjab",
+      "href": "place.html?name=Gujranwala"
     },
     {
       "name": "Sialkot",
       "region": "lehnda",
-      "kind": "Historic city / district centre · Pakistani Punjab"
+      "kind": "Historic city / district centre · Pakistani Punjab",
+      "href": "place.html?name=Sialkot"
     },
     {
       "name": "Gujrat",
       "region": "lehnda",
-      "kind": "Historic city / district centre · Pakistani Punjab"
+      "kind": "Historic city / district centre · Pakistani Punjab",
+      "href": "place.html?name=Gujrat"
     },
     {
       "name": "Jhelum",
       "region": "lehnda",
-      "kind": "Historic city / district centre · Pakistani Punjab"
+      "kind": "Historic city / district centre · Pakistani Punjab",
+      "href": "place.html?name=Jhelum"
     },
     {
       "name": "Sargodha",
       "region": "lehnda",
-      "kind": "Historic city / district centre · Pakistani Punjab"
+      "kind": "Historic city / district centre · Pakistani Punjab",
+      "href": "place.html?name=Sargodha"
     },
     {
       "name": "Bahawalpur",
       "region": "lehnda",
-      "kind": "Historic city / district centre · Pakistani Punjab"
+      "kind": "Historic city / district centre · Pakistani Punjab",
+      "href": "place.html?name=Bahawalpur"
     },
     {
       "name": "Bahawalnagar",
       "region": "lehnda",
-      "kind": "Historic city / district centre · Pakistani Punjab"
+      "kind": "Historic city / district centre · Pakistani Punjab",
+      "href": "place.html?name=Bahawalnagar"
     },
     {
       "name": "Dera Ghazi Khan",
       "region": "lehnda",
-      "kind": "Historic city / district centre · Pakistani Punjab"
+      "kind": "Historic city / district centre · Pakistani Punjab",
+      "href": "place.html?name=Dera%20Ghazi%20Khan"
     },
     {
       "name": "Muzaffargarh",
       "region": "lehnda",
-      "kind": "Historic city / district centre · Pakistani Punjab"
+      "kind": "Historic city / district centre · Pakistani Punjab",
+      "href": "place.html?name=Muzaffargarh"
     },
     {
       "name": "Attock",
       "region": "lehnda",
-      "kind": "Historic city / district centre · Pakistani Punjab"
+      "kind": "Historic city / district centre · Pakistani Punjab",
+      "href": "place.html?name=Attock"
     },
     {
       "name": "Chiniot",
       "region": "lehnda",
-      "kind": "Historic city / district centre · Pakistani Punjab"
+      "kind": "Historic city / district centre · Pakistani Punjab",
+      "href": "place.html?name=Chiniot"
     },
     {
       "name": "Rahim Yar Khan",
       "region": "lehnda",
-      "kind": "Historic city / district centre · Pakistani Punjab"
+      "kind": "Historic city / district centre · Pakistani Punjab",
+      "href": "place.html?name=Rahim%20Yar%20Khan"
     },
     {
       "name": "Kasur",
       "region": "lehnda",
-      "kind": "Historic city / district centre · Pakistani Punjab"
+      "kind": "Historic city / district centre · Pakistani Punjab",
+      "href": "place.html?name=Kasur"
     },
     {
       "name": "Sheikhupura",
       "region": "lehnda",
-      "kind": "Historic city / district centre · Pakistani Punjab"
+      "kind": "Historic city / district centre · Pakistani Punjab",
+      "href": "place.html?name=Sheikhupura"
     },
     {
       "name": "Sahiwal",
       "region": "lehnda",
-      "kind": "Historic city / district centre · Pakistani Punjab"
+      "kind": "Historic city / district centre · Pakistani Punjab",
+      "href": "place.html?name=Sahiwal"
     },
     {
       "name": "Okara",
       "region": "lehnda",
-      "kind": "Historic city / district centre · Pakistani Punjab"
+      "kind": "Historic city / district centre · Pakistani Punjab",
+      "href": "place.html?name=Okara"
     },
     {
       "name": "Chakwal",
       "region": "lehnda",
-      "kind": "Historic city / district centre · Pakistani Punjab"
+      "kind": "Historic city / district centre · Pakistani Punjab",
+      "href": "place.html?name=Chakwal"
     },
     {
       "name": "Mianwali",
       "region": "lehnda",
-      "kind": "Historic city / district centre · Pakistani Punjab"
+      "kind": "Historic city / district centre · Pakistani Punjab",
+      "href": "place.html?name=Mianwali"
     }
   ],
   "timeline": [
