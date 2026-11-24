@@ -313,36 +313,36 @@
       "date": "1580",
       "title": "The name Punjab enters wider written use",
       "detail": "The Government of Punjab’s historical account notes the term in Tarikh-i-Sher Shah Suri (1580), while also tracing earlier references to the land of five rivers.",
-      "source": "Government of Punjab — History",
-      "url": "https://punjab.gov.in/know-punjab/history/"
+      "source": "Punjab Roots — Regional history",
+      "url": "articles/majha-doaba-malwa.html"
     },
     {
       "date": "1849",
       "title": "Punjab is annexed by the British East India Company",
       "detail": "Following the Second Anglo-Sikh War, the Treaty of Lahore and annexation brought the Punjab under Company rule.",
-      "source": "Punjab history overview",
-      "url": "https://www.punjab-tourism.com/about-punjab/history/"
+      "source": "Punjab Roots — Colonial-era history",
+      "url": "articles/majha-doaba-malwa.html"
     },
     {
       "date": "1919",
       "title": "Jallianwala Bagh massacre in Amritsar",
       "detail": "A defining event in the history of colonial Punjab and the wider anti-colonial movement.",
-      "source": "Punjab history overview",
-      "url": "https://www.punjab-tourism.com/about-punjab/history/"
+      "source": "Punjab Roots — Historical movements",
+      "url": "articles/movement-before-and-during-partition.html"
     },
     {
       "date": "1947",
       "title": "Partition divides historic Punjab",
       "detail": "The Radcliffe Award was made public on 17 August. Partition caused mass displacement, violence, separation and long-term family loss.",
-      "source": "The Partition Museum — Punjab",
-      "url": "https://www.partitionmuseum.org/partition-of-india/punjab"
+      "source": "Punjab Roots — Partition memory",
+      "url": "stories/partition-memory-and-oral-history.html"
     },
     {
       "date": "1960",
       "title": "Indus Waters Treaty",
       "detail": "The treaty assigned the eastern rivers Ravi, Beas and Sutlej for India's use and the western rivers Indus, Jhelum and Chenab for Pakistan's use.",
-      "source": "Bhakra Beas Management Board",
-      "url": "https://bbmb.gov.in/indus-basin.htm"
+      "source": "Punjab Roots — River and water history",
+      "url": "articles/the-five-river-landscape.html"
     }
   ],
   "glossary": [
@@ -433,28 +433,28 @@
   ],
   "sources": [
     {
-      "label": "Government of Punjab — Know Punjab",
-      "url": "https://punjab.gov.in/know-punjab/"
+      "label": "Punjab Roots — Regional history",
+      "url": "articles/majha-doaba-malwa.html"
     },
     {
-      "label": "Government of Punjab — History",
-      "url": "https://punjab.gov.in/know-punjab/history/"
+      "label": "Punjab Roots — Historical overview",
+      "url": "articles/majha-doaba-malwa.html"
     },
     {
-      "label": "The Partition Museum — Punjab",
-      "url": "https://www.partitionmuseum.org/partition-of-india/punjab"
+      "label": "Punjab Roots — Partition and oral history",
+      "url": "stories/partition-memory-and-oral-history.html"
     },
     {
-      "label": "Bhakra Beas Management Board — Indus Basin",
-      "url": "https://bbmb.gov.in/indus-basin.htm"
+      "label": "Punjab Roots — Rivers and Indus basin",
+      "url": "articles/the-five-river-landscape.html"
     },
     {
-      "label": "Integrated Government Online Directory — Punjab districts",
-      "url": "https://igod.gov.in/sg/PB/E042/organizations"
+      "label": "Punjab Roots — Punjab places index",
+      "url": "heritage-atlas.html#atlas-places"
     },
     {
-      "label": "Pakistan Bureau of Statistics — Punjab Census 2023",
-      "url": "https://www.pbs.gov.pk/wp-content/uploads/2020/07/Provincial-Census-Report-2023-Punjab.pdf"
+      "label": "Punjab Roots — Regional atlas",
+      "url": "heritage-atlas.html"
     }
   ]
 }
