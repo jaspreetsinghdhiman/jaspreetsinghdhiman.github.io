@@ -142,3 +142,35 @@
   font-size:12px!important;
   line-height:1.65!important;
 }
+
+
+/* Explicit feedback block below the submit button */
+#review-submission-form > div#form-feedback.form-feedback{
+  order:40!important;
+  display:block!important;
+  position:static!important;
+  inset:auto!important;
+  float:none!important;
+  clear:both!important;
+  flex:0 0 auto!important;
+  align-self:stretch!important;
+  width:100%!important;
+  min-height:2.5em!important;
+  margin:22px 0 0!important;
+  padding:10px 0 0!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:none!important;
+  opacity:1!important;
+  overflow:visible!important;
+  color:#77766d!important;
+  font-size:12px!important;
+  line-height:1.7!important;
+  white-space:normal!important;
+}
+#review-submission-form > button[type=submit]{
+  order:30!important;
+  margin-bottom:0!important;
+  transform:none!important;
+}
