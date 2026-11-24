@@ -1,0 +1,144 @@
+/* Dedicated review form override — loaded after the main stylesheet */
+#review-submission-form,
+#review-submission-form.contribute-form{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  gap:0!important;
+  position:relative!important;
+  overflow:visible!important;
+  padding:0!important;
+  margin:20px 0 0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+#review-submission-form::before,
+#review-submission-form::after,
+#review-submission-form.contribute-form::before,
+#review-submission-form.contribute-form::after{
+  content:none!important;
+  display:none!important;
+  background:none!important;
+  height:0!important;
+}
+#review-submission-form>label:not(.consent){
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  gap:5px!important;
+  width:100%!important;
+  margin:0!important;
+  padding:13px 0 16px!important;
+  border:0!important;
+  border-top:0!important;
+  border-bottom:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+#review-submission-form .field-label{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+}
+#review-submission-form input:not([type=checkbox]),
+#review-submission-form select,
+#review-submission-form textarea{
+  display:block!important;
+  width:100%!important;
+  min-width:0!important;
+  max-width:100%!important;
+  margin:0!important;
+  padding:11px 2px!important;
+  border:0!important;
+  border-bottom:1px solid rgba(40,52,39,.28)!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  outline:0!important;
+  color:#263326!important;
+}
+#review-submission-form input:focus,
+#review-submission-form select:focus,
+#review-submission-form textarea:focus{
+  border:0!important;
+  border-bottom:2px solid #a98752!important;
+  box-shadow:none!important;
+}
+#review-submission-form select{
+  padding-right:30px!important;
+}
+#review-submission-form textarea{
+  min-height:112px!important;
+  height:112px!important;
+  resize:vertical!important;
+}
+#review-submission-form .field-help{
+  display:block!important;
+  margin:8px 0 0!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+  color:#77766d!important;
+  font-size:12px!important;
+  line-height:1.6!important;
+}
+#review-submission-form>label.consent{
+  order:20!important;
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:flex-start!important;
+  gap:10px!important;
+  width:100%!important;
+  margin:22px 0 18px!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+#review-submission-form>label.consent input[type=checkbox]{
+  flex:0 0 18px!important;
+  width:18px!important;
+  height:18px!important;
+  margin:2px 0 0!important;
+}
+#review-submission-form>button[type=submit]{
+  order:30!important;
+  position:static!important;
+  inset:auto!important;
+  display:flex!important;
+  flex:0 0 auto!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  width:100%!important;
+  min-height:54px!important;
+  margin:0!important;
+  float:none!important;
+  clear:both!important;
+  transform:none!important;
+  z-index:auto!important;
+}
+#review-submission-form>p#form-feedback{
+  order:40!important;
+  position:static!important;
+  display:block!important;
+  flex:0 0 auto!important;
+  float:none!important;
+  clear:both!important;
+  width:100%!important;
+  min-height:0!important;
+  margin:16px 0 0!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:none!important;
+  opacity:1!important;
+  color:#77766d!important;
+  font-size:12px!important;
+  line-height:1.65!important;
+}
