@@ -331,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if(riverRoot) riverRoot.innerHTML=data.rivers.map((river,i)=>'<span><i>0'+(i+1)+'</i>'+river+'</span>').join('');
     const placesRoot=document.getElementById('atlas-places');
     let placeRegion='all';
-    function renderPlaces(){const filtered=data.places.filter(p=>placeRegion==='all'||p.region===placeRegion);placesRoot.innerHTML=filtered.map(p=>'<article class="place-chip"><span>'+ (p.region==='charda'?'CHARDĀ · INDIA':'LEHNDĀ · PAKISTAN')+'</span><b>'+p.name+'</b><small>'+p.kind+'</small></article>').join('');}
+    function renderPlaces(){const filtered=data.places.filter(p=>placeRegion==='all'||p.region===placeRegion);placesRoot.innerHTML=filtered.map(p=>{const tag=p.href?'a':'article';const href=p.href?' href="'+p.href+'"':'';return '<'+tag+' class="place-chip"'+href+'><span>'+ (p.region==='charda'?'CHARDĀ · INDIA':'LEHNDĀ · PAKISTAN')+'</span><b>'+p.name+'</b><small>'+p.kind+'</small>'+(p.href?'<em>Open place profile ↗</em>':'')+'</'+tag+'>';}).join('');}
     document.querySelectorAll('[data-place-region]').forEach(button=>button.addEventListener('click',()=>{placeRegion=button.dataset.placeRegion;document.querySelectorAll('[data-place-region]').forEach(b=>b.classList.toggle('is-active',b===button));renderPlaces();}));
     renderPlaces();
     const timeline=document.getElementById('atlas-timeline');
@@ -552,7 +552,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const style = document.querySelector('link[rel="stylesheet"][href*="assets/css/style.css"]');
     if (style) {
       const url = new URL(style.href, document.baseURI);
-      url.searchParams.set('v', '20261124-mobile-nav-singleline');
+      url.searchParams.set('v', '20261124-place-profiles');
       if (style.href !== url.href) style.href = url.href;
     }
     scan(document.body);
