@@ -1025,3 +1025,149 @@ button.menu-toggle:hover{background:rgba(184,149,93,.12);border-radius:50%;color
     box-shadow: 0 16px 42px rgba(32,41,31,.07);
   }
 }
+
+
+/* Transparent inline review form — editorial, lightweight field rows */
+.contribute-form {
+  background: transparent;
+  border: 0;
+  border-top: 1px solid rgba(40,52,39,.18);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 8px 0 0;
+  display: grid;
+  gap: 0;
+}
+.contribute-form > label:not(.consent) {
+  display: grid;
+  grid-template-columns: minmax(170px, .42fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 24px;
+  padding: 17px 0;
+  border-bottom: 1px solid rgba(40,52,39,.16);
+  color: #343c32;
+  font: 600 13px/1.5 var(--sans);
+}
+.contribute-form .field-label {
+  display: block;
+}
+.contribute-form .field-label small {
+  display: block;
+  margin-top: 3px;
+  color: #858477;
+  font-size: 11px;
+  font-weight: 400;
+}
+.contribute-form input:not([type="checkbox"]),
+.contribute-form select,
+.contribute-form textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  padding: 11px 2px;
+  border: 0;
+  border-bottom: 1px solid rgba(40,52,39,.25);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #263326;
+  font: 500 14px/1.5 var(--sans);
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.contribute-form select {
+  padding-right: 30px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23343c32' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+}
+.contribute-form textarea {
+  min-height: 116px;
+  resize: vertical;
+}
+.contribute-form input::placeholder,
+.contribute-form textarea::placeholder {
+  color: #929187;
+  opacity: 1;
+  font-weight: 400;
+}
+.contribute-form input:focus,
+.contribute-form select:focus,
+.contribute-form textarea:focus {
+  border-bottom-color: #a98752;
+  box-shadow: 0 2px 0 rgba(169,135,82,.18);
+}
+.contribute-form .review-message {
+  align-items: start !important;
+}
+.contribute-form .field-help {
+  grid-column: 2;
+  margin-top: -12px;
+  color: #858477;
+  font-size: 11px;
+  font-weight: 400;
+}
+.contribute-form > label.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin: 18px 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: #66685e;
+  font-size: 11px;
+  line-height: 1.65;
+}
+.contribute-form .consent input {
+  flex: 0 0 17px;
+  width: 17px;
+  height: 17px;
+  margin: 2px 0 0;
+  accent-color: #263326;
+}
+.contribute-form > button[type="submit"] {
+  width: fit-content;
+  min-width: min(100%, 260px);
+  min-height: 52px;
+  border-radius: 2px;
+  padding: 14px 19px;
+}
+.contribute-form .form-feedback {
+  margin: 10px 0 0;
+  font-size: 11px;
+  color: #77786f;
+}
+@media (max-width: 700px) {
+  .contribute-form {
+    padding-top: 4px;
+  }
+  .contribute-form > label:not(.consent) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 7px;
+    padding: 14px 0;
+    font-size: 12px;
+  }
+  .contribute-form .field-label small {
+    display: inline;
+    margin-left: 4px;
+  }
+  .contribute-form input:not([type="checkbox"]),
+  .contribute-form select,
+  .contribute-form textarea {
+    min-height: 44px;
+    font-size: 14px;
+  }
+  .contribute-form textarea {
+    min-height: 128px;
+  }
+  .contribute-form .field-help {
+    grid-column: 1;
+    margin-top: 0;
+  }
+  .contribute-form > button[type="submit"] {
+    width: 100%;
+  }
+}
