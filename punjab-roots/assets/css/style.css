@@ -1545,3 +1545,44 @@ button.menu-toggle:hover{background:rgba(184,149,93,.12);border-radius:50%;color
 .place-chip[href]:hover{transform:translateY(-3px);background:#e2d8c6}
 .place-chip em{font-style:normal;font-size:9px;color:#8c6b40;margin-top:7px}
 @media(max-width:700px){.place-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.place-chip{min-height:104px;padding:13px}.place-chip b{font-size:18px}}
+
+/* Mobile article gutters — keep every editorial section inside the viewport. */
+@media (max-width: 700px) {
+  .editorial-story.container {
+    display: block;
+    width: calc(100% - 40px) !important;
+    max-width: 790px !important;
+    margin-inline: auto !important;
+    padding-inline: 0 !important;
+    box-sizing: border-box;
+  }
+  .editorial-story > .eyebrow {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    line-height: 1.7;
+  }
+  .editorial-story h2,
+  .editorial-story p,
+  .editorial-story li {
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+  .editorial-story h2 {
+    margin-top: 34px;
+    margin-bottom: 15px;
+  }
+  .editorial-story h2:first-of-type {
+    margin-top: 20px;
+  }
+  .editorial-story p {
+    margin-bottom: 18px;
+  }
+  .editorial-story .punjabi-copy {
+    margin-bottom: 24px;
+  }
+  .editorial-story .record-verification,
+  .editorial-story .record-nav {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
