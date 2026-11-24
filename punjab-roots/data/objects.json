@@ -110,8 +110,8 @@
     "use_en": "Grinding grain into flour by hand.",
     "use_pa": "ਹੱਥ ਨਾਲ ਅਨਾਜ ਪੀਸ ਕੇ ਆਟਾ ਬਣਾਉਣਾ।",
     "verification": "Museum reference identified and a subject-specific photograph matched; regional details still need review.",
-    "source_url": "https://www.incredibleindia.gov.in/en/punjab/ludhiana/rural-museum",
-    "source_label": "Incredible India — Rural Museum, Ludhiana"
+    "source_url": "stories/museum-of-rural-life-punjab.html",
+    "source_label": "Punjab Roots — Rural Museum story"
   },
   {
     "id": "gaggar",
@@ -128,8 +128,8 @@
     "use_en": "Carrying, serving or storing water, depending on the vessel form.",
     "use_pa": "ਭਾਂਡੇ ਦੀ ਬਣਤਰ ਅਨੁਸਾਰ ਪਾਣੀ ਭਰਨਾ, ਪਰੋਸਣਾ ਜਾਂ ਸੰਭਾਲਣਾ।",
     "verification": "Museum reference identified and a subject-specific photograph matched; regional details still need review.",
-    "source_url": "https://www.pau.edu/content/nyf/nyf_sov_1.pdf",
-    "source_label": "Punjab Agricultural University — Museum of Social History of Punjab"
+    "source_url": "stories/museum-of-rural-life-punjab.html",
+    "source_label": "Punjab Roots — Rural Museum story"
   },
   {
     "id": "charsa",
@@ -146,7 +146,7 @@
     "use_en": "Lifting water for agricultural irrigation.",
     "use_pa": "ਖੇਤੀਬਾੜੀ ਦੀ ਸਿੰਚਾਈ ਲਈ ਪਾਣੀ ਉੱਪਰ ਕੱਢਣਾ।",
     "verification": "Introductory record — historical regional water-lifting photograph matched; technical details still need specialist review.",
-    "source_url": "https://www.pau.edu/content/nyf/nyf_sov_1.pdf",
-    "source_label": "Punjab Agricultural University — Museum of Social History of Punjab"
+    "source_url": "articles/water-knowledge-and-community-memory.html",
+    "source_label": "Punjab Roots — Water knowledge and community memory"
   }
 ]
