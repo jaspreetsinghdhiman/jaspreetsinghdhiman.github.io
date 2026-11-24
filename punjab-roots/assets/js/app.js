@@ -562,8 +562,11 @@ document.addEventListener('DOMContentLoaded', () => {
           const target = record.target.parentElement && record.target.parentElement.closest('a,button,[role="button"]');
           if (target) iconify(target);
         } else record.addedNodes.forEach(node => {
-          if (node.nodeType === 1) scan(node);
-          else if (node.nodeType === 3 && node.parentElement) {
+          if (node.nodeType === 1) {
+            const parentControl = node.closest('a,button,[role="button"]') || (node.parentElement && node.parentElement.closest('a,button,[role="button"]'));
+            if (parentControl) iconify(parentControl);
+            scan(node);
+          } else if (node.nodeType === 3 && node.parentElement) {
             const target = node.parentElement.closest('a,button,[role="button"]');
             if (target) iconify(target);
           }
