@@ -483,3 +483,103 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(() => { feed.innerHTML = '<p class="muted">Reviews are temporarily unavailable. Please check back soon.</p>'; });
   }
 });
+
+
+/* Shared interaction polish: convert directional text marks into accessible inline SVG icons. */
+(() => {
+  const iconPaths = {
+    '↗':'M7 17 17 7M7 7h10v10',
+    '→':'M4 12h15m-6-6 6 6-6 6',
+    '←':'M20 12H5m6 6-6-6 6-6',
+    '↑':'M12 20V5m-6 6 6-6 6 6',
+    '↓':'M12 4v15m-6-6 6 6 6-6'
+  };
+  const makeIcon = (glyph) => {
+    const span = document.createElement('span');
+    span.className = 'arrow-icon arrow-icon-' + ({'↗':'external','→':'right','←':'left','↑':'up','↓':'down'}[glyph] || 'right');
+    span.setAttribute('aria-hidden', 'true');
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('fill', 'none');
+    svg.setAttribute('stroke', 'currentColor');
+    svg.setAttribute('stroke-width', '1.8');
+    svg.setAttribute('stroke-linecap', 'round');
+    svg.setAttribute('stroke-linejoin', 'round');
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', iconPaths[glyph]);
+    svg.appendChild(path);
+    span.appendChild(svg);
+    return span;
+  };
+  const iconify = (element) => {
+    if (!element || element.nodeType !== 1) return;
+    const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        if (!/[↗→←↑↓]/.test(node.nodeValue || '')) return NodeFilter.FILTER_REJECT;
+        if (node.parentElement && node.parentElement.closest('svg,.arrow-icon')) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(node => {
+      const fragment = document.createDocumentFragment();
+      node.nodeValue.split(/([↗→←↑↓])/g).forEach(part => {
+        if (iconPaths[part]) fragment.appendChild(makeIcon(part));
+        else if (part) fragment.appendChild(document.createTextNode(part));
+      });
+      node.parentNode.replaceChild(fragment, node);
+    });
+  };
+  const scan = (root) => {
+    if (!root) return;
+    if (root.nodeType === 1 && root.matches('a,button,[role="button"]')) iconify(root);
+    if (root.querySelectorAll) root.querySelectorAll('a,button,[role="button"]').forEach(iconify);
+  };
+  const setMenuIcon = () => {
+    const button = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.main-nav');
+    if (!button || !nav) return;
+    const open = nav.classList.contains('is-open');
+    button.classList.toggle('is-open', open);
+    button.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    button.setAttribute('aria-expanded', String(open));
+    button.innerHTML = open
+      ? '<svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg>'
+      : '<svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
+  };
+  const start = () => {
+    const style = document.querySelector('link[rel="stylesheet"][href*="assets/css/style.css"]');
+    if (style) {
+      const url = new URL(style.href, document.baseURI);
+      url.searchParams.set('v', '20261124-interaction-polish');
+      if (style.href !== url.href) style.href = url.href;
+    }
+    scan(document.body);
+    if (window.MutationObserver && document.body) {
+      const observer = new MutationObserver(records => records.forEach(record => {
+        if (record.type === 'characterData') {
+          const target = record.target.parentElement && record.target.parentElement.closest('a,button,[role="button"]');
+          if (target) iconify(target);
+        } else record.addedNodes.forEach(node => {
+          if (node.nodeType === 1) scan(node);
+          else if (node.nodeType === 3 && node.parentElement) {
+            const target = node.parentElement.closest('a,button,[role="button"]');
+            if (target) iconify(target);
+          }
+        });
+      }));
+      observer.observe(document.body, {childList:true,subtree:true,characterData:true});
+    }
+    setMenuIcon();
+    const button = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.main-nav');
+    button?.addEventListener('click', setMenuIcon);
+    nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', setMenuIcon));
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') setMenuIcon(); });
+    document.addEventListener('click', setMenuIcon);
+    window.addEventListener('resize', setMenuIcon, {passive:true});
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, {once:true});
+  else start();
+})();
