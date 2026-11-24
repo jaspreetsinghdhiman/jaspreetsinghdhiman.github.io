@@ -552,7 +552,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const style = document.querySelector('link[rel="stylesheet"][href*="assets/css/style.css"]');
     if (style) {
       const url = new URL(style.href, document.baseURI);
-      url.searchParams.set('v', '20261124-instrument-sans-links');
+      url.searchParams.set('v', '20261124-review-form-mobile-refine');
       if (style.href !== url.href) style.href = url.href;
     }
     scan(document.body);
