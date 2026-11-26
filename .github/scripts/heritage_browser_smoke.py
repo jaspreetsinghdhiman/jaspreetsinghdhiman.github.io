@@ -137,6 +137,52 @@ class HeritageBrowserSmokeTests(unittest.TestCase):
         context.close()
         self.assertEqual(failures, [], 'Full mobile page audit failures:\\n' + '\\n'.join(failures))
 
+
+    def test_heritage_theme_pages_desktop_mobile_and_punjabi(self):
+        theme_pages = {
+            "stories/traditional-fairs-markets.html": "ਰਵਾਇਤੀ ਮੇਲੇ, ਬਾਜ਼ਾਰ ਅਤੇ ਮੰਡੀਆਂ",
+            "stories/beliefs-customs-social-traditions.html": "ਵਿਸ਼ਵਾਸ, ਰਸਮਾਂ ਅਤੇ ਸਮਾਜਿਕ ਰਵਾਇਤਾਂ",
+            "stories/historical-personalities-freedom-fighters.html": "ਇਤਿਹਾਸਕ ਸ਼ਖ਼ਸੀਅਤਾਂ ਅਤੇ ਆਜ਼ਾਦੀ ਘੁਲਾਟੀਏ",
+            "stories/partition-history-memories.html": "ਵੰਡ ਦਾ ਇਤਿਹਾਸ ਅਤੇ ਯਾਦਾਂ",
+            "stories/religious-spiritual-heritage.html": "ਧਾਰਮਿਕ ਅਤੇ ਅਧਿਆਤਮਿਕ ਵਿਰਾਸਤ",
+        }
+        for width, height, mobile in [(1440, 1000, False), (390, 844, True)]:
+            context = self.browser.new_context(
+                viewport={"width": width, "height": height},
+                is_mobile=mobile,
+                has_touch=mobile,
+            )
+            page = context.new_page()
+            errors = []
+            page.on("pageerror", lambda error: errors.append(str(error)))
+            for route, punjabi_title in theme_pages.items():
+                response = page.goto(f"{BASE}/{route}", wait_until="networkidle")
+                self.assertIsNotNone(response, f"No response for {route} at {width}px")
+                self.assertEqual(response.status, 200, f"HTTP failure for {route} at {width}px")
+                page.wait_for_selector(".theme-hero h1")
+                dimensions = page.evaluate(
+                    "({client: document.documentElement.clientWidth, scroll: document.documentElement.scrollWidth})"
+                )
+                self.assertLessEqual(
+                    dimensions["scroll"], dimensions["client"] + 1,
+                    f"Horizontal overflow on {route} at {width}px: {dimensions}",
+                )
+                self.assertGreater(
+                    page.locator(".theme-source-list a").count(), 0,
+                    f"Missing source references on {route}",
+                )
+                self.assertTrue(
+                    page.evaluate("document.fonts.check('500 20px \\"Cormorant Garamond\\"')"),
+                    f"Display font did not load on {route}",
+                )
+                page.locator(".language-toggle").first.click()
+                self.assertEqual(page.locator("html").get_attribute("lang"), "pa")
+                self.assertIn(punjabi_title, page.locator(".theme-hero h1").inner_text())
+                page.locator(".language-toggle").first.click()
+                self.assertEqual(page.locator("html").get_attribute("lang"), "en")
+            self.assertEqual(errors, [], f"Browser JavaScript errors at {width}px: {errors}")
+            context.close()
+
     def test_homepage_loads(self):
         page = self.browser.new_page(viewport={"width": 390, "height": 844})
         errors = []
