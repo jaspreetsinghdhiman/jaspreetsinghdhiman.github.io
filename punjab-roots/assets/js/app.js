@@ -206,6 +206,68 @@ document.addEventListener('DOMContentLoaded', () => {
     'RESEARCH STARTING POINTS':'ਖੋਜ ਲਈ ਸ਼ੁਰੂਆਤੀ ਸਰੋਤ','Sources &':'ਸਰੋਤ ਅਤੇ','further reading.':'ਹੋਰ ਪੜ੍ਹੋ।'
 
   };
+  Object.assign(paText, {
+  "Heritage": "ਵਿਰਾਸਤ",
+  "EXPLORE THE ARCHIVE": "ਪੁਰਾਲੇਖ ਦੀ ਖੋਜ ਕਰੋ",
+  "Many stories.": "ਅਨੇਕਾਂ ਕਹਾਣੀਆਂ।",
+  "One shared heritage.": "ਇੱਕ ਸਾਂਝੀ ਵਿਰਾਸਤ।",
+  "Fairs, Markets & Bazaars": "ਮੇਲੇ, ਬਾਜ਼ਾਰ ਅਤੇ ਮੰਡੀਆਂ",
+  "Beliefs & Traditions": "ਵਿਸ਼ਵਾਸ ਅਤੇ ਰਵਾਇਤਾਂ",
+  "Personalities & Freedom Fighters": "ਸ਼ਖ਼ਸੀਅਤਾਂ ਅਤੇ ਆਜ਼ਾਦੀ ਘੁਲਾਟੀਏ",
+  "Partition History & Memories": "ਵੰਡ ਦਾ ਇਤਿਹਾਸ ਅਤੇ ਯਾਦਾਂ",
+  "Religious & Spiritual Heritage": "ਧਾਰਮਿਕ ਅਤੇ ਅਧਿਆਤਮਿਕ ਵਿਰਾਸਤ",
+  "Places & Living Memory": "ਥਾਵਾਂ ਅਤੇ ਜੀਵੰਤ ਯਾਦਾਂ",
+  "Explore everything ↗": "ਸਭ ਕੁਝ ਵੇਖੋ ↗",
+  "PUNJAB ROOTS · HERITAGE STORIES": "ਪੰਜਾਬ ਰੂਟਸ · ਵਿਰਾਸਤੀ ਕਹਾਣੀਆਂ",
+  "A living archive of memory and meaning": "ਯਾਦਾਂ ਅਤੇ ਅਰਥਾਂ ਦਾ ਜੀਵੰਤ ਪੁਰਾਲੇਖ",
+  "Explore this theme": "ਇਸ ਵਿਸ਼ੇ ਦੀ ਖੋਜ ਕਰੋ",
+  "All heritage stories": "ਸਾਰੀਆਂ ਵਿਰਾਸਤੀ ਕਹਾਣੀਆਂ",
+  "THE BIGGER PICTURE": "ਵੱਡਾ ਸੰਦਰਭ",
+  "Understanding ": "ਸਮਝੋ ",
+  "the context.": "ਇਸ ਦਾ ਸੰਦਰਭ।",
+  "What this theme includes": "ਇਸ ਵਿਸ਼ੇ ਵਿੱਚ ਕੀ ਸ਼ਾਮਲ ਹੈ",
+  "Look closer": "ਹੋਰ ਡੂੰਘਾਈ ਨਾਲ ਜਾਣੋ",
+  "How we document it": "ਅਸੀਂ ਇਸ ਨੂੰ ਕਿਵੇਂ ਦਰਜ ਕਰਦੇ ਹਾਂ",
+  "Editorial promise": "ਸੰਪਾਦਕੀ ਵਚਨਬੱਧਤਾ",
+  "CONTINUE EXPLORING": "ਅੱਗੇ ਹੋਰ ਖੋਜੋ",
+  "More of Punjab’s ": "ਪੰਜਾਬ ਦੀ ਹੋਰ ",
+  "living heritage.": "ਜੀਵੰਤ ਵਿਰਾਸਤ।",
+  "Read our research & editorial method ↗": "ਸਾਡੀ ਖੋਜ ਅਤੇ ਸੰਪਾਦਕੀ ਵਿਧੀ ਪੜ੍ਹੋ ↗",
+  "Home / Stories": "ਮੁੱਖ ਪੰਨਾ / ਕਹਾਣੀਆਂ",
+  "Traditional Fairs, Markets & Bazaars": "ਰਵਾਇਤੀ ਮੇਲੇ, ਬਾਜ਼ਾਰ ਅਤੇ ਮੰਡੀਆਂ",
+  "Beliefs, Customs & Social Traditions": "ਵਿਸ਼ਵਾਸ, ਰਸਮਾਂ ਅਤੇ ਸਮਾਜਿਕ ਰਵਾਇਤਾਂ",
+  "Historical Personalities & Freedom Fighters": "ਇਤਿਹਾਸਕ ਸ਼ਖ਼ਸੀਅਤਾਂ ਅਤੇ ਆਜ਼ਾਦੀ ਘੁਲਾਟੀਏ",
+  "Explore Punjab’s traditional fairs, seasonal melas, village markets and historic bazaars — places where trade, craft, food, music and community life meet.": "ਪੰਜਾਬ ਦੇ ਰਵਾਇਤੀ ਮੇਲਿਆਂ, ਮੌਸਮੀ ਮੇਲਿਆਂ, ਪਿੰਡਾਂ ਦੇ ਬਾਜ਼ਾਰਾਂ ਅਤੇ ਇਤਿਹਾਸਕ ਮੰਡੀਆਂ ਨੂੰ ਜਾਣੋ — ਉਹ ਥਾਵਾਂ ਜਿੱਥੇ ਵਪਾਰ, ਕਾਰੀਗਰੀ, ਭੋਜਨ, ਸੰਗੀਤ ਅਤੇ ਭਾਈਚਾਰਕ ਜੀਵਨ ਮਿਲਦੇ ਹਨ।",
+  "Discover the beliefs, customs, family rituals and social traditions that shape everyday life across Punjab’s diverse communities.": "ਪੰਜਾਬ ਦੇ ਵਿਭਿੰਨ ਭਾਈਚਾਰਿਆਂ ਦੇ ਰੋਜ਼ਾਨਾ ਜੀਵਨ ਨੂੰ ਰੂਪ ਦੇਣ ਵਾਲੇ ਵਿਸ਼ਵਾਸਾਂ, ਰਸਮਾਂ, ਪਰਿਵਾਰਕ ਰੀਤਾਂ ਅਤੇ ਸਮਾਜਿਕ ਰਵਾਇਤਾਂ ਨੂੰ ਜਾਣੋ।",
+  "Meet the reformers, writers, artists, educators, community leaders and freedom fighters connected with Punjab’s many histories.": "ਪੰਜਾਬ ਦੇ ਵੱਖ-ਵੱਖ ਇਤਿਹਾਸਾਂ ਨਾਲ ਜੁੜੇ ਸੁਧਾਰਕਾਂ, ਲੇਖਕਾਂ, ਕਲਾਕਾਰਾਂ, ਸਿੱਖਿਆਕਾਰਾਂ, ਭਾਈਚਾਰਕ ਆਗੂਆਂ ਅਤੇ ਆਜ਼ਾਦੀ ਘੁਲਾਟੀਆਂ ਬਾਰੇ ਜਾਣੋ।",
+  "Explore the 1947 Partition of Punjab through historical context, family memories, migration, loss, resilience and the ethics of oral history.": "1947 ਦੀ ਪੰਜਾਬ ਵੰਡ ਨੂੰ ਇਤਿਹਾਸਕ ਸੰਦਰਭ, ਪਰਿਵਾਰਕ ਯਾਦਾਂ, ਹਿਜਰਤ, ਵਿਛੋੜੇ, ਹੌਸਲੇ ਅਤੇ ਮੌਖਿਕ ਇਤਿਹਾਸ ਦੀ ਨੈਤਿਕਤਾ ਰਾਹੀਂ ਸਮਝੋ।",
+  "Explore Punjab’s diverse sacred places, spiritual traditions, devotional music, shared spaces and histories of faith.": "ਪੰਜਾਬ ਦੇ ਵਿਭਿੰਨ ਪਵਿੱਤਰ ਅਸਥਾਨਾਂ, ਅਧਿਆਤਮਿਕ ਰਵਾਇਤਾਂ, ਭਗਤੀ ਸੰਗੀਤ, ਸਾਂਝੀਆਂ ਥਾਵਾਂ ਅਤੇ ਧਾਰਮਿਕ ਇਤਿਹਾਸਾਂ ਨੂੰ ਜਾਣੋ।",
+  "Melas and bazaars were more than places to buy and sell. They brought neighbouring villages together, carried local skills into public view and created spaces for exchange, celebration and everyday conversation.": "ਮੇਲੇ ਅਤੇ ਬਾਜ਼ਾਰ ਸਿਰਫ਼ ਖਰੀਦੋ-ਫ਼ਰੋਖ਼ਤ ਦੀਆਂ ਥਾਵਾਂ ਨਹੀਂ ਸਨ। ਇਹ ਨੇੜਲੇ ਪਿੰਡਾਂ ਨੂੰ ਇਕੱਠਾ ਕਰਦੇ, ਸਥਾਨਕ ਹੁਨਰਾਂ ਨੂੰ ਲੋਕਾਂ ਸਾਹਮਣੇ ਲਿਆਉਂਦੇ ਅਤੇ ਲੈਣ-ਦੇਣ, ਜਸ਼ਨ ਤੇ ਰੋਜ਼ਾਨਾ ਗੱਲਬਾਤ ਲਈ ਮੰਚ ਬਣਦੇ ਸਨ।",
+  "Explore seasonal gatherings, religious observances, livestock and agricultural exchange, craft stalls, food traditions, folk performance and family visits. Their forms differ by district, community, faith and time.": "ਮੌਸਮੀ ਇਕੱਠਾਂ, ਧਾਰਮਿਕ ਸਮਾਗਮਾਂ, ਪਸ਼ੂਆਂ ਅਤੇ ਖੇਤੀਬਾੜੀ ਦੇ ਵਪਾਰ, ਕਾਰੀਗਰੀ ਦੇ ਸਟਾਲਾਂ, ਖਾਣ-ਪੀਣ ਦੀਆਂ ਰਵਾਇਤਾਂ, ਲੋਕ-ਕਲਾਵਾਂ ਅਤੇ ਪਰਿਵਾਰਕ ਮਿਲਣੀਆਂ ਨੂੰ ਜਾਣੋ। ਇਨ੍ਹਾਂ ਦੇ ਰੂਪ ਜ਼ਿਲ੍ਹੇ, ਭਾਈਚਾਰੇ, ਧਰਮ ਅਤੇ ਸਮੇਂ ਅਨੁਸਾਰ ਵੱਖਰੇ ਹੁੰਦੇ ਹਨ।",
+  "A bazaar can reveal how a town grew, what materials travelled through it, which craftspeople served local households and how streets connected neighbourhoods. Documenting a market means recording its name, location, period, trades, languages, memories and changes — not treating every bazaar as identical.": "ਕੋਈ ਬਾਜ਼ਾਰ ਦੱਸ ਸਕਦਾ ਹੈ ਕਿ ਸ਼ਹਿਰ ਕਿਵੇਂ ਵਧਿਆ, ਕਿਹੜੀਆਂ ਵਸਤਾਂ ਉੱਥੋਂ ਲੰਘਦੀਆਂ ਸਨ, ਕਿਹੜੇ ਕਾਰੀਗਰ ਸਥਾਨਕ ਘਰਾਂ ਦੀ ਸੇਵਾ ਕਰਦੇ ਸਨ ਅਤੇ ਗਲੀਆਂ ਨੇ ਮੁਹੱਲਿਆਂ ਨੂੰ ਕਿਵੇਂ ਜੋੜਿਆ। ਬਾਜ਼ਾਰ ਦਾ ਰਿਕਾਰਡ ਬਣਾਉਂਦੇ ਸਮੇਂ ਉਸ ਦਾ ਨਾਂ, ਥਾਂ, ਸਮਾਂ, ਵਪਾਰ, ਭਾਸ਼ਾਵਾਂ, ਯਾਦਾਂ ਅਤੇ ਬਦਲਾਅ ਦਰਜ ਕਰਨੇ ਚਾਹੀਦੇ ਹਨ।",
+  "Punjab’s fairs and markets continue to evolve. This archive distinguishes documented history from personal recollection and invites local knowledge to add context.": "ਪੰਜਾਬ ਦੇ ਮੇਲੇ ਅਤੇ ਬਾਜ਼ਾਰ ਅੱਜ ਵੀ ਬਦਲ ਰਹੇ ਹਨ। ਇਹ ਪੁਰਾਲੇਖ ਦਰਜ ਇਤਿਹਾਸ ਅਤੇ ਨਿੱਜੀ ਯਾਦਾਂ ਵਿੱਚ ਫ਼ਰਕ ਰੱਖਦਾ ਹੈ ਅਤੇ ਸਥਾਨਕ ਗਿਆਨ ਰਾਹੀਂ ਸੰਦਰਭ ਜੋੜਨ ਦਾ ਸੱਦਾ ਦਿੰਦਾ ਹੈ।",
+  "Traditions are carried through ordinary moments: welcoming a child, preparing a home, sharing food, marking a season, remembering elders and gathering as a family or neighbourhood.": "ਰਵਾਇਤਾਂ ਆਮ ਪਲਾਂ ਰਾਹੀਂ ਅੱਗੇ ਵਧਦੀਆਂ ਹਨ: ਬੱਚੇ ਦਾ ਸਵਾਗਤ, ਘਰ ਦੀ ਤਿਆਰੀ, ਭੋਜਨ ਸਾਂਝਾ ਕਰਨਾ, ਮੌਸਮ ਦਾ ਤਿਉਹਾਰ ਮਨਾਉਣਾ, ਵੱਡਿਆਂ ਨੂੰ ਯਾਦ ਕਰਨਾ ਅਤੇ ਪਰਿਵਾਰ ਜਾਂ ਮੁਹੱਲੇ ਦਾ ਇਕੱਠ।",
+  "Explore customs through their context: who practises them, when they take place, what meanings people attach to them and how they change across generations. A custom may be shared widely, locally specific, or meaningful to one family alone.": "ਰਸਮਾਂ ਨੂੰ ਉਨ੍ਹਾਂ ਦੇ ਸੰਦਰਭ ਵਿੱਚ ਸਮਝੋ: ਇਹ ਕੌਣ ਨਿਭਾਉਂਦਾ ਹੈ, ਕਦੋਂ ਹੁੰਦੀਆਂ ਹਨ, ਲੋਕ ਇਨ੍ਹਾਂ ਨਾਲ ਕੀ ਅਰਥ ਜੋੜਦੇ ਹਨ ਅਤੇ ਪੀੜ੍ਹੀਆਂ ਨਾਲ ਕਿਵੇਂ ਬਦਲਦੀਆਂ ਹਨ। ਕੋਈ ਰਸਮ ਵਿਆਪਕ, ਕਿਸੇ ਖ਼ਾਸ ਇਲਾਕੇ ਦੀ ਜਾਂ ਸਿਰਫ਼ ਇੱਕ ਪਰਿਵਾਰ ਲਈ ਮਹੱਤਵਪੂਰਨ ਹੋ ਸਕਦੀ ਹੈ।",
+  "Social traditions are not fixed rules. They vary across region, faith, language, class, family and generation. The archive avoids presenting one community’s practice as universal and records disagreement or change where relevant.": "ਸਮਾਜਿਕ ਰਵਾਇਤਾਂ ਅਟੱਲ ਨਿਯਮ ਨਹੀਂ ਹਨ। ਇਹ ਇਲਾਕੇ, ਧਰਮ, ਭਾਸ਼ਾ, ਵਰਗ, ਪਰਿਵਾਰ ਅਤੇ ਪੀੜ੍ਹੀ ਅਨੁਸਾਰ ਬਦਲਦੀਆਂ ਹਨ। ਇਹ ਪੁਰਾਲੇਖ ਕਿਸੇ ਇੱਕ ਭਾਈਚਾਰੇ ਦੀ ਰੀਤ ਨੂੰ ਸਭ ਲਈ ਇੱਕੋ ਜਿਹੀ ਨਹੀਂ ਦਿਖਾਉਂਦਾ ਅਤੇ ਜਿੱਥੇ ਲੋੜ ਹੋਵੇ ਉੱਥੇ ਅੰਤਰ ਜਾਂ ਬਦਲਾਅ ਵੀ ਦਰਜ ਕਰਦਾ ਹੈ।",
+  "Personal testimony is valuable, but it is identified as testimony. The archive separates remembered experience, published research and claims that still need verification.": "ਨਿੱਜੀ ਗਵਾਹੀ ਮਹੱਤਵਪੂਰਨ ਹੈ, ਪਰ ਇਸ ਨੂੰ ਗਵਾਹੀ ਵਜੋਂ ਹੀ ਦਰਸਾਇਆ ਜਾਂਦਾ ਹੈ। ਪੁਰਾਲੇਖ ਯਾਦ ਕੀਤੇ ਤਜਰਬੇ, ਪ੍ਰਕਾਸ਼ਿਤ ਖੋਜ ਅਤੇ ਉਹਨਾਂ ਦਾਅਵਿਆਂ ਨੂੰ ਵੱਖ ਰੱਖਦਾ ਹੈ ਜਿਨ੍ਹਾਂ ਦੀ ਜਾਂਚ ਹਾਲੇ ਬਾਕੀ ਹੈ।",
+  "Punjab’s past has been shaped by people working in many fields: political movements, education, literature, agriculture, social reform, spiritual life, art and public service.": "ਪੰਜਾਬ ਦਾ ਅਤੀਤ ਕਈ ਖੇਤਰਾਂ ਵਿੱਚ ਕੰਮ ਕਰਨ ਵਾਲੇ ਲੋਕਾਂ ਨੇ ਘੜਿਆ ਹੈ: ਰਾਜਨੀਤਿਕ ਲਹਿਰਾਂ, ਸਿੱਖਿਆ, ਸਾਹਿਤ, ਖੇਤੀਬਾੜੀ, ਸਮਾਜਿਕ ਸੁਧਾਰ, ਅਧਿਆਤਮਿਕ ਜੀਵਨ, ਕਲਾ ਅਤੇ ਲੋਕ ਸੇਵਾ।",
+  "A responsible profile looks beyond a famous name. It places a person in their time, explains the movement or institution they were part of, identifies the sources behind key claims and recognises the people and communities who worked alongside them.": "ਜ਼ਿੰਮੇਵਾਰ ਜੀਵਨੀ ਸਿਰਫ਼ ਮਸ਼ਹੂਰ ਨਾਂ ਤੱਕ ਸੀਮਿਤ ਨਹੀਂ ਰਹਿੰਦੀ। ਇਹ ਵਿਅਕਤੀ ਨੂੰ ਉਸ ਦੇ ਸਮੇਂ ਵਿੱਚ ਰੱਖਦੀ ਹੈ, ਉਸ ਦੀ ਲਹਿਰ ਜਾਂ ਸੰਸਥਾ ਸਮਝਾਉਂਦੀ ਹੈ, ਮੁੱਖ ਦਾਅਵਿਆਂ ਦੇ ਸਰੋਤ ਦੱਸਦੀ ਹੈ ਅਤੇ ਨਾਲ ਕੰਮ ਕਰਨ ਵਾਲੇ ਲੋਕਾਂ ਤੇ ਭਾਈਚਾਰਿਆਂ ਨੂੰ ਵੀ ਮਾਨਤਾ ਦਿੰਦੀ ਹੈ।",
+  "Punjab’s history crosses present-day borders and includes different languages, religions, political positions and experiences. Profiles should reflect that breadth without flattening disagreement or turning complex lives into slogans.": "ਪੰਜਾਬ ਦਾ ਇਤਿਹਾਸ ਅੱਜ ਦੀਆਂ ਸਰਹੱਦਾਂ ਤੋਂ ਪਾਰ ਜਾਂਦਾ ਹੈ ਅਤੇ ਇਸ ਵਿੱਚ ਵੱਖ-ਵੱਖ ਭਾਸ਼ਾਵਾਂ, ਧਰਮਾਂ, ਰਾਜਨੀਤਿਕ ਵਿਚਾਰਾਂ ਅਤੇ ਤਜਰਬਿਆਂ ਦਾ ਹਿੱਸਾ ਹੈ। ਜੀਵਨੀਆਂ ਵਿੱਚ ਇਹ ਵਿਸ਼ਾਲਤਾ ਦਿਖਾਈ ਜਾਣੀ ਚਾਹੀਦੀ ਹੈ, ਬਿਨਾਂ ਮਤਭੇਦਾਂ ਨੂੰ ਮਿਟਾਏ ਜਾਂ ਜਟਿਲ ਜੀਵਨਾਂ ਨੂੰ ਨਾਅਰਿਆਂ ਵਿੱਚ ਬਦਲੇ।",
+  "Dates, affiliations, quotations and attributions are checked against reliable records wherever possible. Uncertain details are labelled rather than repeated as established fact.": "ਤਾਰੀਖਾਂ, ਸੰਬੰਧਾਂ, ਹਵਾਲਿਆਂ ਅਤੇ ਕਥਨਾਂ ਦੀ ਜਿੱਥੇ ਸੰਭਵ ਹੋਵੇ ਭਰੋਸੇਯੋਗ ਰਿਕਾਰਡਾਂ ਨਾਲ ਜਾਂਚ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਅਨਿਸ਼ਚਿਤ ਜਾਣਕਾਰੀ ਨੂੰ ਪੱਕਾ ਤੱਥ ਬਣਾਕੇ ਦੁਹਰਾਉਣ ਦੀ ਬਜਾਏ ਸਪਸ਼ਟ ਤੌਰ 'ਤੇ ਦਰਸਾਇਆ ਜਾਂਦਾ ਹੈ।",
+  "The 1947 Partition divided Punjab and transformed everyday life across the region. Families were displaced, communities experienced violence and loss, and millions had to rebuild homes and relationships in new places.": "1947 ਦੀ ਵੰਡ ਨੇ ਪੰਜਾਬ ਨੂੰ ਵੰਡ ਦਿੱਤਾ ਅਤੇ ਪੂਰੇ ਖੇਤਰ ਦੇ ਰੋਜ਼ਾਨਾ ਜੀਵਨ ਨੂੰ ਬਦਲ ਦਿੱਤਾ। ਪਰਿਵਾਰ ਉਜੜੇ, ਭਾਈਚਾਰਿਆਂ ਨੇ ਹਿੰਸਾ ਅਤੇ ਵਿਛੋੜਾ ਸਹਿਆ ਅਤੇ ਲੱਖਾਂ ਲੋਕਾਂ ਨੂੰ ਨਵੀਆਂ ਥਾਵਾਂ ਉੱਤੇ ਘਰ ਤੇ ਰਿਸ਼ਤੇ ਮੁੜ ਬਣਾਉਣੇ ਪਏ।",
+  "Partition memories can include journeys, abandoned homes, changed borders, missing relatives, new beginnings, language, food, objects kept by families and stories passed between generations. No single account represents everyone’s experience.": "ਵੰਡ ਦੀਆਂ ਯਾਦਾਂ ਵਿੱਚ ਸਫ਼ਰ, ਛੱਡੇ ਹੋਏ ਘਰ, ਬਦਲੀਆਂ ਸਰਹੱਦਾਂ, ਵਿਛੜੇ ਰਿਸ਼ਤੇਦਾਰ, ਨਵੀਂ ਸ਼ੁਰੂਆਤ, ਭਾਸ਼ਾ, ਭੋਜਨ, ਪਰਿਵਾਰਾਂ ਵੱਲੋਂ ਸੰਭਾਲੀਆਂ ਵਸਤਾਂ ਅਤੇ ਪੀੜ੍ਹੀ ਦਰ ਪੀੜ੍ਹੀ ਸੁਣਾਈਆਂ ਕਹਾਣੀਆਂ ਸ਼ਾਮਲ ਹੋ ਸਕਦੀਆਂ ਹਨ। ਕੋਈ ਇੱਕ ਬਿਆਨ ਸਭ ਦੇ ਤਜਰਬੇ ਦੀ ਨੁਮਾਇੰਦਗੀ ਨਹੀਂ ਕਰਦਾ।",
+  "Oral histories are shared with care. Memories are attributed to the person or family who provided them, sensitive details are not published without permission, and differing recollections are not forced into one version.": "ਮੌਖਿਕ ਇਤਿਹਾਸ ਸੰਭਾਲ ਨਾਲ ਸਾਂਝਾ ਕੀਤਾ ਜਾਂਦਾ ਹੈ। ਯਾਦਾਂ ਦਾ ਸਿਹਰਾ ਉਨ੍ਹਾਂ ਨੂੰ ਦਿੱਤਾ ਜਾਂਦਾ ਹੈ ਜਿਨ੍ਹਾਂ ਨੇ ਉਹ ਸਾਂਝੀਆਂ ਕੀਤੀਆਂ। ਇਜਾਜ਼ਤ ਤੋਂ ਬਿਨਾਂ ਸੰਵੇਦਨਸ਼ੀਲ ਵੇਰਵੇ ਪ੍ਰਕਾਸ਼ਿਤ ਨਹੀਂ ਹੁੰਦੇ ਅਤੇ ਵੱਖਰੀਆਂ ਯਾਦਾਂ ਨੂੰ ਜ਼ਬਰਦਸਤੀ ਇੱਕ ਰੂਪ ਨਹੀਂ ਦਿੱਤਾ ਜਾਂਦਾ।",
+  "The archive distinguishes documented historical context from personal testimony. It avoids graphic sensationalism, communal blame and unsupported casualty or migration figures.": "ਇਹ ਪੁਰਾਲੇਖ ਦਰਜ ਇਤਿਹਾਸਕ ਸੰਦਰਭ ਅਤੇ ਨਿੱਜੀ ਗਵਾਹੀ ਵਿੱਚ ਫ਼ਰਕ ਰੱਖਦਾ ਹੈ। ਇਹ ਸਨਸਨੀਖੇਜ਼ ਹਿੰਸਕ ਵੇਰਵਿਆਂ, ਕਿਸੇ ਭਾਈਚਾਰੇ ਉੱਤੇ ਸਮੂਹਕ ਦੋਸ਼ ਅਤੇ ਬਿਨਾਂ ਸਬੂਤ ਮੌਤਾਂ ਜਾਂ ਹਿਜਰਤ ਦੇ ਅੰਕੜਿਆਂ ਤੋਂ ਬਚਦਾ ਹੈ।",
+  "Punjab’s spiritual landscape includes Sikh, Muslim, Hindu, Christian and other communities, with histories that have shaped architecture, poetry, music, service, pilgrimage and local life.": "ਪੰਜਾਬ ਦੇ ਅਧਿਆਤਮਿਕ ਜੀਵਨ ਵਿੱਚ ਸਿੱਖ, ਮੁਸਲਿਮ, ਹਿੰਦੂ, ਇਸਾਈ ਅਤੇ ਹੋਰ ਭਾਈਚਾਰੇ ਸ਼ਾਮਲ ਹਨ। ਇਨ੍ਹਾਂ ਦੇ ਇਤਿਹਾਸ ਨੇ ਇਮਾਰਤਸਾਜ਼ੀ, ਕਵਿਤਾ, ਸੰਗੀਤ, ਸੇਵਾ, ਤੀਰਥ-ਯਾਤਰਾ ਅਤੇ ਸਥਾਨਕ ਜੀਵਨ ਨੂੰ ਰੂਪ ਦਿੱਤਾ ਹੈ।",
+  "Explore sacred architecture and places of worship alongside the people and practices connected with them: devotional singing, prayer, langar and community service, Sufi poetry, festivals, pilgrimage routes and traditions of remembrance.": "ਪਵਿੱਤਰ ਇਮਾਰਤਾਂ ਅਤੇ ਇਬਾਦਤਗਾਹਾਂ ਦੇ ਨਾਲ ਉਨ੍ਹਾਂ ਨਾਲ ਜੁੜੇ ਲੋਕਾਂ ਅਤੇ ਰੀਤਾਂ ਨੂੰ ਜਾਣੋ: ਸ਼ਬਦ-ਕੀਰਤਨ, ਅਰਦਾਸ, ਲੰਗਰ ਅਤੇ ਭਾਈਚਾਰਕ ਸੇਵਾ, ਸੂਫ਼ੀ ਕਵਿਤਾ, ਤਿਉਹਾਰ, ਤੀਰਥ-ਮਾਰਗ ਅਤੇ ਯਾਦ ਦੀਆਂ ਰਵਾਇਤਾਂ।",
+  "Religious heritage is presented with respect for each tradition and its own terminology. Shared histories are explored carefully without claiming that distinct beliefs or practices are interchangeable.": "ਧਾਰਮਿਕ ਵਿਰਾਸਤ ਨੂੰ ਹਰ ਰਵਾਇਤ ਅਤੇ ਉਸ ਦੀ ਆਪਣੀ ਸ਼ਬਦਾਵਲੀ ਦੇ ਸਤਿਕਾਰ ਨਾਲ ਪੇਸ਼ ਕੀਤਾ ਜਾਂਦਾ ਹੈ। ਸਾਂਝੇ ਇਤਿਹਾਸ ਨੂੰ ਧਿਆਨ ਨਾਲ ਸਮਝਿਆ ਜਾਂਦਾ ਹੈ, ਬਿਨਾਂ ਵੱਖਰੇ ਵਿਸ਼ਵਾਸਾਂ ਜਾਂ ਰੀਤਾਂ ਨੂੰ ਇੱਕੋ ਜਿਹਾ ਦੱਸੇ।",
+  "Descriptions distinguish historical evidence, community interpretation and living belief. The archive does not rank faiths or present one tradition as the sole expression of Punjab.": "ਵੇਰਵਿਆਂ ਵਿੱਚ ਇਤਿਹਾਸਕ ਸਬੂਤ, ਭਾਈਚਾਰੇ ਦੀ ਵਿਆਖਿਆ ਅਤੇ ਜੀਵੰਤ ਵਿਸ਼ਵਾਸ ਨੂੰ ਵੱਖ ਰੱਖਿਆ ਜਾਂਦਾ ਹੈ। ਇਹ ਪੁਰਾਲੇਖ ਧਰਮਾਂ ਦੀ ਦਰਜਾਬੰਦੀ ਨਹੀਂ ਕਰਦਾ ਅਤੇ ਕਿਸੇ ਇੱਕ ਰਵਾਇਤ ਨੂੰ ਪੰਜਾਬ ਦੀ ਇਕੱਲੀ ਪਛਾਣ ਨਹੀਂ ਦੱਸਦਾ।",
+  "Punjab Roots labels oral memories, historical records and interpretation clearly. If a detail is uncertain or contested, that uncertainty stays visible.": "ਪੰਜਾਬ ਰੂਟਸ ਮੌਖਿਕ ਯਾਦਾਂ, ਇਤਿਹਾਸਕ ਰਿਕਾਰਡਾਂ ਅਤੇ ਵਿਆਖਿਆ ਨੂੰ ਸਪਸ਼ਟ ਤੌਰ 'ਤੇ ਵੱਖ ਦਰਸਾਉਂਦਾ ਹੈ। ਜੇ ਕੋਈ ਵੇਰਵਾ ਅਨਿਸ਼ਚਿਤ ਜਾਂ ਵਿਵਾਦਿਤ ਹੋਵੇ, ਤਾਂ ਇਹ ਗੱਲ ਵੀ ਖੁੱਲ੍ਹ ਕੇ ਦੱਸੀ ਜਾਂਦੀ ਹੈ।",
+  "Made with respect for Punjab and its people.": "ਪੰਜਾਬ ਅਤੇ ਇਸ ਦੇ ਲੋਕਾਂ ਦੇ ਸਤਿਕਾਰ ਨਾਲ ਤਿਆਰ ਕੀਤਾ।",
+  "Discover the Roots. Preserve the Legacy.": "ਜੜ੍ਹਾਂ ਨੂੰ ਜਾਣੋ। ਵਿਰਾਸਤ ਸੰਭਾਲੋ।",
+  "Explore the Punjab we inherited — its fields, homes, craftsmanship, everyday objects and the stories that keep them alive.": "ਉਸ ਪੰਜਾਬ ਨੂੰ ਜਾਣੋ ਜੋ ਸਾਨੂੰ ਵਿਰਸੇ ਵਿੱਚ ਮਿਲਿਆ — ਇਸ ਦੇ ਖੇਤ, ਘਰ, ਕਾਰੀਗਰੀ, ਰੋਜ਼ਾਨਾ ਦੀਆਂ ਵਸਤਾਂ ਅਤੇ ਉਨ੍ਹਾਂ ਨੂੰ ਜਿਉਂਦਾ ਰੱਖਣ ਵਾਲੀਆਂ ਕਹਾਣੀਆਂ।"
+});
+
   let currentLanguage = 'en';
   function applyLanguage(language) {
     currentLanguage = language;
@@ -549,12 +611,7 @@ document.addEventListener('DOMContentLoaded', () => {
       : '<svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
   };
   const start = () => {
-    const style = document.querySelector('link[rel="stylesheet"][href*="assets/css/style.css"]');
-    if (style) {
-      const url = new URL(style.href, document.baseURI);
-      url.searchParams.set('v', '20261124-place-profiles');
-      if (style.href !== url.href) style.href = url.href;
-    }
+    // Keep each page's declared stylesheet version; do not override its cache key.
     scan(document.body);
     if (window.MutationObserver && document.body) {
       const observer = new MutationObserver(records => records.forEach(record => {
