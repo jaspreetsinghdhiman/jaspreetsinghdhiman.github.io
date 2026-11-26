@@ -1666,3 +1666,53 @@ html{scroll-behavior:smooth}
 .theme-prose h3{scroll-margin-top:110px}
 .theme-prose p{overflow-wrap:anywhere}
 @media(max-width:600px){.theme-prose .theme-source-list{padding:19px 17px;margin-top:24px}.theme-prose .theme-source-list h3{font-size:23px}.theme-prose .theme-source-list a{font-size:10px}}
+
+
+/* Header visibility restoration — original forest-green and parchment palette */
+.announcement{
+  background:#263326!important;
+  color:#e9e1d2!important;
+  letter-spacing:.13em!important;
+}
+.site-header{
+  background:#f4f0e7!important;
+  color:#22291f!important;
+  border-bottom:1px solid rgba(38,51,38,.15)!important;
+}
+.site-header .brand b{
+  color:#22291f!important;
+  font-family:'Instrument Sans','Noto Sans Gurmukhi',Arial,sans-serif!important;
+  font-size:18px!important;
+  letter-spacing:.01em!important;
+}
+.site-header .brand small{color:#77766d!important}
+.site-header .main-nav>a{
+  color:#53574d!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+.site-header .main-nav>a:hover,
+.site-header .main-nav>a.active{color:#9b7846!important}
+.site-header .main-nav .nav-cta{
+  color:#22291f!important;
+  border-color:#b8955d!important;
+}
+.site-header .language-toggle,
+.site-header .menu-toggle{color:#263326!important}
+@media(max-width:900px){
+  .site-header .main-nav{
+    background:#f4f0e7!important;
+    border-top:1px solid rgba(38,51,38,.15)!important;
+  }
+  .site-header .main-nav>a,
+  .site-header .main-nav .language-toggle{
+    color:#53574d!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+  .site-header .main-nav .nav-cta{
+    color:#22291f!important;
+    border-color:#b8955d!important;
+  }
+  .site-header .menu-toggle{color:#263326!important}
+}
