@@ -176,6 +176,8 @@ class HeritageBrowserSmokeTests(unittest.TestCase):
                     page.evaluate("""document.fonts.check('500 20px "Cormorant Garamond"')"""),
                     f"Display font did not load on {route}",
                 )
+                if mobile:
+                    page.locator(".menu-toggle").click()
                 page.locator(".language-toggle").first.click()
                 self.assertEqual(page.locator("html").get_attribute("lang"), "pa")
                 self.assertIn(punjabi_title, page.locator(".theme-hero h1").inner_text())
