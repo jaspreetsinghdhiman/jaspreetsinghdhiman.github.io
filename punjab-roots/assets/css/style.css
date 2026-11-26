@@ -2155,5 +2155,5 @@ h1[lang="pa"],h2[lang="pa"],h3[lang="pa"],.punjabi-heading{
 }
 @media(prefers-reduced-motion:reduce){
  .hero-video{display:none}
- .hero-fallback{display:block}
+ .hero-video~.hero-fallback{display:block}
 }
