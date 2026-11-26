@@ -604,3 +604,47 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, {once:true});
   else start();
 })();
+
+
+/* Premium heritage interactions: mega menu, branded preloader and gentle story reveals. */
+(() => {
+  const addMegaMenu = () => {
+    const nav = document.querySelector('.main-nav');
+    if (!nav || nav.querySelector('.heritage-mega')) return;
+    const wrap = document.createElement('div');
+    wrap.className = 'heritage-mega';
+    wrap.innerHTML = '<button class="heritage-mega-trigger" type="button" aria-expanded="false">Heritage <span>⌄</span></button><div class="heritage-mega-panel"><div class="heritage-mega-intro"><small>EXPLORE THE ARCHIVE</small><strong>Many stories.<br>One shared heritage.</strong><a href="explore.html">Explore everything ↗</a></div><div class="heritage-mega-links"><a href="collections/festivals.html"><small>01</small><span>Fairs &amp; Festivals</span><b>↗</b></a><a href="collections/traditions.html"><small>02</small><span>Beliefs &amp; Traditions</span><b>↗</b></a><a href="stories.html"><small>03</small><span>People &amp; Personalities</span><b>↗</b></a><a href="stories.html"><small>04</small><span>Partition Memories</span><b>↗</b></a><a href="heritage-atlas.html"><small>05</small><span>Spiritual Heritage</span><b>↗</b></a><a href="heritage-atlas.html"><small>06</small><span>Places &amp; Living Memory</span><b>↗</b></a></div></div>';
+    const anchor = [...nav.querySelectorAll('a')].find(a => /explore/i.test(a.textContent));
+    if (anchor) anchor.after(wrap); else nav.prepend(wrap);
+    const trigger = wrap.querySelector('button');
+    trigger.addEventListener('click', () => {
+      const open = wrap.classList.toggle('is-open');
+      trigger.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('click', e => { if (!wrap.contains(e.target)) { wrap.classList.remove('is-open'); trigger.setAttribute('aria-expanded','false'); } });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { wrap.classList.remove('is-open'); trigger.setAttribute('aria-expanded','false'); } });
+  };
+  const addLoader = () => {
+    if (document.querySelector('.heritage-loader') || document.body.dataset.skipHeritageLoader === 'true') return;
+    const loader = document.createElement('div');
+    loader.className = 'heritage-loader';
+    loader.setAttribute('aria-hidden','true');
+    loader.innerHTML = '<div class="heritage-loader-mark">PR</div><span>PUNJAB ROOTS</span><i></i>';
+    document.body.prepend(loader);
+    const dismiss = () => { loader.classList.add('is-hidden'); window.setTimeout(() => loader.remove(), 700); };
+    if (document.readyState === 'complete') window.setTimeout(dismiss, 220);
+    else window.addEventListener('load', () => window.setTimeout(dismiss, 220), {once:true});
+    window.setTimeout(dismiss, 1800);
+  };
+  const addReveals = () => {
+    const targets = document.querySelectorAll('.intro-grid,.section-heading,.collection-card,.object-card,.manifesto-content,.story-feature,.explore-card,.gallery-item,.detail-intro');
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    targets.forEach(el => el.classList.add('heritage-reveal'));
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
+    }), {threshold:.12,rootMargin:'0px 0px -35px 0px'});
+    targets.forEach(el => observer.observe(el));
+  };
+  const init = () => { addMegaMenu(); addLoader(); addReveals(); };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, {once:true}); else init();
+})();
