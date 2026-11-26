@@ -2069,3 +2069,73 @@ h1[lang="pa"],h2[lang="pa"],h3[lang="pa"],.punjabi-heading{
   .footer-column>a{font-size:9px!important}
 }
 
+
+
+/* Simplified professional layout — “The Stories That Shape Us” */
+.theme-discovery{
+  background:#f4f0e7!important;
+  color:#22291f!important;
+  padding-block:clamp(54px,7vw,88px)!important;
+}
+.theme-discovery .section-heading{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:24px;
+  margin-bottom:30px!important;
+}
+.theme-discovery .section-heading h2{color:#22291f!important}
+.theme-discovery .section-heading h2 em{color:#8f7043!important}
+.theme-discovery .eyebrow{color:#77766d!important}
+.theme-discovery .text-link{color:#344332!important}
+.theme-discovery-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:18px!important;
+  background:transparent!important;
+  border:0!important;
+}
+.theme-discovery-grid a{
+  min-height:174px!important;
+  padding:24px 25px!important;
+  justify-content:flex-start!important;
+  background:#fffdf8!important;
+  border:1px solid rgba(38,51,38,.12)!important;
+  border-radius:3px!important;
+  transform:none!important;
+  box-shadow:0 5px 18px rgba(34,41,31,.035)!important;
+}
+.theme-discovery-grid a:hover{
+  background:#fff!important;
+  border-color:rgba(184,149,93,.55)!important;
+  transform:translateY(-3px)!important;
+  box-shadow:0 10px 24px rgba(34,41,31,.07)!important;
+}
+.theme-discovery-grid small{
+  color:#927447!important;
+  font-size:9px!important;
+  letter-spacing:.12em!important;
+}
+.theme-discovery-grid b{
+  color:#263326!important;
+  font-size:21px!important;
+  line-height:1.25!important;
+  margin:18px 0 9px!important;
+  font-weight:600!important;
+}
+.theme-discovery-grid span{
+  color:#6d7067!important;
+  font-size:12px!important;
+  line-height:1.6!important;
+}
+@media(max-width:900px){
+  .theme-discovery-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}
+}
+@media(max-width:600px){
+  .theme-discovery{padding-block:48px!important}
+  .theme-discovery .section-heading{align-items:flex-start;margin-bottom:22px!important}
+  .theme-discovery-grid{grid-template-columns:1fr!important;gap:12px!important}
+  .theme-discovery-grid a{min-height:0!important;padding:19px 20px!important}
+  .theme-discovery-grid b{font-size:19px!important;margin:12px 0 6px!important}
+  .theme-discovery-grid span{font-size:12px!important}
+}
