@@ -312,6 +312,24 @@ document.addEventListener('DOMContentLoaded', () => {
   "National Mission on Monuments and Antiquities — Punjab built heritage inventory": "ਰਾਸ਼ਟਰੀ ਸਮਾਰਕ ਅਤੇ ਪੁਰਾਤਨ ਵਸਤਾਂ ਮਿਸ਼ਨ — ਪੰਜਾਬ ਦੀ ਇਮਾਰਤੀ ਵਿਰਾਸਤ ਸੂਚੀ"
 });
 
+  Object.assign(paText, {
+  "THE STORIES THAT SHAPE US": "ਸਾਨੂੰ ਘੜਨ ਵਾਲੀਆਂ ਕਹਾਣੀਆਂ",
+  "NEW HERITAGE THEMES": "ਨਵੇਂ ਵਿਰਾਸਤੀ ਵਿਸ਼ੇ",
+  "Explore the many layers of ": "ਪੰਜਾਬ ਦੀਆਂ ਕਈ ਪਰਤਾਂ ਜਾਣੋ ",
+  "Punjab.": "ਪੰਜਾਬ।",
+  "COMMUNITY LIFE": "ਭਾਈਚਾਰਕ ਜੀਵਨ",
+  "EVERYDAY CULTURE": "ਰੋਜ਼ਾਨਾ ਸੱਭਿਆਚਾਰ",
+  "PEOPLE & HISTORY": "ਲੋਕ ਅਤੇ ਇਤਿਹਾਸ",
+  "MEMORY & MIGRATION": "ਯਾਦਾਂ ਅਤੇ ਹਿਜਰਤ",
+  "FAITH & SPIRITUALITY": "ਧਰਮ ਅਤੇ ਅਧਿਆਤਮਿਕਤਾ",
+  "Beliefs & Social Traditions": "ਵਿਸ਼ਵਾਸ ਅਤੇ ਸਮਾਜਿਕ ਰਵਾਇਤਾਂ",
+  "Gatherings, trade and shared celebration ↗": "ਇਕੱਠ, ਵਪਾਰ ਅਤੇ ਸਾਂਝੇ ਜਸ਼ਨ ↗",
+  "Customs carried across generations ↗": "ਪੀੜ੍ਹੀਆਂ ਤੋਂ ਚੱਲਦੀਆਂ ਰਸਮਾਂ ↗",
+  "Lives that shaped Punjab’s history ↗": "ਪੰਜਾਬ ਦਾ ਇਤਿਹਾਸ ਘੜਨ ਵਾਲੇ ਜੀਵਨ ↗",
+  "Stories held by families and places ↗": "ਪਰਿਵਾਰਾਂ ਅਤੇ ਥਾਵਾਂ ਦੀਆਂ ਸੰਭਾਲੀਆਂ ਕਹਾਣੀਆਂ ↗",
+  "Sacred places, poetry and service ↗": "ਪਵਿੱਤਰ ਥਾਵਾਂ, ਕਵਿਤਾ ਅਤੇ ਸੇਵਾ ↗"
+});
+
   let currentLanguage = 'en';
   function applyLanguage(language) {
     currentLanguage = language;
