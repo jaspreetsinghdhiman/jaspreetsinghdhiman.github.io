@@ -171,6 +171,7 @@ class HeritageBrowserSmokeTests(unittest.TestCase):
                     page.locator(".theme-source-list a").count(), 0,
                     f"Missing source references on {route}",
                 )
+                page.evaluate("document.fonts.ready")
                 self.assertTrue(
                     page.evaluate("""document.fonts.check('500 20px "Cormorant Garamond"')"""),
                     f"Display font did not load on {route}",
