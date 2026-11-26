@@ -1965,3 +1965,107 @@ html{scroll-behavior:smooth}
   .hero-actions .button-gold{padding-inline:15px!important}
 }
 
+/* Final design system alignment — Instrument Sans wordmark across the site */
+:root{
+  --sans:'Instrument Sans','Noto Sans Gurmukhi',Arial,sans-serif;
+  --serif:'Instrument Sans','Noto Sans Gurmukhi',Arial,sans-serif;
+}
+body{font-family:var(--sans)!important}
+.brand b{font-family:'Instrument Sans','Noto Sans Gurmukhi',Arial,sans-serif!important}
+.hero h1,.page-hero h1,.intro-grid h2,.section-heading h2,
+.manifesto h2,.detail-intro h2,.theme-hero h1,.theme-story-grid h2,
+.theme-related h2,.theme-prose h3,.theme-opening,.theme-editorial-note strong,
+.collection-meta b,.object-card h3,.explore-card h2,.story-feature-copy h2,
+.story-aside>a b,.values-grid h3,.contribution-layout h2,.contact-card h2,
+.atlas-hero h1,.atlas-rivers h2,.atlas-audio h2,.river-note h3,
+.theme-discovery-grid b,.theme-related-links a{
+  font-family:'Instrument Sans','Noto Sans Gurmukhi',Arial,sans-serif!important;
+  letter-spacing:-.025em;
+}
+[lang="pa"],.punjabi-copy{font-family:'Noto Sans Gurmukhi',sans-serif!important}
+h1[lang="pa"],h2[lang="pa"],h3[lang="pa"],.punjabi-heading{
+  font-family:'Noto Serif Gurmukhi',serif!important;
+}
+
+/* Homepage heritage themes — warm parchment instead of flat black */
+.theme-discovery{
+  background:#e9e1d2!important;
+  color:#263326!important;
+}
+.theme-discovery .section-heading h2{color:#263326!important}
+.theme-discovery .section-heading h2 em{color:#987744!important}
+.theme-discovery .eyebrow{color:#987744!important}
+.theme-discovery .text-link{color:#344332!important}
+.theme-discovery-grid{
+  background:rgba(38,51,38,.18)!important;
+  border:1px solid rgba(38,51,38,.18)!important;
+  gap:1px!important;
+}
+.theme-discovery-grid a{
+  background:#f4f0e7!important;
+  min-height:180px!important;
+}
+.theme-discovery-grid a:hover{
+  background:#fffaf0!important;
+  box-shadow:0 10px 26px rgba(38,51,38,.09)!important;
+}
+.theme-discovery-grid small{color:#987744!important}
+.theme-discovery-grid b{color:#263326!important}
+.theme-discovery-grid span{color:#666b5e!important}
+
+/* Compact, balanced footer layout on phones */
+@media(max-width:700px){
+  .site-footer{padding:34px 0 18px!important}
+  .footer-main{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:22px 18px!important;
+    padding:4px 0 24px!important;
+  }
+  .footer-brand-column{
+    grid-column:1/-1!important;
+    padding-bottom:5px!important;
+  }
+  .footer-brand-column>p{
+    max-width:420px!important;
+    margin:13px 0 8px!important;
+    font-size:11px!important;
+    line-height:1.65!important;
+  }
+  .footer-motto{font-size:13px!important}
+  .footer-column{
+    min-width:0!important;
+    gap:9px!important;
+    padding-top:4px!important;
+  }
+  .footer-column>small{
+    font-size:8px!important;
+    margin-bottom:3px!important;
+    line-height:1.4!important;
+  }
+  .footer-column>a{
+    font-size:10px!important;
+    line-height:1.5!important;
+    overflow-wrap:anywhere!important;
+  }
+  .footer-bottom{
+    display:grid!important;
+    grid-template-columns:1fr auto!important;
+    align-items:center!important;
+    gap:9px 12px!important;
+    padding-top:15px!important;
+    font-size:9px!important;
+  }
+  .footer-bottom>span:nth-child(2){
+    grid-column:1/-1!important;
+    grid-row:2!important;
+    width:auto!important;
+    order:initial!important;
+  }
+  .footer-bottom>a{grid-column:2!important;grid-row:1!important}
+}
+@media(max-width:360px){
+  .footer-main{gap:19px 12px!important}
+  .footer-column>a{font-size:9px!important}
+}
+
