@@ -1654,3 +1654,15 @@ html{scroll-behavior:smooth}
 @font-face{font-family:'DM Sans';src:url('../fonts/dm-sans-500.woff2') format('woff2');font-style:normal;font-weight:500;font-display:swap}
 @font-face{font-family:'DM Sans';src:url('../fonts/dm-sans-600.woff2') format('woff2');font-style:normal;font-weight:600;font-display:swap}
 @font-face{font-family:'DM Sans';src:url('../fonts/dm-sans-700.woff2') format('woff2');font-style:normal;font-weight:700;font-display:swap}
+
+/* Source notes and expanded editorial sections on heritage story pages */
+.theme-prose .theme-source-list{margin-top:30px;padding:24px 26px;background:#e9e1d4;border:1px solid rgba(150,120,70,.2)}
+.theme-prose .theme-source-list h3{margin:0 0 8px;font:500 25px var(--serif);color:#29251e}
+.theme-prose .theme-source-list p{font-size:12px!important;line-height:1.75!important;margin:0 0 13px!important;color:#6d6558!important}
+.theme-prose .theme-source-list ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.theme-prose .theme-source-list li{margin:0;padding-top:9px;border-top:1px solid rgba(120,100,65,.2)}
+.theme-prose .theme-source-list a{font-size:11px;line-height:1.6;color:#856638;text-decoration:underline;text-decoration-color:rgba(133,102,56,.35);text-underline-offset:3px}
+.theme-prose .theme-source-list a:hover{color:#332719;text-decoration-color:#b99a62}
+.theme-prose h3{scroll-margin-top:110px}
+.theme-prose p{overflow-wrap:anywhere}
+@media(max-width:600px){.theme-prose .theme-source-list{padding:19px 17px;margin-top:24px}.theme-prose .theme-source-list h3{font-size:23px}.theme-prose .theme-source-list a{font-size:10px}}
