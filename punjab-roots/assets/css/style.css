@@ -1666,3 +1666,41 @@ html{scroll-behavior:smooth}
 .theme-prose h3{scroll-margin-top:110px}
 .theme-prose p{overflow-wrap:anywhere}
 @media(max-width:600px){.theme-prose .theme-source-list{padding:19px 17px;margin-top:24px}.theme-prose .theme-source-list h3{font-size:23px}.theme-prose .theme-source-list a{font-size:10px}}
+
+
+/* Punjab Roots original heritage palette restored across editorial theme pages */
+.theme-hero{
+  background:radial-gradient(ellipse at 78% 18%,rgba(214,189,145,.16),transparent 34%),linear-gradient(125deg,#20291f,#263326 72%,#344332);
+  color:#f4f0e7;
+}
+.theme-hero:after{background-image:repeating-linear-gradient(135deg,transparent 0 18px,rgba(214,189,145,.09) 19px,transparent 20px)}
+.theme-kicker{color:#d6bd91}
+.theme-hero h1{color:#f4f0e7}
+.theme-lead{color:#e2dfd5}
+.theme-breadcrumb{color:#d0c8b7}
+.theme-breadcrumb a{color:#d6bd91}
+.theme-story{background:#f4f0e7}
+.theme-story-grid h2,.theme-related h2{color:#22291f}
+.theme-story-grid h2 em,.theme-related h2 em{color:#9b7846}
+.theme-opening{color:#393f34}
+.theme-prose h3{color:#263326}
+.theme-prose p:not(.theme-opening){color:#696a60}
+.theme-editorial-note{background:#e9e1d2;border-left-color:#b8955d}
+.theme-editorial-note strong{color:#263326}
+.theme-editorial-note a{color:#8d6b3e;border-bottom-color:#b8955d}
+.theme-related{background:#e9e1d2}
+.theme-related-links a{border-top-color:rgba(38,51,38,.18);color:#344332}
+.theme-related-links a:hover{color:#9b7846}
+
+/* Keep the five featured homepage themes in the same forest-and-gold identity */
+.theme-discovery{background:#263326;color:#f4f0e7}
+.theme-discovery .section-heading h2{color:#f4f0e7}
+.theme-discovery .section-heading h2 em{color:#d6bd91}
+.theme-discovery .eyebrow{color:#d6bd91}
+.theme-discovery .text-link{color:#f4f0e7}
+.theme-discovery-grid{background:rgba(214,189,145,.25);border-color:rgba(214,189,145,.25)}
+.theme-discovery-grid a{background:#20291f}
+.theme-discovery-grid a:hover{background:#344332}
+.theme-discovery-grid small{color:#d6bd91}
+.theme-discovery-grid b{color:#f4f0e7}
+.theme-discovery-grid span{color:#d9d6ca}
