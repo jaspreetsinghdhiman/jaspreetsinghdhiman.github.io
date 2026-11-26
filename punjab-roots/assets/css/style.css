@@ -1704,3 +1704,25 @@ html{scroll-behavior:smooth}
 .theme-discovery-grid small{color:#d6bd91}
 .theme-discovery-grid b{color:#f4f0e7}
 .theme-discovery-grid span{color:#d9d6ca}
+
+
+/* Header and footer palette alignment — original Punjab Roots identity */
+.site-header{
+  background:rgba(244,240,231,.97);
+  border-bottom:1px solid rgba(38,51,38,.14);
+  box-shadow:0 5px 24px rgba(29,37,27,.045);
+}
+.main-nav>a{color:#4f594b}
+.main-nav>a:hover,.main-nav>a.active{color:#987544}
+.main-nav .nav-cta{color:#263326;border-color:#b8955d}
+.main-nav .nav-cta:hover{background:#263326;color:#f4f0e7;border-color:#263326}
+.main-nav{background:#f4f0e7}
+.site-footer{background:#263326;color:#f4f0e7}
+.footer-top>p,.footer-motto,.footer-column>small{color:#d6bd91}
+.footer-links a,.footer-bottom,.footer-brand-column>p,.footer-column>a{color:#d8d8cc}
+.footer-column>a:hover,.footer-bottom a{color:#e4c994}
+.footer-bottom{border-top:1px solid rgba(214,189,145,.24)}
+@media(max-width:760px){
+ .main-nav{background:#f4f0e7}
+ .main-nav>a,.language-toggle{border-bottom:1px solid rgba(38,51,38,.13)}
+}
