@@ -172,7 +172,7 @@ class HeritageBrowserSmokeTests(unittest.TestCase):
                     f"Missing source references on {route}",
                 )
                 self.assertTrue(
-                    page.evaluate("document.fonts.check('500 20px \\"Cormorant Garamond\\"')"),
+                    page.evaluate("""document.fonts.check('500 20px "Cormorant Garamond"')"""),
                     f"Display font did not load on {route}",
                 )
                 page.locator(".language-toggle").first.click()
