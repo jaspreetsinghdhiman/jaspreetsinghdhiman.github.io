@@ -27,6 +27,34 @@ img{display:block;max-width:100%}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
 
 .demo-mobile-menu .menu-action{margin-top:12px;padding:15px 17px!important;background:var(--navy,var(--rust,var(--ink)));color:#fff!important;border:0!important;text-align:center;font-weight:700;letter-spacing:.04em}
+
+/* ===== SAFFRON TABLE — HOSPITALITY POLISH ===== */
+.hero{position:relative;isolation:isolate;border-radius:2px;overflow:hidden;background-position:center 54%}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,22,17,.72),rgba(18,22,17,.12) 80%);pointer-events:none}
+.hero-copy{position:relative;z-index:1}
+.intro{max-width:900px}
+.dish{transition:padding .25s ease,border-color .25s ease}
+.dish:hover{padding-left:10px;border-color:var(--rust)}
+.dish h3{letter-spacing:-.015em}
+.reserve{position:relative;overflow:hidden}
+.reserve:after{content:"";position:absolute;right:-100px;top:-120px;width:320px;height:320px;border:1px solid rgba(229,185,158,.22);border-radius:50%;box-shadow:0 0 0 35px rgba(229,185,158,.04),0 0 0 70px rgba(229,185,158,.03);pointer-events:none}
+.form{position:relative;z-index:1}
+@media(max-width:760px){
+ .nav{gap:9px}
+ .logo{font-size:22px;white-space:nowrap}
+ .book:not(.hero .book){display:none}
+ .demo-menu-toggle{padding:9px 10px;white-space:nowrap}
+ .hero{min-height:530px;background-position:58% center}
+ .hero:before{background:linear-gradient(0deg,rgba(18,22,17,.8),rgba(18,22,17,.08) 100%)}
+ .hero-copy{padding:9vw 7vw}
+ .hero h1{font-size:clamp(44px,12vw,66px)}
+ .intro h2,.menu-head h2{line-height:1.08}
+ .dish{gap:12px}
+ .dish h3{font-size:21px}
+ .reserve{padding:52px 7vw}
+ .reserve:after{right:-210px}
+}
+@media(max-width:360px){.logo{font-size:19px}.demo-menu-toggle{font-size:10px}}
 </style></head><body><div class="demo-note">Independent portfolio concept · Frontend demo by Jaspreet Singh</div><div class="top">GOOD FOOD. GOOD COMPANY. ALWAYS.</div><nav class="nav"><a class="logo" href="#">Saffron Table</a><div class="links"><a href="#story">Our story</a><a href="#menu">The menu</a><a href="#visit">Find us</a></div><a class="book" href="#reserve">Reserve a table</a><button class="demo-menu-toggle" type="button" aria-expanded="false" aria-controls="demoMobileMenu">Menu <span aria-hidden="true">＋</span></button></nav><div class="demo-mobile-menu" id="demoMobileMenu" aria-label="Project navigation"><a href="#story">Our story</a><a href="#menu">The menu</a><a href="#visit">Find us</a><a class="menu-action" href="#reserve">Reserve a table ↗</a></div><header class="hero"><div class="hero-copy"><span class="eyebrow">A neighbourhood dining room</span><h1>Gather around<br>something good.</h1><p>Season-led plates, thoughtful pours and the kind of evening that makes you stay a little longer.</p><a class="book" href="#menu">Explore the menu ↗</a></div></header><main><section class="section" id="story"><div class="intro"><span class="eyebrow" style="color:var(--rust)">A little about us</span><h2>Made with care. Shared with joy.</h2><p>At Saffron Table, familiar flavours meet a fresh point of view. We cook with the seasons, source thoughtfully and believe the best meals are the ones shared.</p></div></section><section class="section" id="menu" style="background:#ebe4d8"><div class="menu-head"><div><span class="eyebrow" style="color:var(--rust)">From our kitchen</span><h2>A menu worth slowing down for.</h2></div><div class="tabs"><button class="active" data-cat="all">All</button><button data-cat="small">Small plates</button><button data-cat="mains">Mains</button><button data-cat="dessert">Dessert</button></div></div><div class="menu-grid" id="dishes"></div></section><section class="reserve" id="reserve"><div><span class="eyebrow">Your table is waiting</span><h2>Make an evening of it.</h2><p>Planning a catch-up, a celebration or just a lovely dinner? Send a reservation request through our demo form.</p><p>Tue–Sun · 12:00–15:00 & 19:00–23:00</p></div><form class="form" onsubmit="sendDemoEnquiry(event, 'Saffron Table demo enquiry — not a restaurant booking')"><input required placeholder="Your name"><input required type="email" placeholder="Email address"><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><input required type="date"><select><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5 guests</option><option>6 guests</option></select></div><select><option>7:00 PM</option><option>7:30 PM</option><option>8:00 PM</option><option>8:30 PM</option><option>9:00 PM</option></select><button>Request a table ↗</button></form></section></main><footer class="footer" id="visit"><b>SAFFRON TABLE</b><span>Seasonal dining · Illustrative restaurant concept</span><span>Amritsar, Punjab · Demo location</span><a class="demo-credit" href="mailto:jassp708737@gmail.com?subject=Website%20project%20enquiry">Want a website like this? Contact Jaspreet ↗</a></footer><button class="basket" onclick="alert('Your tasting list has '+order.length+' item(s): '+order.join(', '))">Tasting list (<span id="orderCount">0</span>)</button><div class="notice" id="notice"></div><script>
 const menu=[['Charred carrots','small','Smoked yoghurt, toasted seeds','₹320'],['Crispy lotus stem','small','Tamarind glaze, fresh herbs','₹360'],['Burrata & tomato','small','Stone fruit, basil oil','₹480'],['Wild mushroom risotto','mains','Aged parmesan, thyme','₹620'],['Slow cooked lamb','mains','Saffron jus, seasonal greens','₹780'],['Roasted cauliflower','mains','Almond cream, chilli crisp','₹520'],['Cardamom brûlée','dessert','Seasonal berries','₹290'],['Dark chocolate tart','dessert','Sea salt, vanilla cream','₹340']];let order=[];function draw(c='all'){document.querySelector('#dishes').innerHTML=menu.filter(x=>c==='all'||x[1]===c).map(x=>'<article class="dish"><div><h3>'+x[0]+'</h3><p>'+x[2]+'</p><button style="border:0;background:none;padding:10px 0 0;text-decoration:underline;cursor:pointer;font-size:11px" onclick="add(\''+x[0]+'\')">Add to tasting list +</button></div><b>'+x[3]+'</b></article>').join('')}function add(n){order.push(n);document.querySelector('#orderCount').textContent=order.length;let e=document.querySelector('#notice');e.textContent=n+' added to your tasting list';e.style.display='block';setTimeout(()=>e.style.display='none',1800)}document.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-cat]').forEach(x=>x.classList.remove('active'));b.classList.add('active');draw(b.dataset.cat)});draw();
 </script>
@@ -56,30 +84,3 @@ function sendDemoEnquiry(event,project){
 }
 </script>
 </body></html>
-/* ===== SAFFRON TABLE — HOSPITALITY POLISH ===== */
-.hero{position:relative;isolation:isolate;border-radius:2px;overflow:hidden;background-position:center 54%}
-.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,22,17,.72),rgba(18,22,17,.12) 80%);pointer-events:none}
-.hero-copy{position:relative;z-index:1}
-.intro{max-width:900px}
-.dish{transition:padding .25s ease,border-color .25s ease}
-.dish:hover{padding-left:10px;border-color:var(--rust)}
-.dish h3{letter-spacing:-.015em}
-.reserve{position:relative;overflow:hidden}
-.reserve:after{content:"";position:absolute;right:-100px;top:-120px;width:320px;height:320px;border:1px solid rgba(229,185,158,.22);border-radius:50%;box-shadow:0 0 0 35px rgba(229,185,158,.04),0 0 0 70px rgba(229,185,158,.03);pointer-events:none}
-.form{position:relative;z-index:1}
-@media(max-width:760px){
- .nav{gap:9px}
- .logo{font-size:22px;white-space:nowrap}
- .book:not(.hero .book){display:none}
- .demo-menu-toggle{padding:9px 10px;white-space:nowrap}
- .hero{min-height:530px;background-position:58% center}
- .hero:before{background:linear-gradient(0deg,rgba(18,22,17,.8),rgba(18,22,17,.08) 100%)}
- .hero-copy{padding:9vw 7vw}
- .hero h1{font-size:clamp(44px,12vw,66px)}
- .intro h2,.menu-head h2{line-height:1.08}
- .dish{gap:12px}
- .dish h3{font-size:21px}
- .reserve{padding:52px 7vw}
- .reserve:after{right:-210px}
-}
-@media(max-width:360px){.logo{font-size:19px}.demo-menu-toggle{font-size:10px}}
