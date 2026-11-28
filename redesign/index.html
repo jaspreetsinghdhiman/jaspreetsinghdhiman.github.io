@@ -114,9 +114,12 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgroun
 .more-link:hover .arrow{transform:translateX(4px)}
 
 /* SKILLS */
-.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-left:1px solid var(--border)}
-.skill-item{border-bottom:1px solid var(--border);border-right:1px solid var(--border);padding:30px 22px;font-size:16px;font-weight:600;transition:color .2s ease}
-.skill-item:hover{color:var(--accent)}
+.skills-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.skill-item{min-height:142px;padding:22px 22px 20px;border:1px solid var(--border);background:var(--card);display:flex;flex-direction:column;justify-content:space-between;font-size:17px;font-weight:700;letter-spacing:-.02em;transition:transform .3s ease,border-color .3s ease,background .3s ease}
+.skill-item::before{content:attr(data-index);font-size:11px;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.skill-item:hover{transform:translateY(-4px);border-color:var(--accent);background:color-mix(in srgb,var(--card) 92%,var(--accent))}
+.skills-note{margin-top:20px;color:var(--soft);font-size:13px;max-width:540px}
+
 
 /* WHAT I DO */
 .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:48px 56px}
@@ -134,12 +137,26 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgroun
 .process-step p{font-size:14px;color:var(--soft);max-width:240px}
 
 /* CONTACT */
-.contact{text-align:center}
-.contact .section-head{max-width:640px;margin:0 auto 40px}
-.contact .section-head p{margin:0 auto;max-width:460px}
-.contact-actions{display:flex;flex-direction:column;align-items:center;gap:28px}
-.contact-email{font-size:16px;font-weight:600;border-bottom:1px solid var(--border);padding-bottom:4px;transition:color .2s ease,border-color .2s ease}
+.contact .section-head{max-width:660px;margin-bottom:48px}
+.contact-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
+.contact-aside{padding:30px;border:1px solid var(--border);background:var(--card)}
+.contact-aside-kicker{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.contact-aside h3{font-size:23px;line-height:1.3;letter-spacing:-.03em;margin-bottom:14px}
+.contact-aside p{font-size:14px;color:var(--soft);margin-bottom:26px}
+.contact-email{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;border-bottom:1px solid var(--border);padding-bottom:5px;overflow-wrap:anywhere;transition:color .2s ease,border-color .2s ease}
 .contact-email:hover{color:var(--accent);border-color:var(--accent)}
+.contact-form{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.form-field{display:flex;flex-direction:column;gap:8px}
+.form-field.full{grid-column:1/-1}
+.form-field label{font-size:12px;font-weight:700;letter-spacing:.04em}
+.form-field input,.form-field textarea{width:100%;font:inherit;font-size:14px;color:var(--text);background:var(--card);border:1px solid var(--border);border-radius:0;padding:15px 16px;outline:none;transition:border-color .2s ease,box-shadow .2s ease}
+.form-field input{height:52px}
+.form-field textarea{min-height:148px;resize:vertical}
+.form-field input:focus,.form-field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(163,173,131,.14)}
+.form-field input::placeholder,.form-field textarea::placeholder{color:var(--soft);opacity:.8}
+.contact-submit{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;width:100%;padding:18px 22px}
+.contact-form-note{grid-column:1/-1;color:var(--soft);font-size:12px;margin-top:-8px}
+
 
 /* FOOTER */
 footer{background:#20231F;color:#F7F7F2;padding:76px 0 28px;margin-top:20px}
@@ -187,9 +204,23 @@ footer .logo-text span{color:#AEB4A3}
   .footer-bottom{flex-direction:column}
   .mobile-nav{display:block;position:fixed;top:calc(env(safe-area-inset-top,0px) + 76px);left:0;right:0;bottom:0;background:var(--bg);z-index:45;transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;overflow-y:auto}
   .mobile-nav.open{opacity:1;transform:none;pointer-events:auto}
-  .mobile-nav ul{padding:36px 22px;display:flex;flex-direction:column;gap:4px}
-  .mobile-nav a{display:block;padding:16px 0;font-size:20px;font-weight:600;border-bottom:1px solid var(--border)}
-  .mobile-nav .btn{margin-top:20px}
+  .mobile-nav ul{padding:34px 22px 18px;display:flex;flex-direction:column;gap:0}
+  .mobile-nav li a{display:flex;align-items:center;justify-content:space-between;padding:16px 0;font-size:20px;font-weight:600;letter-spacing:-.02em;border-bottom:1px solid var(--border);transition:color .2s ease,padding .2s ease}
+  .mobile-nav li a::after{content:"↗";font-size:15px;color:var(--accent);opacity:0;transform:translate(-5px,5px);transition:opacity .2s ease,transform .2s ease}
+  .mobile-nav li a:hover{color:var(--accent);padding-left:5px}
+  .mobile-nav li a:hover::after{opacity:1;transform:none}
+  .mobile-nav .container{padding:8px 22px 40px}
+  .mobile-nav .btn{display:flex;width:100%;min-height:62px;align-items:center;justify-content:space-between;margin:0;padding:17px 20px;font-size:15px}
+  .contact-layout{grid-template-columns:1fr;gap:28px}
+  .contact-aside{padding:24px}
+  .contact-form{gap:16px}
+  .skill-item{min-height:118px;padding:18px 16px;font-size:15px}
+}
+@media(max-width:420px){
+  .contact-form{grid-template-columns:1fr}
+  .form-field.full,.contact-submit,.contact-form-note{grid-column:1}
+  .skills-grid{gap:10px}
+  .skill-item{min-height:108px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
 </style>
@@ -303,9 +334,10 @@ footer .logo-text span{color:#AEB4A3}
         <h2>Tools I work with.</h2>
       </div>
       <div class="skills-grid reveal">
-        <div class="skill-item">HTML</div><div class="skill-item">CSS</div><div class="skill-item">JavaScript</div><div class="skill-item">React</div>
-        <div class="skill-item">WordPress</div><div class="skill-item">Elementor</div><div class="skill-item">Figma</div><div class="skill-item">Adobe Photoshop</div>
+        <div class="skill-item" data-index="01">HTML</div><div class="skill-item" data-index="02">CSS</div><div class="skill-item" data-index="03">JavaScript</div><div class="skill-item" data-index="04">React</div>
+        <div class="skill-item" data-index="05">WordPress</div><div class="skill-item" data-index="06">Elementor</div><div class="skill-item" data-index="07">Figma</div><div class="skill-item" data-index="08">Adobe Photoshop</div>
       </div>
+      <p class="skills-note reveal">A practical toolkit for building responsive interfaces, websites and polished digital experiences.</p>
     </div>
   </section>
 
@@ -344,11 +376,31 @@ footer .logo-text span{color:#AEB4A3}
       <div class="section-head reveal">
         <span class="eyebrow">LET'S CONNECT</span>
         <h2>Have a project in mind?</h2>
-        <p>I'm always interested in discussing meaningful projects, creative ideas and new opportunities. Let's connect and create something valuable.</p>
+        <p>Tell me a little about what you're working on. I'll get back to you as soon as I can.</p>
       </div>
-      <div class="contact-actions reveal">
-        <a href="mailto:jassp708737@gmail.com" class="btn btn-dark">Get In Touch <span class="arrow">→</span></a>
-        <a href="mailto:jassp708737@gmail.com" class="contact-email">jassp708737@gmail.com</a>
+      <div class="contact-layout">
+        <aside class="contact-aside reveal">
+          <p class="contact-aside-kicker">Start a conversation</p>
+          <h3>Good work starts with a good conversation.</h3>
+          <p>Whether you have a website idea, need frontend support or simply want to connect, feel free to send a message.</p>
+          <a href="mailto:jassp708737@gmail.com" class="contact-email">jassp708737@gmail.com <span>↗</span></a>
+        </aside>
+        <form class="contact-form reveal" id="contactForm">
+          <div class="form-field">
+            <label for="contactName">Your name</label>
+            <input id="contactName" name="name" type="text" placeholder="Enter your name" autocomplete="name" required>
+          </div>
+          <div class="form-field">
+            <label for="contactEmail">Email address</label>
+            <input id="contactEmail" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+          </div>
+          <div class="form-field full">
+            <label for="contactMessage">Tell me about your project</label>
+            <textarea id="contactMessage" name="message" placeholder="A few details about your idea, goals or timeline..." required></textarea>
+          </div>
+          <button class="btn btn-dark contact-submit" type="submit">Send Message <span class="arrow">↗</span></button>
+          <p class="contact-form-note">This opens your email app with the message ready to send.</p>
+        </form>
       </div>
     </div>
   </section>
@@ -387,8 +439,15 @@ footer .logo-text span{color:#AEB4A3}
 
 <script>
 const burger=document.getElementById('burger'),mnav=document.getElementById('mobileNav');
-burger.addEventListener('click',()=>{burger.classList.toggle('active');mnav.classList.toggle('open');});
-mnav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{burger.classList.remove('active');mnav.classList.remove('open');}));
+burger.addEventListener('click',()=>{const isOpen=burger.classList.toggle('active');mnav.classList.toggle('open',isOpen);burger.setAttribute('aria-label',isOpen?'Close menu':'Open menu');document.body.style.overflow=isOpen?'hidden':'';});
+mnav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{burger.classList.remove('active');mnav.classList.remove('open');burger.setAttribute('aria-label','Open menu');document.body.style.overflow='';}));
+document.getElementById('contactForm').addEventListener('submit',event=>{
+  event.preventDefault();
+  const data=new FormData(event.currentTarget);
+  const subject=encodeURIComponent('Portfolio enquiry from '+data.get('name'));
+  const body=encodeURIComponent('Name: '+data.get('name')+'\nEmail: '+data.get('email')+'\n\nProject details:\n'+data.get('message'));
+  window.location.href='mailto:jassp708737@gmail.com?subject='+subject+'&body='+body;
+});
 const sections=document.querySelectorAll('section');
 const navA=document.querySelectorAll('.nav-links a');
 const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target);}}),{threshold:.15});
