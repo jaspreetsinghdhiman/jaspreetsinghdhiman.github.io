@@ -54,3 +54,30 @@ function sendDemoEnquiry(event,project){
 }
 </script>
 </body></html>
+/* ===== SAFFRON TABLE — HOSPITALITY POLISH ===== */
+.hero{position:relative;isolation:isolate;border-radius:2px;overflow:hidden;background-position:center 54%}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,22,17,.72),rgba(18,22,17,.12) 80%);pointer-events:none}
+.hero-copy{position:relative;z-index:1}
+.intro{max-width:900px}
+.dish{transition:padding .25s ease,border-color .25s ease}
+.dish:hover{padding-left:10px;border-color:var(--rust)}
+.dish h3{letter-spacing:-.015em}
+.reserve{position:relative;overflow:hidden}
+.reserve:after{content:"";position:absolute;right:-100px;top:-120px;width:320px;height:320px;border:1px solid rgba(229,185,158,.22);border-radius:50%;box-shadow:0 0 0 35px rgba(229,185,158,.04),0 0 0 70px rgba(229,185,158,.03);pointer-events:none}
+.form{position:relative;z-index:1}
+@media(max-width:760px){
+ .nav{gap:9px}
+ .logo{font-size:22px;white-space:nowrap}
+ .book:not(.hero .book){display:none}
+ .demo-menu-toggle{padding:9px 10px;white-space:nowrap}
+ .hero{min-height:530px;background-position:58% center}
+ .hero:before{background:linear-gradient(0deg,rgba(18,22,17,.8),rgba(18,22,17,.08) 100%)}
+ .hero-copy{padding:9vw 7vw}
+ .hero h1{font-size:clamp(44px,12vw,66px)}
+ .intro h2,.menu-head h2{line-height:1.08}
+ .dish{gap:12px}
+ .dish h3{font-size:21px}
+ .reserve{padding:52px 7vw}
+ .reserve:after{right:-210px}
+}
+@media(max-width:360px){.logo{font-size:19px}.demo-menu-toggle{font-size:10px}}
