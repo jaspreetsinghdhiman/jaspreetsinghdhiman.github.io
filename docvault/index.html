@@ -66,7 +66,7 @@ async function enter(){const p=$('#passphrase').value;if(p.length<8){$('#lockErr
 const raw=localStorage.getItem('docvault-meta');let meta=raw?JSON.parse(raw):null;
 if(!meta){const name=$('#accountName').value.trim(),email=$('#accountEmail').value.trim(),confirm=$('#confirmPassword').value;
 if(name.length<2){$('#lockError').textContent='Please enter your name.';return}
-if(!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)){$('#lockError').textContent='Please enter a valid email address.';return}
+if(!/^[^\s@]+@[^\s@]+\\.[^\s@]+$/.test(email)){$('#lockError').textContent='Please enter a valid email address.';return}
 if(p!==confirm){$('#lockError').textContent='Passwords do not match.';return}}
 try{await openDB();if(!meta){const salt=crypto.getRandomValues(new Uint8Array(16));key=await derive(p,salt);const check=await encryptBytes(enc.encode('docvault-ok'));meta={salt:b64(salt),check,email:$('#accountEmail').value.trim().toLowerCase(),name:$('#accountName').value.trim(),created:new Date().toISOString(),accountType:'local'};localStorage.setItem('docvault-meta',JSON.stringify(meta));}
 else{if(meta.email&&$('#accountEmail').value.trim().toLowerCase()!==meta.email.toLowerCase())throw Error('Wrong account');key=await derive(p,un64(meta.salt));const check=dec.decode(await decryptBytes(meta.check));if(check!=='docvault-ok')throw Error('Wrong passphrase')}
