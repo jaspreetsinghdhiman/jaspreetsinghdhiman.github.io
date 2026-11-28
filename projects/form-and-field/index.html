@@ -54,3 +54,31 @@ function sendDemoEnquiry(event,project){
 }
 </script>
 </body></html>
+/* ===== FORM & FIELD — STUDIO GALLERY POLISH ===== */
+.hero-img{position:relative;overflow:hidden;background-position:center}
+.hero-img:after{content:"";position:absolute;inset:0;border:1px solid rgba(37,39,32,.08);pointer-events:none}
+.project .frame{background:var(--sand)}
+.project img{will-change:transform}
+.project-meta{align-items:flex-start;border-bottom:1px solid rgba(37,39,32,.12)}
+.project-meta h3{letter-spacing:-.02em}
+.project-meta>span{width:34px;height:34px;border:1px solid var(--olive);border-radius:50%;display:grid;place-items:center;transition:background .25s,color .25s,transform .25s}
+.project:hover .project-meta>span{background:var(--olive);color:white;transform:rotate(45deg)}
+.step{transition:padding .25s ease,border-color .25s ease}
+.step:hover{padding-left:8px;border-color:#c0c6a8}
+@media(max-width:760px){
+ .nav{gap:9px}
+ .logo{font-size:19px;white-space:nowrap}
+ .contact{display:none}
+ .demo-menu-toggle{padding:9px 10px;white-space:nowrap}
+ .hero{padding:42px 6vw 48px}
+ .hero h1{font-size:clamp(43px,11.5vw,64px)}
+ .hero-img{height:clamp(280px,84vw,360px);background-position:center 45%}
+ .intro{padding:48px 7vw}
+ .intro h2,.section h2,.approach h2,.form-section h2{font-size:clamp(32px,8vw,42px);line-height:1.1}
+ .project img{height:auto;aspect-ratio:1.18;object-fit:cover}
+ .projects{gap:24px}
+ .project-meta{padding:13px 0}
+ .approach{padding:52px 7vw}
+ .form-section{padding:52px 7vw}
+}
+@media(max-width:360px){.logo{font-size:17px}.demo-menu-toggle{font-size:10px}}
