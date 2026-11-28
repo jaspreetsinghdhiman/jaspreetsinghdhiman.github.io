@@ -587,6 +587,15 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
 .motion-fallback .hero .hero-meta{animation:heroFallbackFade .7s .4s cubic-bezier(.22,1,.36,1) both}
 .motion-fallback #pre{display:flex;transition:transform .8s cubic-bezier(.77,0,.18,1)}.motion-fallback #pre.is-complete{transform:translateY(-100%)}
 @media(prefers-reduced-motion:reduce){.motion-fallback .hero h1,.motion-fallback .hero .fade,.motion-fallback .hero .hero-meta{animation:none!important;opacity:1;transform:none}}
+
+/* PWA install action */
+.pwa-install-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:38px;padding:0 15px;border:1px solid var(--acc);border-radius:999px;background:var(--acc);color:var(--on);font:600 11px "DM Sans",sans-serif;letter-spacing:.02em;cursor:pointer;white-space:nowrap;transition:transform .3s var(--ease),background .3s,color .3s}
+.pwa-install-btn:hover{transform:translateY(-2px);background:var(--acc2);border-color:var(--acc2)}
+.pwa-install-btn[hidden]{display:none!important}
+.pwa-install-toast{position:fixed;left:50%;bottom:24px;z-index:400;max-width:min(92vw,440px);padding:15px 18px;border:1px solid var(--line);border-radius:16px;background:var(--card);color:var(--fg);box-shadow:0 14px 45px rgba(0,0,0,.28);font:500 13px/1.55 "DM Sans",sans-serif;transform:translate(-50%,18px);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+.pwa-install-toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){.pwa-install-btn{min-height:34px;padding:0 11px;font-size:10px}}
+@media(max-width:560px){nav{padding-inline:4vw}.nav-links{gap:9px}.pwa-install-btn{padding:0 9px;min-height:32px;font-size:9px}.pwa-install-btn>span:first-child{display:none}#th{width:31px;height:31px}}
 </style>
 <!-- Deployment security headers are configured separately in vercel.json. -->
 <meta content="Jaspreet Singh Dhiman" name="author"/><meta content="index,follow,max-image-preview:large" name="robots"/><meta content="website" property="og:type"/><meta content="Jaspreet Singh Dhiman" property="og:site_name"/><meta content="Jaspreet Singh Dhiman | Frontend Developer in India" property="og:title"/><meta content="https://jaspreetsinghdhiman.github.io/jaspreet.webp" property="og:image"/><meta content="Portrait of Jaspreet Singh Dhiman, Frontend Developer" property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="Jaspreet Singh Dhiman | Frontend Developer in India" name="twitter:title"/><meta content="Jaspreet Singh Dhiman is a frontend developer based in Punjab, India, building responsive websites and interactive user interfaces with JavaScript, React, HTML, CSS and WordPress. Explore selected projects, skills and experience." name="twitter:description"/><meta content="https://jaspreetsinghdhiman.github.io/jaspreet.webp" name="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://jaspreetsinghdhiman.github.io/#person", "name": "Jaspreet Singh Dhiman", "alternateName": "Jaspreet Singh", "jobTitle": "Frontend Developer", "address": {"@type": "PostalAddress", "addressRegion": "Punjab", "addressCountry": "IN"}, "sameAs": ["https://github.com/jaspreetsinghdhiman", "https://www.linkedin.com/in/jaspreet-singh-49abb8314", "https://www.instagram.com/jaspreet.dhiman__"], "url": "https://jaspreetsinghdhiman.github.io/", "email": "mailto:jassp708737@gmail.com", "image": "https://jaspreetsinghdhiman.github.io/jaspreet.jpg", "knowsAbout": ["HTML5", "CSS3", "JavaScript", "React", "WordPress", "Figma", "Adobe Photoshop", "Responsive Web Design", "Frontend Development"]}, {"@type": "WebSite", "@id": "https://jaspreetsinghdhiman.github.io/#website", "url": "https://jaspreetsinghdhiman.github.io/", "name": "Jaspreet Singh Dhiman | Frontend Developer", "publisher": {"@id": "https://jaspreetsinghdhiman.github.io/#person"}}, {"@type": "WebPage", "url": "https://jaspreetsinghdhiman.github.io/", "name": "Jaspreet Singh Dhiman | Frontend Developer in India", "description": "Jaspreet Singh Dhiman is a frontend developer based in Punjab, India, building responsive websites and interactive user interfaces with JavaScript, React, HTML, CSS and WordPress. Explore selected projects, skills and experience.", "isPartOf": {"@id": "https://jaspreetsinghdhiman.github.io/#website"}, "about": {"@id": "https://jaspreetsinghdhiman.github.io/#person"}}]}</script><!-- Google Search Console: paste your verification tag here, e.g. <meta name="google-site-verification" content="YOUR_CODE"/> -->
@@ -603,9 +612,10 @@ html{overflow-x:clip}body{overflow-x:clip}:focus-visible{outline:2px solid var(-
 <a class="d nav-logo" href="#top">JS.</a>
 <div class="nav-links">
 <a href="work.html">Work</a><a href="about.html">About</a><a href="experience.html">Experience</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a>
-<button aria-expanded="false" aria-label="Open menu" class="menu-toggle" id="menuBtn">☰</button><button aria-label="Toggle theme" id="th">◐</button>
+<button class="pwa-install-btn" id="pwaInstallBtn" type="button"><span aria-hidden="true">↓</span> <span>Install App</span></button><button aria-expanded="false" aria-label="Open menu" class="menu-toggle" id="menuBtn">☰</button><button aria-label="Toggle theme" id="th">◐</button>
 </div>
 </nav>
+<div class="pwa-install-toast" id="pwaInstallToast" role="status" aria-live="polite"></div>
 <div aria-hidden="true" class="mobile-menu" id="mobileMenu">
 <a href="work.html">Work <span class="s">/01</span></a>
 <a href="about.html">About <span class="s">/02</span></a>
@@ -1161,6 +1171,47 @@ addEventListener("load",()=>setTimeout(()=>ScrollTrigger.refresh(),150));
 })();
 </script>
 <script defer="True" src="quality-fixes.js"></script>
+<!-- PWA install button: native prompt where supported, clear manual steps elsewhere. -->
+<script>
+(function(){
+ const btn=document.getElementById('pwaInstallBtn');
+ const toast=document.getElementById('pwaInstallToast');
+ if(!btn||!toast)return;
+ let installPrompt=null,toastTimer;
+ const isInstalled=()=>window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
+ const showMessage=message=>{
+   toast.textContent=message;
+   toast.classList.add('show');
+   clearTimeout(toastTimer);
+   toastTimer=setTimeout(()=>toast.classList.remove('show'),6500);
+ };
+ if(isInstalled()){btn.hidden=true;return;}
+ window.addEventListener('beforeinstallprompt',event=>{
+   event.preventDefault();
+   installPrompt=event;
+   btn.hidden=false;
+ });
+ btn.addEventListener('click',async()=>{
+   if(isInstalled()){btn.hidden=true;return;}
+   if(installPrompt){
+     installPrompt.prompt();
+     const choice=await installPrompt.userChoice;
+     if(choice&&choice.outcome==='accepted')showMessage('Jaspreet Singh Portfolio is being installed.');
+     installPrompt=null;
+     return;
+   }
+   const ios=/iphone|ipad|ipod/i.test(navigator.userAgent);
+   showMessage(ios
+     ? 'To install: tap Share in Safari, then choose “Add to Home Screen”.'
+     : 'To install: open your browser menu (⋮) and choose “Install app” or “Add to Home screen”.');
+ });
+ window.addEventListener('appinstalled',()=>{
+   btn.hidden=true;
+   showMessage('Portfolio app installed successfully.');
+   installPrompt=null;
+ });
+})();
+</script>
 <!-- Register the portfolio PWA service worker (GitHub Pages root scope). -->
 <script>
 if ('serviceWorker' in navigator) {
