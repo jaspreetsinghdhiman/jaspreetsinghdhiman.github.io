@@ -34,7 +34,7 @@ const homes=[['Courtyard House','Amritsar','House',145,'₹1.45 Cr','photo-16005
  const menu=document.getElementById('demoMobileMenu');
  if(toggle&&menu){
   const close=()=>{menu.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.querySelector('span').textContent='＋';};
-  toggle.addEventListener('click',()=>{const open=!menu.classList.contains('open');menu.classList.toggle('open',open);toggle.setAttribute('aria-expanded',String(open));toggle.querySelector('span').textContent=open?'×':'＋';});
+  toggle.addEventListener('click',()=>{const open=!menu.classList.contains('open');if(open)menu.style.top=toggle.closest('nav').getBoundingClientRect().bottom+'px';menu.classList.toggle('open',open);toggle.setAttribute('aria-expanded',String(open));toggle.querySelector('span').textContent=open?'×':'＋';});
   menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
   document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
   document.addEventListener('click',e=>{if(!menu.contains(e.target)&&!toggle.contains(e.target))close();});
