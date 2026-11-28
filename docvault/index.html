@@ -62,16 +62,33 @@ $('#passphrase').placeholder=meta?'Enter your password':'At least 8 characters';
 $('#unlockLabel').textContent=meta?'Login':'Create account';
 if(meta&&meta.email){$('#accountEmail').value=meta.email;$('#accountEmail').readOnly=true;}
 }
-async function enter(){const p=$('#passphrase').value;if(p.length<8){$('#lockError').textContent='Password must contain at least 8 characters.';return}
-const raw=localStorage.getItem('docvault-meta');let meta=raw?JSON.parse(raw):null;
-if(!meta){const name=$('#accountName').value.trim(),email=$('#accountEmail').value.trim(),confirm=$('#confirmPassword').value;
-if(name.length<2){$('#lockError').textContent='Please enter your name.';return}
-if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){$('#lockError').textContent='Please enter a valid email address.';return}
-if(p!==confirm){$('#lockError').textContent='Passwords do not match.';return}}
-try{await openDB();if(!meta){const salt=crypto.getRandomValues(new Uint8Array(16));key=await derive(p,salt);const check=await encryptBytes(enc.encode('docvault-ok'));meta={salt:b64(salt),check,email:$('#accountEmail').value.trim().toLowerCase(),name:$('#accountName').value.trim(),created:new Date().toISOString(),accountType:'local'};localStorage.setItem('docvault-meta',JSON.stringify(meta));}
-else{if(meta.email&&$('#accountEmail').value.trim().toLowerCase()!==meta.email.toLowerCase())throw Error('Wrong account');key=await derive(p,un64(meta.salt));const check=dec.decode(await decryptBytes(meta.check));if(check!=='docvault-ok')throw Error('Wrong passphrase')}
-items=await all();$('#lockscreen').classList.add('hidden');$('#app').classList.remove('hidden');$('#nav').classList.remove('hidden');render()}
-catch(e){key=null;const msg=(e&&e.message)||'';$('#lockError').textContent=(msg==='Wrong passphrase'||msg==='Wrong account'||e?.name==='OperationError')?'Password is incorrect for this existing vault. Enter the original password; it cannot be bypassed without losing access to encrypted files.':e?.name==='SecurityError'?'Browser storage is blocked. Open the HTTPS link directly in Chrome, not inside another app.':e?.name==='QuotaExceededError'?'Browser storage is full. Free some device space and try again.':'Could not unlock the existing vault ('+(e?.name||'browser error')+'). Use the original vault password, and do not clear site data.'}}
+async function enter(){try{
+const p=$('#passphrase').value;
+if(!window.isSecureContext||!crypto?.subtle||!window.indexedDB)throw new Error('secure');
+let raw=localStorage.getItem('docvault-meta'),meta=raw?JSON.parse(raw):null;
+if(p.length<8)throw new Error('Password must contain at least 8 characters.');
+if(!meta){
+const name=$('#accountName').value.trim(),email=$('#accountEmail').value.trim(),confirm=$('#confirmPassword').value;
+if(name.length<2)throw new Error('Please enter your name (at least 2 characters).');
+if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))throw new Error('Please enter a valid email address.');
+if(p!==confirm)throw new Error('Passwords do not match.');
+await openDB();
+const salt=crypto.getRandomValues(new Uint8Array(16));
+key=await derive(p,salt);
+const check=await encryptBytes(enc.encode('docvault-ok'));
+meta={salt:b64(salt),check,email:email.toLowerCase(),name,created:new Date().toISOString(),accountType:'local'};
+localStorage.setItem('docvault-meta',JSON.stringify(meta));
+}else{
+if(meta.deviceMode)throw new Error('This browser already has a direct-open vault. Reload DocVault to continue.');
+await openDB();
+if(meta.email&&$('#accountEmail').value.trim().toLowerCase()!==meta.email.toLowerCase())throw new Error('Wrong account');
+key=await derive(p,un64(meta.salt));
+const check=dec.decode(await decryptBytes(meta.check));
+if(check!=='docvault-ok')throw new Error('Wrong passphrase');
+}
+items=await all();
+$('#lockscreen').classList.add('hidden');$('#app').classList.remove('hidden');$('#nav').classList.remove('hidden');render();
+}catch(e){key=null;const msg=e?.message||'';$('#lockError').textContent=msg==='secure'?'This browser does not support secure encryption. Open the HTTPS link in an updated Chrome browser.':msg==='Wrong passphrase'||msg==='Wrong account'||e?.name==='OperationError'?'Incorrect password or email for this existing vault. Use the original password; encrypted files are not erased.':msg||'Account could not be created. Check browser storage permission and try again ('+(e?.name||'error')+').';}}
 
 async function openDirectly(){try{if(!window.isSecureContext||!window.crypto||!crypto.subtle||!window.indexedDB)throw Error('secure');await openDB();let raw=localStorage.getItem('docvault-meta'),meta=raw?JSON.parse(raw):null;if(meta&&meta.deviceMode){let secret=localStorage.getItem('docvault-device-key');if(!secret)throw Error('missing-key');key=await crypto.subtle.importKey('raw',un64(secret),{name:'AES-GCM'},false,['encrypt','decrypt']);const check=dec.decode(await decryptBytes(meta.check));if(check!=='docvault-ok')throw Error('key-check');}else if(meta){const saved=await all();if(saved.length){setAccountMode();return;}localStorage.removeItem('docvault-meta');meta=null;}if(!meta){let secret=localStorage.getItem('docvault-device-key');if(!secret){secret=b64(crypto.getRandomValues(new Uint8Array(32)));localStorage.setItem('docvault-device-key',secret);}key=await crypto.subtle.importKey('raw',un64(secret),{name:'AES-GCM'},false,['encrypt','decrypt']);const check=await encryptBytes(enc.encode('docvault-ok'));localStorage.setItem('docvault-meta',JSON.stringify({deviceMode:true,check,created:new Date().toISOString()}));}items=await all();$('#lockscreen').classList.add('hidden');$('#app').classList.remove('hidden');$('#nav').classList.remove('hidden');render();}catch(e){key=null;$('#lockError').textContent=e.message==='missing-key'?'This browser no longer has the vault key. Do not clear site data or reinstall; existing encrypted documents may not be recoverable.':e.message==='key-check'?'The saved vault key could not unlock this vault. Your stored documents have not been deleted.':'Could not open vault in this browser. Open the HTTPS DocVault link in the latest Chrome and allow site storage.';}}\n$('#unlockBtn').onclick=enter;$('#passphrase').addEventListener('keydown',e=>{if(e.key==='Enter')enter()});openDirectly();
 function fmt(n){return n<1024?n+' B':(n/1024).toFixed(0)+' KB'}
