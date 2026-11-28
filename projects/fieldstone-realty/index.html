@@ -43,8 +43,12 @@ const homes=[['Courtyard House','Amritsar','House',145,'₹1.45 Cr','photo-16005
 function sendDemoEnquiry(event,project){
  event.preventDefault();
  const form=event.currentTarget;
- const values=[...new FormData(form).entries()].map(([key,value])=>key+': '+value).join('\n');
- const body='Hello Jaspreet,\n\nI viewed your '+project+' portfolio demo and would like to discuss a similar website.\n\n'+values+'\n\nSent from the portfolio demo website.';
+ const values=[...form.querySelectorAll('input,select,textarea')].map(field=>{
+  const label=field.getAttribute('aria-label')||field.placeholder||field.name||field.type||'Detail';
+  const value=field.value;
+  return value && !/^project type$/i.test(value) ? label+': '+value : '';
+ }).filter(Boolean).join('\\n');
+ const body='Hello Jaspreet,\\n\\nI viewed your '+project+' portfolio demo and would like to discuss a similar website.\\n\\n'+values+'\\n\\nSent from the portfolio demo website.';
  const subject='Website enquiry — '+project;
  window.location.href='mailto:jassp708737@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
 }
