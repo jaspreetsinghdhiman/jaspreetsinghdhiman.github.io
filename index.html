@@ -1160,5 +1160,16 @@ addEventListener("load",()=>setTimeout(()=>ScrollTrigger.refresh(),150));
  document.addEventListener('keydown',e=>{if(e.key==='Escape')setOpen(false);});
 })();
 </script>
-<script defer="True" src="quality-fixes.js"></script></body>
+<script defer="True" src="quality-fixes.js"></script>
+<!-- Register the portfolio PWA service worker (GitHub Pages root scope). -->
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch((error) => {
+      console.warn('Portfolio offline support could not be registered:', error);
+    });
+  }, { once: true });
+}
+</script>
+</body>
 </html>
