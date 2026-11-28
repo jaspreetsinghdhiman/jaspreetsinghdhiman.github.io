@@ -47,4 +47,4 @@ docvault/
 5. Security review, accessibility, testing, and Android packaging.
 
 ## Status
-Workspace created. Application implementation has not started yet.
+Initial browser-based PWA prototype is implemented in `index.html`. Current features: local encrypted PDF/image storage, passphrase unlock, category filters, search, expiry-date tracking, encrypted JSON backup export/import for the same vault, document open/delete controls, and offline service-worker caching.\n\n**Prototype limitations:** data stays in the current browser profile; clearing site data can erase documents. Backup import currently requires the same vault metadata, so cross-device migration is not yet supported. The passphrase cannot be recovered. This is not an official document wallet and should be security-reviewed before storing highly sensitive records.
