@@ -55,3 +55,30 @@ function sendDemoEnquiry(event,project){
 }
 </script>
 </body></html>
+/* ===== MAISON THREAD — EDITORIAL POLISH ===== */
+.hero{overflow:hidden;border-radius:2px}
+.hero-img{position:relative;background-position:center 35%}
+.hero-img:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(32,34,31,.05),transparent 45%)}
+.section{scroll-margin-top:90px}
+.product-image{position:relative}
+.product-image:after{content:"";position:absolute;inset:0;border:1px solid rgba(32,34,31,.04);pointer-events:none}
+.product-info{align-items:flex-start}
+.product-info>div{font-weight:600;letter-spacing:-.02em}
+.product-info small{font-weight:400;letter-spacing:0}
+.story{position:relative}
+.story:before{content:"“";display:block;font:90px/.6 'Playfair Display';color:var(--accent);opacity:.65}
+@media(max-width:760px){
+ .nav{gap:10px}
+ .logo{font-size:clamp(17px,5vw,22px);letter-spacing:.08em}
+ .cart{padding:9px 10px;font-size:10px;white-space:nowrap}
+ .demo-menu-toggle{padding:9px 10px;white-space:nowrap}
+ .hero{min-height:0;grid-template-columns:1fr}
+ .hero-img{min-height:clamp(290px,82vw,390px);grid-row:1}
+ .hero-copy{padding:42px 7vw 48px}
+ .hero h1{font-size:clamp(44px,12vw,62px);line-height:.98}
+ .products{gap:22px 12px}
+ .product-info{font-size:12px}
+ .product-info .add{padding:4px 0}
+ .story h2{line-height:1.08}
+}
+@media(max-width:360px){.cart{font-size:9px;padding:8px}.logo{font-size:16px}}
