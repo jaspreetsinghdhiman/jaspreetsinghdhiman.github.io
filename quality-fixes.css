@@ -636,3 +636,87 @@ picture{display:block;max-width:100%}
 /* Reuse the existing About portrait as the GitHub profile section image */
 .github-profile-photo{display:block;width:clamp(88px,10vw,132px);height:clamp(88px,10vw,132px);margin:0 0 24px;border-radius:50%;object-fit:cover;object-position:50% 18%;border:2px solid var(--acc);box-shadow:0 12px 36px rgba(0,0,0,.22)}
 @media(max-width:760px){.github-profile-photo{width:104px;height:104px;margin-bottom:20px}}
+
+
+/* ===== WORK PAGE: MOBILE HEADER + PROJECT TITLE FIX ===== */
+@media (max-width: 700px) {
+  body:has(#projGrid) nav {
+    height: calc(64px + env(safe-area-inset-top));
+    min-height: calc(64px + env(safe-area-inset-top));
+    padding-top: env(safe-area-inset-top);
+    padding-left: max(20px, 5.5vw);
+    padding-right: max(20px, 5.5vw);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    mix-blend-mode: normal;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+  }
+  body:has(#projGrid) nav .nav-logo {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  body:has(#projGrid) nav .nav-links {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 9px;
+    min-width: 0;
+    margin-left: auto;
+  }
+  body:has(#projGrid) nav .nav-links > a { display: none !important; }
+  body:has(#projGrid) nav .menu-toggle,
+  body:has(#projGrid) nav #th {
+    flex: 0 0 42px;
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    min-height: 42px;
+    margin: 0;
+    padding: 0;
+  }
+  body:has(#projGrid) .page-hero {
+    padding-top: calc(104px + env(safe-area-inset-top));
+  }
+  body:has(#projGrid) .page-hero h1 {
+    max-width: 100%;
+    font-size: clamp(39px, 10.5vw, 58px) !important;
+    line-height: 1;
+    letter-spacing: -.065em;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+  body:has(#projGrid) #projGrid .project-card h2 {
+    max-width: 100%;
+    font-size: clamp(27px, 8vw, 40px);
+    line-height: 1.02;
+    letter-spacing: -.055em;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+  body:has(#projGrid) #projGrid .project-card {
+    min-width: 0;
+  }
+}
+@media (max-width: 360px) {
+  body:has(#projGrid) nav .nav-links { gap: 6px; }
+  body:has(#projGrid) nav .menu-toggle,
+  body:has(#projGrid) nav #th {
+    flex-basis: 40px;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    min-height: 40px;
+  }
+  body:has(#projGrid) .page-hero h1 { font-size: 38px !important; }
+  body:has(#projGrid) #projGrid .project-card h2 { font-size: 27px; }
+}
