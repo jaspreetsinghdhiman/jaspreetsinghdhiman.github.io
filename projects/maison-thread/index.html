@@ -25,6 +25,34 @@ img{display:block;max-width:100%}
  .footer{align-items:flex-start}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
+
+/* ===== MAISON THREAD — EDITORIAL POLISH ===== */
+.hero{overflow:hidden;border-radius:2px}
+.hero-img{position:relative;background-position:center 35%}
+.hero-img:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(32,34,31,.05),transparent 45%)}
+.section{scroll-margin-top:90px}
+.product-image{position:relative}
+.product-image:after{content:"";position:absolute;inset:0;border:1px solid rgba(32,34,31,.04);pointer-events:none}
+.product-info{align-items:flex-start}
+.product-info>div{font-weight:600;letter-spacing:-.02em}
+.product-info small{font-weight:400;letter-spacing:0}
+.story{position:relative}
+.story:before{content:"“";display:block;font:90px/.6 'Playfair Display';color:var(--accent);opacity:.65}
+@media(max-width:760px){
+ .nav{gap:10px}
+ .logo{font-size:clamp(17px,5vw,22px);letter-spacing:.08em}
+ .cart{padding:9px 10px;font-size:10px;white-space:nowrap}
+ .demo-menu-toggle{padding:9px 10px;white-space:nowrap}
+ .hero{min-height:0;grid-template-columns:1fr}
+ .hero-img{min-height:clamp(290px,82vw,390px);grid-row:1}
+ .hero-copy{padding:42px 7vw 48px}
+ .hero h1{font-size:clamp(44px,12vw,62px);line-height:.98}
+ .products{gap:22px 12px}
+ .product-info{font-size:12px}
+ .product-info .add{padding:4px 0}
+ .story h2{line-height:1.08}
+}
+@media(max-width:360px){.cart{font-size:9px;padding:8px}.logo{font-size:16px}}
 </style></head><body><div class="demo-note">Independent portfolio concept · Frontend demo by Jaspreet Singh</div><div class="announcement">Complimentary shipping on orders over ₹4,999</div><nav class="nav"><a class="logo" href="#">MAISON THREAD</a><div class="links"><a href="#new">New arrivals</a><a href="#collection">Collection</a><a href="#story">Our philosophy</a></div><button class="cart" onclick="toast('Your bag has '+bag+' item(s).')">BAG (<span id="count">0</span>)</button><button class="demo-menu-toggle" type="button" aria-expanded="false" aria-controls="demoMobileMenu">Menu <span aria-hidden="true">＋</span></button></nav><div class="demo-mobile-menu" id="demoMobileMenu" aria-label="Project navigation"><a href="#new">New arrivals</a><a href="#collection">Collection</a><a href="#story">Our philosophy</a></div><main><section class="hero"><div class="hero-copy"><span class="eyebrow">The considered wardrobe · 01 / 04</span><h1>Less, but<br>better.</h1><p>Thoughtful silhouettes. Honest materials. Pieces made to become part of your everyday, season after season.</p><a class="cta" href="#new">Discover the collection ↗</a></div><div class="hero-img" role="img" aria-label="Editorial fashion portrait"></div></section><section class="section" id="new"><div class="section-head"><div><span class="eyebrow">A fresh perspective</span><h2>New season, new essentials.</h2></div><div class="filters"><button class="active" data-filter="all">All pieces</button><button data-filter="women">Women</button><button data-filter="men">Men</button><button data-filter="accessories">Accessories</button></div></div><div class="products" id="products"></div></section><section class="story" id="story"><span class="eyebrow">A quieter kind of luxury</span><h2>Buy less. Choose well. Wear it often.</h2><p>We believe great style begins with intention. Our edit focuses on versatile forms, considered details and the pleasure of getting dressed.</p></section></main><footer class="footer"><span>MAISON THREAD — CONSIDERED EVERYDAY</span><span>Independent concept store · Portfolio demonstration</span><a class="demo-credit" href="mailto:jassp708737@gmail.com?subject=Website%20project%20enquiry">Want a website like this? Contact Jaspreet ↗</a></footer><div class="notice" id="notice"></div><script>
 const items=[['The Form Coat','women','₹8,900','photo-1539533018447-63fcce2678e3'],['Everyday Shirt','men','₹3,200','photo-1598033129183-c4f50c736f10'],['Soft Structure','women','₹4,600','photo-1483985988355-763728e1935b'],['Studio Tote','accessories','₹2,400','photo-1544816155-12df9643f363'],['Relaxed Tailoring','men','₹6,800','photo-1515886657613-9f3515b0c78f'],['Weekend Edit','women','₹3,900','photo-1529139574466-a303027c1d8b'],['Leather Belt','accessories','₹1,800','photo-1553062407-98eeb64c6a62'],['The Daily Knit','men','₹4,200','photo-1618354691373-d851c5c3a990']];
 let bag=0,filter='all';const root=document.querySelector('#products');function render(){root.innerHTML=items.filter(x=>filter==='all'||x[1]===filter).map((x,i)=>'<article class="product"><div class="product-image"><img loading="lazy" src="https://images.unsplash.com/'+x[3]+'?auto=format&fit=crop&w=700&q=80" alt="'+x[0]+'"></div><div class="product-info"><div>'+x[0]+'<small>'+x[2]+'</small></div><button class="add" onclick="add()">Add +</button></div></article>').join('')}function add(){bag++;document.querySelector('#count').textContent=bag;toast('Added to your bag.')}function toast(t){let n=document.querySelector('#notice');n.textContent=t;n.classList.add('show');setTimeout(()=>n.classList.remove('show'),2200)}document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-filter]').forEach(x=>x.classList.remove('active'));b.classList.add('active');filter=b.dataset.filter;render()});render();
@@ -55,30 +83,3 @@ function sendDemoEnquiry(event,project){
 }
 </script>
 </body></html>
-/* ===== MAISON THREAD — EDITORIAL POLISH ===== */
-.hero{overflow:hidden;border-radius:2px}
-.hero-img{position:relative;background-position:center 35%}
-.hero-img:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(32,34,31,.05),transparent 45%)}
-.section{scroll-margin-top:90px}
-.product-image{position:relative}
-.product-image:after{content:"";position:absolute;inset:0;border:1px solid rgba(32,34,31,.04);pointer-events:none}
-.product-info{align-items:flex-start}
-.product-info>div{font-weight:600;letter-spacing:-.02em}
-.product-info small{font-weight:400;letter-spacing:0}
-.story{position:relative}
-.story:before{content:"“";display:block;font:90px/.6 'Playfair Display';color:var(--accent);opacity:.65}
-@media(max-width:760px){
- .nav{gap:10px}
- .logo{font-size:clamp(17px,5vw,22px);letter-spacing:.08em}
- .cart{padding:9px 10px;font-size:10px;white-space:nowrap}
- .demo-menu-toggle{padding:9px 10px;white-space:nowrap}
- .hero{min-height:0;grid-template-columns:1fr}
- .hero-img{min-height:clamp(290px,82vw,390px);grid-row:1}
- .hero-copy{padding:42px 7vw 48px}
- .hero h1{font-size:clamp(44px,12vw,62px);line-height:.98}
- .products{gap:22px 12px}
- .product-info{font-size:12px}
- .product-info .add{padding:4px 0}
- .story h2{line-height:1.08}
-}
-@media(max-width:360px){.cart{font-size:9px;padding:8px}.logo{font-size:16px}}
